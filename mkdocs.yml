@@ -57,10 +57,6 @@ theme:
       toggle:
         icon: material/toggle-switch-off
         name: 跟随系统
-
-  font:
-    text: Roboto
-    code: Roboto Mono
   favicon: assets/favicon.png
   icon:
     logo: material/library
