@@ -11,7 +11,7 @@ nav:
 
 # Repository
 repo_name: DopplerXD.github.io
-repo_url: https://github.com/DopplerXD/DopplerXD.github.io.git
+repo_url: https://github.com/DopplerXD/DopplerXD.github.io
 
 #[UI]
 theme:
@@ -113,7 +113,7 @@ extra_css:
   - stylesheets/extra.css
 
 extra:
-  generator: false #删除页脚显示“使用 MkDocs 材料制造”
+  generator: true #删除页脚显示“使用 MkDocs 材料制造”
   # social:
   #  - icon: fontawesome/brands/twitter
   #    link: https://twitter.com/
