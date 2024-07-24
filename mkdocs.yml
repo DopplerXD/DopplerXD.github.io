@@ -21,7 +21,7 @@ theme:
     #- announce.dismiss #呈现可标记为由用户读取的临时公告，可以包含一个用于取消当前公告的按钮
     - navigation.instant #自动隐藏
     - navigation.tracking #地址栏中的 URL 将自动更新为在目录中突出显示的活动锚点
-    - toc.integrate
+    # - toc.integrate
     - toc.follow
     - navigation.path
     - navigation.top # 返回顶部的按钮 在上滑时出现
@@ -159,3 +159,25 @@ plugins:
 # [Navigtion]
 nav:
   - Home: index.md
+  - 题解: Solution/index.md
+  - 代码模板: 
+    - 目录: CodeModel/index.md
+    - 基础/杂项: CodeModel/Basic_and_others.md
+    - 图论: CodeModel/Graph_theory.md
+    - 数据结构: CodeModel/Data_structure.md
+    - 树: CodeModel/Tree.md
+    - 线段树: CodeModel/Segment_tree.md
+    - 字符串: CodeModel/String.md
+    - 动态规划: CodeModel/Dynamic_programming.md
+    - 数论: CodeModel/Number_theory.md
+    - 组合数学: CodeModel/Combinatorics.md
+    - 计算几何: CodeModel/Computational_geometry.md
+    - 高精度: CodeModel/High_precision_calc.md
+    - STL: CodeModel/STL.md
+    - atcoder 封装: CodeModel/AtcoderModel.md
+    - python: CodeModel/python.md
+  - 专题总结: Topic/index.md
+  - 开发总结: Development/index.md
+  - 使用经验: Skill/index.md
+  - 资源平台: Resource/index.md
+  - 杂项: Other/index.md
