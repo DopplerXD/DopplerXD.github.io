@@ -114,13 +114,13 @@ extra:
       link: https://github.com/DopplerXD/
     - icon: fontawesome/brands/bilibili
       link: https://space.bilibili.com/32152704/
-    - icon: fontawesome/solid/paper/plane
+    - icon: material/email
       link: mailto:<1509209607@qq.com> #联系方式
-    - icon: material-gmail
+    - icon: material/gmail
       link: mailto:<doppleryxc@gmail.com> #联系方式
     - icon: fontawesome/brands/zhihu
       link: https://www.zhihu.com/people/DopplerXD/
-    - icon: material-home
+    - icon: material/home
       link: https://www.dopplerxd.site/
       name: DopplerXD's Blog
   #
