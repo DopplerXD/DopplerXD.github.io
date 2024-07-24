@@ -138,5 +138,5 @@ extra:
 
 plugins:
   - search
-  - tags:
-      tags_file: tag.md #标签
+  # - tags:
+  #     tags_file: tag.md #标签
