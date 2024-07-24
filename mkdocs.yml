@@ -5,10 +5,6 @@ site_author: DopplerXD #作者名
 site_url: https://DopplerXD.github.io/ #网站地址
 copyright: Copyright &copy; 2024 DopplerXD # 左下角的版权声明
 
-# [Navigtion]
-nav:
-  - Home: index.md
-
 # Repository
 repo_name: DopplerXD.github.io
 repo_url: https://github.com/DopplerXD/DopplerXD.github.io
@@ -156,3 +152,7 @@ plugins:
   #     tags_file: tag.md #标签
   - git-revision-date-localized:
       enable_creation_date: true
+
+# [Navigtion]
+nav:
+  - Home: index.md
