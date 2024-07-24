@@ -9,6 +9,10 @@ copyright: Copyright &copy; 2024 DopplerXD # 左下角的版权声明
 nav:
   - Home: index.md
 
+# Repository
+repo_name: DopplerXD.github.io
+repo_url: https://github.com/DopplerXD/DopplerXD.github.io.git
+
 #[UI]
 theme:
   name: material
@@ -38,28 +42,37 @@ theme:
     - search.suggest # 搜索输入一些字母时推荐补全整个单词
     - search.highlight # 搜索出的文章关键词加入高亮
   palette:
-    # Palette toggle for light mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/link
+        name: 日间模式
     - media: "(prefers-color-scheme: light)"
-      scheme: default # 日间模式
+      scheme: default
+      primary: indigo
+      accent: indigo
       toggle:
-        icon: material/brightness-7 # 图标
-        name: Switch to dark mode
-      primary: deep ## 上方的, [red, pink, purple, deep, purple, indigo, blue, light blue, cyan, teal, green, light green, lime, yellow, amber, orange, deep orange, brown, grey, blue, grey, black, white]
-      accent: deep # # 链接等可交互元件的高亮色 [red, pink, purple, deep, purple, indigo, blue, light, blue, cyan, teal, green, light, green, lime, yellow, amber, orange, deep orange]
-
-    # Palette toggle for dark mode
+        icon: material/toggle-switch
+        name: 夜间模式
     - media: "(prefers-color-scheme: dark)"
-      scheme: slate # 夜间模式
-      primary: deep #, [red, pink, purple, deep, purple, indigo, blue, light blue, cyan, teal, green, light green, lime, yellow, amber, orange, deep orange, brown, grey, blue, grey, black, white]
-      accent: deep # [red, pink, purple, deep, purple, indigo, blue, light, blue, cyan, teal, green, light, green, lime, yellow, amber, orange, deep orange]
+      scheme: slate
+      primary: black
+      accent: indigo
       toggle:
-        icon: material/brightness-4
-        name: Switch to light mode
+        icon: material/toggle-switch-off
+        name: 跟随系统
 
+  font:
+    text: Roboto
+    code: Roboto Mono
+  favicon: assets/favicon.png
   icon:
-    repo: fontawesome/brands/github #右上角图标
-repo_name: DopplerXD.github.io # 右上角的名
-repo_url: https://github.com/DopplerXD/DopplerXD.github.io.git # 右上角点击跳转的链接
+    logo: logo
+
+#   icon:
+#     repo: fontawesome/brands/github #右上角图标
+#     logo: logo
+# repo_name: DopplerXD.github.io # 右上角的名
+# repo_url: https://github.com/DopplerXD/DopplerXD.github.io.git # 右上角点击跳转的链接
 
 markdown_extensions:
   - admonition
