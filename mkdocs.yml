@@ -66,7 +66,7 @@ theme:
     code: Roboto Mono
   favicon: assets/favicon.png
   icon:
-    logo: logo
+    logo: material/library
 
 #   icon:
 #     repo: fontawesome/brands/github #右上角图标
@@ -153,3 +153,5 @@ plugins:
   - search
   # - tags:
   #     tags_file: tag.md #标签
+  - git-revision-date-localized:
+      enable_creation_date: true
