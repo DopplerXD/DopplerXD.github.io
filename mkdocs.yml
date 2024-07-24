@@ -107,7 +107,7 @@ extra_css:
 
 extra:
   generator: true #删除页脚显示“使用 MkDocs 材料制造”
-  # social:
+  social:
   #  - icon: fontawesome/brands/twitter
   #    link: https://twitter.com/
    - icon: fontawesome/brands/github
