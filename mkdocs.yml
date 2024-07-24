@@ -110,12 +110,19 @@ extra:
   # social:
   #  - icon: fontawesome/brands/twitter
   #    link: https://twitter.com/
-  #  - icon: fontawesome/brands/github
-  #    link: https://github.com/
-  #  - icon: fontawesome/brands/bilibili
-  #    link: https://space.bilibili.com/
-  #  - icon: fontawesome/solid/paper-plane
-  #    link: mailto:<xxxxxx@qq.com> #联系方式
+   - icon: fontawesome/brands/github
+     link: https://github.com/DopplerXD/
+   - icon: fontawesome/brands/bilibili
+     link: https://space.bilibili.com/32152704/
+   - icon: fontawesome/solid/paper/plane
+     link: mailto:<1509209607@qq.com> #联系方式
+   - icon: material-gmail
+     link: mailto:<doppleryxc@gmail.com> #联系方式
+   - icon: fontawesome/brands/zhihu
+     link: https://www.zhihu.com/people/DopplerXD/
+   - icon: material-home
+     link: https://www.dopplerxd.site/
+     name: DopplerXD's Blog
   #
 
 #  analytics:
