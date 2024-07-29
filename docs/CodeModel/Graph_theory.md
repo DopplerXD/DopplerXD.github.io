@@ -77,7 +77,7 @@ if(dis[v] > dis[u] + w) {
 
 ## 3 Dijkstra 
 
-求解非赋权图单源最短路
+求解非负权图单源最短路
 
 ```cpp
 int n;
