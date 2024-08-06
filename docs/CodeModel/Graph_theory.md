@@ -1002,3 +1002,65 @@ int main()
 }
 ```
 
+## 18 分层图
+
+模板题 Luogu P4568 飞行路线
+
+给定一个带权无向图，求 $s$ 到 $t$ 的最短路，其中可以令路径上最多 $k \leq 10$ 条道路花费为 $0$。
+
+```cpp
+#include <bits/stdc++.h>
+
+int main()
+{
+    std::ios::sync_with_stdio(false), std::cin.tie(0), std::cout.tie(0);
+    
+    int n, m, k, s, t;
+    std::cin >> n >> m >> k >> s >> t;
+    std::vector<std::vector<std::pair<int, int>>> ed(n * (k + 1));
+    for (int i = 0; i < m; i++) {
+        int a, b, c;
+        std::cin >> a >> b >> c;
+        for (int j = 0; j <= k; j++) {
+            int u = a + n * j, v = b + n * j;
+            ed[u].push_back({v, c});
+            ed[v].push_back({u, c});
+            if (j < k) {
+                ed[u].push_back({v + n, 0});
+                ed[v].push_back({u + n, 0});
+            }
+        }
+    }
+
+    std::vector<bool> vis(n * (k + 1), false);
+    std::vector<int> dis(n * (k + 1), 1e9);
+
+    auto dijkstra = [&](int s) -> void {
+        std::priority_queue<std::pair<int, int>, std::vector<std::pair<int, int>>, std::greater<std::pair<int, int>>> q;
+        q.push({0, s});
+        dis[s] = 0;
+        while (q.size()) {
+            int u = q.top().second;
+            q.pop();
+            if (vis[u]) continue;
+            vis[u] = 1;
+            for (auto e : ed[u]) {
+                int v = e.first, w = e.second;
+                if (dis[v] > dis[u] + w) {
+                    dis[v] = dis[u] + w;
+                    q.push({dis[v], v});
+                }
+            }
+        }
+        };
+    dijkstra(s);
+
+    int ans = 1e9;
+    for (int i = 0; i <= k; i++) {
+        ans = std::min(ans, dis[t + n * i]);
+    }
+
+    std::cout << ans << '\n';
+}
+```
+
