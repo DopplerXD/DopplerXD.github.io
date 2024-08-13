@@ -414,16 +414,14 @@ int Convex_hull(Point* p, int n, Point* ch) { // ch放凸包顶点，返回值�
     n = unique(p, p + n) - p; // 去重
     sort(p, p + n);
     int v = 0;
-    for (int i = 0; i < n; i++)
-    {
+    for (int i = 0; i < n; i++) {
         while (v > 1 && sgn(Cross(ch[v - 1] - ch[v - 2], p[i] - ch[v - 1])) <= 0)
             v--;
         ch[v++] = p[i];
     }
     int j = v;
     // 求上凸包
-    for (int i = n - 2; i >= 0; i--)
-    {
+    for (int i = n - 2; i >= 0; i--) {
         while (v > j && sgn(Cross(ch[v - 1] - ch[v - 2], p[i] - ch[v - 1])) <= 0)
             v--;
         ch[v++] = p[i];
@@ -443,6 +441,172 @@ int main()
     for (int i = 0; i < v; i++) // 计算凸包周长
         ans += Distance(ch[i], ch[(i + 1) % v]);
     cout << fixed << setprecision(2) << ans << endl;
+    return 0;
+}
+```
+
+### 凸包直径
+
+[https://www.luogu.com.cn/problem/P1452](P1452 [模板]旋转卡壳 | [USACO03FALL] Beauty Contest G)
+
+```cpp
+#include <bits/stdc++.h>
+#define ll long long
+using namespace std;
+const int N = 1e5 + 5;
+
+const double pi = acos(-1.0);
+const double eps = 1e-9;
+
+// 判断 x 的大小，<0 返回 -1，>0 返回 1，==0 返回 0
+int sgn(double x) {
+    if (fabs(x) < eps) return 0;
+    else return x < 0 ? -1 : 1;
+}
+
+// 比较两个浮点数
+int dcmp(double x, double y) {
+    if (fabs(x - y) < eps) return 0;
+    else return x < y ? -1 : 1;
+}
+
+struct Point {
+    double x, y;
+    Point() {}
+    Point(double x, double y) : x(x), y(y) {}
+
+    Point operator + (const Point& B) const { return Point(x + B.x, y + B.y); }
+    Point operator - (const Point& B) const { return Point(x - B.x, y - B.y); }
+    Point operator * (double k) const { return Point(x * k, y * k); }
+    Point operator / (double k) const { return Point(x / k, y / k); }
+
+    bool operator == (const Point& B) const {
+        return sgn(x - B.x) == 0 && sgn(y - B.y) == 0;
+    }
+    bool operator<(Point B) { return sgn(x - B.x) < 0 || sgn(x - B.x) == 0 && sgn(y - B.y) < 0; }
+    // 先按x再按y排序
+};
+
+typedef Point Vector;
+
+class Geometry {
+public:
+    static double Distance(const Point& A, const Point& B) {
+        return sqrt((A.x - B.x) * (A.x - B.x) + (A.y - B.y) * (A.y - B.y));
+    }
+
+    static double Dot(const Vector& A, const Vector& B) {
+        return A.x * B.x + A.y * B.y;
+    }
+
+    static int AngleJudge(const Vector& A, const Vector& B) {
+        return sgn(Dot(A, B));
+    }
+
+    static double Len(const Vector& A) {
+        return sqrt(Dot(A, A));
+    }
+
+    static double Len2(const Vector& A) {
+        return Dot(A, A);
+    }
+
+    static double Angle(const Vector& A, const Vector& B) {
+        return acos(Dot(A, B) / Len(A) / Len(B));
+    }
+
+    static double Cross(const Vector& A, const Vector& B) {
+        return A.x * B.y - A.y * B.x;
+    }
+
+    static double Area2(const Point& A, const Point& B, const Point& C) {
+        return Cross(B - A, C - A);
+    }
+
+    static double AreaTriangle(const Point& A, const Point& B, const Point& C) {
+        return Area2(A, B, C) / 2;
+    }
+
+    static Vector Rotate(const Vector& A, double rad) {
+        return Vector(A.x * cos(rad) - A.y * sin(rad), A.x * sin(rad) + A.y * cos(rad));
+    }
+
+    static Vector Normal(const Vector& A) {
+        double len = Len(A);
+        return Vector(-A.y / len, A.x / len);
+    }
+
+    static bool Parallel(const Vector& A, const Vector& B) {
+        return sgn(Cross(A, B)) == 0;
+    }
+};
+
+int n, m;
+int sta[N], top;  // 将凸包上的节点编号存在栈里，第一个和最后一个节点编号相同
+Point a[N], ch[N];
+
+ll pf(ll x) { return x * x; }
+
+ll dis(int p, int q) { return pf(ch[p].x - ch[q].x) + pf(ch[p].y - ch[q].y); }
+
+ll sqr(int p, int q, int y) {
+    return abs(Geometry::Cross((ch[q] - ch[p]), (ch[y] - ch[q])));
+}
+
+int Convex_hull(Point* p, int n, Point* ch) { // ch放凸包顶点，返回值是顶点个数
+    n = unique(p, p + n) - p; // 去重
+    sort(p, p + n);
+    int v = 0;
+    for (int i = 0; i < n; i++) {
+        while (v > 1 && sgn(Geometry::Cross(ch[v - 1] - ch[v - 2], p[i] - ch[v - 1])) <= 0)
+            v--;
+        ch[v++] = p[i];
+    }
+    int j = v;
+    // 求上凸包
+    for (int i = n - 2; i >= 0; i--) {
+        while (v > j && sgn(Geometry::Cross(ch[v - 1] - ch[v - 2], p[i] - ch[v - 1])) <= 0)
+            v--;
+        ch[v++] = p[i];
+    }
+    if (n > 1) v--;
+    return v;
+}
+
+ll mx;
+
+void get_longest() {  // 求凸包直径
+    mx = 0;
+    int j = 3;
+    if (top < 3) {
+        mx = dis(sta[1], sta[2]);
+        return;
+    }
+    for (int i = 1; i <= top; ++i) {
+        while (sqr(sta[i], sta[i + 1], sta[j]) <=
+            sqr(sta[i], sta[i + 1], sta[j % top + 1]))
+            j = j % top + 1;
+        mx = max(mx, max(dis(sta[i + 1], sta[j]), dis(sta[i], sta[j])));
+    }
+}
+
+void solve() {
+    top = 0;
+    cin >> n;
+    for (int i = 0; i < n; i++) cin >> a[i].x >> a[i].y;
+    int v = Convex_hull(a, n, ch); // 先求凸包
+    for (int i = 1; i <= v; i++) sta[++top] = i - 1; // sta存储点的下标
+    sta[v + 1] = 0; // 封闭图形，多放的是第一个点的下标
+    get_longest(); // 求凸包直径，该题输出直径的平方
+    cout << mx << '\n';
+}
+int main()
+{
+    ios::sync_with_stdio(false), cin.tie(0), cout.tie(0);
+    int _T = 1;
+    // cin >> _T;
+    while (_T--)
+        solve();
     return 0;
 }
 ```
