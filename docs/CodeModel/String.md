@@ -636,7 +636,7 @@ struct String {
     vector<V> hash2;
     string s;
     
-    String(string s_) : s(s_), hash1{1}, hash2{1} {
+    String(string s_) : s(s_), hash1{0}, hash2{0} {
         for (auto it : s) {
             hash1.push_back(hash1.back() * base1 + it);
             hash2.push_back(hash2.back() * base2 + it);
