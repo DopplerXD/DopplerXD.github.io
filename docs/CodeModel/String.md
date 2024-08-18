@@ -647,8 +647,8 @@ struct String {
     }
     pair<U, V> substring(int l, int r) { // 输出子串的哈希值
         if (l > r) swap(l, r);
-        U ans1 = hash1[r + 1] - hash1[l] * val1[r - l + 1];
-        V ans2 = hash2[r + 1] - hash2[l] * val2[r - l + 1];
+        U ans1 = hash1[r] - hash1[l - 1] * val1[r - l + 1];
+        V ans2 = hash2[r] - hash2[l - 1] * val2[r - l + 1];
         return {ans1, ans2};
     }
     pair<U, V> modify(int idx, char x) { // 修改 idx 位为 x
