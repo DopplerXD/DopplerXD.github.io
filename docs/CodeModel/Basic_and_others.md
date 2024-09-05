@@ -622,3 +622,29 @@ using namespace fastIO;
 // 再加上inline优化
 ```
 
+## 22 三维前缀和
+
+```cpp
+s[x2][y2][z2]-s[x1-1][y2][z2]-s[x2][y1-1][z2]-s[x2][y2][z1-1]+s[x1-1][y1-1][z2]+s[x1-1][y2][z1-1]+s[x2][y1-1][z1-1]-s[x1-1][y1-1][z1-1]
+```
+
+```cpp
+for (int i = 1; i <= n; i++)
+    for (int j = 1; j <= n; j++)
+        for (int k = 1; k <= n; k++)
+            b[i][j][k] += b[i][j][k - 1];
+for (int i = 1; i <= n; i++)
+    for (int k = 1; k <= n; k++)
+        for (int j = 1; j <= n; j++)
+            b[i][j][k] += b[i][j - 1][k];
+for (int k = 1; k <= n; k++)
+    for (int j = 1; j <= n; j++)
+        for (int i = 1; i <= n; i++)
+            b[i][j][k] += b[i - 1][j][k];
+
+int i, j, k, x, y, z;
+std::cin >> i >> x >> j >> y >> k >> z;
+std::cout << b[x][y][z] + b[i - 1][j - 1][z] + b[i - 1][y][k - 1] + b[x][j - 1][k - 1]
+    - b[x][y][k - 1] - b[x][j - 1][z] - b[i - 1][y][z] - b[i - 1][j - 1][k - 1] << '\n';
+```
+
