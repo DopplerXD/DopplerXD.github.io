@@ -4,7 +4,7 @@
 
 ```cpp
 // 关闭同步流（加速）
-ios::sync_with_stdio(false), cin.tie(0), cout.tie(0);
+std::ios::sync_with_stdio(false), std::cin.tie(0), std::cout.tie(0);
 
 // 更快但复杂的快读快写
 int read() {
@@ -39,52 +39,64 @@ void write(int x) {
 
 ```cpp
 int arr[N];
-int binarySearch(int left, int right, int x) {
-    while (left <= right) {
-        int mid = left + (right - left) / 2;
-        if (arr[mid] == x) {
-            return mid;
-        }
-        else if (arr[mid] < x) {
-            left = mid + 1;
+bool check(int x) {
+    // check function
+}
+// 查找符合条件的最大值
+int binarySearch() {
+    int l = 0, r = INF, res = 0;
+    while (l <= r) {
+        int mid = l + r >> 1;
+        if (check(mid)) {
+            res = mid;
+            l = mid + 1;
         }
         else {
-            right = mid - 1;
+            r = mid - 1;
         }
     }
-    return -1;
+    return res;
 }
 ```
 
 ## 3 三分
 
 ```cpp
-#include <bits/stdc++.h>
-using namespace std;
-const double eps = 1e-8;
-int n;
-double a[15];
-double l, r;
-double f(double x) {
-    double p = 1, res = 0;
-    for (int i = n; i >= 0; i--) {
-        res += a[i] * p;
-        p *= x;
-    }
-    return res;
-}
-int main()
-{
-    cin >> n >> l >> r;
-    for (int i = 0; i <= n; i++) cin >> a[i];
-    double mid;
-    while (r - l > eps) {
-        mid = (l + r) / 2;
-        if (f(mid - eps) < f(mid + eps)) l = mid;
-        else r = mid;
-    }
-    cout << l << endl;
-}
+int tri_search(int l, int r) {
+	// 求凹函数的极小值
+	int f1, f2;
+	while(l < r) {
+	    int lp = l + (r - l) / 3;
+	    int rp = r - (r - l) / 3;
+	    f1 = check(lp),f2 = check(rp);
+	    if(f1 <= f2) 
+			r = rp - 1;
+	    else 
+			l = lp + 1;
+	}
+	//查找的是极小值
+	return min(f1, f2);
+	//查找的是极小值对应的下标
+	return f1 < f2 ? l : r;
+} 
+
+int tri_search(int l, int r) {
+	// 求凸函数的极大值
+    int f1, f2;
+	while(l < r) {
+	    int lp = l + (r - l) / 3;
+	    int rp = r - (r - l) / 3;
+	    f1 = check(lp),f2 = check(rp);
+	    if(f1 >= f2) 
+			l = lp + 1;
+	    else
+			r = rp - 1;
+	}
+	//查找的是极大值
+	return max(f1, f2);
+	//查找的是极大值对应的下标
+	return f1 > f2 ? l : r;
+} 
 ```
 
 ## 4 字符串与其他类型转换
@@ -104,7 +116,7 @@ stoull stold stod 同理
 ## 5 bitset
 
 ```cpp
-构造方法
+// 构造方法
 bitset<4> bitset1;　　//无参构造，长度为４，默认每一位为０
 bitset<8> bitset2(12);　//长度为８，二进制保存，前面用０补充
 
@@ -119,10 +131,10 @@ cout << bitset2 << endl;　　//00001100
 cout << bitset3 << endl;　　//0000100101
 cout << bitset4 << endl;　　//0000000010101
 
-数据访问
+// 数据访问
 cout << foo[0] << endl;//1, 下标从 0 开始，表示二进制的最低位
 
-数据操作
+// 数据操作
 foo[i] = 0;//给第 i 位赋值
 foo.flip();//反转全部
 foo.flip(i);//反转下标为 i 的位
@@ -132,13 +144,13 @@ foo.set(i,0);//第 i 位置 0
 foo.reset();//全部置 0
 foo.reset(i);//第 i 位置 0
 
-数据转换
+// 数据转换
 bitset<8> foo ("10011011");
 string s = foo.to_string();　　//将 bitset 转换成 string 类型
 unsigned long a = foo.to_ulong();　　//将 bitset 转换成 unsigned long 类型
 unsigned long long b = foo.to_ullong();　　//将 bitset 转换成 unsigned long long 类型
 
-常用函数
+// 常用函数
 bitset<8> foo ("10011011");
 cout << foo.count() << endl;　　//5　　（count 函数用来求 bitset 中 1 的位数，foo 中共有５个１
 cout << foo.size() << endl;　　 //8　　（size 函数用来求 bitset 的大小，一共有８位
@@ -148,7 +160,7 @@ cout << foo.any() << endl;　　//true　　（any 函数检查 bitset 中是否
 cout << foo.none() << endl;　　//false　　（none 函数检查 bitset 中是否没有１
 cout << foo.all() << endl;　　//false　　（all 函数检查 bitset 中是全部为１
 
-位操作符
+// 位操作符
 bitset<4> foo (string("1001"));
 bitset<4> bar (string("0011"));
 cout << (foo^=bar) << endl;       // 1010 (foo 对 bar 按位异或后赋值给 foo)
@@ -190,7 +202,7 @@ void mergeSort(int l, int r, std::vector<int>& a, int& ans) {
 ```cpp
 struct node {
 	int dis, u;
-	bool operator>(const node& a) const { return dis > a.dis; }
+	bool operator > (const node& a) const { return dis > a.dis; }
 };
 ```
 
@@ -237,13 +249,6 @@ int main()
 
 ```cpp
 vector<int> a;
-int n;
-cin >> n;
-for(int i = 1; i <= n; i++) {
-	int x;
-	cin >> x;
-	a.push_back(x);
-}
 sort(a.begin(), a.end());
 a.erase(unique(a.begin(), a.end()), a.end());
 ```
@@ -253,8 +258,7 @@ a.erase(unique(a.begin(), a.end()), a.end());
 ```cpp
 // C++ 11 引入
 vector<int> v(n);
-iota(v.begin(), v.end(), 1);
-// 生成 1-n
+iota(v.begin(), v.end(), 1); // 生成 1-n
 ```
 
 ## 11 sort 中使用 lambda 编写排序规则
@@ -264,16 +268,14 @@ vector<int> q;
 iota(q.begin(), q.end(), 1);
 vector<int> v;
 // 按照 v 从小到大的顺序对 p 进行排序
-sort(q.begin(), q.end(),
-        [&](int i, int j) {
-            return v[i] < v[j] || (v[i] == v[j] && i < j);
-        });
+sort(q.begin(), q.end(),n, [&](int i, int j) {
+    return v[i] < v[j] || (v[i] == v[j] && i < j);
+});
 ```
 
 ## 12 滑动窗口
 
 ```cpp
-const int N = 1e5 + 5;
 int n, k; // k for length of windows
 int mx[N], a[N]; // mx 下标从 k 到 n
 deque<int> q;
@@ -394,12 +396,8 @@ int main() {
 ## 15 全排列函数 permutation
 
 ```cpp
-int n;
-cin >> n;
 vector<int> a(n);
-// iota(a.begin(), a.end(), 1);
-for (auto &it : a) cin >> it;
-sort(a.begin(), a.end());
+iota(a.begin(), a.end(), 1);
 
 do {
     for (auto it : a) cout << it << " ";
@@ -646,5 +644,23 @@ int i, j, k, x, y, z;
 std::cin >> i >> x >> j >> y >> k >> z;
 std::cout << b[x][y][z] + b[i - 1][j - 1][z] + b[i - 1][y][k - 1] + b[x][j - 1][k - 1]
     - b[x][y][k - 1] - b[x][j - 1][z] - b[i - 1][y][z] - b[i - 1][j - 1][k - 1] << '\n';
+```
+
+## 23 std::popcount
+
+popcount(x) 返回 x 的二进制表示中 1 的个数。
+
+## 24 std::mt19937 & std::shuffle 随机打乱
+
+```cpp
+std::vector<int> a(n);
+for (int& i : a) std::cin >> i;
+
+// 创建随机数引擎
+std::random_device rd; // 用于生成种子
+std::mt19937 g(rd());  // 使用 mt19937 引擎，种子由随机设备生成
+
+// 使用 std::shuffle 随机打乱向量
+std::shuffle(vec.begin(), vec.end(), g);
 ```
 

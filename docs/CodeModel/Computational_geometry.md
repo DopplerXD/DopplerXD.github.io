@@ -31,6 +31,9 @@ struct Point {
     bool operator == (const Point& B) const { 
         return sgn(x - B.x) == 0 && sgn(y - B.y) == 0; 
     }
+    bool operator < (const Point& B) const {
+        return sgn(x - B.x) < 0 || sgn(x - B.x) == 0 && sgb(y - B.y) < 0;
+    }
 };
 
 typedef Point Vector;
@@ -389,26 +392,6 @@ Point Polygon_center(Point* p, int n) { // 求多边形重心
 给定 n 个点的坐标, 求凸包周长.
 
 ```cpp
-#include <bits/stdc++.h>
-using namespace std;
-const int N = 1e5 + 5;
-const double eps = 1e-6;
-int sgn(double x) {
-    if (fabs(x) < eps) return 0;
-    return x < 0 ? -1 : 1;
-}
-struct Point {
-    double x, y;
-    Point() {}
-    Point(double x, double y) : x(x), y(y) {}
-    Point operator+(Point B) { return Point(x + B.x, y + B.y); }
-    Point operator-(Point B) { return Point(x - B.x, y - B.y); }
-    bool operator==(Point B) { return sgn(x - B.x) == 0 && sgn(y - B.y == 0); }
-    bool operator<(Point B) { return sgn(x - B.x) < 0 || sgn(x - B.x) == 0 && sgn(y - B.y) < 0; }
-    // 先按x再按y排序
-};
-typedef Point Vector;
-double Cross(Vector A, Vector B) { return A.x * B.y - A.y * B.x; }
 double Distance(Point A, Point B) { return hypot(A.x - B.x, A.y - B.y); }
 int Convex_hull(Point* p, int n, Point* ch) { // ch放凸包顶点，返回值是顶点个数
     n = unique(p, p + n) - p; // 去重
@@ -430,19 +413,7 @@ int Convex_hull(Point* p, int n, Point* ch) { // ch放凸包顶点，返回值�
     return v;
 }
 Point p[N], ch[N];
-int main()
-{
-    int n;
-    cin >> n;
-    for (int i = 0; i < n; i++)
-        cin >> p[i].x >> p[i].y;
-    int v = Convex_hull(p, n, ch);
-    double ans = 0;
-    for (int i = 0; i < v; i++) // 计算凸包周长
-        ans += Distance(ch[i], ch[(i + 1) % v]);
-    cout << fixed << setprecision(2) << ans << endl;
-    return 0;
-}
+// int v = Convex_hull(p, n, ch);
 ```
 
 ### 凸包直径
@@ -450,100 +421,17 @@ int main()
 [https://www.luogu.com.cn/problem/P1452](P1452 [模板]旋转卡壳 | [USACO03FALL] Beauty Contest G)
 
 ```cpp
-#include <bits/stdc++.h>
-#define ll long long
-using namespace std;
-const int N = 1e5 + 5;
-
-const double pi = acos(-1.0);
-const double eps = 1e-9;
-
-// 判断 x 的大小，<0 返回 -1，>0 返回 1，==0 返回 0
-int sgn(double x) {
-    if (fabs(x) < eps) return 0;
-    else return x < 0 ? -1 : 1;
-}
-
-// 比较两个浮点数
-int dcmp(double x, double y) {
-    if (fabs(x - y) < eps) return 0;
-    else return x < y ? -1 : 1;
-}
-
-struct Point {
-    double x, y;
-    Point() {}
-    Point(double x, double y) : x(x), y(y) {}
-
-    Point operator + (const Point& B) const { return Point(x + B.x, y + B.y); }
-    Point operator - (const Point& B) const { return Point(x - B.x, y - B.y); }
-    Point operator * (double k) const { return Point(x * k, y * k); }
-    Point operator / (double k) const { return Point(x / k, y / k); }
-
-    bool operator == (const Point& B) const {
-        return sgn(x - B.x) == 0 && sgn(y - B.y) == 0;
-    }
-    bool operator<(Point B) { return sgn(x - B.x) < 0 || sgn(x - B.x) == 0 && sgn(y - B.y) < 0; }
-    // 先按x再按y排序
-};
-
-typedef Point Vector;
-
 class Geometry {
 public:
-    static double Distance(const Point& A, const Point& B) {
-        return sqrt((A.x - B.x) * (A.x - B.x) + (A.y - B.y) * (A.y - B.y));
-    }
-
-    static double Dot(const Vector& A, const Vector& B) {
-        return A.x * B.x + A.y * B.y;
-    }
-
-    static int AngleJudge(const Vector& A, const Vector& B) {
-        return sgn(Dot(A, B));
-    }
-
-    static double Len(const Vector& A) {
-        return sqrt(Dot(A, A));
-    }
-
-    static double Len2(const Vector& A) {
-        return Dot(A, A);
-    }
-
-    static double Angle(const Vector& A, const Vector& B) {
-        return acos(Dot(A, B) / Len(A) / Len(B));
-    }
-
     static double Cross(const Vector& A, const Vector& B) {
         return A.x * B.y - A.y * B.x;
-    }
-
-    static double Area2(const Point& A, const Point& B, const Point& C) {
-        return Cross(B - A, C - A);
-    }
-
-    static double AreaTriangle(const Point& A, const Point& B, const Point& C) {
-        return Area2(A, B, C) / 2;
-    }
-
-    static Vector Rotate(const Vector& A, double rad) {
-        return Vector(A.x * cos(rad) - A.y * sin(rad), A.x * sin(rad) + A.y * cos(rad));
-    }
-
-    static Vector Normal(const Vector& A) {
-        double len = Len(A);
-        return Vector(-A.y / len, A.x / len);
-    }
-
-    static bool Parallel(const Vector& A, const Vector& B) {
-        return sgn(Cross(A, B)) == 0;
     }
 };
 
 int n, m;
 int sta[N], top;  // 将凸包上的节点编号存在栈里，第一个和最后一个节点编号相同
 Point a[N], ch[N];
+ll mx;
 
 ll pf(ll x) { return x * x; }
 
@@ -573,8 +461,6 @@ int Convex_hull(Point* p, int n, Point* ch) { // ch放凸包顶点，返回值�
     return v;
 }
 
-ll mx;
-
 void get_longest() {  // 求凸包直径
     mx = 0;
     int j = 3;
@@ -590,7 +476,7 @@ void get_longest() {  // 求凸包直径
     }
 }
 
-void solve() {
+int main() {
     top = 0;
     cin >> n;
     for (int i = 0; i < n; i++) cin >> a[i].x >> a[i].y;
@@ -599,15 +485,6 @@ void solve() {
     sta[v + 1] = 0; // 封闭图形，多放的是第一个点的下标
     get_longest(); // 求凸包直径，该题输出直径的平方
     cout << mx << '\n';
-}
-int main()
-{
-    ios::sync_with_stdio(false), cin.tie(0), cout.tie(0);
-    int _T = 1;
-    // cin >> _T;
-    while (_T--)
-        solve();
-    return 0;
 }
 ```
 

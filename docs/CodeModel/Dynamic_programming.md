@@ -3,11 +3,7 @@
 ## 1 01 背包
 
 ```cpp
-#include <bits/stdc++.h>
-#define ll long long
-using namespace std;
-int main()
-{
+int main() {
     int f[1005] = {0};
     int n, m;
     cin >> n >> m;
@@ -26,12 +22,8 @@ int main()
 ## 2 完全背包
 
 ```cpp
-#include <bits/stdc++.h>
-#define ll long long
-using namespace std;
 int f[1005];
-int main()
-{
+int main() {
     int n, m;
     cin >> n >> m;
     vector<int> w(n), v(n);
@@ -48,12 +40,8 @@ int main()
 ## 3 多重背包-二进制优化
 
 ```cpp
-#include <bits/stdc++.h>
-#define ll long long
-using namespace std;
 int f[2005];
-int main()
-{
+int main() {
     int n, m;
     cin >> n >> m;
     vector<int> w, v, s;
@@ -133,7 +121,7 @@ std::cout << dp[m];
 ## 6 有依赖背包
 
 ```cpp
-
+// todo
 ```
 
 ## 7 状压 DP
@@ -156,8 +144,7 @@ const int N = 2e5 + 5;
 int n;
 double x[20], y[20], dis[20][20];
 double dp[(1 << 16) + 5][20]; // dp[i][x] 表示经过点的状态为 i，最后一个点是 j
-int main()
-{
+int main() {
     cin >> n;
     for (int i = 0; i < n; i++) {
         cin >> x[i] >> y[i];
@@ -231,8 +218,7 @@ void dfs(ll* cnt, ll x) {
         cnt[0] -= ten[i - 1]; // 去掉前导 0
     }
 }
-int main()
-{
+int main() {
     cin >> a >> b;
     ten[0] = 1;
     for (int i = 1; i <= 13; i++) { // init
@@ -289,8 +275,7 @@ int solve(int x) {
     }
     return dfs(len, 11, true);
 }
-int main()
-{
+int main() {
     cin >> a >> b;
     int x = solve(a - 1);
     int y = solve(b);

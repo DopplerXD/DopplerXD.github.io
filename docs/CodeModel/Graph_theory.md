@@ -7,14 +7,10 @@
 ```cpp
 void floyd() {
     int f[N][N];
-    for (int k = 1; k <= n; k++) {
-        for (int x = 1; x <= n; x++) {
-            for (int y = 1; y <= n; y++) {
+    for (int k = 1; k <= n; k++)
+        for (int x = 1; x <= n; x++)
+            for (int y = 1; y <= n; y++)
                 f[x][y] = min(f[x][y], f[x][k] + f[k][y]);
-            }
-        }
-    }
-}
 ```
 
 ## 2 Bellman_Ford 
@@ -91,8 +87,7 @@ struct node {
 vector<edge> e[N];
 int dis[N], vis[N];
 priority_queue<node, vector<node>, greater<node> > q;
-void dijkstra(int s)
-{
+void dijkstra(int s) {
     memset(dis, 63, sizeof(dis));
     dis[s] = 0;
     q.push({0, s});
@@ -148,8 +143,7 @@ void Kruskal() {
         }
     }
 }
-int main()
-{
+int main() {
     cin >> n >> m;
     while (m--) {
         int u, v, w;
@@ -197,8 +191,7 @@ void prim(int s) {
         vis[e.v] = 1;
     }
 }
-int main()
-{
+int main() {
     cin >> n >> m;
     while (m--) {
         int u, v, w;
@@ -225,8 +218,7 @@ int main()
 vector<int> ed[N]; // 存图
 int in[N]; // 保存入度
 bool vis[N];
-int main()
-{
+int main() {
 	int n, m;
     cin >> n >> m;
     while(m--) {
@@ -316,8 +308,7 @@ void spfa() {
         }
     }
 }
-void solve()
-{
+void solve() {
     memset(dis, llINF, sizeof(dis));
     cin >> h >> x >> y >> z;
     if (x == 1 || y == 1 || z == 1) {
@@ -337,8 +328,7 @@ void solve()
     }
     cout << ans << '\n';
 }
-int main()
-{
+int main() {
     int T_T = 1;
     // cin >> T_T;
     while (T_T--)
@@ -365,8 +355,7 @@ void floyd() {
                     if (dis[k][j])
                         dis[i][j] = 1;
 }
-int main()
-{
+int main() {
     cin >> n;
     for (int i = 1; i <= n; i++)
         for (int j = 1; j <= n; j++)
@@ -412,8 +401,7 @@ int floyd() {
     }
     return ans;
 }
-int main()
-{
+int main() {
     memset(val, INF, sizeof(val));
     cin >> n >> m;
     while (m--) {
@@ -437,6 +425,8 @@ P5905 【模板】全源最短路（Johnson） https://www.luogu.com.cn/problem/
 + 新建虚拟节点，向所有节点连接一条权值为 $0$ 的边，跑一边 spfa，得到 $0$ 号结点到其他 $n$ 个点的最短路，记为 $h_i$。
 + 假设存在一条从 $u$ 到 $v$ 的权值为 $w$ 的边，则将该边的权值从新设置为 $w + h_u - h_v$，目的是确保所有边的权值都非负，进而使用 dijkstra。
 + 以每个点为起点跑 dijkstra 求最短路即可。最后得到的任意两点间最短路要减去 $h_u-h_v$
+
+时间复杂度 $O(nmlogn)$
 
 ```cpp
 #include <bits/stdc++.h>
@@ -503,8 +493,7 @@ void dijkstra(int s) {
         }
     }
 }
-int main()
-{
+int main() {
     cin >> n >> m;
     while (m--) {
         int u, v, w;
@@ -556,18 +545,8 @@ int main()
 1. 匈牙利算法 O(nm)
 
 ```cpp
-int main(){
-	for(i = 1;i<=n1;i++){
-		memset(vis,0,sizeof vis);
-		//如果匹配成功，则匹配总数+1 
-		if(find(i))ans++;
-	}
-	printf("%d",ans);
-	return 0;
-}
-
 //对于第 x 个，能够匹配返回 true，不能匹配返回 false 
-bool find(int x){
+bool find(int x) {
 	for(int i = h[x];i!=-1;i = e[i].ne){
 		int v = e[i].v;
 		//如果曾经查找过第 v 个点，但是没有成功 
@@ -581,74 +560,84 @@ bool find(int x){
 	}
 	return false;
 } 
+int main() {
+	for(i = 1;i<=n1;i++){
+		memset(vis,0,sizeof vis);
+		//如果匹配成功，则匹配总数+1 
+		if(find(i))ans++;
+	}
+	printf("%d",ans);
+	return 0;
+}
 ```
 
 2. KM 算法，求二分图的最大带权匹配 O(n^3)
 
 ```cpp
+#include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
-typedef pair<ll,ll> PII;
+typedef pair<ll, ll> PII;
 const int N = 605;
 const int inf = 0x3f3f3f3f;
 PII a[N];
-ll n,b[N],c[N];
-ll w[N][N], lx[N],ly[N];
+ll n, b[N], c[N];
+ll w[N][N], lx[N], ly[N];
 ll linker[N], slack[N];
 bool visy[N];
 ll pre[N];
-void bfs(ll k){
-	int i,j;
-    ll x,y = 0,yy = 0,delta;
-    memset(pre,0,sizeof(pre));
-    for(i =1;i<=n;i++) slack[i] = inf;
-    linker[y] = k;
-    while(1){
-        x = linker[y];delta = inf;visy[y] = true;
-        for(i=1;i<=n;i++){
-            if(!visy[i]){
-                if(slack[i] > lx[x] + ly[i] - w[x][i] ){
-                    slack[i] = lx[x] + ly[i] - w[x][i];
-                    pre[i] = y;
-                }
-                if(slack[i] < delta) delta = slack[i], yy = i;
-            }
-        }
-        for(i = 0;i <= n;i++){
-            if(visy[i]) lx[linker[i]] -= delta , ly[i] += delta;
-            else slack[i] -= delta;
-        }
-        y = yy ;
-        if(linker[y] == -1) break;
-    }
-    while(y) linker[y] = linker[pre[y]], y = pre[y];
-}
-ll KM(){
-	int i,j;
-    memset(lx,0,sizeof(lx));
-    memset(ly,0,sizeof(ly));
-    memset(linker,-1,sizeof(linker));
-    for(i = 1;i<=n;i++){
-        memset(visy,false, sizeof(visy));
-        bfs(i);
-    }
-    ll res = 0 ;
-    for(i = 1;i<=n;i++){
-        if(linker[i]!=-1){
-            res += w[linker[i]][i];
-        }
-    }
-    return res;
-}
-int main(){
-	int i,j;
-	while(cin>>n){
-		for(i = 1;i<=n;i++){
-			for(j = 1;j<=n;j++){
-				scanf("%d",&w[i][j]);
+void bfs(ll k) {
+	int i, j;
+	ll x, y = 0, yy = 0, delta;
+	memset(pre, 0, sizeof(pre));
+	for (i = 1; i <= n; i++) slack[i] = inf;
+	linker[y] = k;
+	while (1) {
+		x = linker[y]; delta = inf; visy[y] = true;
+		for (i = 1; i <= n; i++) {
+			if (!visy[i]) {
+				if (slack[i] > lx[x] + ly[i] - w[x][i]) {
+					slack[i] = lx[x] + ly[i] - w[x][i];
+					pre[i] = y;
+				}
+				if (slack[i] < delta) delta = slack[i], yy = i;
 			}
 		}
-		cout<<KM()<<endl;
+		for (i = 0; i <= n; i++) {
+			if (visy[i]) lx[linker[i]] -= delta, ly[i] += delta;
+			else slack[i] -= delta;
+		}
+		y = yy;
+		if (linker[y] == -1) break;
+	}
+	while (y) linker[y] = linker[pre[y]], y = pre[y];
+}
+ll KM() {
+	int i, j;
+	memset(lx, 0, sizeof(lx));
+	memset(ly, 0, sizeof(ly));
+	memset(linker, -1, sizeof(linker));
+	for (i = 1; i <= n; i++) {
+		memset(visy, false, sizeof(visy));
+		bfs(i);
+	}
+	ll res = 0;
+	for (i = 1; i <= n; i++) {
+		if (linker[i] != -1) {
+			res += w[linker[i]][i];
+		}
+	}
+	return res;
+}
+int main() {
+	int i, j;
+	while (cin >> n) {
+		for (i = 1; i <= n; i++) {
+			for (j = 1; j <= n; j++) {
+				scanf("%d", &w[i][j]);
+			}
+		}
+		cout << KM() << endl;
 	}
 	return 0;
 }
@@ -659,28 +648,29 @@ int main(){
 ```cpp
 //找出欧拉回路，并将欧拉回路的每条边存入栈中
 //type==1, 为无向图，type==2 为有向图
-void dfs(int u){
-    int &i = h[u],j;
-    for(;i!=-1;){
-        int v = e[i].v;
-        if(vis[i]){
-            i = e[i].ne;
-            continue;
-        }
-        vis[i] = 1;//标记为走过
-        int t = i;
-        if(type == 1){
-            //偶数边为正，奇数边为负
-            vis[i^1] = 1;
-            t = (t+2)/2;
-            if(i%2 == 1)    t = -t;
-        }else{
-            t = t+1;
-        }
-        i = e[i].ne;
-        dfs(v);
-        stac.push(t);
-    }
+void dfs(int u) {
+	int& i = h[u], j;
+	for (; i != -1;) {
+		int v = e[i].v;
+		if (vis[i]) {
+			i = e[i].ne;
+			continue;
+		}
+		vis[i] = 1;//标记为走过
+		int t = i;
+		if (type == 1) {
+			//偶数边为正，奇数边为负
+			vis[i ^ 1] = 1;
+			t = (t + 2) / 2;
+			if (i % 2 == 1)    t = -t;
+		}
+		else {
+			t = t + 1;
+		}
+		i = e[i].ne;
+		dfs(v);
+		stac.push(t);
+	}
 }
 ```
 
@@ -710,8 +700,7 @@ void addedge(int u, int v, int w) {
     ed[cnt].nxt = head[u];
     head[u] = cnt++;
 }
-int main()
-{
+int main() {
     init();
     cin >> n >> m;
     while (m--) {
@@ -735,45 +724,45 @@ int main()
 
 ```cpp
 struct edge {
-  int v, w;
+	int v, w;
 };
 int n, m;
 vector<edge> e[MAXN];
 vector<int> L;                               // 存储拓扑排序结果
 int max_dis[MAXN], min_dis[MAXN], in[MAXN];  // in 存储每个节点的入度
 void toposort() {  // 拓扑排序
-  queue<int> S;
-  memset(in, 0, sizeof(in));
-  for (int i = 1; i <= n; i++) {
-    for (int j = 0; j < e[i].size(); j++) {
-      in[e[i][j].v]++;
-    }
-  }
-  for (int i = 1; i <= n; i++)
-    if (in[i] == 0) S.push(i);
-  while (!S.empty()) {
-    int u = S.front();
-    S.pop();
-    L.push_back(u);
-    for (int i = 0; i < e[u].size(); i++) {
-      if (--in[e[u][i].v] == 0) {
-        S.push(e[u][i].v);
-      }
-    }
-  }
+	queue<int> S;
+	memset(in, 0, sizeof(in));
+	for (int i = 1; i <= n; i++) {
+		for (int j = 0; j < e[i].size(); j++) {
+			in[e[i][j].v]++;
+		}
+	}
+	for (int i = 1; i <= n; i++)
+		if (in[i] == 0) S.push(i);
+	while (!S.empty()) {
+		int u = S.front();
+		S.pop();
+		L.push_back(u);
+		for (int i = 0; i < e[u].size(); i++) {
+			if (--in[e[u][i].v] == 0) {
+				S.push(e[u][i].v);
+			}
+		}
+	}
 }
 void dp(int s) {  // 以 s 为起点求单源最长（短）路
-  toposort();     // 先进行拓扑排序
-  memset(min_dis, 0x3f, sizeof(min_dis));
-  memset(max_dis, 0, sizeof(max_dis));
-  min_dis[s] = 0;
-  for (int i = 0; i < L.size(); i++) {
-    int u = L[i];
-    for (int j = 0; j < e[u].size(); j++) {
-      min_dis[e[u][j].v] = min(min_dis[e[u][j].v], min_dis[u] + e[u][j].w);
-      max_dis[e[u][j].v] = max(max_dis[e[u][j].v], max_dis[u] + e[u][j].w);
-    }
-  }
+	toposort();     // 先进行拓扑排序
+	memset(min_dis, 0x3f, sizeof(min_dis));
+	memset(max_dis, 0, sizeof(max_dis));
+	min_dis[s] = 0;
+	for (int i = 0; i < L.size(); i++) {
+		int u = L[i];
+		for (int j = 0; j < e[u].size(); j++) {
+			min_dis[e[u][j].v] = min(min_dis[e[u][j].v], min_dis[u] + e[u][j].w);
+			max_dis[e[u][j].v] = max(max_dis[e[u][j].v], max_dis[u] + e[u][j].w);
+		}
+	}
 }
 ```
 
@@ -787,8 +776,7 @@ const int N = 1e4 + 5;
 vector<int> ed[N]; // 存图
 int in[N], a[N], dp[N]; // 保存入度
 bool vis[N];
-int main()
-{
+int main() {
     ios::sync_with_stdio(false), cin.tie(0), cout.tie(0);
     int n;
     cin >> n;
@@ -900,7 +888,6 @@ struct EDCC {
 
 ```cpp
 #include <bits/stdc++.h>
-
 const int N = 1e4 + 5;
 
 struct edge {
@@ -917,8 +904,7 @@ int scc, tot;
 int color[N];
 int w[N];
 
-int main()
-{
+int main() {
     std::ios::sync_with_stdio(false), std::cin.tie(0), std::cout.tie(0);
 
     std::cin >> n >> m;
@@ -1011,8 +997,7 @@ int main()
 ```cpp
 #include <bits/stdc++.h>
 
-int main()
-{
+int main() {
     std::ios::sync_with_stdio(false), std::cin.tie(0), std::cout.tie(0);
     
     int n, m, k, s, t;

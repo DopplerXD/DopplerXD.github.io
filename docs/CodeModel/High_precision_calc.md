@@ -18,8 +18,7 @@ vector<int> add(vector<int>& A, vector<int>& B) {
     if (t) C.push_back(t);
     return C;
 }
-int main()
-{
+int main() {
     string a, b;
     vector<int> A, B;
     cin >> a >> b;
@@ -57,8 +56,7 @@ vector<int> sub(vector<int>& A, vector<int>& B) {
     while (C.size() > 1 && C.back() == 0) C.pop_back();
     return C;
 }
-int main()
-{
+int main() {
     string a, b;
     vector<int> A, B;
     cin >> a >> b;
@@ -94,8 +92,7 @@ vector<int> mul(vector<int>& A, int b) {
     while (C.size() > 1 && C.back() == 0) C.pop_back();
     return C;
 }
-int main()
-{
+int main() {
     string a;
     int b;
     vector<int> A;
@@ -124,8 +121,7 @@ vector<int> div(vector<int>& A, int b, int& r) {
     while (C.size() > 1 && C.back() == 0) C.pop_back();
     return C;
 }
-int main()
-{
+int main() {
     string a;
     int b;
     vector<int> A;

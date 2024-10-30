@@ -174,3 +174,43 @@ lower_bound(begin,end,num,greater()): 二分查找第一个小于或等于 num �
 upper_bound(begin,end,num,greater()): 二分查找第一个小于 num 的数字
 ```
 
+## extract (C++17)
+
+extract 复杂度 $log(size())$
+
+**set::extract** 可以移除某个元素
+
+```cpp
+std::set<int> cont{1, 2, 3};
+
+// Extract node handle and change key
+auto nh = cont.extract(1);
+nh.value() = 4;
+
+print("After extract and before insert:", cont); // 2 3
+
+// Insert node handle back
+cont.insert(std::move(nh));
+
+print("End:", cont); // 2 3 4
+```
+
+**map::extract** 能够修改一组 <key, value> 中的 key
+
+> extract is the only way to change a key of a map element without reallocation
+
+```cpp
+std::map<int, char> cont{{1, 'a'}, {2, 'b'}, {3, 'c'}};
+
+// Extract node handle and change key
+auto nh = cont.extract(1);
+nh.key() = 4;
+
+print("After extract and before insert:", cont); // 2(b) 3(c)
+
+// Insert node handle back
+cont.insert(std::move(nh));
+
+print("End:", cont); // 2(b) 3(c) 4(a)
+```
+

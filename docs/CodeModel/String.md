@@ -79,10 +79,6 @@ int kmp() {
 ### SAM 后缀自动机求解
 
 ```cpp
-#include <bits/stdc++.h>
-#define ll long long
-using namespace std;
-const int N = 1e5 + 5;
 string s;
 int n;
 int sz, last;
@@ -126,8 +122,7 @@ void Insert(int c) {
     }
     last = cur;
 }
-void solve()
-{
+void solve() {
     cin >> n >> s;
     init();
     for (int i = 0; i < n; i++) {
@@ -135,16 +130,6 @@ void solve()
         dp[i] = dp[i - 1] + t[last].len - t[t[last].father].len;
     }
     cout << dp[n - 1] << '\n';
-}
-int main()
-{
-    ios::sync_with_stdio(false);
-    cin.tie(0);
-    int _T = 1;
-    // cin >> _T;
-    while (_T--)
-        solve();
-    return 0;
 }
 ```
 
@@ -162,10 +147,6 @@ int main()
 最终答案：$ ans = \frac{n(n+1)}{2} - \sum_{i=2}^{n}height[i] $
 
 ```cpp
-#include <bits/stdc++.h>
-#define ll long long
-using namespace std;
-const int N = 1e5 + 5;
 string s;
 int n;
 ll height[N];
@@ -226,14 +207,6 @@ void solve() {
     ll ans = (1LL + n) * n / 2;
     for (int i = 2; i <= n; i++) ans -= height[i];
     cout << ans << '\n';
-}
-int main()
-{
-    int T = 1;
-    // cin >> T;
-    while (T--) {
-        solve();
-    }
 }
 ```
 
@@ -594,22 +567,29 @@ int main() {
 
 ### 普通版哈希
 
+ull 自然溢出
+
 ```cpp
 #define ull unsigned long long
-using namespace std;
 const int N = 1e4 + 5;
-const ull P = 131;
-ull a[N];
-char s[N];
-ull Hash(char* s) { // BKDRHash
+const ull P = 13331;
+ull p[N];
+std::string s;
+
+void init() {
+    p[0] = 1;
+    for (int i = 1; i < N; i++)
+        p[i] = p[i - 1] * P;
+}
+ull Hash(std::string s) {
     ull H = 0;
-    int n = strlen(s);
+    int n = s.length();
     for (int i = 0; i < n; i++)
-        H = H * P + s[i] - 'a' + 1; // 自然溢出
+        H = H * P + s[i] - 'a' + 1;
     return H;
 }
 
-ull get_hash(ull L, ull R) { return H[R] - H[L - 1] * P[R - L + 1]; }
+ull get_hash(ull L, ull R) { return H[R] - H[L - 1] * p[R - L + 1]; }
 ```
 
 ### 双模数哈希

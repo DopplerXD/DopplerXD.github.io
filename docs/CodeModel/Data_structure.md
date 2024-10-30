@@ -6,19 +6,8 @@
 
 ```cpp
 int fa[N];
-int find(int x)
-{
-    int root = fa[x];
-    while (root != fa[root]) root = fa[root];
-    while (x != root) {
-        int t = fa[x];
-        fa[x] = root;
-        x = t;
-    }
-    return root;
-}
-void solve()
-{
+int find(int x) { return fa[x] == x ? x : fa[x] = find(fa[x]); }
+void solve() {
     int n, m;
     cin >> n >> m;
     for (int i = 1; i <= n; i++) fa[i] = i;
@@ -92,11 +81,7 @@ struct DSU {
 ### 单点修改、区间求和
 
 ```cpp
-#include <bits/stdc++.h>
-#define ll long long
-using namespace std;
-const int N = 5e5 + 5;
-int tr[N], n;
+int tr[N], n, q;
 int lowbit(int x) { return x & -x; }
 void add(int x, int y) {
     for(; x <= n; x += lowbit(x))
@@ -108,17 +93,14 @@ int query(int x) {
         ans += tr[x];
     return ans;
 }
-
-int main()
-{
-    int q;
+void solve() {
     cin >> n >> q;
-    for(int i = 1; i <= n; i++) {
+    for (int i = 1; i <= n; i++) {
         int x;
         cin >> x;
         add(i, x);
     }
-    while(q--) {
+    while (q--) {
         int op;
         cin >> op;
         if(op == 1) {
@@ -132,16 +114,12 @@ int main()
             cout << query(y) - query(x - 1) << '\n';
         }
     }
-    return 0;
 }
 ```
 
 ### 区间修改，单点查询
 
 ```cpp
-#include <bits/stdc++.h>
-using namespace std;
-const int N = 5e5 + 5;
 int a[N];
 int b[N], c[N];
 int n, m;
@@ -153,22 +131,20 @@ void add(int x, int y) {
     for (i = x; i <= n; i += lowbit(i))
         c[i] += y;
 }
-int sum(int x) {
+int query(int x) {
     int i, res = 0;
     for (i = x; i > 0; i -= lowbit(i))
         res += c[i];
     return res;
 }
-int main() {
-    ios::sync_with_stdio(0), cin.tie(0);
-    int i, j;
+void solve() {
     cin >> n >> m;
-    for (i = 1; i <= n; i++) {
+    for (int i = 1; i <= n; i++) {
         cin >> a[i];
         b[i] = a[i] - a[i - 1];
         add(i, b[i]);
     }
-    for (i = 1; i <= m; i++) {
+    for (int i = 1; i <= m; i++) {
         string s;
         cin >> s;
         if (s[0] == 'C') {
@@ -179,20 +155,15 @@ int main() {
         else {
             int t;
             cin >> t;
-            cout << sum(t) << endl;
+            cout << query(t) << endl;
         }
     }
-    return 0;
 }
 ```
 
 ### 区间修改，区间查询
 
 ```cpp
-#include <bits/stdc++.h>
-#define ll long long
-using namespace std;
-const int N = 5e5 + 5;
 int n, m;
 ll b[N], a[N], c1[N], c2[N];
 int lowbit(int x) {
@@ -204,14 +175,13 @@ void add(ll x, ll y) {
         c2[i] += y * x;
     }
 }
-ll ask(ll x) {
+ll query(ll x) {
     ll i, res = 0;
     for (i = x; i > 0; i -= lowbit(i))
         res += (x + 1) * c1[i] - c2[i];
     return res;
 }
-int main() {
-    ios::sync_with_stdio(0);
+void solve() {
     int i, j;
     cin >> n >> m;
     for (i = 1; i <= n; i++) {
@@ -229,10 +199,9 @@ int main() {
         }
         else {//区间查询
             cin >> l >> r;
-            cout << ask(r) - ask(l - 1) << endl;
+            cout << query(r) - query(l - 1) << endl;
         }
     }
-    return 0;
 }
 ```
 
@@ -588,8 +557,7 @@ void solve() {
         else cout << "No\n";
     }
 }
-int main()
-{
+int main() {
     ios::sync_with_stdio(false), cin.tie(0), cout.tie(0);
     int _T = 1;
     // cin >> _T;
@@ -689,8 +657,7 @@ inline void solve() {
         cout << ans[i] << '\n';
     }
 }
-int main()
-{
+int main() {
     ios::sync_with_stdio(false), cin.tie(0), cout.tie(0);
     int _T = 1;
     // cin >> _T;
@@ -760,8 +727,7 @@ inline void update(int u, bool op) {
     vis[u] ^= 1;
 }
 
-signed main()
-{
+int main() {
     std::ios::sync_with_stdio(false), std::cin.tie(0), std::cout.tie(0);
 
     std::cin >> n >> m;
@@ -848,6 +814,7 @@ signed main()
         }
     }
     for (int i = 0; i < m; i++) std::cout << ans[i] << std::endl;
+    return 0;
 }
 ```
 
@@ -860,7 +827,7 @@ int n, a[N];
 int mx[N][20];
 int mylog[N];
 
-init() {
+void init() {
     mylog[0] = -1;
     for(int i = 1; i < N; i++) mylog[i] = mylog[i >> 1] + 1;
     

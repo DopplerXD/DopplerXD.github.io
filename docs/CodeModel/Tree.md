@@ -15,8 +15,7 @@ void dfs(int u, int fa) {
         dfs(v, u);
     }
 }
-void solve()
-{
+void solve() {
     cin >> n;
     for (int i = 1; i < n; i++) {
         int u, v;
@@ -40,12 +39,12 @@ int n, d = 0;
 int dp[N];
 vector<int> E[N];
 void dfs(int u, int fa) {
-  for (int v : E[u]) {
-    if (v == fa) continue;
-    dfs(v, u);
-    d = max(d, dp[u] + dp[v] + 1);
-    dp[u] = max(dp[u], dp[v] + 1);
-  }
+	for (int v : E[u]) {
+		if (v == fa) continue;
+		dfs(v, u);
+		d = max(d, dp[u] + dp[v] + 1);
+		dp[u] = max(dp[u], dp[v] + 1);
+	}
 }
 ```
 
@@ -88,10 +87,8 @@ int LCA(int x, int y) {
     }
     return fa[x][0];
 }
-int main()
-{
-    ios::sync_with_stdio(false);
-    cin.tie(0), cout.tie(0);
+int main() {
+    ios::sync_with_stdio(false), cin.tie(0), cout.tie(0);
     cin >> n >> m >> s;
     for (int i = 1; i < n; i++) {
         int u, v;
@@ -145,10 +142,8 @@ void tarjan(int u) {
             ans[it.second] = find_set(v);
     }
 }
-int main()
-{
-    ios::sync_with_stdio(false);
-    cin.tie(0), cout.tie(0);
+int main() {
+    ios::sync_with_stdio(false), cin.tie(0), cout.tie(0);
     cin >> n >> m >> s;
     for (int i = 1; i < n; i++) {
         fa[i] = i; // 并查集初始化

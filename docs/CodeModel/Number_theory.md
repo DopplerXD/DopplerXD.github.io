@@ -44,8 +44,7 @@ matrix operator * (const matrix& a, const matrix& b) {
                 c.m[i][j] = (c.m[i][j] + a.m[i][k] * b.m[k][j]) % mod;
     return c;
 }
-matrix pow_matrix(matrix a, int n)
-{
+matrix pow_matrix(matrix a, int n) {
     matrix ans;
     memset(ans.m, 0, sizeof(ans.m));
     for (int i = 0; i < N; i++)
@@ -367,14 +366,14 @@ $$
 
 ```cpp
 ll CRT(int k, ll* a, ll* r) {
-  ll n = 1, ans = 0;
-  for (int i = 1; i <= k; i++) n = n * r[i];
-  for (int i = 1; i <= k; i++) {
-    ll m = n / r[i], b, y;
-    exgcd(m, r[i], b, y);  // b * m mod r[i] = 1
-    ans = (ans + a[i] * m * b % n) % n;
-  }
-  return (ans % n + n) % n;
+	ll n = 1, ans = 0;
+	for (int i = 1; i <= k; i++) n = n * r[i];
+	for (int i = 1; i <= k; i++) {
+		ll m = n / r[i], b, y;
+		exgcd(m, r[i], b, y);  // b * m mod r[i] = 1
+		ans = (ans + a[i] * m * b % n) % n;
+	}
+	return (ans % n + n) % n;
 }
 ```
 
@@ -390,35 +389,34 @@ const int N = 10 + 5;
 int k;
 ll a[N], b[N], n = 1;
 void exgcd(ll a, ll b, ll& x, ll& y) { // 扩欧求逆
-  if (b == 0) {
-    x = 1, y = 0;
-    return;
-  }
-  exgcd(b, a % b, y, x);
-  y -= a / b * x;
+	if (b == 0) {
+		x = 1, y = 0;
+		return;
+	}
+	exgcd(b, a % b, y, x);
+	y -= a / b * x;
 }
-int main()
-{
-    ios::sync_with_stdio(false), cin.tie(0), cout.tie(0);
-    cin >> k;
-    ll ans = 0;
-    for (int i = 1; i <= k; i++) {
-        int x, y;
-        cin >> x >> y;
-        // cin >> a[i] >> b[i];
-        a[i] = x, b[i] = y;
-        n *= a[i];
-    }
-    for (int i = 1; i <= k; i++) {
-        ll m = n / a[i];
-        ll _m, y;
-        exgcd(m, a[i], _m, y);
-        ll c = m * _m;
-        ans += (c * b[i]) % n;
-        ans %= n;
-    }
-    long long res = (ans + n) % n;
-    cout << res << '\n';
+int main() {
+	ios::sync_with_stdio(false), cin.tie(0), cout.tie(0);
+	cin >> k;
+	ll ans = 0;
+	for (int i = 1; i <= k; i++) {
+		int x, y;
+		cin >> x >> y;
+		// cin >> a[i] >> b[i];
+		a[i] = x, b[i] = y;
+		n *= a[i];
+	}
+	for (int i = 1; i <= k; i++) {
+		ll m = n / a[i];
+		ll _m, y;
+		exgcd(m, a[i], _m, y);
+		ll c = m * _m;
+		ans += (c * b[i]) % n;
+		ans %= n;
+	}
+	long long res = (ans + n) % n;
+	cout << res << '\n';
 }
 ```
 
@@ -429,23 +427,24 @@ $n$ 个人编号 $0,1,2…,n-1$ ，每次数到 $k$ 出局，求最后剩下的�
 O(N) 
 
 ```cpp
-int jos(int n,int k){
-    int res=0;
-    repeat(i,1,n+1)res=(res+k)%i;
-    return res; // res+1，如果编号从 1 开始
+int jos(int n, int k) {
+    int res = 0;
+    for (int i = 1; i <= n; i++)
+        res = (res + k) % i;
+    return res;
 }
 ```
 
 $ O(K\log N) $ ，适用于 K 较小的情况。
 
 ```cpp
-int jos(int n,int k){
-    if (n==1 || k==1) return n-1;
-    if (k>n) return (jos(n-1,k)+k)%n; // 线性算法
-    int res = jos(n-n/k,k)-n%k;
-    if (res<0) res += n; // mod n
-    else res += res / (k-1); // 还原位置
-    return res; // res+1，如果编号从 1 开始
+int jos(int n, int k) {
+	if (n == 1 || k == 1) return n - 1;
+	if (k > n) return (jos(n - 1, k) + k) % n; // 线性算法
+	int res = jos(n - n / k, k) - n % k;
+	if (res < 0) res += n; // mod n
+	else res += res / (k - 1); // 还原位置
+	return res; // res+1，如果编号从 1 开始
 }
 ```
 
@@ -467,12 +466,12 @@ for (int i : p) if (~i) {
 
 ```cpp
 for (int i = 0; i <= 5000; i++) {
-        for (int j = 0; j <= i; j++) {
-            if (!j) C[i][j] = 1;
-            else C[i][j] = C[i - 1][j] + C[i - 1][j - 1];
-            C[i][j] %= mod;
-        }
+    for (int j = 0; j <= i; j++) {
+        if (!j) C[i][j] = 1;
+        else C[i][j] = C[i - 1][j] + C[i - 1][j - 1];
+        C[i][j] %= mod;
     }
+}
 ```
 
 ## 20 防爆模乘
