@@ -180,7 +180,9 @@ nav:
     - STL: CodeModel/STL.md
     - atcoder 封装: CodeModel/AtcoderModel.md
     - python: CodeModel/python.md
-  - 专题总结: Topic/index.md
+  - 专题总结:
+    - 目录: Topic/index.md
+    - 数据挖掘复习总结: Topic/DataMining.md
   - 开发总结: Development/index.md
   - 使用经验: Skill/index.md
   - 资源平台: Resource/index.md
