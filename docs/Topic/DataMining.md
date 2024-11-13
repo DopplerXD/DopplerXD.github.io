@@ -119,9 +119,9 @@ Machine Learning 和 Deep Learning 的区别
 
 ![image-20241113221504936](DataMining.assets/image-20241113221504936.png)
 
-<img src="DataMining.assets/image-20241113221510724.png" alt="image-20241113221510724" style="zoom:50%;" />
+![image-20241113221510724](DataMining.assets/image-20241113221510724.png)
 
-<img src="DataMining.assets/image-20241113221531398.png" alt="image-20241113221531398" style="zoom: 50%;" />
+![image-20241113221531398](DataMining.assets/image-20241113221531398.png)
 
 #### 闵可夫斯基距离
 
@@ -129,7 +129,7 @@ Machine Learning 和 Deep Learning 的区别
 
 #### 余弦相似性
 
-余弦度量 $sim(x,y)= \frac{x \cdot y}{||x||*||y||}$
+余弦度量 $sim(x,y)= \frac{x \cdot y}{|x||y|}$ 
 
 ### 数据预处理
 
@@ -170,7 +170,7 @@ Machine Learning 和 Deep Learning 的区别
 
 ![image-20241113223032067](DataMining.assets/image-20241113223032067.png)
 
-<img src="DataMining.assets/image-20241113223039965.png" alt="image-20241113223039965" style="zoom:50%;" />
+![image-20241113223039965](DataMining.assets/image-20241113223039965.png)
 
 #### 压缩
 
@@ -194,7 +194,7 @@ Machine Learning 和 Deep Learning 的区别
 
 ### 数据仓库
 
-<img src="DataMining.assets/image-20241113225107683.png" alt="image-20241113225107683" style="zoom:50%;" />
+![image-20241113225107683](DataMining.assets/image-20241113225107683.png)
 
 特征
 
@@ -203,7 +203,7 @@ Machine Learning 和 Deep Learning 的区别
 + 时变的
 + 非易失的
 
-<img src="DataMining.assets/image-20241113225236845.png" alt="image-20241113225236845" style="zoom:50%;" />
+![image-20241113225236845](DataMining.assets/image-20241113225236845.png)
 
 ![image-20241113225323880](DataMining.assets/image-20241113225323880.png)
 
@@ -223,19 +223,19 @@ OLAP：联机分析处理
 
 数据立方体：一种用于数据仓库和 OLAP 及 OLAP 操作（如上卷、下钻、切片和切块）的多维数据模型。
 
-<img src="DataMining.assets/image-20241113225608901.png" alt="image-20241113225608901" style="zoom:50%;" />
+![image-20241113225608901](DataMining.assets/image-20241113225608901.png)
 
-<img src="DataMining.assets/image-20241113225627908.png" alt="image-20241113225627908" style="zoom:50%;" />
+![image-20241113225627908](DataMining.assets/image-20241113225627908.png)
 
-<img src="DataMining.assets/image-20241113225645486.png" alt="image-20241113225645486" style="zoom:50%;" />
+![image-20241113225645486](DataMining.assets/image-20241113225645486.png)
 
 概念分层的作用：多层次分析、数据汇总和钻取、灵活的视角、提高性能、更好的数据理解
 
 ### OLAP 操作
 
-<img src="DataMining.assets/image-20241113225809461.png" alt="image-20241113225809461" style="zoom:50%;" />
+![image-20241113225809461](DataMining.assets/image-20241113225809461.png)
 
-<img src="DataMining.assets/image-20241113225825020.png" alt="image-20241113225825020" style="zoom:50%;" />
+![image-20241113225825020](DataMining.assets/image-20241113225825020.png)
 
 位图索引
 
@@ -243,7 +243,7 @@ OLAP：联机分析处理
 
 ![image-20241113225935880](DataMining.assets/image-20241113225935880.png)
 
-<img src="DataMining.assets/image-20241113225947758.png" alt="image-20241113225947758" style="zoom:50%;" />
+![image-20241113225947758](DataMining.assets/image-20241113225947758.png)
 
 连接索引
 
@@ -267,9 +267,9 @@ OLAP：联机分析处理
 
 冰山立方体： having count(*) >= min support
 
-<img src="DataMining.assets/image-20241113230435295.png" alt="image-20241113230435295" style="zoom:50%;" />
+![image-20241113230435295](DataMining.assets/image-20241113230435295.png)
 
-<img src="DataMining.assets/image-20241113230442337.png" alt="image-20241113230442337" style="zoom:50%;" />
+![image-20241113230442337](DataMining.assets/image-20241113230442337.png)
 
 ## 四、频繁模式挖掘
 
@@ -395,13 +395,13 @@ print(rules)
   - **小数据集**或**快速原型验证**：使用Apriori。
   - **大数据集**或**生产环境**：推荐使用FP-Growth。
 
-<img src="DataMining.assets/image-20241113224009406.png" alt="image-20241113224009406" style="zoom:50%;" />
+![image-20241113224009406](DataMining.assets/image-20241113224009406.png)
 
 ![image-20241113224036205](DataMining.assets/image-20241113224036205.png)
 
 ![image-20241113224042980](DataMining.assets/image-20241113224042980.png)
 
-<img src="DataMining.assets/image-20241113224051052.png" alt="image-20241113224051052" style="zoom:50%;" />
+![image-20241113224051052](DataMining.assets/image-20241113224051052.png)
 
 ![image-20241113224111245](DataMining.assets/image-20241113224111245.png)
 
@@ -415,7 +415,7 @@ print(rules)
 
 使用垂直格式存储
 
-<img src="DataMining.assets/image-20241113223842291.png" alt="image-20241113223842291" style="zoom: 33%;" />
+![image-20241113223842291](DataMining.assets/image-20241113223842291.png)
 
 ### 模式评估度量比较
 
@@ -493,7 +493,7 @@ K-Nearest Neighbors
 
 #### 评估指标
 
-<img src="DataMining.assets/image-20241112121322584.png" alt="image-20241112121322584" style="zoom:50%;" />
+![image-20241112121322584](DataMining.assets/image-20241112121322584.png)
 
 准确率 $Accuracy= \frac{TP+TN}{SUM(all)}$
 
@@ -587,7 +587,7 @@ Bootstrap aggregating
 
 ![image-20241112181903000](DataMining.assets/image-20241112181903000.png)
 
-<img src="DataMining.assets/image-20241112181935180.png" alt="image-20241112181935180" style="zoom:50%;" />
+![image-20241112181935180](DataMining.assets/image-20241112181935180.png)
 
 ![image-20241112181950856](DataMining.assets/image-20241112181950856.png)
 
