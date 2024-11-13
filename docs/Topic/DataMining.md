@@ -1,10 +1,289 @@
+## 一、绪论
+
+### 什么是数据挖掘
+
+数据挖掘 -- 从数据中发现知识（KDD，Knowledge Discovery from Data）
+
++ 从海量的数据中提取有趣的模式或知识
+
+![image-20241113214047816](DataMining.assets/image-20241113214047816.png)
+
+### 可以挖掘什么类型的数据
+
++ 结构化数据
+  + 由二维表结构来逻辑表达或实现的数据
+  + 能存进关系型数据库：csv、excel等
++ 半结构化数据
+  + 维度高于二维，但可根据相关标记对其进行分割理解的数据
+  + JSON 串、HTML 文档、NoSQL 数据等
++ 非结构化数据
+  + 没有固定结构和规则，在机器中存为二进制
+  + 图像、视频、语音、文本等
+
+![image-20241113214644910](DataMining.assets/image-20241113214644910.png)
+
+#### 5V 特征
+
++ 数量 Volume
++ 速度 Velocity
++ 真实 Veracity
++ 多样 Variety
++ 价值 Value
+
+### 可以挖掘什么类型的模式
+
++ 描述性数据挖掘：表征感兴趣的数据集的属性
++ 预测性数据挖掘：对数据集执行归纳以进行预测
+
+![image-20241113215115687](DataMining.assets/image-20241113215115687.png)
+
+#### 聚类分析
+
+原则：最大化类内相似性、最小化类间相似性
+
+#### 深度学习
+
+Machine Learning 和 Deep Learning 的区别
+
++ 深度学习能够从原始数据中自动提取出关键特征，而这一过程无需人工干预或手动设计特征，
++ 传统机器学习使用一到两个计算层的简单神经网络结构，而深度学习使用三个到几百个。
+
+#### 知识评价（模式评估）
+
+有趣的模式
+
++ 潜在有用的
++ 易于理解的
++ 新颖的/典型的
++ 高准确率的
+
+### 面临的主要问题
+
++ 效率和可伸缩性
+  + 算法的效率和可扩展性
+  + 并行、分布式、流式和增量式挖掘方法
++ 数据类型的多样性
+  + 处理复杂类型的数据
+  + 挖掘动态、网络和全局数据存储库
++ 数据安全和数据隐私保护
+
+## 二、数据及其预处理
+
+### 数据属性类型
+
+绝对温度属于比率属性，摄氏温度属于区间属性。
+
+![image-20241113220306423](DataMining.assets/image-20241113220306423.png)
+
+![image-20241113220321333](DataMining.assets/image-20241113220321333.png)
+
+### 数据统计的基本描述
+
+#### 中位数
+
+对于分组数据，中位数通过插值法来估计
+
+![image-20241113220540867](DataMining.assets/image-20241113220540867.png)
+
+近似中位数为 $21+\frac{3194/2-950}{1500}*(50-21)=32.94$ 
+
+#### 对称数据与倾斜数据
+
+![image-20241113220806891](DataMining.assets/image-20241113220806891.png)
+
+#### 测量数据的分散度
+
+盒图（箱线图）
+
++ 五数概括
+  + 四分位数 Q1
+  + 中位数 Q2
+  + 四分位数 Q3
+  + 最小值 Min
+  + 最大值 Max
++ 异常值：高于/低于 1.5*IQR（Q3-Q1） 的值
+
+#### 卡方检验
+
+![image-20241113221209554](DataMining.assets/image-20241113221209554.png)
+
+![image-20241113221224625](DataMining.assets/image-20241113221224625.png)
+
+![image-20241113221235047](DataMining.assets/image-20241113221235047.png)
+
+![image-20241113221246932](DataMining.assets/image-20241113221246932.png)
+
+![image-20241113221256065](DataMining.assets/image-20241113221256065.png)
+
+### 度量数据的相似性与相异性
+
+![image-20241113221504936](DataMining.assets/image-20241113221504936.png)
+
+<img src="DataMining.assets/image-20241113221510724.png" alt="image-20241113221510724" style="zoom:50%;" />
+
+<img src="DataMining.assets/image-20241113221531398.png" alt="image-20241113221531398" style="zoom: 50%;" />
+
+#### 闵可夫斯基距离
+
+![image-20241113221636116](DataMining.assets/image-20241113221636116.png)
+
+#### 余弦相似性
+
+余弦度量 $ sim(x,y)= \frac{x \cdot y}{||x||*||y||} $
+
+### 数据预处理
+
+步骤：数据清理-数据集成-数据变换-数据降维
+
+数据质量衡量标准：准确性、完整性、一致性、时效性、可信性、可解释性
+
+### 数据清理
+
+不完整的、噪声的、不一致的、故意的
+
++ 处理缺失数据
+  + 忽略元组
+  + 人工填写
+  + 自动填充（Unknown、平均值或中位数、基于推理得到的值）
++ 平滑噪声数据
+  + 分箱（按箱均值/中值/边界平滑）
+  + 回归
+  + 聚类
+  + 半监督
++ 识别或删除异常值并解决数据不一致的问题
+
+![image-20241113222548052](DataMining.assets/image-20241113222548052.png)
+
+### 数据变换
+
+规范化、离散化、数据压缩、采样、由标称数据产生概念分层
+
+![image-20241113222841121](DataMining.assets/image-20241113222841121.png)
+
+#### 规范化
+
+![image-20241113222923135](DataMining.assets/image-20241113222923135.png)
+
+#### 离散化
+
+![image-20241113222948394](DataMining.assets/image-20241113222948394.png)
+
+![image-20241113223032067](DataMining.assets/image-20241113223032067.png)
+
+<img src="DataMining.assets/image-20241113223039965.png" alt="image-20241113223039965" style="zoom:50%;" />
+
+#### 压缩
+
++ 无损压缩
++ 有损压缩
+
+#### 采样
+
+对于不平衡数据，抽样方法能够通过一些机制改善不均衡数据集，以获得一个均衡的数据分布
+
+混淆矩阵
+
+### 数据降维
+
++ 特征选择
+  + 信息增益=信息熵-条件熵
++ 特征提取
++ 主成分分析
+
+## 三、数据仓库与联机分析处理
+
+### 数据仓库
+
+<img src="DataMining.assets/image-20241113225107683.png" alt="image-20241113225107683" style="zoom:50%;" />
+
+特征
+
++ 面向主题的
++ 集成的
++ 时变的
++ 非易失的
+
+<img src="DataMining.assets/image-20241113225236845.png" alt="image-20241113225236845" style="zoom:50%;" />
+
+![image-20241113225323880](DataMining.assets/image-20241113225323880.png)
+
+![image-20241113225305930](DataMining.assets/image-20241113225305930.png)
+
+![image-20241113225336763](DataMining.assets/image-20241113225336763.png)
+
+![image-20241113225348067](DataMining.assets/image-20241113225348067.png)
+
+数据仓库分层：清晰数据结构、数据血统追踪、减少重复开发
+
+OLTP：联机事务处理
+
+OLAP：联机分析处理
+
+### 数据仓库建模：模式和度量
+
+数据立方体：一种用于数据仓库和 OLAP 及 OLAP 操作（如上卷、下钻、切片和切块）的多维数据模型。
+
+<img src="DataMining.assets/image-20241113225608901.png" alt="image-20241113225608901" style="zoom:50%;" />
+
+<img src="DataMining.assets/image-20241113225627908.png" alt="image-20241113225627908" style="zoom:50%;" />
+
+<img src="DataMining.assets/image-20241113225645486.png" alt="image-20241113225645486" style="zoom:50%;" />
+
+概念分层的作用：多层次分析、数据汇总和钻取、灵活的视角、提高性能、更好的数据理解
+
+### OLAP 操作
+
+<img src="DataMining.assets/image-20241113225809461.png" alt="image-20241113225809461" style="zoom:50%;" />
+
+<img src="DataMining.assets/image-20241113225825020.png" alt="image-20241113225825020" style="zoom:50%;" />
+
+位图索引
+
+![image-20241113225920500](DataMining.assets/image-20241113225920500.png)
+
+![image-20241113225935880](DataMining.assets/image-20241113225935880.png)
+
+<img src="DataMining.assets/image-20241113225947758.png" alt="image-20241113225947758" style="zoom:50%;" />
+
+连接索引
+
+![image-20241113230007685](DataMining.assets/image-20241113230007685.png)
+
+水平存储
+
+![image-20241113230105032](DataMining.assets/image-20241113230105032.png)
+
+垂直存储
+
+![image-20241113230117944](DataMining.assets/image-20241113230117944.png)
+
+![image-20241113230123232](DataMining.assets/image-20241113230123232.png)
+
+### 数据立方体计算
+
+![image-20241113230201802](DataMining.assets/image-20241113230201802.png)
+
+![image-20241113230212780](DataMining.assets/image-20241113230212780.png)
+
+冰山立方体： having count(*) >= min support
+
+<img src="DataMining.assets/image-20241113230435295.png" alt="image-20241113230435295" style="zoom:50%;" />
+
+<img src="DataMining.assets/image-20241113230442337.png" alt="image-20241113230442337" style="zoom:50%;" />
+
 ## 四、频繁模式挖掘
 
-在关联规则挖掘中，**Apriori** 和 **FP-Growth** 是两种常用的算法。它们用于从交易数据中挖掘**频繁项集**和**关联规则**，但它们的实现方式和效率存在显著差异。下面是对这两种算法的详细对比。
+### 基本概念
 
-### 1. 算法简介
+支持度
 
-#### **Apriori算法**
+置信度 $confidence(A=>B)=P(B|A)= \frac{support(A \cup B)}{support A}$
+
+### Apriori 和 FP growth
+
+#### 算法简介
+
+##### **Apriori 算法**
 - **提出者**：Rakesh Agrawal 等人于1994年。
 - **核心思想**：利用**逐层搜索**（Level-wise Search）的方法，通过**频繁项集的“剪枝”特性**来减少候选项集的数量。
 - **工作流程**：
@@ -14,7 +293,10 @@
   4. 重复上述步骤，直到找不到新的频繁项集。
 - **剪枝策略**：若某个 \( k \)-项集不是频繁的，那么包含该 \( k \)-项集的所有 \( (k+1) \)-项集都不是频繁的（**Apriori原理**）。
 
-#### **FP-Growth（Frequent Pattern Growth）算法**
+##### **FP-Growth（Frequent Pattern Growth）算法**
+
+![image-20241113224147134](DataMining.assets/image-20241113224147134.png)
+
 - **提出者**：Han, Pei, 和 Yin 于2000年。
 - **核心思想**：通过构建**FP-树（Frequent Pattern Tree）**来高效地压缩数据，并避免生成候选项集。
 - **工作流程**：
@@ -25,7 +307,7 @@
 
 ---
 
-### 2. **Apriori与FP-Growth的区别对比**
+#### Apriori与FP-Growth的区别对比
 
 | 特性             | **Apriori算法**                            | **FP-Growth算法**                     |
 | ---------------- | ------------------------------------------ | ------------------------------------- |
@@ -42,9 +324,9 @@
 
 ---
 
-### 3. **优缺点分析**
+#### 优缺点分析
 
-#### **Apriori算法**
+##### **Apriori算法**
 - **优点**：
   - 简单直观，易于理解和实现。
   - 适合初学者和对小规模数据集进行关联分析。
@@ -52,7 +334,7 @@
   - 随着项集长度增加，候选项集的数量呈指数增长（**组合爆炸问题**）。
   - 需要多次扫描数据集，效率较低，特别是对于大数据集。
 
-#### **FP-Growth算法**
+##### **FP-Growth算法**
 - **优点**：
   - 通过FP-树压缩数据，只需两次扫描数据库，大幅减少I/O开销。
   - 无需显式生成候选项集，效率更高，尤其是对大型数据集。
@@ -62,9 +344,9 @@
 
 ---
 
-### 4. **应用示例**
+#### 应用示例
 
-#### **Apriori算法示例（Python代码）**
+##### **Apriori算法示例（Python代码）**
 ```python
 from mlxtend.frequent_patterns import apriori, association_rules
 import pandas as pd
@@ -84,7 +366,7 @@ rules = association_rules(frequent_itemsets, metric="confidence", min_threshold=
 print(rules)
 ```
 
-#### **FP-Growth算法示例（Python代码）**
+##### **FP-Growth算法示例（Python代码）**
 ```python
 from mlxtend.frequent_patterns import fpgrowth, association_rules
 import pandas as pd
@@ -106,12 +388,44 @@ print(rules)
 
 ---
 
-### 5. **总结与选择建议**
+#### 总结与选择建议
 - **Apriori算法**适合**小型数据集**，且易于理解和实现。但其性能瓶颈在于大量的候选项集生成和多次数据扫描。
 - **FP-Growth算法**适合**大规模数据集**，特别是**稀疏数据集**。通过FP-树结构的压缩和减少候选项集的生成，显著提升了效率，但实现较为复杂。
 - 在实际应用中，建议根据**数据规模**和**性能需求**选择适合的算法：
   - **小数据集**或**快速原型验证**：使用Apriori。
   - **大数据集**或**生产环境**：推荐使用FP-Growth。
+
+<img src="DataMining.assets/image-20241113224009406.png" alt="image-20241113224009406" style="zoom:50%;" />
+
+![image-20241113224036205](DataMining.assets/image-20241113224036205.png)
+
+![image-20241113224042980](DataMining.assets/image-20241113224042980.png)
+
+<img src="DataMining.assets/image-20241113224051052.png" alt="image-20241113224051052" style="zoom:50%;" />
+
+![image-20241113224111245](DataMining.assets/image-20241113224111245.png)
+
+![image-20241113224101057](DataMining.assets/image-20241113224101057.png)
+
+
+
+### ECLAT （等价类转换 Equivalence Class Transformation）
+
+使用集合交集的深度优先搜索算法
+
+使用垂直格式存储
+
+<img src="DataMining.assets/image-20241113223842291.png" alt="image-20241113223842291" style="zoom: 33%;" />
+
+### 模式评估度量比较
+
+![image-20241113224616596](DataMining.assets/image-20241113224616596.png)
+
+![image-20241113224623503](DataMining.assets/image-20241113224623503.png)
+
+![image-20241113224634801](DataMining.assets/image-20241113224634801.png)
+
+零事务（既不包含A也不包含B的事务）过多，会导致以上两种方法失误。
 
 ## 五、分类
 
