@@ -129,7 +129,7 @@ Machine Learning 和 Deep Learning 的区别
 
 #### 余弦相似性
 
-余弦度量 $ sim(x,y)= \frac{x \cdot y}{||x||*||y||} $
+余弦度量 $sim(x,y)= \frac{x \cdot y}{||x||*||y||}$
 
 ### 数据预处理
 
