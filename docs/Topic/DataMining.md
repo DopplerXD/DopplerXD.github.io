@@ -164,6 +164,17 @@ Machine Learning 和 Deep Learning 的区别
 
 ![image-20241113222923135](DataMining.assets/image-20241113222923135.png)
 
+**Z-score 使用均值绝对偏差**
+$$
+v'= \frac{v- \mu_A}{\frac{\sum_1^n{|v_i- \mu|}}{n}}
+$$
+
+**小数定标规范化**
+
+通过移动小数点的位置进行规范化。小数点移动多少位取决于属性 A 的取值中的最大绝对值。
+
+如最大绝对值为999，则小数点移动3位。
+
 #### 离散化
 
 ![image-20241113222948394](DataMining.assets/image-20241113222948394.png)
