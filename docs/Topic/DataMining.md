@@ -288,7 +288,13 @@ OLAP：联机分析处理
 
 支持度
 
-置信度 $confidence(A=>B)=P(B|A)= \frac{support(A \cup B)}{support A}$
+置信度 $confidence(A=>B)=P(B|A)= \frac{support(A \cup B)}{support A}$ 
+
+**闭频繁项集**
+
+1. 闭频繁项集的所有超集的支持度都小于其自身的支持度。
+
+2. 如果一个项集 X 是频繁的，那么必然存在一个包含 X 的闭频繁项集 Y，并且 $support(X)=support(Y)$ 。
 
 ### Apriori 和 FP growth
 
@@ -435,6 +441,42 @@ print(rules)
 ![image-20241113224623503](DataMining.assets/image-20241113224623503.png)
 
 ![image-20241113224634801](DataMining.assets/image-20241113224634801.png)
+
+**(a) 全置信度 (All Confidence)**
+
+$\text{All Confidence} = \frac{n_{11}}{\max(n_{1+}, n_{+1})}$ 
+
+- **解释**：衡量 AAA 和 BBB 同时发生的频率在各自总出现频率中的占比。
+
+**(b) 最大置信度 (Max Confidence)**
+
+$\text{Max Confidence} = \max\left(\frac{n_{11}}{n_{1+}}, \frac{n_{11}}{n_{+1}}\right)$ 
+
+- **解释**：比较 A→BA \rightarrow BA→B 和 B→AB \rightarrow AB→A 的置信度，取较大者。
+
+**(c) Kulczynski**
+
+$\text{Kulczynski} = \frac{1}{2} \left(\frac{n_{11}}{n_{1+}} + \frac{n_{11}}{n_{+1}}\right)$ 
+
+- **解释**：Kulczynski 衡量的是 AAA 和 BBB 之间的平均置信度。
+
+**(d) 余弦相似度 (Cosine Similarity)**
+
+$\text{Cosine Similarity} = \frac{n_{11}}{\sqrt{n_{1+} \times n_{+1}}}$ 
+
+- **解释**：类似于向量的余弦相似度，衡量 AAA 和 BBB 的同时发生频率在各自总频率中的占比。
+
+**(e) 提升度 (Lift)**
+
+$\text{Lift} = \frac{n_{11} \times n}{n_{1+} \times n_{+1}}$ 
+
+- **解释**：衡量 AAA 和 BBB 是否独立。Lift > 1 表示正相关，Lift < 1 表示负相关。
+
+**(f) 相关系数 (Correlation Coefficient, ϕ)**
+
+$\text{Correlation} = \frac{n_{11} n_{00} - n_{10} n_{01}}{\sqrt{n_{1+} n_{0+} n_{+1} n_{+0}}}$ 
+
+- **解释**：类似于皮尔逊相关系数，用于衡量 AAA 和 BBB 之间的线性相关性。
 
 零事务（既不包含A也不包含B的事务）过多，会导致以上两种方法失误。
 
@@ -700,6 +742,27 @@ Bootstrap aggregating
 
 ## 六、聚类
 
+### 对比
+
+**概述k-均值和k-中心点相比较的优缺点：**
+
+k-均值算法计算代价更小；k-中心点计算代价大，但是对于数据中的离群点和噪声鲁棒性更强，即更少受到离群点和噪声的影响。
+
+**概述这两种方法与层次聚类方法（如AGNES）相比有何优缺点：**
+
+k-均值和k-中心点都是划分方法的一种，这种方法的好处在于每次迭代重定位的时候可以撤销之前的聚群操作，但是层次聚类方法一旦一个步骤（分裂或合并）完成将不能被撤回，因此层次聚类方法可能会影响聚类的结果的质量。划分方法在球形聚类上表现良好，且其聚类的结果在小型到中中型的数据库上质量较好。划分方法的缺点在于需要指定簇的数量。
+
+层次聚类方法自动决定簇的数量。然而他们每一步做出合并或分裂步骤的时候需要进行大量计算来评估该步骤产生的簇的质量。然而，层次聚类方法能够和其他聚类方法集成一个扩展的聚类方法，提高层次聚类质量，如BIRCH、ROCK和Chameleon。
+
+**按照这三个标准对 k-均值、k-中心点、DBSCAN 进行描述（1）可以确定的簇的形状；（2）必须指定的输入参数；（3）局限性**
+
+1. k-均值
+   球形；需指定簇的数量；对噪声敏感，只在小数据集上表现良好。
+2. k-中心点
+   球形；需指定簇的数量；适用于小数据集（没有可扩展性）。
+3. DBSCAN
+   任意形状；最大可能距离即密度可达和簇中点的最少数量；在最差情况下为 $O(n^2)$的复杂度。
+
 ### k-means
 
 复杂度 $O(nkt)$
@@ -715,3 +778,4 @@ Bootstrap aggregating
 ### DIANA
 
 自顶向下（分裂）
+
