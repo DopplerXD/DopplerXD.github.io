@@ -250,6 +250,18 @@ OLAP：联机分析处理
 
 ![image-20241113225825020](DataMining.assets/image-20241113225825020.png)
 
+#### 例题
+
+旅行代理的航班数据仓库包含6个维: traveler、departure(city)、departure_time、arrival、arrival_time和flight,两个度量: count()和 avg_fare(),其中avg_fare()在最低层存放具体费用，而在其他层存放平均费用。
+(a)假设该立方体是完全物化的。从基本方体[traveler、departure、departure_time、arrival、arrival_time]开始，为了列出2009年每个从洛杉矶乘坐美国航空公司(AA) 的商务旅客的月平均费用，应该执行哪些OLAP操作(例如，上卷flight到airline)?
+(b)假设想计算数据立方体，其中条件是记录的个数最少为10,并且平均费用超过500美元。勾画一种有效的 立方体计算方法(基于航班数据分布的常识)。
+
+![image-20241115190355877](DataMining.assets/image-20241115190355877.png)
+
+![image-20241115190404087](DataMining.assets/image-20241115190404087.png)
+
+![image-20241115190425922](DataMining.assets/image-20241115190425922.png)
+
 位图索引
 
 ![image-20241113225920500](DataMining.assets/image-20241113225920500.png)
