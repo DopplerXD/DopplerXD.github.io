@@ -167,12 +167,12 @@ nav:
   - 题解: 
     - 目录: Solution/index.md
     # - XCPC:
-    #   - 2024_CCPC_Harbin_B: Solution/XCPC/24_CCPC_Harbin_B.md
+    - 2024_CCPC_Harbin_B: Solution/XCPC/24_CCPC_Harbin_B.md
     # - Codeforces: 
     # - Atcoder: 
     # - OJ: 
     # - GPLT: 
-    #   - 2021总决赛: Solution/GPLT/2021_final.md
+    - 2021总决赛: Solution/GPLT/2021_final.md
   - 代码模板: 
     - 目录: CodeModel/index.md
     - 基础/杂项: CodeModel/Basic_and_others.md
