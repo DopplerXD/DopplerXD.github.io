@@ -1,6 +1,6 @@
 ## XCPC
 
-[2024 CCPC 哈尔滨 B. Concave Hull](XCPC\24_CCPC_Harbin_B.md)
+2024 CCPC 哈尔滨 B. Concave Hull
 
 
 
@@ -18,5 +18,5 @@
 
 ## 天梯赛
 
-[2021 国赛题解](GPLT\2021_final.md)
+2021 国赛题解
 
