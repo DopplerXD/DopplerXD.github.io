@@ -164,7 +164,15 @@ plugins:
 # [Navigtion]
 nav:
   - Home: index.md
-  - 题解: Solution/index.md
+  - 题解: 
+    - 目录: Solution/index.md
+    - XCPC:
+      - 2024 CCPC 哈尔滨B: Solution\XCPC\24_CCPC_Harbin_B.md
+    - Codeforces: 
+    - Atcoder: 
+    - OJ: 
+    - GPLT: 
+      - 2021总决赛: Solution/GPLT/2021_final.md
   - 代码模板: 
     - 目录: CodeModel/index.md
     - 基础/杂项: CodeModel/Basic_and_others.md
