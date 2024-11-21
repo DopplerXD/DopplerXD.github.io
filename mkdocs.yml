@@ -158,6 +158,7 @@ plugins:
   # - tags:
   #     tags_file: tag.md #标签
   - git-revision-date-localized:
+      type: date
       enable_creation_date: true
 
 # [Navigtion]
