@@ -25,6 +25,9 @@
 - \_\_int128_t​
 - 利用 auto + lambda + 引用捕获在内部编写递归函数
 - 火车头卡常
+- 三维前缀和
+- std::__builtin_popcount
+- std::mt19937 & std::shuffle 随机打乱
 
 ### 图论
 

@@ -46,7 +46,7 @@ for i in range(n):
 
 ### 二维数组的输入
 
-第一行输入 nmT, 后面 m 行，每行输入两个整数
+第一行输入 $n,m,T$， 后面 $m$ 行，每行输入两个整数
 
 ```python
 first = input()
