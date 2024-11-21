@@ -167,7 +167,7 @@ nav:
   - 题解: 
     - 目录: Solution/index.md
     - XCPC:
-      - 2024 CCPC 哈尔滨B: Solution\XCPC\24_CCPC_Harbin_B.md
+      - 2024_CCPC_Harbin_B: Solution\XCPC\24_CCPC_Harbin_B.md
     - Codeforces: 
     - Atcoder: 
     - OJ: 
