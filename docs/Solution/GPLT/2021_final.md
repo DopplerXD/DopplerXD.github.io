@@ -1,10 +1,10 @@
 # 2021 团体程序设计天梯赛 – 总决赛题解
 
-## L1-1 [人与神](https://pintia.cn/problem-sets/994805046380707840/exam/problems/1386335159927652352?type=7&page=0)
+## L1-1 人与神
 
 ### 代码
 
-```
+```python
 print("To iterate is human, to recurse divine.") # 比较快
 
 #include <iostream>
@@ -14,7 +14,7 @@ int main() {
 }
 ```
 
-## L1-2 [两小时学完 C 语言](https://pintia.cn/problem-sets/994805046380707840/exam/problems/1386335159927652353?type=7&page=0)
+## L1-2 两小时学完 C 语言
 
 ### 标签
 
@@ -26,7 +26,7 @@ int main() {
 
 ### 代码
 
-```
+```cpp
 #include <bits/stdc++.h>
 using namespace std;
 int main()
@@ -38,7 +38,7 @@ int main()
 }
 ```
 
-## L1-3 [强迫症](https://pintia.cn/problem-sets/994805046380707840/exam/problems/1386335159927652354?type=7&page=0)
+## L1-3 强迫症
 
 ### 标签
 
@@ -50,7 +50,7 @@ int main()
 
 ### 代码
 
-```
+```cpp
 #include <bits/stdc++.h>
 using namespace std;
 int main()
@@ -76,7 +76,7 @@ int main()
 }
 ```
 
-## L1-4 [降价提醒机器人](https://pintia.cn/problem-sets/994805046380707840/exam/problems/1386335159927652355?type=7&page=0)
+## L1-4 降价提醒机器人
 
 ### 标签
 
@@ -88,7 +88,7 @@ int main()
 
 ### 代码
 
-```
+```cpp
 #include<bits/stdc++.h>
 using namespace std;
 int main() {
@@ -105,7 +105,7 @@ int main() {
 }
 ```
 
-## L1-5 [大笨钟的心情](https://pintia.cn/problem-sets/994805046380707840/exam/problems/1386335159927652356?type=7&page=0)
+## L1-5 大笨钟的心情
 
 ### 标签
 
@@ -117,7 +117,7 @@ int main() {
 
 ### 代码
 
-```
+```cpp
 #include<bits/stdc++.h>
 using namespace std;
 int main() {
@@ -135,7 +135,7 @@ int main() {
 }
 ```
 
-## L1-6 [吉老师的回归](https://pintia.cn/problem-sets/994805046380707840/exam/problems/1386335159927652357?type=7&page=0)
+## L1-6 吉老师的回归
 
 ### 标签
 
@@ -147,7 +147,7 @@ int main() {
 
 ### 代码
 
-```
+```cpp
 #include<bits/stdc++.h>
 using namespace std;
 int main() {
@@ -187,7 +187,7 @@ int main() {
 }
 ```
 
-## L1-7 [天梯赛的善良](https://pintia.cn/problem-sets/994805046380707840/exam/problems/1386335159927652358?type=7&page=0)
+## L1-7 天梯赛的善良
 
 ### 标签
 
@@ -200,7 +200,7 @@ int main() {
 
 ### 代码
 
-```
+```cpp
 // 1.
 #include<bits/stdc++.h>
 using namespace std;
@@ -239,7 +239,7 @@ int main() {
 }
 ```
 
-## L1-8 [乘法口诀数列](https://pintia.cn/problem-sets/994805046380707840/exam/problems/1386335159927652359?type=7&page=0)
+## L1-8 乘法口诀数列
 
 ### 标签
 
@@ -251,7 +251,7 @@ int main() {
 
 ### 代码
 
-```
+```cpp
 #include<bits/stdc++.h>
 using namespace std;
 int main() {
@@ -274,7 +274,7 @@ int main() {
 }
 ```
 
-## L2-1 [包装机](https://zhuanlan.zhihu.com/p/685467142/[https://](https://pintia.cn/problem-sets/994805046380707840/exam/problems/1386335159927652360?type=7&page=1))
+## L2-1 包装机
 
 ### 标签
 
@@ -288,7 +288,7 @@ int main() {
 
 ### 代码
 
-```
+```cpp
 #include <bits/stdc++.h>
 #define rep(i, j, k) for(int i = (j); i <= (k); i++)
 #define per(i, k, j) for(int i = (k); i >= (j); i--)
@@ -339,7 +339,7 @@ int main()
 }
 ```
 
-## L2-2 [病毒溯源](https://zhuanlan.zhihu.com/p/685467142/[https://](https://pintia.cn/problem-sets/994805046380707840/exam/problems/1386335159927652361?type=7&page=1))
+## L2-2 病毒溯源
 
 ### 标签
 
@@ -351,7 +351,7 @@ int main()
 
 ### 代码
 
-```
+```cpp
 #include <bits/stdc++.h>
 #define rep(i, j, k) for(int i = (j); i <= (k); i++)
 #define per(i, k, j) for(int i = (k); i >= (j); i--)
@@ -415,7 +415,7 @@ int main()
 }
 ```
 
-## L2-3 [清点代码库](https://zhuanlan.zhihu.com/p/685467142/[https://](https://pintia.cn/problem-sets/994805046380707840/exam/problems/1386335159927652362?type=7&page=1))
+## L2-3 清点代码库
 
 ### 标签
 
@@ -429,7 +429,7 @@ int main()
 
 ### 代码
 
-```
+```cpp
 #include <bits/stdc++.h>
 #define rep(i, j, k) for(int i = (j); i <= (k); i++)
 #define per(i, k, j) for(int i = (k); i >= (j); i--)
@@ -476,7 +476,7 @@ int main()
 }
 ```
 
-## L2-4 [哲哲打游戏](https://zhuanlan.zhihu.com/p/685467142/[https://](https://pintia.cn/problem-sets/994805046380707840/exam/problems/1386335159927652363?type=7&page=1))
+## L2-4 哲哲打游戏
 
 ### 标签
 
@@ -488,7 +488,7 @@ int main()
 
 ### 代码
 
-```
+```cpp
 #include <bits/stdc++.h>
 #define rep(i, j, k) for(int i = (j); i <= (k); i++)
 #define per(i, k, j) for(int i = (k); i >= (j); i--)
@@ -539,7 +539,7 @@ int main()
 }
 ```
 
-## L3-1 [森森旅游](https://zhuanlan.zhihu.com/p/685467142/[https://](https://pintia.cn/problem-sets/994805046380707840/exam/problems/1386335159927652364?type=7&page=1))
+## L3-1 森森旅游
 
 ### 标签
 
@@ -557,7 +557,7 @@ ps: 感觉线段树应该更快，我这方法有一个 test 到了 937ms 马上
 
 ### 代码
 
-```
+```cpp
 #include <bits/stdc++.h>
 #define rep(i, j, k) for(int i = (j); i <= (k); i++)
 #define per(i, k, j) for(int i = (k); i >= (j); i--)
@@ -666,7 +666,7 @@ int main()
 }
 ```
 
-## L3-2 [还原文件](https://zhuanlan.zhihu.com/p/685467142/[https://](https://pintia.cn/problem-sets/994805046380707840/exam/problems/1386335159927652365?type=7&page=1))
+## L3-2 还原文件
 
 ### 标签
 
@@ -760,7 +760,7 @@ int main()
 }
 ```
 
-## L3-3 [可怜的简单题](https://zhuanlan.zhihu.com/p/685467142/[https://](https://pintia.cn/problem-sets/994805046380707840/exam/problems/1386335159927652366?type=7&page=1))
+## L3-3 可怜的简单题
 
 ### 标签
 
