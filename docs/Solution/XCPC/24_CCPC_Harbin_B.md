@@ -161,8 +161,7 @@ int main() {
 ```
 
 !!! tip "精度问题"
-
-​	该题需使用 longlong 计算，使用 double 会产生误差导致 WA。
+    该题需使用 longlong 计算，使用 double 会产生误差导致 WA。
 
 
 
