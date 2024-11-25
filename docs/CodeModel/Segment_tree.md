@@ -76,7 +76,7 @@ template<class T> struct Segt {
         }
         pushdown(k);
         int mid = (t[k].l + t[k].r) / 2;
-        T ans = numeric_limits<T>::lowest(); // RMQ -> 为 max 时需要修改为 ::max()
+        T ans = std::numeric_limits<T>::lowest(); // RMQ -> 为 max 时需要修改为 ::max()
         if (l <= mid) ans = min(ans, rmq(l, r, GL)); // RMQ -> min/max
         if (mid < r) ans = min(ans, rmq(l, r, GR)); // RMQ -> min/max
         return ans;
