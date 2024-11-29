@@ -646,9 +646,11 @@ std::cout << b[x][y][z] + b[i - 1][j - 1][z] + b[i - 1][y][k - 1] + b[x][j - 1][
     - b[x][y][k - 1] - b[x][j - 1][z] - b[i - 1][y][z] - b[i - 1][j - 1][k - 1] << '\n';
 ```
 
-## 23 std::__builtin_popcount
+## 23 __builtin_popcount
 
 __builtin_popcount(x) 返回 x 的二进制表示中 1 的个数。
+
+不在 std:: 中
 
 ## 24 std::mt19937 & std::shuffle 随机打乱
 

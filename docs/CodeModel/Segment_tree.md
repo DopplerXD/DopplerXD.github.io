@@ -76,7 +76,7 @@ template<class T> struct Segt {
         }
         pushdown(k);
         int mid = (t[k].l + t[k].r) / 2;
-        T ans = std::numeric_limits<T>::lowest(); // RMQ -> 为 max 时需要修改为 ::max()
+        T ans = std::numeric_limits<T>::max(); // RMQ -> 为 max 时需要修改为 ::lowest()
         if (l <= mid) ans = min(ans, rmq(l, r, GL)); // RMQ -> min/max
         if (mid < r) ans = min(ans, rmq(l, r, GR)); // RMQ -> min/max
         return ans;
@@ -114,8 +114,8 @@ template <class T> struct Segt_ {
         int l, r;
         T w, add, mul = 1; // 注意初始赋值
     };
-    vector<T> w;
-    vector<node> t;
+    std::vector<T> w;
+   	std::vector<node> t;
 
     Segt_(int n) {
         w.resize(n + 1);
@@ -197,11 +197,11 @@ template <class T> struct Segt_ {
         return ans;
     }
     void debug(int k = 1) {
-        cout << "[" << t[k].l << ", " << t[k].r << "]: ";
-        cout << "w = " << t[k].w << ", ";
-        cout << "add = " << t[k].add << ", ";
-        cout << "mul = " << t[k].mul << ", ";
-        cout << endl;
+        std::cout << "[" << t[k].l << ", " << t[k].r << "]: ";
+        std::cout << "w = " << t[k].w << ", ";
+        std::cout << "add = " << t[k].add << ", ";
+        std::cout << "mul = " << t[k].mul << ", ";
+        std::cout << endl;
         if (t[k].l == t[k].r) return;
         debug(GL), debug(GR);
     }
@@ -247,7 +247,7 @@ void modify(int p, T val, int k = 1) { // make a[p]=k
 
 ```cpp
 struct Segt {
-    vector<int> w;
+    std::vector<int> w;
     int n;
     Segt(int n) : w(2 * n, (int)-2E9), n(n) {}
 

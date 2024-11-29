@@ -76,7 +76,8 @@ if(dis[v] > dis[u] + w) {
 求解非负权图单源最短路
 
 ```cpp
-int n;
+const int INF = 1e9 + 1;
+int n, m;
 struct edge {
     int v, w;
 };
@@ -88,15 +89,17 @@ vector<edge> e[N];
 int dis[N], vis[N];
 priority_queue<node, vector<node>, greater<node> > q;
 void dijkstra(int s) {
-    memset(dis, 63, sizeof(dis));
+    for (int i = 1; i <= n; i++) {
+        dis[i] = INF;
+        vis[i] = false;
+    }
     dis[s] = 0;
     q.push({0, s});
     while (!q.empty()) {
         int u = q.top().u;
         q.pop();
-        if (vis[u])
-            continue;
-        vis[u] = 1;
+        if (vis[u]) continue;
+        vis[u] = true;
         for (auto ed : e[u]) {
             int v = ed.v, w = ed.w;
             if (dis[v] > dis[u] + w) {
@@ -111,7 +114,7 @@ void dijkstra(int s) {
 ## 4 Kruskal
 
 ```cpp
-const int N = 2e3 + 5;
+const int N = 1e5 + 5;
 struct edge {
     int u, v, w;
     bool operator> (const edge& a) const { return w > a.w; }
@@ -119,8 +122,8 @@ struct edge {
 priority_queue<edge, vector<edge>, greater<edge> > q; // 边集按权值排序
 vector<edge> mp;
 int fa[N];
-int n, m, ans = 0;
-int find(int x) { // 并查集判环
+int n, m, ans;
+int find(int x) {
     int root = fa[x];
     while (root != fa[root]) root = fa[root];
     while (x != root) {
@@ -132,7 +135,7 @@ int find(int x) { // 并查集判环
 }
 void Kruskal() {
     for (int i = 1; i <= n; i++) fa[i] = i;
-    while (mp.size() < n - 1 && !q.empty()) { // 克鲁斯卡尔
+    while (mp.size() < n - 1 && !q.empty()) {
         edge ed = q.top();
         q.pop();
         int u = find(ed.u), v = find(ed.v);
