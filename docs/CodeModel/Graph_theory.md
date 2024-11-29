@@ -86,7 +86,8 @@ struct node {
     bool operator>(const node& a) const { return dis > a.dis; }
 };
 vector<edge> e[N];
-int dis[N], vis[N];
+int dis[N];
+bool vis[N];
 priority_queue<node, vector<node>, greater<node> > q;
 void dijkstra(int s) {
     for (int i = 1; i <= n; i++) {
