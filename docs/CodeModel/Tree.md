@@ -230,8 +230,6 @@ struct HLD {
 };
 ```
 
-
-
 ## 3 树的重心
 
 ### 定义
@@ -274,4 +272,3 @@ void GetCentroid(int cur, int fa) {  // cur 表示当前节点 (current)
     }
 }
 ```
-

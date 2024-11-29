@@ -55,7 +55,7 @@ template<class T> struct Segt {
     void pushup(int k) {
         auto pushup = [&](node &p, node &l, node &r) {
             p.w = l.w + r.w;
-            p.rmq = min(l.rmq, r.rmq); // RMQ -> min/max
+            p.rmq = std::min(l.rmq, r.rmq); // RMQ -> min/max
         };
         pushup(t[k], t[GL], t[GR]);
     }
@@ -269,23 +269,22 @@ struct Segt {
 
 
 
-## 区间取模
+## 区间开根号
 
 由于 long long 级别的 $10^{18}$ 只需要 $1$4 次开根号就能到 $1.002$，所以总的暴力修改次数不会太大，递归到单点维护，如果区间长度等于区间和，说明区间内都是 $1$，不需要继续递归。
 
 ```cpp
-void modifyMod(int l, int r, T val, int k = 1) {
+void modify(int l, int r, int k = 1) {
     if (l <= t[k].l && t[k].r <= r) {
-        if (t[k].rmq < val) return; // 重要剪枝
+        if (t[k].rmq < val) return; // 剪枝
     }
     if (t[k].l == t[k].r) {
-        t[k].w %= val;
-        t[k].rmq %= val;
+        t[k].w = t[k].rmq = std::sqrt(t[k].w);
         return;
     }
     int mid = (t[k].l + t[k].r) / 2;
-    if (l <= mid) modifyMod(l, r, val, GL);
-    if (mid < r) modifyMod(l, r, val, GR);
+    if (l <= mid) modify(l, r, val, GL);
+    if (mid < r) modify(l, r, val, GR);
     pushup(k);
 }
 ```
