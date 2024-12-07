@@ -77,8 +77,8 @@ template<class T> struct Segt {
         pushdown(k);
         int mid = (t[k].l + t[k].r) / 2;
         T ans = std::numeric_limits<T>::max(); // RMQ -> 为 max 时需要修改为 ::lowest()
-        if (l <= mid) ans = min(ans, rmq(l, r, GL)); // RMQ -> min/max
-        if (mid < r) ans = min(ans, rmq(l, r, GR)); // RMQ -> min/max
+        if (l <= mid) ans = std::min(ans, rmq(l, r, GL)); // RMQ -> min/max
+        if (mid < r) ans = std::min(ans, rmq(l, r, GR)); // RMQ -> min/max
         return ans;
     }
     T ask(int l, int r, int k = 1) { // 区间询问
@@ -201,7 +201,7 @@ template <class T> struct Segt_ {
         std::cout << "w = " << t[k].w << ", ";
         std::cout << "add = " << t[k].add << ", ";
         std::cout << "mul = " << t[k].mul << ", ";
-        std::cout << endl;
+        std::cout << std::endl;
         if (t[k].l == t[k].r) return;
         debug(GL), debug(GR);
     }
@@ -305,9 +305,9 @@ template<class T> struct Segt {
     void pushup(int k) {
         auto pushup = [&](node &p, node &l, node &r) {
             p.S = l.S + r.S;
-            p.LS = max(l.LS, l.S + r.LS);
-            p.RS = max(r.RS, l.RS + r.S);
-            p.MS = max(l.RS + r.LS, max(l.MS, r.MS));
+            p.LS = std::max(l.LS, l.S + r.LS);
+            p.RS = std::max(r.RS, l.RS + r.S);
+            p.MS = std::max(l.RS + r.LS, max(l.MS, r.MS));
             };
         pushup(t[k], t[GL], t[GR]);
     }
@@ -335,9 +335,9 @@ template<class T> struct Segt {
             }
             else {
                 node no, a = ask(l, r, GL), b = ask(l, r, GR);
-                no.LS = max(a.LS, a.S + b.LS);
-                no.RS = max(b.RS, b.S + a.RS);
-                no.MS = max(max(a.MS, b.MS), a.RS + b.LS);
+                no.LS = std::max(a.LS, a.S + b.LS);
+                no.RS = std::max(b.RS, b.S + a.RS);
+                no.MS = std::max(max(a.MS, b.MS), a.RS + b.LS);
                 return no;
             }
         }
