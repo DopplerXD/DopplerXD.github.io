@@ -1,0 +1,3478 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="the notes record by DopplerXD">
+      
+      
+        <meta name="author" content="DopplerXD">
+      
+      
+        <link rel="canonical" href="https://DopplerXD.github.io/Topic/DataMining/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../%E5%9C%B0%E4%BF%A1%E5%A4%8D%E4%B9%A0/">
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49">
+    
+    
+      
+        <title>数据挖掘复习总结 - DopplerXD Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="DopplerXD Docs" class="md-header__button md-logo" aria-label="DopplerXD Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DopplerXD Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              数据挖掘复习总结
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="日间模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="日间模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="夜间模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="夜间模式" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="跟随系统"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="跟随系统" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5M7 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/DopplerXD/DopplerXD.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    DopplerXD.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Solution/" class="md-tabs__link">
+          
+  
+    
+  
+  题解
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../CodeModel/" class="md-tabs__link">
+          
+  
+    
+  
+  代码模板
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+    
+  
+  专题总结
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Development/" class="md-tabs__link">
+        
+  
+    
+  
+  开发总结
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Skill/" class="md-tabs__link">
+        
+  
+    
+  
+  使用经验
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Resource/index.md" class="md-tabs__link">
+        
+  
+    
+  
+  资源平台
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Other/" class="md-tabs__link">
+        
+  
+    
+  
+  杂项
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="DopplerXD Docs" class="md-nav__button md-logo" aria-label="DopplerXD Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    DopplerXD Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/DopplerXD/DopplerXD.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    DopplerXD.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../Solution/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    题解
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../CodeModel/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    代码模板
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    专题总结
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            专题总结
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    数据挖掘复习总结
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    数据挖掘复习总结
+  </span>
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      一、绪论
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="一、绪论">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      什么是数据挖掘
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      可以挖掘什么类型的数据
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="可以挖掘什么类型的数据">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#5v" class="md-nav__link">
+    <span class="md-ellipsis">
+      5V 特征
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      可以挖掘什么类型的模式
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="可以挖掘什么类型的模式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      聚类分析
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      深度学习
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      知识评价（模式评估）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      面临的主要问题
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      二、数据及其预处理
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="二、数据及其预处理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      数据属性类型
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      数据统计的基本描述
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="数据统计的基本描述">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      中位数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      对称数据与倾斜数据
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      测量数据的分散度
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      卡方检验
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      度量数据的相似性与相异性
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="度量数据的相似性与相异性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      闵可夫斯基距离
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      余弦相似性
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      数据预处理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      数据清理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      数据变换
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="数据变换">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      规范化
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      离散化
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      压缩
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      采样
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      数据降维
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      三、数据仓库与联机分析处理
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="三、数据仓库与联机分析处理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      数据仓库
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      数据仓库建模：模式和度量
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#olap" class="md-nav__link">
+    <span class="md-ellipsis">
+      OLAP 操作
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OLAP 操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      例题
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      数据立方体计算
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      四、频繁模式挖掘
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="四、频繁模式挖掘">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      基本概念
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apriori-fp-growth" class="md-nav__link">
+    <span class="md-ellipsis">
+      Apriori 和 FP growth
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Apriori 和 FP growth">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      算法简介
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="算法简介">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apriori" class="md-nav__link">
+    <span class="md-ellipsis">
+      Apriori 算法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fp-growthfrequent-pattern-growth" class="md-nav__link">
+    <span class="md-ellipsis">
+      FP-Growth（Frequent Pattern Growth）算法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apriorifp-growth" class="md-nav__link">
+    <span class="md-ellipsis">
+      Apriori与FP-Growth的区别对比
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      优缺点分析
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="优缺点分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apriori_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Apriori算法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fp-growth" class="md-nav__link">
+    <span class="md-ellipsis">
+      FP-Growth算法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    <span class="md-ellipsis">
+      应用示例
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="应用示例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aprioripython" class="md-nav__link">
+    <span class="md-ellipsis">
+      Apriori算法示例（Python代码）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fp-growthpython" class="md-nav__link">
+    <span class="md-ellipsis">
+      FP-Growth算法示例（Python代码）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结与选择建议
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eclat-equivalence-class-transformation" class="md-nav__link">
+    <span class="md-ellipsis">
+      ECLAT （等价类转换 Equivalence Class Transformation）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_38" class="md-nav__link">
+    <span class="md-ellipsis">
+      模式评估度量比较
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_39" class="md-nav__link">
+    <span class="md-ellipsis">
+      五、分类
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="五、分类">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_40" class="md-nav__link">
+    <span class="md-ellipsis">
+      决策树
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_41" class="md-nav__link">
+    <span class="md-ellipsis">
+      贝叶斯分类
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k" class="md-nav__link">
+    <span class="md-ellipsis">
+      K近邻
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_42" class="md-nav__link">
+    <span class="md-ellipsis">
+      线性分类器
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="线性分类器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_43" class="md-nav__link">
+    <span class="md-ellipsis">
+      线性回归
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_44" class="md-nav__link">
+    <span class="md-ellipsis">
+      逻辑回归
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_45" class="md-nav__link">
+    <span class="md-ellipsis">
+      模型评估与选择
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="模型评估与选择">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_46" class="md-nav__link">
+    <span class="md-ellipsis">
+      评估指标
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_47" class="md-nav__link">
+    <span class="md-ellipsis">
+      模型评估：保留法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_48" class="md-nav__link">
+    <span class="md-ellipsis">
+      模型评估：交叉验证
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#roc" class="md-nav__link">
+    <span class="md-ellipsis">
+      模型选择：ROC 曲线
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_49" class="md-nav__link">
+    <span class="md-ellipsis">
+      提高分类准确性的技术
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="提高分类准确性的技术">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_50" class="md-nav__link">
+    <span class="md-ellipsis">
+      集成方法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bagging" class="md-nav__link">
+    <span class="md-ellipsis">
+      装袋 Bagging
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="装袋 Bagging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_51" class="md-nav__link">
+    <span class="md-ellipsis">
+      随机森林
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#boosting" class="md-nav__link">
+    <span class="md-ellipsis">
+      提升 Boosting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_52" class="md-nav__link">
+    <span class="md-ellipsis">
+      提升与装袋对比
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stacking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stacking
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_53" class="md-nav__link">
+    <span class="md-ellipsis">
+      类不平衡数据集的分类
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    <span class="md-ellipsis">
+      五-拓展、支持向量机
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="五-拓展、支持向量机">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_54" class="md-nav__link">
+    <span class="md-ellipsis">
+      基本概念
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_55" class="md-nav__link">
+    <span class="md-ellipsis">
+      核技巧
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_56" class="md-nav__link">
+    <span class="md-ellipsis">
+      六、聚类
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="六、聚类">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_57" class="md-nav__link">
+    <span class="md-ellipsis">
+      对比
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_58" class="md-nav__link">
+    <span class="md-ellipsis">
+      聚类算法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="聚类算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#k-meansk-" class="md-nav__link">
+    <span class="md-ellipsis">
+      k-means（k-均值）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k-medoidsk-pam" class="md-nav__link">
+    <span class="md-ellipsis">
+      k-medoids（k-中心点，PAM）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clara" class="md-nav__link">
+    <span class="md-ellipsis">
+      CLARA
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agnes" class="md-nav__link">
+    <span class="md-ellipsis">
+      AGNES（自底向上）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diana" class="md-nav__link">
+    <span class="md-ellipsis">
+      DIANA（自顶向下）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dbscan" class="md-nav__link">
+    <span class="md-ellipsis">
+      DBSCAN
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%9C%B0%E4%BF%A1%E5%A4%8D%E4%B9%A0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    地信复习总结
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Development/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    开发总结
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Skill/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    使用经验
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Resource/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    资源平台
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Other/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    杂项
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      一、绪论
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="一、绪论">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      什么是数据挖掘
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      可以挖掘什么类型的数据
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="可以挖掘什么类型的数据">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#5v" class="md-nav__link">
+    <span class="md-ellipsis">
+      5V 特征
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      可以挖掘什么类型的模式
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="可以挖掘什么类型的模式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      聚类分析
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      深度学习
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      知识评价（模式评估）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      面临的主要问题
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      二、数据及其预处理
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="二、数据及其预处理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      数据属性类型
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      数据统计的基本描述
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="数据统计的基本描述">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      中位数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      对称数据与倾斜数据
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      测量数据的分散度
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      卡方检验
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      度量数据的相似性与相异性
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="度量数据的相似性与相异性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      闵可夫斯基距离
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      余弦相似性
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      数据预处理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      数据清理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      数据变换
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="数据变换">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      规范化
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      离散化
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      压缩
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      采样
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      数据降维
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      三、数据仓库与联机分析处理
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="三、数据仓库与联机分析处理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      数据仓库
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      数据仓库建模：模式和度量
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#olap" class="md-nav__link">
+    <span class="md-ellipsis">
+      OLAP 操作
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OLAP 操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      例题
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      数据立方体计算
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      四、频繁模式挖掘
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="四、频繁模式挖掘">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      基本概念
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apriori-fp-growth" class="md-nav__link">
+    <span class="md-ellipsis">
+      Apriori 和 FP growth
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Apriori 和 FP growth">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      算法简介
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="算法简介">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apriori" class="md-nav__link">
+    <span class="md-ellipsis">
+      Apriori 算法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fp-growthfrequent-pattern-growth" class="md-nav__link">
+    <span class="md-ellipsis">
+      FP-Growth（Frequent Pattern Growth）算法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apriorifp-growth" class="md-nav__link">
+    <span class="md-ellipsis">
+      Apriori与FP-Growth的区别对比
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      优缺点分析
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="优缺点分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apriori_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Apriori算法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fp-growth" class="md-nav__link">
+    <span class="md-ellipsis">
+      FP-Growth算法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    <span class="md-ellipsis">
+      应用示例
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="应用示例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aprioripython" class="md-nav__link">
+    <span class="md-ellipsis">
+      Apriori算法示例（Python代码）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fp-growthpython" class="md-nav__link">
+    <span class="md-ellipsis">
+      FP-Growth算法示例（Python代码）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结与选择建议
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eclat-equivalence-class-transformation" class="md-nav__link">
+    <span class="md-ellipsis">
+      ECLAT （等价类转换 Equivalence Class Transformation）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_38" class="md-nav__link">
+    <span class="md-ellipsis">
+      模式评估度量比较
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_39" class="md-nav__link">
+    <span class="md-ellipsis">
+      五、分类
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="五、分类">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_40" class="md-nav__link">
+    <span class="md-ellipsis">
+      决策树
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_41" class="md-nav__link">
+    <span class="md-ellipsis">
+      贝叶斯分类
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k" class="md-nav__link">
+    <span class="md-ellipsis">
+      K近邻
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_42" class="md-nav__link">
+    <span class="md-ellipsis">
+      线性分类器
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="线性分类器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_43" class="md-nav__link">
+    <span class="md-ellipsis">
+      线性回归
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_44" class="md-nav__link">
+    <span class="md-ellipsis">
+      逻辑回归
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_45" class="md-nav__link">
+    <span class="md-ellipsis">
+      模型评估与选择
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="模型评估与选择">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_46" class="md-nav__link">
+    <span class="md-ellipsis">
+      评估指标
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_47" class="md-nav__link">
+    <span class="md-ellipsis">
+      模型评估：保留法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_48" class="md-nav__link">
+    <span class="md-ellipsis">
+      模型评估：交叉验证
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#roc" class="md-nav__link">
+    <span class="md-ellipsis">
+      模型选择：ROC 曲线
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_49" class="md-nav__link">
+    <span class="md-ellipsis">
+      提高分类准确性的技术
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="提高分类准确性的技术">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_50" class="md-nav__link">
+    <span class="md-ellipsis">
+      集成方法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bagging" class="md-nav__link">
+    <span class="md-ellipsis">
+      装袋 Bagging
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="装袋 Bagging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_51" class="md-nav__link">
+    <span class="md-ellipsis">
+      随机森林
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#boosting" class="md-nav__link">
+    <span class="md-ellipsis">
+      提升 Boosting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_52" class="md-nav__link">
+    <span class="md-ellipsis">
+      提升与装袋对比
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stacking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stacking
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_53" class="md-nav__link">
+    <span class="md-ellipsis">
+      类不平衡数据集的分类
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    <span class="md-ellipsis">
+      五-拓展、支持向量机
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="五-拓展、支持向量机">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_54" class="md-nav__link">
+    <span class="md-ellipsis">
+      基本概念
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_55" class="md-nav__link">
+    <span class="md-ellipsis">
+      核技巧
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_56" class="md-nav__link">
+    <span class="md-ellipsis">
+      六、聚类
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="六、聚类">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_57" class="md-nav__link">
+    <span class="md-ellipsis">
+      对比
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_58" class="md-nav__link">
+    <span class="md-ellipsis">
+      聚类算法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="聚类算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#k-meansk-" class="md-nav__link">
+    <span class="md-ellipsis">
+      k-means（k-均值）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k-medoidsk-pam" class="md-nav__link">
+    <span class="md-ellipsis">
+      k-medoids（k-中心点，PAM）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clara" class="md-nav__link">
+    <span class="md-ellipsis">
+      CLARA
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agnes" class="md-nav__link">
+    <span class="md-ellipsis">
+      AGNES（自底向上）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diana" class="md-nav__link">
+    <span class="md-ellipsis">
+      DIANA（自顶向下）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dbscan" class="md-nav__link">
+    <span class="md-ellipsis">
+      DBSCAN
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+  <h1>数据挖掘复习总结</h1>
+
+<h2 id="_1">一、绪论<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="_2">什么是数据挖掘<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>数据挖掘 -- 从数据中发现知识（KDD，Knowledge Discovery from Data）</p>
+<ul>
+<li>从海量的数据中提取有趣的模式或知识</li>
+</ul>
+<p><img alt="image-20241113214047816" src="../DataMining.assets/image-20241113214047816.png" /></p>
+<h3 id="_3">可以挖掘什么类型的数据<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>结构化数据<ul>
+<li>由二维表结构来逻辑表达或实现的数据</li>
+<li>能存进关系型数据库：csv、excel等</li>
+</ul>
+</li>
+<li>半结构化数据<ul>
+<li>维度高于二维，但可根据相关标记对其进行分割理解的数据</li>
+<li>JSON 串、HTML 文档、NoSQL 数据等</li>
+</ul>
+</li>
+<li>非结构化数据<ul>
+<li>没有固定结构和规则，在机器中存为二进制</li>
+<li>图像、视频、语音、文本等</li>
+</ul>
+</li>
+</ul>
+<p><img alt="image-20241113214644910" src="../DataMining.assets/image-20241113214644910.png" /></p>
+<h4 id="5v">5V 特征<a class="headerlink" href="#5v" title="Permanent link">&para;</a></h4>
+<ul>
+<li>数量 Volume</li>
+<li>速度 Velocity</li>
+<li>真实 Veracity</li>
+<li>多样 Variety</li>
+<li>价值 Value</li>
+</ul>
+<h3 id="_4">可以挖掘什么类型的模式<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li>描述性数据挖掘：表征感兴趣的数据集的属性</li>
+<li>预测性数据挖掘：对数据集执行归纳以进行预测</li>
+</ul>
+<p><img alt="image-20241113215115687" src="../DataMining.assets/image-20241113215115687.png" /></p>
+<h4 id="_5">聚类分析<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<p>原则：最大化类内相似性、最小化类间相似性</p>
+<h4 id="_6">深度学习<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
+<p>Machine Learning 和 Deep Learning 的区别</p>
+<ul>
+<li>深度学习能够从原始数据中自动提取出关键特征，而这一过程无需人工干预或手动设计特征，</li>
+<li>传统机器学习使用一到两个计算层的简单神经网络结构，而深度学习使用三个到几百个。</li>
+</ul>
+<h4 id="_7">知识评价（模式评估）<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<p>有趣的模式</p>
+<ul>
+<li>潜在有用的</li>
+<li>易于理解的</li>
+<li>新颖的/典型的</li>
+<li>高准确率的</li>
+</ul>
+<h3 id="_8">面临的主要问题<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<ul>
+<li>效率和可伸缩性<ul>
+<li>算法的效率和可扩展性</li>
+<li>并行、分布式、流式和增量式挖掘方法</li>
+</ul>
+</li>
+<li>数据类型的多样性<ul>
+<li>处理复杂类型的数据</li>
+<li>挖掘动态、网络和全局数据存储库</li>
+</ul>
+</li>
+<li>数据安全和数据隐私保护</li>
+</ul>
+<h2 id="_9">二、数据及其预处理<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<h3 id="_10">数据属性类型<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p>绝对温度属于比率属性，摄氏温度属于区间属性。</p>
+<p><img alt="image-20241113220306423" src="../DataMining.assets/image-20241113220306423.png" /></p>
+<p><img alt="image-20241113220321333" src="../DataMining.assets/image-20241113220321333.png" /></p>
+<h3 id="_11">数据统计的基本描述<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<h4 id="_12">中位数<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h4>
+<p>对于分组数据，中位数通过插值法来估计</p>
+<p><img alt="image-20241113220540867" src="../DataMining.assets/image-20241113220540867.png" /></p>
+<p>近似中位数为 <span class="arithmatex">\(21+\frac{3194/2-950}{1500}*(50-21)=32.94\)</span> </p>
+<h4 id="_13">对称数据与倾斜数据<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h4>
+<p><img alt="image-20241113220806891" src="../DataMining.assets/image-20241113220806891.png" /></p>
+<h4 id="_14">测量数据的分散度<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h4>
+<p>盒图（箱线图）</p>
+<ul>
+<li>五数概括<ul>
+<li>四分位数 Q1</li>
+<li>中位数 Q2</li>
+<li>四分位数 Q3</li>
+<li>最小值 Min</li>
+<li>最大值 Max</li>
+</ul>
+</li>
+<li>异常值：高于/低于 1.5*IQR（Q3-Q1） 的值</li>
+</ul>
+<h4 id="_15">卡方检验<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h4>
+<p><img alt="image-20241113221209554" src="../DataMining.assets/image-20241113221209554.png" /></p>
+<p><img alt="image-20241113221224625" src="../DataMining.assets/image-20241113221224625.png" /></p>
+<p><img alt="image-20241113221235047" src="../DataMining.assets/image-20241113221235047.png" /></p>
+<p><img alt="image-20241113221246932" src="../DataMining.assets/image-20241113221246932.png" /></p>
+<p><img alt="image-20241113221256065" src="../DataMining.assets/image-20241113221256065.png" /></p>
+<h3 id="_16">度量数据的相似性与相异性<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20241113221504936" src="../DataMining.assets/image-20241113221504936.png" /></p>
+<p><img alt="image-20241113221510724" src="../DataMining.assets/image-20241113221510724.png" /></p>
+<p><img alt="image-20241113221531398" src="../DataMining.assets/image-20241113221531398.png" /></p>
+<h4 id="_17">闵可夫斯基距离<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h4>
+<p><img alt="image-20241113221636116" src="../DataMining.assets/image-20241113221636116.png" /></p>
+<h4 id="_18">余弦相似性<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h4>
+<p>余弦度量 <span class="arithmatex">\(sim(x,y)= \frac{x \cdot y}{|x||y|}\)</span> </p>
+<h3 id="_19">数据预处理<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
+<p>步骤：数据清理-数据集成-数据变换-数据降维</p>
+<p>数据质量衡量标准：准确性、完整性、一致性、时效性、可信性、可解释性</p>
+<h3 id="_20">数据清理<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
+<p>不完整的、噪声的、不一致的、故意的</p>
+<ul>
+<li>处理缺失数据<ul>
+<li>忽略元组</li>
+<li>人工填写</li>
+<li>自动填充（Unknown、平均值或中位数、基于推理得到的值）</li>
+</ul>
+</li>
+<li>平滑噪声数据<ul>
+<li>分箱（按箱均值/中值/边界平滑）</li>
+<li>回归</li>
+<li>聚类</li>
+<li>半监督</li>
+</ul>
+</li>
+<li>识别或删除异常值并解决数据不一致的问题</li>
+</ul>
+<p><img alt="image-20241113222548052" src="../DataMining.assets/image-20241113222548052.png" /></p>
+<h3 id="_21">数据变换<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
+<p>规范化、离散化、数据压缩、采样、由标称数据产生概念分层</p>
+<p><img alt="image-20241113222841121" src="../DataMining.assets/image-20241113222841121.png" /></p>
+<h4 id="_22">规范化<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h4>
+<p><img alt="image-20241113222923135" src="../DataMining.assets/image-20241113222923135.png" /></p>
+<p><strong>Z-score 使用均值绝对偏差</strong>
+$$
+v'= \frac{v- \mu_A}{\frac{\sum_1^n{|v_i- \mu|}}{n}}
+$$</p>
+<p><strong>小数定标规范化</strong></p>
+<p>通过移动小数点的位置进行规范化。小数点移动多少位取决于属性 A 的取值中的最大绝对值。</p>
+<p>如最大绝对值为999，则小数点移动3位。</p>
+<h4 id="_23">离散化<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h4>
+<p><img alt="image-20241113222948394" src="../DataMining.assets/image-20241113222948394.png" /></p>
+<p><img alt="image-20241113223032067" src="../DataMining.assets/image-20241113223032067.png" /></p>
+<p><img alt="image-20241113223039965" src="../DataMining.assets/image-20241113223039965.png" /></p>
+<h4 id="_24">压缩<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h4>
+<ul>
+<li>无损压缩</li>
+<li>有损压缩</li>
+</ul>
+<h4 id="_25">采样<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h4>
+<p>对于不平衡数据，抽样方法能够通过一些机制改善不均衡数据集，以获得一个均衡的数据分布</p>
+<p>混淆矩阵</p>
+<h3 id="_26">数据降维<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h3>
+<ul>
+<li>特征选择<ul>
+<li>信息增益=信息熵-条件熵</li>
+</ul>
+</li>
+<li>特征提取</li>
+<li>主成分分析</li>
+</ul>
+<h2 id="_27">三、数据仓库与联机分析处理<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h2>
+<h3 id="_28">数据仓库<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20241113225107683" src="../DataMining.assets/image-20241113225107683.png" /></p>
+<p>特征</p>
+<ul>
+<li>面向主题的</li>
+<li>集成的</li>
+<li>时变的</li>
+<li>非易失的</li>
+</ul>
+<p><img alt="image-20241113225236845" src="../DataMining.assets/image-20241113225236845.png" /></p>
+<p><img alt="image-20241113225323880" src="../DataMining.assets/image-20241113225323880.png" /></p>
+<p><img alt="image-20241113225305930" src="../DataMining.assets/image-20241113225305930.png" /></p>
+<p><img alt="image-20241113225336763" src="../DataMining.assets/image-20241113225336763.png" /></p>
+<p><img alt="image-20241115180346292" src="../DataMining.assets/image-20241115180346292.png" /></p>
+<p><img alt="image-20241113225348067" src="../DataMining.assets/image-20241113225348067.png" /></p>
+<p>数据仓库分层：清晰数据结构、数据血统追踪、减少重复开发</p>
+<p>OLTP：联机事务处理</p>
+<p>OLAP：联机分析处理</p>
+<h3 id="_29">数据仓库建模：模式和度量<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h3>
+<p>数据立方体：一种用于数据仓库和 OLAP 及 OLAP 操作（如上卷、下钻、切片和切块）的多维数据模型。</p>
+<p><img alt="image-20241113225608901" src="../DataMining.assets/image-20241113225608901.png" /></p>
+<p><img alt="image-20241113225627908" src="../DataMining.assets/image-20241113225627908.png" /></p>
+<p><img alt="image-20241113225645486" src="../DataMining.assets/image-20241113225645486.png" /></p>
+<p>概念分层的作用：多层次分析、数据汇总和钻取、灵活的视角、提高性能、更好的数据理解</p>
+<h3 id="olap">OLAP 操作<a class="headerlink" href="#olap" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20241113225809461" src="../DataMining.assets/image-20241113225809461.png" /></p>
+<p><img alt="image-20241113225825020" src="../DataMining.assets/image-20241113225825020.png" /></p>
+<h4 id="_30">例题<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h4>
+<p>旅行代理的航班数据仓库包含6个维: traveler、departure(city)、departure_time、arrival、arrival_time和flight,两个度量: count()和 avg_fare(),其中avg_fare()在最低层存放具体费用，而在其他层存放平均费用。
+(a)假设该立方体是完全物化的。从基本方体[traveler、departure、departure_time、arrival、arrival_time]开始，为了列出2009年每个从洛杉矶乘坐美国航空公司(AA) 的商务旅客的月平均费用，应该执行哪些OLAP操作(例如，上卷flight到airline)?
+(b)假设想计算数据立方体，其中条件是记录的个数最少为10,并且平均费用超过500美元。勾画一种有效的 立方体计算方法(基于航班数据分布的常识)。</p>
+<p><img alt="image-20241115190355877" src="../DataMining.assets/image-20241115190355877.png" /></p>
+<p><img alt="image-20241115190404087" src="../DataMining.assets/image-20241115190404087.png" /></p>
+<p><img alt="image-20241115190425922" src="../DataMining.assets/image-20241115190425922.png" /></p>
+<p>位图索引</p>
+<p><img alt="image-20241113225920500" src="../DataMining.assets/image-20241113225920500.png" /></p>
+<p><img alt="image-20241113225935880" src="../DataMining.assets/image-20241113225935880.png" /></p>
+<p><img alt="image-20241113225947758" src="../DataMining.assets/image-20241113225947758.png" /></p>
+<p>连接索引</p>
+<p><img alt="image-20241113230007685" src="../DataMining.assets/image-20241113230007685.png" /></p>
+<p>水平存储</p>
+<p><img alt="image-20241113230105032" src="../DataMining.assets/image-20241113230105032.png" /></p>
+<p>垂直存储</p>
+<p><img alt="image-20241113230117944" src="../DataMining.assets/image-20241113230117944.png" /></p>
+<p><img alt="image-20241113230123232" src="../DataMining.assets/image-20241113230123232.png" /></p>
+<h3 id="_31">数据立方体计算<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20241113230201802" src="../DataMining.assets/image-20241113230201802.png" /></p>
+<p><img alt="image-20241113230212780" src="../DataMining.assets/image-20241113230212780.png" /></p>
+<p>冰山立方体： having count(*) &gt;= min support</p>
+<p><img alt="image-20241113230435295" src="../DataMining.assets/image-20241113230435295.png" /></p>
+<p><img alt="image-20241113230442337" src="../DataMining.assets/image-20241113230442337.png" /></p>
+<h2 id="_32">四、频繁模式挖掘<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h2>
+<h3 id="_33">基本概念<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h3>
+<p>支持度</p>
+<p>置信度 <span class="arithmatex">\(confidence(A=&gt;B)=P(B|A)= \frac{support(A \cup B)}{support A}\)</span> </p>
+<p><strong>闭频繁项集</strong></p>
+<ol>
+<li>
+<p>闭频繁项集的所有超集的支持度都小于其自身的支持度。</p>
+</li>
+<li>
+<p>如果一个项集 X 是频繁的，那么必然存在一个包含 X 的闭频繁项集 Y，并且 <span class="arithmatex">\(support(X)=support(Y)\)</span> 。</p>
+</li>
+</ol>
+<h3 id="apriori-fp-growth">Apriori 和 FP growth<a class="headerlink" href="#apriori-fp-growth" title="Permanent link">&para;</a></h3>
+<h4 id="_34">算法简介<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h4>
+<h5 id="apriori"><strong>Apriori 算法</strong><a class="headerlink" href="#apriori" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>提出者</strong>：Rakesh Agrawal 等人于1994年。</li>
+<li><strong>核心思想</strong>：利用<strong>逐层搜索</strong>（Level-wise Search）的方法，通过<strong>频繁项集的“剪枝”特性</strong>来减少候选项集的数量。</li>
+<li><strong>工作流程</strong>：</li>
+<li>通过单次扫描数据集生成频繁1-项集。</li>
+<li>基于频繁 <span class="arithmatex">\( k \)</span>-项集生成候选 <span class="arithmatex">\( (k+1) \)</span>-项集。</li>
+<li>扫描数据库来计算候选项集的支持度，筛选出频繁 <span class="arithmatex">\( (k+1) \)</span>-项集。</li>
+<li>重复上述步骤，直到找不到新的频繁项集。</li>
+<li><strong>剪枝策略</strong>：若某个 <span class="arithmatex">\( k \)</span>-项集不是频繁的，那么包含该 <span class="arithmatex">\( k \)</span>-项集的所有 <span class="arithmatex">\( (k+1) \)</span>-项集都不是频繁的（<strong>Apriori原理</strong>）。</li>
+</ul>
+<h5 id="fp-growthfrequent-pattern-growth"><strong>FP-Growth（Frequent Pattern Growth）算法</strong><a class="headerlink" href="#fp-growthfrequent-pattern-growth" title="Permanent link">&para;</a></h5>
+<p><img alt="image-20241113224147134" src="../DataMining.assets/image-20241113224147134.png" /></p>
+<ul>
+<li><strong>提出者</strong>：Han, Pei, 和 Yin 于2000年。</li>
+<li><strong>核心思想</strong>：通过构建<strong>FP-树（Frequent Pattern Tree）</strong>来高效地压缩数据，并避免生成候选项集。</li>
+<li><strong>工作流程</strong>：</li>
+<li>扫描数据库，计算各项的支持度，删除不满足最小支持度的项。</li>
+<li>对剩余的项按支持度降序排列，构建FP-树。</li>
+<li>从FP-树中挖掘频繁项集（使用递归和“条件模式基”构建）。</li>
+<li><strong>优点</strong>：通过FP-树的结构压缩数据，只需两次扫描数据库，从而显著减少时间和空间复杂度。</li>
+</ul>
+<hr />
+<h4 id="apriorifp-growth">Apriori与FP-Growth的区别对比<a class="headerlink" href="#apriorifp-growth" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th><strong>Apriori算法</strong></th>
+<th><strong>FP-Growth算法</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>基础原理</strong></td>
+<td>逐层搜索（生成候选项集并进行剪枝）</td>
+<td>构建FP-树（基于频繁模式树的压缩）</td>
+</tr>
+<tr>
+<td><strong>候选项集</strong></td>
+<td>显式生成候选项集</td>
+<td>无需生成候选项集</td>
+</tr>
+<tr>
+<td><strong>数据扫描次数</strong></td>
+<td>多次扫描（每增加一项集长度，增加一次扫描）</td>
+<td>仅需两次扫描</td>
+</tr>
+<tr>
+<td><strong>内存使用</strong></td>
+<td>通常占用较多内存，因为需要存储大量候选项集</td>
+<td>内存利用率更高，数据压缩效果更好</td>
+</tr>
+<tr>
+<td><strong>效率</strong></td>
+<td>随着数据集规模和项集长度增加，效率显著下降</td>
+<td>通常比Apriori更快，特别是数据集较大时</td>
+</tr>
+<tr>
+<td><strong>适用场景</strong></td>
+<td>适合较小的数据集或项集较短的情况</td>
+<td>适合大规模数据集，尤其是稀疏数据集</td>
+</tr>
+<tr>
+<td><strong>算法复杂度</strong></td>
+<td>指数级别，最坏情况为 <span class="arithmatex">\( O(2^n) \)</span></td>
+<td>通常为线性级别，视数据压缩情况而定</td>
+</tr>
+<tr>
+<td><strong>剪枝策略</strong></td>
+<td>基于Apriori原理进行剪枝</td>
+<td>通过FP-树结构进行隐式剪枝</td>
+</tr>
+<tr>
+<td><strong>实现难度</strong></td>
+<td>相对简单</td>
+<td>相对复杂，需要构建和遍历FP-树</td>
+</tr>
+<tr>
+<td><strong>典型应用</strong></td>
+<td>关联规则、市场篮子分析</td>
+<td>大型关联分析、文本挖掘</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h4 id="_35">优缺点分析<a class="headerlink" href="#_35" title="Permanent link">&para;</a></h4>
+<h5 id="apriori_1"><strong>Apriori算法</strong><a class="headerlink" href="#apriori_1" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>优点</strong>：<ul>
+<li>简单直观，易于理解和实现。</li>
+<li>适合初学者和对小规模数据集进行关联分析。</li>
+</ul>
+</li>
+<li><strong>缺点</strong>：<ul>
+<li>随着项集长度增加，候选项集的数量呈指数增长（<strong>组合爆炸问题</strong>）。</li>
+<li>需要多次扫描数据集，效率较低，特别是对于大数据集。</li>
+</ul>
+</li>
+</ul>
+<h5 id="fp-growth"><strong>FP-Growth算法</strong><a class="headerlink" href="#fp-growth" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>优点</strong>：<ul>
+<li>通过FP-树压缩数据，只需两次扫描数据库，大幅减少I/O开销。</li>
+<li>无需显式生成候选项集，效率更高，尤其是对大型数据集。</li>
+</ul>
+</li>
+<li><strong>缺点</strong>：<ul>
+<li>算法实现相对复杂，需要构建和维护FP-树。</li>
+<li>对内存要求较高，特别是当FP-树变得非常大时。</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h4 id="_36">应用示例<a class="headerlink" href="#_36" title="Permanent link">&para;</a></h4>
+<h5 id="aprioripython"><strong>Apriori算法示例（Python代码）</strong><a class="headerlink" href="#aprioripython" title="Permanent link">&para;</a></h5>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span>
+<span class="normal"><a href="#__codelineno-0-15">15</a></span>
+<span class="normal"><a href="#__codelineno-0-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">mlxtend.frequent_patterns</span> <span class="kn">import</span> <span class="n">apriori</span><span class="p">,</span> <span class="n">association_rules</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="c1"># 示例交易数据</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Milk&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a>        <span class="s1">&#39;Bread&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a>        <span class="s1">&#39;Butter&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]}</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="c1"># 计算频繁项集</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="n">frequent_itemsets</span> <span class="o">=</span> <span class="n">apriori</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">min_support</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">use_colnames</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="nb">print</span><span class="p">(</span><span class="n">frequent_itemsets</span><span class="p">)</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="c1"># 生成关联规则</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="n">rules</span> <span class="o">=</span> <span class="n">association_rules</span><span class="p">(</span><span class="n">frequent_itemsets</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;confidence&quot;</span><span class="p">,</span> <span class="n">min_threshold</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="nb">print</span><span class="p">(</span><span class="n">rules</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<h5 id="fp-growthpython"><strong>FP-Growth算法示例（Python代码）</strong><a class="headerlink" href="#fp-growthpython" title="Permanent link">&para;</a></h5>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span>
+<span class="normal"><a href="#__codelineno-1-12">12</a></span>
+<span class="normal"><a href="#__codelineno-1-13">13</a></span>
+<span class="normal"><a href="#__codelineno-1-14">14</a></span>
+<span class="normal"><a href="#__codelineno-1-15">15</a></span>
+<span class="normal"><a href="#__codelineno-1-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">mlxtend.frequent_patterns</span> <span class="kn">import</span> <span class="n">fpgrowth</span><span class="p">,</span> <span class="n">association_rules</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="c1"># 示例交易数据</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Milk&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a>        <span class="s1">&#39;Bread&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a>        <span class="s1">&#39;Butter&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]}</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="c1"># 计算频繁项集</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="n">frequent_itemsets</span> <span class="o">=</span> <span class="n">fpgrowth</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">min_support</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">use_colnames</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="nb">print</span><span class="p">(</span><span class="n">frequent_itemsets</span><span class="p">)</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a>
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="c1"># 生成关联规则</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="n">rules</span> <span class="o">=</span> <span class="n">association_rules</span><span class="p">(</span><span class="n">frequent_itemsets</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;confidence&quot;</span><span class="p">,</span> <span class="n">min_threshold</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="nb">print</span><span class="p">(</span><span class="n">rules</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<hr />
+<h4 id="_37">总结与选择建议<a class="headerlink" href="#_37" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Apriori算法</strong>适合<strong>小型数据集</strong>，且易于理解和实现。但其性能瓶颈在于大量的候选项集生成和多次数据扫描。</li>
+<li><strong>FP-Growth算法</strong>适合<strong>大规模数据集</strong>，特别是<strong>稀疏数据集</strong>。通过FP-树结构的压缩和减少候选项集的生成，显著提升了效率，但实现较为复杂。</li>
+<li>在实际应用中，建议根据<strong>数据规模</strong>和<strong>性能需求</strong>选择适合的算法：</li>
+<li><strong>小数据集</strong>或<strong>快速原型验证</strong>：使用Apriori。</li>
+<li><strong>大数据集</strong>或<strong>生产环境</strong>：推荐使用FP-Growth。</li>
+</ul>
+<p><img alt="image-20241113224009406" src="../DataMining.assets/image-20241113224009406.png" /></p>
+<p><img alt="image-20241113224036205" src="../DataMining.assets/image-20241113224036205.png" /></p>
+<p><img alt="image-20241113224042980" src="../DataMining.assets/image-20241113224042980.png" /></p>
+<p><img alt="image-20241113224051052" src="../DataMining.assets/image-20241113224051052.png" /></p>
+<p><img alt="image-20241113224111245" src="../DataMining.assets/image-20241113224111245.png" /></p>
+<p><img alt="image-20241113224101057" src="../DataMining.assets/image-20241113224101057.png" /></p>
+<h3 id="eclat-equivalence-class-transformation">ECLAT （等价类转换 Equivalence Class Transformation）<a class="headerlink" href="#eclat-equivalence-class-transformation" title="Permanent link">&para;</a></h3>
+<p>使用集合交集的深度优先搜索算法</p>
+<p>使用垂直格式存储</p>
+<p><img alt="image-20241113223842291" src="../DataMining.assets/image-20241113223842291.png" /></p>
+<h3 id="_38">模式评估度量比较<a class="headerlink" href="#_38" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20241113224616596" src="../DataMining.assets/image-20241113224616596.png" /></p>
+<p><img alt="image-20241113224623503" src="../DataMining.assets/image-20241113224623503.png" /></p>
+<p><img alt="image-20241113224634801" src="../DataMining.assets/image-20241113224634801.png" /></p>
+<p><strong>(a) 全置信度 (All Confidence)</strong></p>
+<p><span class="arithmatex">\(\text{All Confidence} = \frac{n_{11}}{\max(n_{1+}, n_{+1})}\)</span> </p>
+<ul>
+<li><strong>解释</strong>：衡量 AAA 和 BBB 同时发生的频率在各自总出现频率中的占比。</li>
+</ul>
+<p><strong>(b) 最大置信度 (Max Confidence)</strong></p>
+<p><span class="arithmatex">\(\text{Max Confidence} = \max\left(\frac{n_{11}}{n_{1+}}, \frac{n_{11}}{n_{+1}}\right)\)</span> </p>
+<ul>
+<li><strong>解释</strong>：比较 A→BA \rightarrow BA→B 和 B→AB \rightarrow AB→A 的置信度，取较大者。</li>
+</ul>
+<p><strong>(c) Kulczynski</strong></p>
+<p><span class="arithmatex">\(\text{Kulczynski} = \frac{1}{2} \left(\frac{n_{11}}{n_{1+}} + \frac{n_{11}}{n_{+1}}\right)\)</span> </p>
+<ul>
+<li><strong>解释</strong>：Kulczynski 衡量的是 AAA 和 BBB 之间的平均置信度。</li>
+</ul>
+<p><strong>(d) 余弦相似度 (Cosine Similarity)</strong></p>
+<p><span class="arithmatex">\(\text{Cosine Similarity} = \frac{n_{11}}{\sqrt{n_{1+} \times n_{+1}}}\)</span> </p>
+<ul>
+<li><strong>解释</strong>：类似于向量的余弦相似度，衡量 AAA 和 BBB 的同时发生频率在各自总频率中的占比。</li>
+</ul>
+<p><strong>(e) 提升度 (Lift)</strong></p>
+<p><span class="arithmatex">\(\text{Lift} = \frac{n_{11} \times n}{n_{1+} \times n_{+1}}\)</span> </p>
+<ul>
+<li><strong>解释</strong>：衡量 AAA 和 BBB 是否独立。Lift &gt; 1 表示正相关，Lift &lt; 1 表示负相关。</li>
+</ul>
+<p><strong>(f) 相关系数 (Correlation Coefficient, ϕ)</strong></p>
+<p><span class="arithmatex">\(\text{Correlation} = \frac{n_{11} n_{00} - n_{10} n_{01}}{\sqrt{n_{1+} n_{0+} n_{+1} n_{+0}}}\)</span> </p>
+<ul>
+<li><strong>解释</strong>：类似于皮尔逊相关系数，用于衡量 AAA 和 BBB 之间的线性相关性。</li>
+</ul>
+<p>零事务（既不包含A也不包含B的事务）过多，会导致以上两种方法失误。</p>
+<h2 id="_39">五、分类<a class="headerlink" href="#_39" title="Permanent link">&para;</a></h2>
+<p>分类 - 有监督（训练数据的标签已知）</p>
+<p>聚类 - 无监督</p>
+<h3 id="_40">决策树<a class="headerlink" href="#_40" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20241112000523452" src="../DataMining.assets/image-20241112000523452.png" /></p>
+<p><img alt="image-20241112000652444" src="../DataMining.assets/image-20241112000652444.png" /></p>
+<p><img alt="image-20241112000828385" src="../DataMining.assets/image-20241112000828385.png" /></p>
+<h3 id="_41">贝叶斯分类<a class="headerlink" href="#_41" title="Permanent link">&para;</a></h3>
+<p><strong>为什么朴素贝叶斯分类称为“朴素”的？简述朴素贝叶斯分类的主要思想。</strong></p>
+<p>朴素贝叶斯被称为“朴素”是因为它假设条件独立分布，这个假设用于减少计算代价，因此称为“朴素”，其主要原理是通过后概率的贝叶斯定理使用 <span class="arithmatex">\(P(X|C_i)P(C_i)\)</span> 得到最大值来对数据进行分类。</p>
+<p><img alt="image-20241112001135090" src="../DataMining.assets/image-20241112001135090.png" /></p>
+<p><img alt="image-20241112001834060" src="../DataMining.assets/image-20241112001834060.png" /></p>
+<p><img alt="image-20241112001814844" src="../DataMining.assets/image-20241112001814844.png" /></p>
+<h3 id="k">K近邻<a class="headerlink" href="#k" title="Permanent link">&para;</a></h3>
+<p>K-Nearest Neighbors</p>
+<p><img alt="image-20241112115951428" src="../DataMining.assets/image-20241112115951428.png" /></p>
+<p><img alt="image-20241112120122791" src="../DataMining.assets/image-20241112120122791.png" /></p>
+<h3 id="_42">线性分类器<a class="headerlink" href="#_42" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20241112120228279" src="../DataMining.assets/image-20241112120228279.png" /></p>
+<p><img alt="image-20241112120239260" src="../DataMining.assets/image-20241112120239260.png" /></p>
+<p><img alt="image-20241112120508312" src="../DataMining.assets/image-20241112120508312.png" /></p>
+<h4 id="_43">线性回归<a class="headerlink" href="#_43" title="Permanent link">&para;</a></h4>
+<p><img alt="image-20241112120538842" src="../DataMining.assets/image-20241112120538842.png" /></p>
+<p><img alt="image-20241112120557564" src="../DataMining.assets/image-20241112120557564.png" /></p>
+<p>损失函数：均方误差，目的是最小化预测值和真实值之间的平方误差。</p>
+<h4 id="_44">逻辑回归<a class="headerlink" href="#_44" title="Permanent link">&para;</a></h4>
+<p><img alt="image-20241112120808956" src="../DataMining.assets/image-20241112120808956.png" /></p>
+<p><img alt="image-20241112120847260" src="../DataMining.assets/image-20241112120847260.png" /></p>
+<p><img alt="image-20241112120852439" src="../DataMining.assets/image-20241112120852439.png" /></p>
+<p>优化：最大似然估计</p>
+<p>逻辑回归主要用于解决分类问题，特别是二分类问题。</p>
+<p>目标变量是离散的。</p>
+<p>模型形式基于线性方程，但输出经过逻辑函数（sigmoid函数）的处理，输出的结果是一个概率值。</p>
+<p>损失函数使用对数似然函数，通过最大化似然函数来估计模型参数。</p>
+<h3 id="_45">模型评估与选择<a class="headerlink" href="#_45" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20241112121238793" src="../DataMining.assets/image-20241112121238793.png" /></p>
+<h4 id="_46">评估指标<a class="headerlink" href="#_46" title="Permanent link">&para;</a></h4>
+<p><img alt="image-20241112121322584" src="../DataMining.assets/image-20241112121322584.png" /></p>
+<p>准确率 <span class="arithmatex">\(Accuracy= \frac{TP+TN}{SUM(all)}\)</span></p>
+<p>类别不平衡时，准确率常常不适用。</p>
+<p>精确率（查准率） <span class="arithmatex">\(Precision= \frac{TP}{TP+FP}\)</span> 预测为正例的样本的正确率</p>
+<p>召回率（查全率） <span class="arithmatex">\(Recall= \frac{TP}{TP+FN}\)</span> 实际为正例的样本，被正确预测的占比</p>
+<p><strong>精确率与召回率有相反的关系</strong> <strong>？？？</strong></p>
+<p><img alt="image-20241112121819434" src="../DataMining.assets/image-20241112121819434.png" /></p>
+<p>F-score</p>
+<p><img alt="image-20241112122719585" src="../DataMining.assets/image-20241112122719585.png" /></p>
+<p><img alt="image-20241112122801683" src="../DataMining.assets/image-20241112122801683.png" /></p>
+<h4 id="_47">模型评估：保留法<a class="headerlink" href="#_47" title="Permanent link">&para;</a></h4>
+<p><img alt="image-20241112123549987" src="../DataMining.assets/image-20241112123549987.png" /></p>
+<h4 id="_48">模型评估：交叉验证<a class="headerlink" href="#_48" title="Permanent link">&para;</a></h4>
+<p><img alt="image-20241112123618838" src="../DataMining.assets/image-20241112123618838.png" /></p>
+<h4 id="roc">模型选择：ROC 曲线<a class="headerlink" href="#roc" title="Permanent link">&para;</a></h4>
+<p><img alt="image-20241112123650306" src="../DataMining.assets/image-20241112123650306.png" /></p>
+<p><img alt="image-20241112123704981" src="../DataMining.assets/image-20241112123704981.png" /></p>
+<p><img alt="image-20241112123718385" src="../DataMining.assets/image-20241112123718385.png" /></p>
+<p><img alt="image-20241112123723273" src="../DataMining.assets/image-20241112123723273.png" /></p>
+<h3 id="_49">提高分类准确性的技术<a class="headerlink" href="#_49" title="Permanent link">&para;</a></h3>
+<h4 id="_50">集成方法<a class="headerlink" href="#_50" title="Permanent link">&para;</a></h4>
+<p>集成学习，构建并结合多个学习器来提升性能。</p>
+<p>集成个体应”好而不同“</p>
+<p>假设基分类器的错误率相互独立，随着集成分类器数目的增加，集成的错误率将指数级下降，最终趋于0。但实际中往往达不到相互独立。</p>
+<p><strong>集成学习大致可分为三类：Boosting（装袋）、Bagging（提升）、Stacking（堆叠泛化）</strong></p>
+<p><img alt="image-20241112124227290" src="../DataMining.assets/image-20241112124227290.png" /></p>
+<h4 id="bagging">装袋 Bagging<a class="headerlink" href="#bagging" title="Permanent link">&para;</a></h4>
+<p>Bootstrap aggregating</p>
+<p>用来生产多个分类器并且集成这些分类器形成一个整体的模型</p>
+<p>不稳定性是单一预测算法的明显的不足，该算法可以通过所有的分类器投票的方式，提升算法的稳定性</p>
+<p><img alt="image-20241112124429415" src="../DataMining.assets/image-20241112124429415.png" /></p>
+<p><img alt="image-20241112124434807" src="../DataMining.assets/image-20241112124434807.png" /></p>
+<p><img alt="image-20241112175426415" src="../DataMining.assets/image-20241112175426415.png" /></p>
+<p><img alt="image-20241112175442787" src="../DataMining.assets/image-20241112175442787.png" /></p>
+<p><img alt="image-20241112180158806" src="../DataMining.assets/image-20241112180158806.png" /></p>
+<p><img alt="image-20241112180322566" src="../DataMining.assets/image-20241112180322566.png" /></p>
+<h5 id="_51">随机森林<a class="headerlink" href="#_51" title="Permanent link">&para;</a></h5>
+<p>是最典型的 Bagging 算法</p>
+<p><strong>主要特点：</strong></p>
+<ul>
+<li>对样本进行有放回的抽样</li>
+<li>对特征也进行随机抽样</li>
+<li>基本分类器为决策树</li>
+</ul>
+<p><img alt="image-20241112181005981" src="../DataMining.assets/image-20241112181005981.png" /></p>
+<p><img alt="image-20241112181241726" src="../DataMining.assets/image-20241112181241726.png" /></p>
+<p><img alt="image-20241112181721810" src="../DataMining.assets/image-20241112181721810.png" /></p>
+<p><img alt="image-20241112181813509" src="../DataMining.assets/image-20241112181813509.png" /></p>
+<p><img alt="image-20241112181822124" src="../DataMining.assets/image-20241112181822124.png" /></p>
+<p><img alt="image-20241112181903000" src="../DataMining.assets/image-20241112181903000.png" /></p>
+<p><img alt="image-20241112181935180" src="../DataMining.assets/image-20241112181935180.png" /></p>
+<p><img alt="image-20241112181950856" src="../DataMining.assets/image-20241112181950856.png" /></p>
+<p><img alt="image-20241112181956122" src="../DataMining.assets/image-20241112181956122.png" /></p>
+<p><img alt="image-20241112182002482" src="../DataMining.assets/image-20241112182002482.png" /></p>
+<p><img alt="image-20241112182012881" src="../DataMining.assets/image-20241112182012881.png" /></p>
+<p><img alt="image-20241112182025607" src="../DataMining.assets/image-20241112182025607.png" /></p>
+<p><img alt="image-20241112182031192" src="../DataMining.assets/image-20241112182031192.png" /></p>
+<p><img alt="image-20241112182038485" src="../DataMining.assets/image-20241112182038485.png" /></p>
+<h4 id="boosting">提升 Boosting<a class="headerlink" href="#boosting" title="Permanent link">&para;</a></h4>
+<p><img alt="image-20241112182110432" src="../DataMining.assets/image-20241112182110432.png" /></p>
+<p><img alt="image-20241112182124513" src="../DataMining.assets/image-20241112182124513.png" /></p>
+<p><img alt="image-20241112182136930" src="../DataMining.assets/image-20241112182136930.png" /></p>
+<h4 id="_52">提升与装袋对比<a class="headerlink" href="#_52" title="Permanent link">&para;</a></h4>
+<p><img alt="image-20241112182315677" src="../DataMining.assets/image-20241112182315677.png" /></p>
+<h4 id="stacking">Stacking<a class="headerlink" href="#stacking" title="Permanent link">&para;</a></h4>
+<h4 id="_53">类不平衡数据集的分类<a class="headerlink" href="#_53" title="Permanent link">&para;</a></h4>
+<p>现实中面临不平衡的数据集，很少有正示例但是很多负示例。</p>
+<ul>
+<li>
+<p><strong>不平衡数据的典型方法（平衡训练集）</strong></p>
+<ul>
+<li>过采样：对少数类的群体进行过采样</li>
+<li>欠采样：从多数类中随机剔除元组</li>
+<li>合成：合成新的少数类</li>
+</ul>
+</li>
+<li>
+<p><strong>不平衡数据的典型处理方法（算法层面）</strong></p>
+<ul>
+<li>阈值移动：移动决策阈值 t，使罕见的类元组更容易分类，从而减少代价高昂的假阴性错误机会</li>
+<li>类权重调整：由于假阴性的高于假阳性，因此我们可以给予假阴性更大的权重<ul>
+<li>集成技术：集成多个分类器</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="-">五-拓展、支持向量机<a class="headerlink" href="#-" title="Permanent link">&para;</a></h2>
+<h4 id="_54">基本概念<a class="headerlink" href="#_54" title="Permanent link">&para;</a></h4>
+<p><strong>支持向量机（Support Vector Machine）</strong></p>
+<p><img alt="image-20241112183115152" src="../DataMining.assets/image-20241112183115152.png" /></p>
+<p><img alt="image-20241112183818837" src="../DataMining.assets/image-20241112183818837.png" /></p>
+<p><strong>决策边界问题 -&gt; 最大间隔问题</strong></p>
+<p><img alt="image-20241112184312065" src="../DataMining.assets/image-20241112184312065.png" /></p>
+<p><img alt="image-20241112184337314" src="../DataMining.assets/image-20241112184337314.png" /></p>
+<p>线性 SVM 和一般线性分类器的区别主要是：SVM 确保了间隔最大化</p>
+<p><img alt="image-20241112184703961" src="../DataMining.assets/image-20241112184703961.png" /></p>
+<p><img alt="image-20241112184723228" src="../DataMining.assets/image-20241112184723228.png" /></p>
+<p><img alt="image-20241112184749894" src="../DataMining.assets/image-20241112184749894.png" /></p>
+<p><img alt="image-20241112184758514" src="../DataMining.assets/image-20241112184758514.png" /></p>
+<p><img alt="image-20241112185520855" src="../DataMining.assets/image-20241112185520855.png" /></p>
+<p><img alt="image-20241112185536484" src="../DataMining.assets/image-20241112185536484.png" /></p>
+<h4 id="_55">核技巧<a class="headerlink" href="#_55" title="Permanent link">&para;</a></h4>
+<p>求解非线性 SVM：升维转换</p>
+<p>增加一个维度后，可以用一个超平面有效区分两种数据</p>
+<p><img alt="image-20241112185653594" src="../DataMining.assets/image-20241112185653594.png" /></p>
+<p><img alt="image-20241112185705695" src="../DataMining.assets/image-20241112185705695.png" /></p>
+<p><img alt="image-20241112185744029" src="../DataMining.assets/image-20241112185744029.png" /></p>
+<p><img alt="image-20241112185750559" src="../DataMining.assets/image-20241112185750559.png" /></p>
+<p><img alt="image-20241112185756576" src="../DataMining.assets/image-20241112185756576.png" /></p>
+<h2 id="_56">六、聚类<a class="headerlink" href="#_56" title="Permanent link">&para;</a></h2>
+<h3 id="_57">对比<a class="headerlink" href="#_57" title="Permanent link">&para;</a></h3>
+<p><strong>概述k-均值和k-中心点相比较的优缺点：</strong></p>
+<p>k-均值算法计算代价更小；k-中心点计算代价大，但是对于数据中的离群点和噪声鲁棒性更强，即更少受到离群点和噪声的影响。</p>
+<p><strong>概述这两种方法与层次聚类方法（如AGNES）相比有何优缺点：</strong></p>
+<p>k-均值和k-中心点都是划分方法的一种，这种方法的好处在于每次迭代重定位的时候可以撤销之前的聚群操作，但是层次聚类方法一旦一个步骤（分裂或合并）完成将不能被撤回，因此层次聚类方法可能会影响聚类的结果的质量。划分方法在球形聚类上表现良好，且其聚类的结果在小型到中中型的数据库上质量较好。划分方法的缺点在于需要指定簇的数量。</p>
+<p>层次聚类方法自动决定簇的数量。然而他们每一步做出合并或分裂步骤的时候需要进行大量计算来评估该步骤产生的簇的质量。然而，层次聚类方法能够和其他聚类方法集成一个扩展的聚类方法，提高层次聚类质量，如BIRCH、ROCK和Chameleon。</p>
+<p><strong>按照这三个标准对 k-均值、k-中心点、CLARA、DBSCAN 进行描述（1）可以确定的簇的形状；（2）必须指定的输入参数；（3）局限性</strong></p>
+<ol>
+<li>k-均值
+   球形；需指定簇的数量；对噪声敏感，只在小数据集上表现良好。</li>
+<li>k-中心点
+   球形；需指定簇的数量；适用于小数据集（没有可扩展性）。</li>
+<li>CLARA
+   球形；需指定簇的数量；对初始样本选取敏感。</li>
+<li>DBSCAN
+   任意形状；最大可能距离即密度可达和簇中点的最少数量；在最差情况下为 <span class="arithmatex">\(O(n^2)\)</span>的复杂度。</li>
+</ol>
+<h3 id="_58">聚类算法<a class="headerlink" href="#_58" title="Permanent link">&para;</a></h3>
+<h4 id="k-meansk-">k-means（k-均值）<a class="headerlink" href="#k-meansk-" title="Permanent link">&para;</a></h4>
+<p>复杂度 <span class="arithmatex">\(O(nkt)\)</span> </p>
+<p><img alt="image-20241115162745437" src="../DataMining.assets/image-20241115162745437.png" /></p>
+<p>评价准则：</p>
+<ol>
+<li>误差平方和准则 </li>
+</ol>
+<div class="arithmatex">\[
+E=\sum^k_{i=1}\sum_{p\in C_i}|p-m_i|^2,m_i=\frac{1}{n_i}\sum_{x\in C_i}x
+\]</div>
+<p>主要考量了簇内的内聚程度。</p>
+<ol>
+<li>轮廓系数</li>
+</ol>
+<div class="arithmatex">\[
+s(i)=\frac{b(i)-a(i)}{\max(b(i),a(i))}
+\]</div>
+<p><span class="arithmatex">\(b(i)\)</span> 为样本i到其他簇间距离平均值的最小值； <span class="arithmatex">\(a(i)\)</span> 为样本i到簇内其他样本的平均距离。</p>
+<p>轮廓系数主要考量了簇内的内聚程度和簇间的分离程度。</p>
+<p><img alt="image-20241115162505365" src="../DataMining.assets/image-20241115162505365.png" /></p>
+<h4 id="k-medoidsk-pam">k-medoids（k-中心点，PAM）<a class="headerlink" href="#k-medoidsk-pam" title="Permanent link">&para;</a></h4>
+<p>复杂度 <span class="arithmatex">\(O(tk{(n-k)}^2)\)</span> </p>
+<p><img alt="image-20241115161733353" src="../DataMining.assets/image-20241115161733353.png" /></p>
+<p><img alt="image-20241115163106599" src="../DataMining.assets/image-20241115163106599.png" /></p>
+<p><img alt="image-20241115163140079" src="../DataMining.assets/image-20241115163140079.png" /></p>
+<p><img alt="image-20241115163145638" src="../DataMining.assets/image-20241115163145638.png" /></p>
+<h4 id="clara">CLARA<a class="headerlink" href="#clara" title="Permanent link">&para;</a></h4>
+<p>不考虑整个数据集, 而是选择数据的一小部分作为样本。</p>
+<p><strong>步骤：</strong></p>
+<p>它从数据集中抽取多个样本集, 对每个样本集使用PAM, 并以最好的聚类作为输出
+　　CLARA 算法的步骤:
+　　(1) for 　i = 1 to v (选样的次数) ,重复执行下列步骤( (2) ～ (4) ) :
+　　(2) 随机地从整个数据库中抽取一个N(例如：(40 + 2 k))个对象的样本,调用PAM方法从样本中找出样本的k个最优的中心点。
+　　(3)将这k个中心点应用到整个数据库上， 对于每一个非代表对象Oj ,判断它与从样本中选出的哪个代表对象距离最近.
+　　(4) 计算上一步中得到的聚类的总代价. 若该值小于当前的最小值,用该值替换当前的最小值,保留在这次选样中得到的k个代表对象作为到目前为止得到的最好的代表对象的集合.
+　　(5) 返回到步骤(1) ,开始下一个循环.
+　　算法结束后，输出最好的聚类结果</p>
+<p><strong>优缺点：</strong></p>
+<p>优点: 可以处理的数据集比 PAM大</p>
+<p>缺点:</p>
+<ol>
+<li>有效性依赖于样本集的大小</li>
+<li>基于样本的好的聚类并不一定是整个数据集的好的聚类, 样本可能发生倾斜。例如, Oi是整个数据集上最佳的k个中心点之一, 但它不包含在样本中, CLARA将找不到最佳聚类。</li>
+</ol>
+<h4 id="agnes">AGNES（自底向上）<a class="headerlink" href="#agnes" title="Permanent link">&para;</a></h4>
+<p>复杂度 <span class="arithmatex">\(O(n^3)\)</span> </p>
+<p><img alt="image-20241115161601745" src="../DataMining.assets/image-20241115161601745.png" /></p>
+<p><img alt="image-20241115161507761" src="../DataMining.assets/image-20241115161507761.png" /></p>
+<h4 id="diana">DIANA（自顶向下）<a class="headerlink" href="#diana" title="Permanent link">&para;</a></h4>
+<p>自顶向下（分裂）</p>
+<h4 id="dbscan">DBSCAN<a class="headerlink" href="#dbscan" title="Permanent link">&para;</a></h4>
+<p>基于高密度连接区域的密度聚类方法。</p>
+<p><img alt="image-20241115161229828" src="../DataMining.assets/image-20241115161229828.png" /></p>
+<p><img alt="image-20241115161241198" src="../DataMining.assets/image-20241115161241198.png" /></p>
+<p><img alt="image-20241115161303472" src="../DataMining.assets/image-20241115161303472.png" /></p>
+<p><img alt="image-20241115161312923" src="../DataMining.assets/image-20241115161312923.png" /></p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="最后更新">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年12月19日</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="创建日期">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年12月19日</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="上一页: 目录">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                目录
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../%E5%9C%B0%E4%BF%A1%E5%A4%8D%E4%B9%A0/" class="md-footer__link md-footer__link--next" aria-label="下一页: 地信复习总结">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                地信复习总结
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024 DopplerXD
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/DopplerXD/" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://space.bilibili.com/32152704/" target="_blank" rel="noopener" title="space.bilibili.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M488.6 104.1c16.7 18.1 24.4 39.7 23.3 65.7v202.4c-.4 26.4-9.2 48.1-26.5 65.1-17.2 17-39.1 25.9-65.5 26.7H92.02c-26.45-.8-48.21-9.8-65.28-27.2C9.682 419.4.767 396.5 0 368.2V169.8c.767-26 9.682-47.6 26.74-65.7C43.81 87.75 65.57 78.77 92.02 78h29.38L96.05 52.19c-5.75-5.73-8.63-13-8.63-21.79 0-8.8 2.88-16.06 8.63-21.797C101.8 2.868 109.1 0 117.9 0q13.2 0 21.9 8.603L213.1 78h88l74.5-69.397C381.7 2.868 389.2 0 398 0q13.2 0 21.9 8.603c5.7 5.737 8.6 12.997 8.6 21.797 0 8.79-2.9 16.06-8.6 21.79L394.6 78h29.3c26.4.77 48 9.75 64.7 26.1m-38.8 69.7c-.4-9.6-3.7-17.4-10.7-23.5-5.2-6.1-14-9.4-22.7-9.8H96.05c-9.59.4-17.45 3.7-23.58 9.8-6.14 6.1-9.4 13.9-9.78 23.5v194.4c0 9.2 3.26 17 9.78 23.5s14.38 9.8 23.58 9.8H416.4c9.2 0 17-3.3 23.3-9.8s9.7-14.3 10.1-23.5zm-264.3 42.7c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2-6.2 6.3-14 9.5-23.6 9.5s-17.5-3.2-23.6-9.5-9.4-14-9.8-23.2v-33.3c.4-9.1 3.8-16.9 10.1-23.2s13.2-9.6 23.3-10c9.2.4 17 3.7 23.3 10m191.5 0c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2s-14 9.5-23.6 9.5-17.4-3.2-23.6-9.5c-7-6.3-9.4-14-9.7-23.2v-33.3c.3-9.1 3.7-16.9 10-23.2s14.1-9.6 23.3-10c9.2.4 17 3.7 23.3 10"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:<1509209607@qq.com>" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m20 8-8 5-8-5V6l8 5 8-5m0-2H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:<doppleryxc@gmail.com>" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 18h-2V9.25L12 13 6 9.25V18H4V6h1.2l6.8 4.25L18.8 6H20m0-2H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.zhihu.com/people/DopplerXD/" target="_blank" rel="noopener" title="www.zhihu.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M170.54 148.13v217.54l23.43.01 7.71 26.37 42.01-26.37h49.53V148.13zm97.75 193.93h-27.94l-27.9 17.51-5.08-17.47-11.9-.04V171.75h72.82zm-118.46-94.39H97.5c1.74-27.1 2.2-51.59 2.2-73.46h51.16s1.97-22.56-8.58-22.31h-88.5c3.49-13.12 7.87-26.66 13.12-40.67 0 0-24.07 0-32.27 21.57-3.39 8.9-13.21 43.14-30.7 78.12 5.89-.64 25.37-1.18 36.84-22.21 2.11-5.89 2.51-6.66 5.14-14.53h28.87c0 10.5-1.2 66.88-1.68 73.44H20.83c-11.74 0-15.56 23.62-15.56 23.62h65.58C66.45 321.1 42.83 363.12 0 396.34c20.49 5.85 40.91-.93 51-9.9 0 0 22.98-20.9 35.59-69.25l53.96 64.94s7.91-26.89-1.24-39.99c-7.58-8.92-28.06-33.06-36.79-41.81L87.9 311.95c4.36-13.98 6.99-27.55 7.87-40.67h61.65s-.09-23.62-7.59-23.62zm412.02-1.6c20.83-25.64 44.98-58.57 44.98-58.57s-18.65-14.8-27.38-4.06c-6 8.15-36.83 48.2-36.83 48.2zm-150.09-59.09c-9.01-8.25-25.91 2.13-25.91 2.13s39.52 55.04 41.12 57.45l19.46-13.73s-25.67-37.61-34.66-45.86h-.01zM640 258.35c-19.78 0-130.91.93-131.06.93v-101c4.81 0 12.42-.4 22.85-1.2 40.88-2.41 70.13-4 87.77-4.81 0 0 12.22-27.19-.59-33.44-3.07-1.18-23.17 4.58-23.17 4.58s-165.22 16.49-232.36 18.05c1.6 8.82 7.62 17.08 15.78 19.55 13.31 3.48 22.69 1.7 49.15.89 24.83-1.6 43.68-2.43 56.51-2.43v99.81H351.41s2.82 22.31 25.51 22.85h107.94v70.92c0 13.97-11.19 21.99-24.48 21.12-14.08.11-26.08-1.15-41.69-1.81 1.99 3.97 6.33 14.39 19.31 21.84 9.88 4.81 16.17 6.57 26.02 6.57 29.56 0 45.67-17.28 44.89-45.31v-73.32h122.36c9.68 0 8.7-23.78 8.7-23.78z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://www.dopplerxd.site/" target="_blank" rel="noopener" title="DopplerXD&#39;s Blog" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["header.autohide", "navigation.instant", "navigation.tracking", "toc.follow", "navigation.path", "navigation.top", "navigation.tabs", "navigation.prune", "navigation.footer", "navigation.tabs.sticky", "navigation.sections", "content.code.copy", "navigation.indexes", "search.share", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
