@@ -201,11 +201,11 @@ nav:
   - 找工作:
     - 目录: Job/index.md
     - 常见面试题:
-      - Java: Job/Interview/FrequentQ/java.md
-      - 计算机基础: Job/Interview/FrequentQ/computer-basis.md
-      - 数据库: Job/Interview/FrequentQ/database.md
-      - 系统设计: Job/Interview/FrequentQ/system-design.md
-      - 高性能: Job/Interview/FrequentQ/high-performance.md
+      - Java: Job/Interview/Frequent/java.md
+      - 计算机基础: Job/Interview/Frequent/computer-basis.md
+      - 数据库: Job/Interview/Frequent/database.md
+      - 系统设计: Job/Interview/Frequent/system-design.md
+      - 高性能: Job/Interview/Frequent/high-performance.md
   - 使用经验: Skill/index.md
   - 资源平台: Resource/index.md
   - 杂项: Other/index.md
