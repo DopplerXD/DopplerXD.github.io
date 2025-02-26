@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "6455f5c45b3461a3",
+        "id": "9d76b0d4870c382f",
         "type": "tabs",
         "children": [
           {
-            "id": "8a8487e07bb63581",
+            "id": "5cc4a4be60def454",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Job/Interview/frequentQ.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "frequentQ"
             }
           }
         ]
@@ -138,12 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "Job/Interview/frequentQ.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "大纲"
+              "title": "frequentQ 的大纲"
             }
           },
           {
@@ -174,8 +179,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "8a8487e07bb63581",
+  "active": "5cc4a4be60def454",
   "lastOpenFiles": [
+    "Job/Interview/doc.md",
+    "Job/Interview/frame.md",
+    "Job/Interview/frequentQ.md",
     "Job/index.md",
     "Skill/index.md",
     "Develop/index.md",
