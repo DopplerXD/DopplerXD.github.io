@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "9d76b0d4870c382f",
+        "id": "b16be5241084a8f7",
         "type": "tabs",
         "children": [
           {
-            "id": "5cc4a4be60def454",
+            "id": "c09c2160816f47f3",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Job/Interview/frequentQ.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "frequentQ"
+              "title": "新标签页"
             }
           }
         ]
@@ -142,13 +138,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Job/Interview/frequentQ.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "frequentQ 的大纲"
+              "title": "大纲"
             }
           },
           {
@@ -166,7 +161,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 338.5
+    "width": 341.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -179,12 +174,25 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "5cc4a4be60def454",
+  "active": "504c4e9474e76cb2",
   "lastOpenFiles": [
-    "Job/Interview/doc.md",
-    "Job/Interview/frame.md",
+    "Job/Interview/Frequent/system-design.md",
+    "Job/Interview/Frequent/computer-basis.md",
+    "Job/Interview/Frequent/java.md",
+    "Job/Interview/Frequent/high-performance.md",
+    "Job/Interview/Frequent/database.md",
+    "Job/Interview/juc.md",
+    "Job/Interview/solution.md",
+    "Job/Interview/java.md",
     "Job/Interview/frequentQ.md",
+    "Job/Interview/collection.md",
+    "Job/Interview/computer_basics.md",
+    "Job/Interview/database.md",
+    "Job/Interview/doc.md",
     "Job/index.md",
+    "Job/Interview/frame.md",
+    "Job/Interview/experience.md",
+    "Job/Interview/Frequent",
     "Skill/index.md",
     "Develop/index.md",
     "Topic/地信复习.md",
@@ -205,7 +213,6 @@
     "Develop/Project/InfoStation",
     "Develop/Project/Game-KOB",
     "Develop/Project",
-    "Develop/Backend",
-    "Develop/Frontend"
+    "Develop/Backend"
   ]
 }
