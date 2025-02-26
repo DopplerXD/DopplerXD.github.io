@@ -193,7 +193,14 @@ nav:
     - 目录: Topic/index.md
     - 数据挖掘复习总结: Topic/DataMining.md
     - 地信复习总结: Topic/地信复习.md
-  - 开发总结: Development/index.md
+  - 开发总结:
+    - 目录: Develop/index.md
+    - 前端: Develop/Frontend
+    - 后端: Develop/Backend
+    - 项目: Develop/Project
+  - 找工作:
+    - 目录: Job/index.md
+    - 常见面试题: Job/Interview/frequentQ.md
   - 使用经验: Skill/index.md
   - 资源平台: Resource/index.md
   - 杂项: Other/index.md

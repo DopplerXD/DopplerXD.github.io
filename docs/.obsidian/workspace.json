@@ -1,0 +1,203 @@
+{
+  "main": {
+    "id": "e3135b131e13e027",
+    "type": "split",
+    "children": [
+      {
+        "id": "6455f5c45b3461a3",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "8a8487e07bb63581",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新标签页"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "7a4fa6ac9102ee1c",
+    "type": "split",
+    "children": [
+      {
+        "id": "a7dce6fcf07f00ed",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "19a9401d17b9cebe",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "ea1f7734b35c4346",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "18bb6afa38994b1c",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 262.5
+  },
+  "right": {
+    "id": "79bdb176e23c7a86",
+    "type": "split",
+    "children": [
+      {
+        "id": "5413d4627944514d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f3f4bbeeef3c13b5",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Develop/Project/CodeSpace/README.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "README 的反向链接列表"
+            }
+          },
+          {
+            "id": "4e3208b781feb271",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Develop/Project/CodeSpace/README.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "README 的出链列表"
+            }
+          },
+          {
+            "id": "0e82152cce6921c5",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "eb2932368d7ce526",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "大纲"
+            }
+          },
+          {
+            "id": "504c4e9474e76cb2",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
+          }
+        ],
+        "currentTab": 4
+      }
+    ],
+    "direction": "horizontal",
+    "width": 338.5
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "obsidian-git:Open Git source control": false
+    }
+  },
+  "active": "8a8487e07bb63581",
+  "lastOpenFiles": [
+    "Job/index.md",
+    "Skill/index.md",
+    "Develop/index.md",
+    "Topic/地信复习.md",
+    "图标示例.md",
+    "Develop/Backend/Mybatis-Plus 关闭驼峰式命名转换为下划线.md",
+    "Develop/Project/CodeSpace/未命名/功能设计/用户/用户相关操作.md",
+    "Develop/Project/CodeSpace/未命名/功能设计/用户",
+    "Develop/Project/CodeSpace/未命名/功能设计",
+    "Develop/Project/CodeSpace/未命名",
+    "Develop/Project/CodeSpace/README.md",
+    "Develop/Backend/SpringBoot3.x 整合 Swagger-UI + Knife4j 接口文档.md",
+    "README.md",
+    "Develop/Backend/assets/0de2652d99470eb2043c8749efb1339f.png",
+    "Develop/Backend/assets",
+    "Develop/Backend/assets/Pasted image 20250218215206.png",
+    "Develop/Project/InfoStation/README.md",
+    "Develop/Project/CodeSpace",
+    "Develop/Project/InfoStation",
+    "Develop/Project/Game-KOB",
+    "Develop/Project",
+    "Develop/Backend",
+    "Develop/Frontend"
+  ]
+}
