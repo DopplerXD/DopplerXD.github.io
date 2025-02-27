@@ -160,10 +160,13 @@ plugins:
   - git-revision-date-localized:
       type: date
       enable_creation_date: true
+  - blog
 
 # [Navigtion]
 nav:
   - Home: index.md
+  - Blog:
+    - blog/index.md
   - 题解: 
     - 目录: Solution/index.md
     # - XCPC:
