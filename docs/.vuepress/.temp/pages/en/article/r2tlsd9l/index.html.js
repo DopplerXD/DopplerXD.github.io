@@ -1,0 +1,3 @@
+import comp from "E:/Github/DopplerXD.github.io/docs/.vuepress/.temp/pages/en/article/r2tlsd9l/index.html.vue"
+const data = JSON.parse("{\"path\":\"/en/article/r2tlsd9l/\",\"title\":\"Custom Component\",\"lang\":\"en-US\",\"frontmatter\":{\"title\":\"Custom Component\",\"tags\":[\"preview\",\"component\"],\"createTime\":\"2025/02/27 19:29:07\",\"permalink\":\"/en/article/r2tlsd9l/\"},\"headers\":[],\"readingTime\":{\"minutes\":0.05,\"words\":15},\"git\":{},\"filePathRelative\":\"en/preview/custom-component.example.md\",\"categoryList\":[{\"id\":\"5ebeb6\",\"sort\":10000,\"name\":\"preview\"}]}")
+export { comp, data }
