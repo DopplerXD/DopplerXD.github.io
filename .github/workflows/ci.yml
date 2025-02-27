@@ -10,7 +10,8 @@ on:
 jobs:
   docs:
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: write  # 赋予对仓库内容的写权限
     steps:
       - uses: actions/checkout@v4
         with:
