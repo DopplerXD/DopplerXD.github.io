@@ -161,6 +161,8 @@ plugins:
       type: date
       enable_creation_date: true
   - blog:
+      blog_dir: blog
+      blog_toc: true
       authors_file: "{blog}/.authors.yml"
 
 # [Navigtion]
