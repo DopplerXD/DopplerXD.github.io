@@ -47,7 +47,7 @@ export default defineUserConfig({
         { icon: 'ant-design:zhihu-circle-filled', link: 'https://www.zhihu.com/people/DopplerXD' },
         { icon: 'simple-icons:csdn', link: 'https://blog.csdn.net/m0_73486820' },
         // ... more
-    ]
+    ],
 
     /* 文档仓库配置，用于 editLink */
     // docsRepo: '',
