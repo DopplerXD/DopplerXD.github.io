@@ -30,6 +30,25 @@ export default defineUserConfig({
     /* 添加您的部署域名, 有助于 SEO, 生成 sitemap */
     hostname: 'https://www.dopplerxd.top',
 
+    /* 博主信息 */
+    profile: {
+        name: 'Doppler',
+        description: 'CUGB 数据科学与大数据技术 大三',
+        avatar: 'https://cdn.acwing.com/media/user/profile/photo/450178_lg_963ea242b1.jpg',
+        location: 'Beijing, China',
+        organization: 'CUGB',
+        circle: true, // 是否为圆形头像
+        layout: 'right', // 个人信息在左侧还是右侧，'left' | 'right'
+    },
+
+    /* 社交连接 */
+    social: [
+        { icon: 'github', link: 'https://github.com/DopplerXD' },
+        { icon: 'ant-design:zhihu-circle-filled', link: 'https://www.zhihu.com/people/DopplerXD' },
+        { icon: 'simple-icons:csdn', link: 'https://blog.csdn.net/m0_73486820' },
+        // ... more
+    ]
+
     /* 文档仓库配置，用于 editLink */
     // docsRepo: '',
     // docsDir: 'docs',

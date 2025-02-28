@@ -7,9 +7,9 @@ config:
     full: true
     background: tint-plate
     hero:
-      name: Theme Plume
-      tagline: VuePress Next Theme
-      text: 一个简约的，功能丰富的 vuepress 文档&博客 主题
+      name: Site by DopplerXD
+      tagline: 博客、笔记、分享
+      text: 基于 VuePress & Plume 搭建的个人站点
       actions:
         -
           theme: brand
