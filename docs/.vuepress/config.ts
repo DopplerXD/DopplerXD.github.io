@@ -1,7 +1,7 @@
 import { viteBundler } from '@vuepress/bundler-vite'
 import { defineUserConfig } from 'vuepress'
 import { plumeTheme } from 'vuepress-theme-plume'
-import zhNotes from './notes'
+import { zhNotes } from './notes';
 
 export default defineUserConfig({
   base: '/',
