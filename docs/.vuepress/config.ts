@@ -61,7 +61,14 @@ export default defineUserConfig({
     // editLink: true,
     // lastUpdated: true,
     // contributors: true,
-    changelog: true,
+    // changelog: true,
+    changelog: {
+      maxCount: 10,
+      repoUrl: 'https://github.com/DopplerXD/DopplerXD.github.io',
+      commitUrlPattern: ':repo/commit/:hash',
+      issueUrlPattern: ':repo/issues/:issue',
+      tagUrlPattern: ':repo/releases/tag/:tag'
+    },
 
     /**
      * 博客

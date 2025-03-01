@@ -59,7 +59,7 @@ export default defineThemeConfig({
       /* 社交连接 */
       social: [
           { icon: 'github', link: 'https://github.com/DopplerXD' },
-          { icon: 'zhihu-circle-filled', link: 'https://www.zhihu.com/people/DopplerXD' },
+          { icon: 'zhihu', link: 'https://www.zhihu.com/people/DopplerXD' },
           { icon: 'csdn', link: 'https://blog.csdn.net/m0_73486820' },
           // ... more
       ],
@@ -91,6 +91,14 @@ export default defineThemeConfig({
         circle: true, // 是否为圆形头像
         layout: 'right', // 个人信息在左侧还是右侧，'left' | 'right'
       },
+      
+      /* 社交连接 */
+      social: [
+        { icon: 'github', link: 'https://github.com/DopplerXD' },
+        { icon: 'zhihu', link: 'https://www.zhihu.com/people/DopplerXD' },
+        { icon: 'csdn', link: 'https://blog.csdn.net/m0_73486820' },
+        // ... more
+      ],
 
       navbar: enNavbar,
       notes: enNotes,
