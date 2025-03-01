@@ -96,7 +96,7 @@ export default defineUserConfig({
     //   title: true,      // 是否生成标题
     // },
 
-    copyright: 'CC-BY-4.0'
+    copyright: 'CC-BY-4.0',
 
     plugins: {
         // 文章变更历史
