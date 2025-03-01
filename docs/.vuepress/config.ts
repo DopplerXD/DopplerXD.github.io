@@ -37,7 +37,7 @@ export default defineUserConfig({
     profile: {
         name: 'Doppler',
         description: 'CUGB 数据科学与大数据技术 大三',
-        avatar: './public/head.jpg',
+        avatar: '/head.jpg',
         location: 'Beijing, China',
         organization: 'CUGB',
         circle: true, // 是否为圆形头像
@@ -47,8 +47,8 @@ export default defineUserConfig({
     /* 社交连接 */
     social: [
         { icon: 'github', link: 'https://github.com/DopplerXD' },
-        { icon: 'ant-design:zhihu-circle-filled', link: 'https://www.zhihu.com/people/DopplerXD' },
-        { icon: 'simple-icons:csdn', link: 'https://blog.csdn.net/m0_73486820' },
+        { icon: 'zhihu-circle-filled', link: 'https://www.zhihu.com/people/DopplerXD' },
+        { icon: 'csdn', link: 'https://blog.csdn.net/m0_73486820' },
         // ... more
     ],
 
@@ -61,7 +61,7 @@ export default defineUserConfig({
     // editLink: true,
     // lastUpdated: true,
     // contributors: true,
-    // changelog: false,
+    changelog: true,
 
     /**
      * 博客
@@ -96,7 +96,12 @@ export default defineUserConfig({
     //   title: true,      // 是否生成标题
     // },
 
+    copyright: 'CC-BY-4.0'
+
     plugins: {
+        // 文章变更历史
+        git: process.env.NODE_ENV === 'production'
+
       /**
        * Shiki 代码高亮
        * @see https://theme-plume.vuejs.press/config/plugins/code-highlight/
@@ -190,17 +195,17 @@ export default defineUserConfig({
        * 评论 comments
        * @see https://theme-plume.vuejs.press/guide/features/comments/
        */
-      // comment: {
-      //   provider: '', // "Artalk" | "Giscus" | "Twikoo" | "Waline"
-      //   comment: true,
-      //   repo: '',
-      //   repoId: '',
-      //   category: '',
-      //   categoryId: '',
-      //   mapping: 'pathname',
-      //   reactionsEnabled: true,
-      //   inputPosition: 'top',
-      // },
+      comment: {
+        provider: 'Giscus', // "Artalk" | "Giscus" | "Twikoo" | "Waline"
+        comment: true,
+        repo: 'DopplerXD/DopplerXD.github.io',
+        repoId: 'R_kgDOMaZkFw',
+        category: 'Announcements',
+        categoryId: 'DIC_kwDOMaZkF84CndnP',
+        mapping: 'pathname',
+        reactionsEnabled: true,
+        inputPosition: 'top',
+      },
     },
 
     /**

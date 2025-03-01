@@ -1,8 +1,3 @@
----
-title: Mybatis-Plus 关闭驼峰式命名转换为下划线
-createTime: 2025/02/26 18:38:00
-permalink: /article/2p7qepgs/
----
 Springboot3 项目中，实体 User 属性 userAccount，数据库字段也为 userAccount，后端报错
 ```
 ### Error updating database.  Cause: java.sql.SQLSyntaxErrorException: Unknown column 'user_account' in 'field list'

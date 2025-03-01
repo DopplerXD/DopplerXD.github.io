@@ -1,8 +1,3 @@
----
-title: SpringBoot3.x 整合 Swagger-UI + Knife4j 接口文档
-createTime: 2025/02/26 18:38:00
-permalink: /article/tw4v6eoc/
----
 ## 一、添加合适版本的依赖
 以 maven 为例：
 ```xml
