@@ -1,6 +1,7 @@
 import { viteBundler } from '@vuepress/bundler-vite'
 import { defineUserConfig } from 'vuepress'
 import { plumeTheme } from 'vuepress-theme-plume'
+import notes from './notes'
 
 export default defineUserConfig({
   base: '/',
@@ -30,11 +31,13 @@ export default defineUserConfig({
     /* 添加您的部署域名, 有助于 SEO, 生成 sitemap */
     hostname: 'https://www.dopplerxd.top',
 
+    notes,
+
     /* 博主信息 */
     profile: {
         name: 'Doppler',
         description: 'CUGB 数据科学与大数据技术 大三',
-        avatar: 'https://cdn.acwing.com/media/user/profile/photo/450178_lg_963ea242b1.jpg',
+        avatar: './public/head.jpg',
         location: 'Beijing, China',
         organization: 'CUGB',
         circle: true, // 是否为圆形头像
