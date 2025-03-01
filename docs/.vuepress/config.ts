@@ -1,7 +1,7 @@
 import { viteBundler } from '@vuepress/bundler-vite'
 import { defineUserConfig } from 'vuepress'
 import { plumeTheme } from 'vuepress-theme-plume'
-import notes from './notes'
+import zhNotes from './notes'
 
 export default defineUserConfig({
   base: '/',
@@ -31,7 +31,7 @@ export default defineUserConfig({
     /* 添加您的部署域名, 有助于 SEO, 生成 sitemap */
     hostname: 'https://www.dopplerxd.top',
 
-    notes,
+    zhNotes,
 
     /* 博主信息 */
     profile: {
