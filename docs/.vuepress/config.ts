@@ -99,8 +99,8 @@ export default defineUserConfig({
     copyright: 'CC-BY-4.0',
 
     plugins: {
-        // 文章变更历史
-        git: process.env.NODE_ENV === 'production'
+      // 文章变更历史
+      git: process.env.NODE_ENV === 'production',
 
       /**
        * Shiki 代码高亮
