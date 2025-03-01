@@ -45,14 +45,24 @@ export default defineThemeConfig({
       /**
        * @see https://theme-plume.vuejs.press/config/basic/#profile
        */
+      /* 博主信息 */
       profile: {
-        avatar: 'https://theme-plume.vuejs.press/plume.png',
-        name: 'Doppler&#x27;s Site',
-        description: '',
-        // circle: true,
-        // location: '',
-        // organization: '',
+        name: 'Doppler',
+        description: 'CUGB 数据科学与大数据技术 大三',
+        avatar: '/head.jpg',
+        location: 'Beijing, China',
+        organization: 'CUGB',
+        circle: true, // 是否为圆形头像
+        layout: 'right', // 个人信息在左侧还是右侧，'left' | 'right'
       },
+
+      /* 社交连接 */
+      social: [
+          { icon: 'github', link: 'https://github.com/DopplerXD' },
+          { icon: 'zhihu-circle-filled', link: 'https://www.zhihu.com/people/DopplerXD' },
+          { icon: 'csdn', link: 'https://blog.csdn.net/m0_73486820' },
+          // ... more
+      ],
 
       navbar: zhNavbar,
       notes: zhNotes,
@@ -73,12 +83,13 @@ export default defineThemeConfig({
        * @see https://theme-plume.vuejs.press/config/basic/#profile
        */
       profile: {
-        avatar: 'https://theme-plume.vuejs.press/plume.png',
-        name: 'Doppler&#x27;s Site',
-        description: '',
-        // circle: true,
-        // location: '',
-        // organization: '',
+        name: 'Doppler',
+        description: 'CUGB, Data Science and Big Data Technology, Junior',
+        avatar: '/head.jpg',
+        location: 'Beijing, China',
+        organization: 'CUGB',
+        circle: true, // 是否为圆形头像
+        layout: 'right', // 个人信息在左侧还是右侧，'left' | 'right'
       },
 
       navbar: enNavbar,
