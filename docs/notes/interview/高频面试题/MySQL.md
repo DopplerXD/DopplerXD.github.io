@@ -9,7 +9,7 @@ tags:
 
 可以使用 `SHOW ENGINES` 命令来查看 MySQL 支持的所有存储引擎
 
-![[assets/Pasted image 20250302150800.png]]
+![](assets/image20250302150800.png)
 
 MySQL 5.5 之前，默认存储引擎是 MyISAM；5.5 版本之后，默认使用 InnoDB 作为存储引擎。
 
@@ -67,7 +67,7 @@ MyISAM 不支持 MVCC，而 InnoDB 支持。
 MyISAM 不支持数据库异常崩溃后的安全恢复，而 InnoDB 支持。
 InnoDB 的性能比 MyISAM 更强大。
 
-![[assets/Pasted image 20250302152051.png]]
+![](assets/image20250302152051.png)
 
 ## MySQL 事务
 

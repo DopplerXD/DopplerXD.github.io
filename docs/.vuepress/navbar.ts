@@ -6,6 +6,14 @@ export const zhNavbar = defineNavbarConfig([
   { text: '标签', link: '/blog/tags/' },
   { text: '归档', link: '/blog/archives/' },
   {
+    text: 'LeetCode',
+    items: [
+        { text: '面试经典 150 题', link: '/notes/leetcode/top-interview-150/' },
+        { text: 'Hot 100', link: '/notes/leetcode/top-100-liked/' },
+    ]
+  },
+  { text: '资源分享', link: '/notes/resource-share/' },
+  {
     text: '笔记',
     items: [
         { text: '面试', link: '/notes/interview/' },

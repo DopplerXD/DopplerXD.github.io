@@ -8,5 +8,7 @@
   "showLineNumber": false,
   "useTab": false,
   "readableLineLength": false,
-  "propertiesInDocument": "visible"
+  "propertiesInDocument": "visible",
+  "alwaysUpdateLinks": true,
+  "useMarkdownLinks": true
 }

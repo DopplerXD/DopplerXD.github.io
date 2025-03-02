@@ -7,7 +7,7 @@ config:
     bannerMask:
       light: 0.1
       dark: 0.3
-    # full: true
+    full: true
     # background: tint-plate
     hero:
       name: Site by DopplerXD
