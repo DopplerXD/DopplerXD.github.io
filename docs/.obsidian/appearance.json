@@ -1,5 +1,7 @@
 {
   "theme": "system",
   "cssTheme": "Things",
-  "accentColor": "#864ccd"
+  "accentColor": "#864ccd",
+  "baseFontSizeAction": true,
+  "baseFontSize": 18
 }

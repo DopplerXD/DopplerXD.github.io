@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "b16be5241084a8f7",
+        "id": "f1cb5b911fb79cc5",
         "type": "tabs",
         "children": [
           {
-            "id": "c09c2160816f47f3",
+            "id": "89e11d50272f639b",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "notes/interview/高频面试题/MySQL.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "MySQL"
             }
           }
         ]
@@ -138,12 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "notes/interview/高频面试题/MySQL.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "大纲"
+              "title": "MySQL 的大纲"
             }
           },
           {
@@ -161,7 +166,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 341.5
+    "width": 326.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -176,6 +181,14 @@
   },
   "active": "504c4e9474e76cb2",
   "lastOpenFiles": [
+    "preview/markdown.md",
+    "notes/interview/高频面试题/MySQL.md",
+    "notes/interview/高频面试题/assets/Pasted image 20250302152051.png",
+    "notes/interview/高频面试题/assets/Pasted image 20250302150800.png",
+    "notes/interview/高频面试题/assets",
+    "notes/interview/高频面试题/java.md",
+    "blogs/测试/tags测试.md",
+    "blogs/我的博客.md",
     "Job/Interview/Frequent/system-design.md",
     "Job/Interview/Frequent/computer-basis.md",
     "Job/Interview/Frequent/java.md",
@@ -198,21 +211,15 @@
     "Topic/地信复习.md",
     "图标示例.md",
     "Develop/Backend/Mybatis-Plus 关闭驼峰式命名转换为下划线.md",
-    "Develop/Project/CodeSpace/未命名/功能设计/用户/用户相关操作.md",
     "Develop/Project/CodeSpace/未命名/功能设计/用户",
     "Develop/Project/CodeSpace/未命名/功能设计",
     "Develop/Project/CodeSpace/未命名",
-    "Develop/Project/CodeSpace/README.md",
-    "Develop/Backend/SpringBoot3.x 整合 Swagger-UI + Knife4j 接口文档.md",
-    "README.md",
     "Develop/Backend/assets/0de2652d99470eb2043c8749efb1339f.png",
     "Develop/Backend/assets",
     "Develop/Backend/assets/Pasted image 20250218215206.png",
-    "Develop/Project/InfoStation/README.md",
     "Develop/Project/CodeSpace",
     "Develop/Project/InfoStation",
     "Develop/Project/Game-KOB",
-    "Develop/Project",
-    "Develop/Backend"
+    "Develop/Project"
   ]
 }

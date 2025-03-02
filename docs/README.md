@@ -3,9 +3,13 @@ pageLayout: home
 externalLinkIcon: false
 config:
   -
-    type: hero
-    full: true
-    background: tint-plate
+    type: banner
+    banner: /banner_hutao.jpg
+	bannerMask:
+      light: 0.1
+      dark: 0.3
+    # full: true
+    # background: tint-plate
     hero:
       name: Site by DopplerXD
       tagline: 博客、笔记、分享
@@ -17,6 +21,6 @@ config:
           link: /blog/
         -
           theme: alt
-          text: Github →
+          text: Github
           link: https://github.com/DopplerXD/DopplerXD.github.io
 ---

@@ -33,6 +33,12 @@ jobs:
           node-version: 20
           # 缓存 pnpm 依赖
           cache: pnpm
+    
+      - name: install iconify/json
+        run: | 
+          pnpm add @iconify/json
+          pnpm add markmap-lib markmap-toolbar markmap-view
+          pnpm add echarts
 
       # 运行构建脚本
       - name: Build VuePress site

@@ -2,5 +2,11 @@
   "attachmentFolderPath": "./assets",
   "newFileLocation": "current",
   "newLinkFormat": "relative",
-  "autoConvertHtml": false
+  "autoConvertHtml": false,
+  "tabSize": 4,
+  "strictLineBreaks": true,
+  "showLineNumber": false,
+  "useTab": false,
+  "readableLineLength": false,
+  "propertiesInDocument": "visible"
 }
