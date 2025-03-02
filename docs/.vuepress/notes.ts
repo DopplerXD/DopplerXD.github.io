@@ -26,10 +26,16 @@ const solution = defineNoteConfig({
   sidebar: 'auto',
 })
 
+const leetcode = defineNoteConfig({
+  dir: 'leetcode',
+  link: '/leetcode/',
+  sidebar: 'auto',
+})
+
 export const zhNotes = defineNotesConfig({
   dir: 'notes',
   link: '/',
-  notes: [algorithm, interview, develop, solution],
+  notes: [algorithm, interview, develop, solution, leetcode],
 })
 
 /* =================== locale: en-US ======================= */

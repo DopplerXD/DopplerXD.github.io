@@ -7,7 +7,7 @@ tags:
   - 面试
 copyright: CC-BY-4.0
 ---
-题单链接 [](https://leetcode.cn/studyplan/top-interview-150/)
+[题单链接](https://leetcode.cn/studyplan/top-interview-150/)
 
 ## 专题分类
 
