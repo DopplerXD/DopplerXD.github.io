@@ -1,11 +1,10 @@
 ---
 pageLayout: home
-externalLinkIcon: false
 config:
   -
     type: banner
     banner: /banner_hutao.jpg
-	bannerMask:
+    bannerMask:
       light: 0.1
       dark: 0.3
     # full: true
