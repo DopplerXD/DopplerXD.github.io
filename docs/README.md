@@ -3,7 +3,7 @@ pageLayout: home
 config:
   -
     type: banner
-    banner: /banner_hutao.jpg
+    banner: /banner_hutao_short.png
     bannerMask:
       light: 0.1
       dark: 0.3
