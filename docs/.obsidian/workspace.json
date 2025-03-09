@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "e7ec8c7137bf28a5",
+        "id": "24c8a8bf311561fe",
         "type": "tabs",
         "children": [
           {
-            "id": "d834bb2aef39e863",
+            "id": "08a4d122cecb9a1f",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "notes/resource-share/good-web.md",
+                "mode": "source",
+                "source": true
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "good-web"
             }
           }
         ]
@@ -138,12 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "notes/resource-share/good-web.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "大纲"
+              "title": "good-web 的大纲"
             }
           },
           {
@@ -157,11 +162,11 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 326.5
+    "width": 334.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -174,8 +179,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "d834bb2aef39e863",
+  "active": "eb2932368d7ce526",
   "lastOpenFiles": [
+    "notes/develop/项目/CodeSpace/笔记.md",
+    "notes/develop/项目/CodeSpace/README.md",
     "notes/leetcode/top-interview-150/README.md",
     "notes/interview/高频面试题/Spring.md",
     "notes/interview/高频面试题/assets/Pasted image 20250305215638.png",
@@ -213,7 +220,6 @@
     "Job/Interview/solution.md",
     "Job/Interview/java.md",
     "Job/Interview/frequentQ.md",
-    "Job/Interview/collection.md",
     "Job/Interview/Frequent",
     "Develop/Project/CodeSpace/未命名/功能设计/用户",
     "Develop/Project/CodeSpace/未命名/功能设计",

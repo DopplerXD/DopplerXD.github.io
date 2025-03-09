@@ -32,10 +32,16 @@ const leetcode = defineNoteConfig({
   sidebar: 'auto',
 })
 
+const resource_share = defineNoteConfig({
+  dir: 'resource-share',
+  link: '/resource-share/',
+  sidebar: 'auto',
+})
+
 export const zhNotes = defineNotesConfig({
   dir: 'notes',
   link: '/',
-  notes: [algorithm, interview, develop, solution, leetcode],
+  notes: [algorithm, interview, develop, solution, leetcode, resource_share],
 })
 
 /* =================== locale: en-US ======================= */
