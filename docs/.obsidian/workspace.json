@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "24c8a8bf311561fe",
+        "id": "07e3d784ea4b6150",
         "type": "tabs",
         "children": [
           {
-            "id": "08a4d122cecb9a1f",
+            "id": "26511cf20974f57e",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "notes/resource-share/good-web.md",
+                "file": "notes/leetcode/top-100-liked/hash.md",
                 "mode": "source",
-                "source": true
+                "source": false
               },
               "icon": "lucide-file",
-              "title": "good-web"
+              "title": "hash"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "notes/resource-share/good-web.md",
+                "file": "notes/leetcode/top-100-liked/hash.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "good-web 的大纲"
+              "title": "hash 的大纲"
             }
           },
           {
@@ -166,7 +166,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 334.5
+    "width": 336.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -176,11 +176,24 @@
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "smart-connections:Open: View Smart Connections": false,
+      "smart-connections:Open: Smart Chat Conversation": false
     }
   },
-  "active": "eb2932368d7ce526",
+  "active": "26511cf20974f57e",
   "lastOpenFiles": [
+    "obsidian-snippets/problem-link.md",
+    "notes/leetcode/top-100-liked/hash.md",
+    "未命名.canvas",
+    "obsidian-snippets/codetabs.md",
+    "obsidian-snippets/codetabs.txt",
+    "obsidian-snippets/新建 文本文档.txt",
+    "obsidian-snippets",
+    "新建文件夹",
+    "notes/leetcode/top-interview-150/array-string.md",
+    "notes/leetcode/top-100-liked/README.md",
+    "notes/resource-share/good-web.md",
     "notes/develop/项目/CodeSpace/笔记.md",
     "notes/develop/项目/CodeSpace/README.md",
     "notes/leetcode/top-interview-150/README.md",
@@ -192,11 +205,9 @@
     "notes/interview/高频面试题/MySQL.md",
     "notes/interview/高频面试题/java.md",
     "notes/interview/README.md",
-    "notes/leetcode/top-interview-150/array-string.md",
     "README.md",
     "notes/algorithm/算法模板/README.md",
     "notes/algorithm/README.md",
-    "notes/leetcode/top-100-liked/README.md",
     "notes/resource-share/README.md",
     "notes/leetcode/top-100-liked",
     "notes/resource-share",
@@ -208,7 +219,6 @@
     "assets/Pasted.md",
     "assets",
     "preview/markdown.md",
-    "notes/interview/高频面试题/assets",
     "blogs/测试/tags测试.md",
     "blogs/我的博客.md",
     "Job/Interview/Frequent/system-design.md",
@@ -216,13 +226,6 @@
     "Job/Interview/Frequent/java.md",
     "Job/Interview/Frequent/high-performance.md",
     "Job/Interview/Frequent/database.md",
-    "Job/Interview/juc.md",
-    "Job/Interview/solution.md",
-    "Job/Interview/java.md",
-    "Job/Interview/frequentQ.md",
-    "Job/Interview/Frequent",
-    "Develop/Project/CodeSpace/未命名/功能设计/用户",
-    "Develop/Project/CodeSpace/未命名/功能设计",
     "Develop/Backend/assets/0de2652d99470eb2043c8749efb1339f.png",
     "Develop/Backend/assets/Pasted image 20250218215206.png"
   ]
