@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "1d489de86af0d132",
+        "id": "88890506c492e7d7",
         "type": "tabs",
         "children": [
           {
-            "id": "0fd7234cc3ae4e45",
+            "id": "98217a79e00eec2e",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "notes/interview/设计模式.md",
+                "file": "obsidian-snippets/codetab.md",
                 "mode": "source",
-                "source": false
+                "source": true
               },
               "icon": "lucide-file",
-              "title": "设计模式"
+              "title": "codetab"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "notes/interview/设计模式.md",
+                "file": "obsidian-snippets/codetab.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "设计模式 的大纲"
+              "title": "codetab 的大纲"
             }
           },
           {
@@ -179,15 +179,16 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "504c4e9474e76cb2",
+  "active": "98217a79e00eec2e",
   "lastOpenFiles": [
     "notes/interview/README.md",
-    "notes/interview/设计模式.md",
+    "preview/custom-component.example.md",
     "obsidian-snippets/codetab.md",
+    "obsidian-snippets/problem-link.md",
     "obsidian-snippets/codetabs.md",
+    "notes/interview/设计模式.md",
     "notes/interview/高频面试题/Spring.md",
     "notes/leetcode/top-100-liked/hash.md",
-    "obsidian-snippets/problem-link.md",
     "未命名.canvas",
     "obsidian-snippets/codetabs.txt",
     "obsidian-snippets/新建 文本文档.txt",
@@ -223,7 +224,6 @@
     "blogs/我的博客.md",
     "Job/Interview/Frequent/system-design.md",
     "Job/Interview/Frequent/computer-basis.md",
-    "Job/Interview/Frequent/java.md",
     "Develop/Backend/assets/0de2652d99470eb2043c8749efb1339f.png",
     "Develop/Backend/assets/Pasted image 20250218215206.png"
   ]
