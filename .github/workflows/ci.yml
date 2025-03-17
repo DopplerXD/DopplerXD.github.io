@@ -36,7 +36,6 @@ jobs:
     
       - name: install iconify/json
         run: | 
-          pnpm dlx vp-update
           pnpm add @iconify/json
           pnpm add markmap-lib markmap-toolbar markmap-view
           pnpm add echarts
