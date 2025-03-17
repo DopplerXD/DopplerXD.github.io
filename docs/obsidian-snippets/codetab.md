@@ -1,6 +1,3 @@
-::: codetab
-@code
-```
+``` title=""
 
 ```
-:::
