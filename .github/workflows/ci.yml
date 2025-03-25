@@ -40,7 +40,6 @@ jobs:
           pnpm add markmap-lib markmap-toolbar markmap-view
           pnpm add echarts
           pnpm add mermaid
-          pnpm add @vuepress/shiki-twoslash
 
       # 运行构建脚本
       - name: Build VuePress site
