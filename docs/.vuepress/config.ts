@@ -33,6 +33,9 @@ export default defineUserConfig({
 
     zhNotes,
 
+    /* 内容搜索 */
+    search: false
+
     /* 博主信息 */
     profile: {
         name: 'Doppler',
@@ -122,7 +125,7 @@ export default defineUserConfig({
       },
 
       /* 本地搜索, 默认启用 */
-      search: false,
+      // search: false,
 
       /**
        * Algolia DocSearch
