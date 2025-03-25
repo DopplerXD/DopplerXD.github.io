@@ -14,6 +14,20 @@ const interview = defineNoteConfig({
   sidebar: 'auto',
 })
 
+// 从 interview 分离出来, 设置为 note 但不在导航栏显示
+const interview_question = defineNoteConfig({
+  dir: '面试题',
+  link: '/面试题/',
+  sidebar: 'auto',
+})
+
+// 从 leetcode 分离出来, 设置为 note 但不在导航栏显示
+const leetcode_problem = defineNoteConfig({
+  dir: 'leetcode-problem',
+  link: '/leetcode-problem/',
+  sidebar: 'auto',
+})
+
 const develop = defineNoteConfig({
   dir: 'develop',
   link: '/develop/',
