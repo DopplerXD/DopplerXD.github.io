@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "1377c8dbe918bb58",
+        "id": "0e33868b83d23f18",
         "type": "tabs",
         "children": [
           {
-            "id": "cea646f6c7a48d80",
+            "id": "b10e55156c09d614",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "notes/interview/面经收集/小米.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "小米"
+              "title": "新标签页"
             }
           }
         ]
@@ -179,10 +175,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "504c4e9474e76cb2",
+  "active": "b10e55156c09d614",
   "lastOpenFiles": [
-    "notes/面试题/什么样的字段适合加索引？索引失效了解吗？.md",
     "notes/interview/面经收集/小米.md",
+    "notes/面试题/什么样的字段适合加索引？索引失效了解吗？.md",
     "notes/面试题/数据库的脏读、不可重复读和幻读分别是什么？.md",
     "notes/面试题/MySQL 是如何实现事务的？.md",
     "notes/面试题/什么是数据库事务？介绍 ACID 特性.md",

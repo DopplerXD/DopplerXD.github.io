@@ -122,7 +122,7 @@ export default defineUserConfig({
       },
 
       /* 本地搜索, 默认启用 */
-      // search: true,
+      search: false,
 
       /**
        * Algolia DocSearch
