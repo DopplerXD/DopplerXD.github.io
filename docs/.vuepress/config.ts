@@ -34,7 +34,7 @@ export default defineUserConfig({
     zhNotes,
 
     /* 内容搜索 */
-    search: false
+    search: false;
 
     /* 博主信息 */
     profile: {
