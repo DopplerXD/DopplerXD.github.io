@@ -46,7 +46,7 @@ jobs:
       - name: Clean build cache
         run: |
           pnpm store prune
-        #  rm -rf docs/.vuepress/dist/*
+          rm -rf docs/.vuepress/.temp/*
 
       # 运行构建脚本
       - name: Build VuePress site
