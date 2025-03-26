@@ -41,6 +41,11 @@ jobs:
           pnpm add echarts
           pnpm add mermaid
 
+      # 添加清理构建输出目录的步骤
+      - name: Clean build cache
+        run: |
+          rm -rf docs/.vuepress/dist/*
+
       # 运行构建脚本
       - name: Build VuePress site
         run: pnpm docs:build
