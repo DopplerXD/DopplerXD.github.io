@@ -34,22 +34,19 @@ jobs:
           # 缓存 pnpm 依赖
           cache: pnpm
 
-      - name: install iconify/json
+      - name: install plugins
         run: | 
           pnpm add @iconify/json
           pnpm add markmap-lib markmap-toolbar markmap-view
           pnpm add echarts
           pnpm add mermaid
+          pnpm add @vitejs/plugin-vue
 
-      - name: Install @vitejs/plugin-vue
-        run: pnpm add @vitejs/plugin-vue
-
-      # 添加清理构建输出目录的步骤
+      # 清除缓存
       - name: Clean build cache
         run: |
-          rm -rf docs/.vuepress/dist
-        #  rm -rf docs/.vuepress/.cache
-          rm -rf docs/.vuepress/.temp
+          pnpm store prune
+        #  rm -rf docs/.vuepress/dist/*
 
       # 运行构建脚本
       - name: Build VuePress site
