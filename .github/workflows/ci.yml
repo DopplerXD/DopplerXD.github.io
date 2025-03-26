@@ -33,13 +33,16 @@ jobs:
           node-version: 20
           # 缓存 pnpm 依赖
           cache: pnpm
-    
+
       - name: install iconify/json
         run: | 
           pnpm add @iconify/json
           pnpm add markmap-lib markmap-toolbar markmap-view
           pnpm add echarts
           pnpm add mermaid
+
+      - name: Install @vitejs/plugin-vue
+        run: pnpm add @vitejs/plugin-vue
 
       # 添加清理构建输出目录的步骤
       - name: Clean build cache
