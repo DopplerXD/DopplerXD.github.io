@@ -17,26 +17,20 @@ const interview = defineNoteConfig({
 // 从 interview 分离出来, 设置为 note 但不在导航栏显示
 const interview_questions = defineNoteConfig({
   dir: 'interview-questions',
-  link: '/interview-questions/',
+  link: '/interview/questions/',
   sidebar: 'auto',
 })
 
 // 从 leetcode 分离出来, 设置为 note 但不在导航栏显示
 const leetcode_problems = defineNoteConfig({
   dir: 'leetcode-problems',
-  link: '/leetcode-problems/',
+  link: '/leetcode/problems/',
   sidebar: 'auto',
 })
 
 const develop = defineNoteConfig({
   dir: 'develop',
   link: '/develop/',
-  sidebar: 'auto',
-})
-
-const solution = defineNoteConfig({
-  dir: 'solution',
-  link: '/solution/',
   sidebar: 'auto',
 })
 
@@ -55,7 +49,7 @@ const resource_share = defineNoteConfig({
 export const zhNotes = defineNotesConfig({
   dir: 'notes',
   link: '/',
-  notes: [algorithm, interview, develop, solution, leetcode, resource_share, interview_questions, leetcode_problems],
+  notes: [algorithm, interview, develop, leetcode, resource_share, interview_questions, leetcode_problems],
 })
 
 /* =================== locale: en-US ======================= */
