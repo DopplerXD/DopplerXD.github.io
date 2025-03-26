@@ -45,6 +45,8 @@ jobs:
       - name: Clean build cache
         run: |
           rm -rf docs/.vuepress/dist/*
+          rm -rf docs/.vuepress/.cache/*
+          rm -rf docs/.vuepress/.temp/*
 
       # 运行构建脚本
       - name: Build VuePress site
