@@ -11,6 +11,7 @@ export const zhNavbar = defineNavbarConfig([
     items: [
         { text: '面试经典 150 题', link: '/notes/leetcode/top-interview-150/' },
         { text: 'Hot 100', link: '/notes/leetcode/top-100-liked/' },
+        { text: '题解', link: '/notes/leetcode-problems/' },
     ]
   },
   {
@@ -19,6 +20,7 @@ export const zhNavbar = defineNavbarConfig([
         { text: '面试', link: '/notes/interview/' },
         { text: '算法', link: '/notes/algorithm/' },
         { text: '开发', link: '/notes/develop/' },
+        { text: '面试题', link: '/notes/interview-questions/' },
     ]
   },
 ])
