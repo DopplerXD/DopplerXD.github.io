@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "f47376d68e1c6787",
+        "id": "7152034062ca5a38",
         "type": "tabs",
         "children": [
           {
-            "id": "776a424996d41de4",
+            "id": "4f18eaba06990031",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "notes/interview-questions/README.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "README"
+              "title": "新标签页"
             }
           }
         ]
@@ -179,20 +175,20 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "776a424996d41de4",
+  "active": "4f18eaba06990031",
   "lastOpenFiles": [
-    "notes/interview-questions/README.md",
-    "notes/leetcode-problems/README.md",
-    "notes/leetcode-problems/1361. 验证二叉树.md",
     "notes/interview/面经收集/小米.md",
-    "notes/interview-questions/Java 面向对象编程与面向过程编程的区别是什么？.md",
+    "notes/interview/questions-develop/Java 面向对象编程与面向过程编程的区别是什么？.md",
+    "notes/interview/questions-develop/README.md",
+    "notes/leetcode/problems/README.md",
+    "notes/leetcode/problems/1361. 验证二叉树.md",
     "notes/面试题/什么样的字段适合加索引？索引失效了解吗？.md",
     "notes/面试题/数据库的脏读、不可重复读和幻读分别是什么？.md",
     "notes/面试题/MySQL 是如何实现事务的？.md",
     "notes/面试题/什么是数据库事务？介绍 ACID 特性.md",
     "notes/面试题/数据库有哪些事务的隔离级别？.md",
     "notes/leetcode/top-interview-150/array-string.md",
-    "notes/leetcode-problems",
+    "notes/leetcode/problems",
     "notes/面试题/举例说明哪些是事务的手段，哪些是目的.md",
     "notes/面试题/有哪些方法获取 Class 对象.md",
     "notes/面试题/hashCode 和 equals 方法之间有什么关系.md",

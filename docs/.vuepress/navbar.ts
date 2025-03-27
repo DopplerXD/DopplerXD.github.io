@@ -20,7 +20,6 @@ export const zhNavbar = defineNavbarConfig([
         { text: '面试', link: '/notes/interview/' },
         { text: '算法', link: '/notes/algorithm/' },
         { text: '开发', link: '/notes/develop/' },
-        { text: '面试题', link: '/notes/interview/questions/' },
     ]
   },
 ])
