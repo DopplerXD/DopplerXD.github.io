@@ -87,8 +87,8 @@ export default defineUserConfig({
     //   pagination: 15, // 每页显示文章数量
     // },
     blog: {
-      include: ['blogs/'],
-      exclude: ['blogs/测试/'],
+      include: ['blogs/**\/*.md'],
+      exclude: ['blogs/测试\/*.md'],
     },
 
     /* 博客文章页面链接前缀 */
