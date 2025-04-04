@@ -86,6 +86,10 @@ export default defineUserConfig({
     //   postCover: 'right', // 文章封面位置
     //   pagination: 15, // 每页显示文章数量
     // },
+    blog: {
+      include: ['blogs/'],
+      exclude: ['blogs/测试/'],
+    }
 
     /* 博客文章页面链接前缀 */
     article: '/article/',
@@ -102,7 +106,7 @@ export default defineUserConfig({
      */
     autoFrontmatter: {
       // permalink: true,  // 是否生成永久链接
-      createTime: true, // 是否生成创建时间
+      // createTime: true, // 是否生成创建时间
       title: true,      // 是否生成标题
     },
 
