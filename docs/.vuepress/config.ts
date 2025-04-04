@@ -89,7 +89,7 @@ export default defineUserConfig({
     blog: {
       include: ['blogs/'],
       exclude: ['blogs/测试/'],
-    }
+    },
 
     /* 博客文章页面链接前缀 */
     article: '/article/',
