@@ -26,10 +26,10 @@ jobs:
     #   - run: mkdocs gh-deploy --force
 
       # 显式构建站点
-      - run: mkdocs build
+    #   - run: mkdocs build
       
       # 将 CNAME 复制到构建输出目录（默认为 site/）
       - run: cp ./CNAME ./site/CNAME
       
-      # 部署并跳过重新构建
-      - run: mkdocs gh-deploy --force --no-build
+      # 部署
+      - run: mkdocs gh-deploy --force
