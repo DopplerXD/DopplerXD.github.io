@@ -1,0 +1,14 @@
+{
+  "attachmentFolderPath": "./assets",
+  "newFileLocation": "current",
+  "newLinkFormat": "relative",
+  "autoConvertHtml": true,
+  "tabSize": 4,
+  "strictLineBreaks": true,
+  "showLineNumber": false,
+  "useTab": false,
+  "readableLineLength": false,
+  "propertiesInDocument": "visible",
+  "alwaysUpdateLinks": true,
+  "useMarkdownLinks": true
+}

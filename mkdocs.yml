@@ -163,3 +163,9 @@ plugins:
 # [Navigtion]
 nav:
   - Home: index.md
+  - 算法: /algorithm/README.md
+  - 力扣:
+    - 题解: /leetcode/problems/README.md
+  - 开发: /develop/README.md
+  - 面试: /interview/README.md
+  - 资源分享: /resource-share/README.md
