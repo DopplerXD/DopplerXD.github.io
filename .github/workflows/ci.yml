@@ -23,11 +23,13 @@ jobs:
             mkdocs-material-
       - run: pip install mkdocs-material
       - run: pip3 install mkdocs-git-revision-date-localized-plugin
-      - run: mkdocs gh-deploy --force
+    #   - run: mkdocs gh-deploy --force
 
-      # 复制 CNAME 文件到构建输出目录
-      - name: Copy CNAME file
-        run: |
-          if [ -f CNAME ]; then
-            cp CNAME site/
-          fi
+      # 显式构建站点
+      - run: mkdocs build
+      
+      # 将 CNAME 复制到构建输出目录（默认为 site/）
+      - run: cp ./CNAME ./site/CNAME
+      
+      # 部署并跳过重新构建
+      - run: mkdocs gh-deploy --force --no-build
