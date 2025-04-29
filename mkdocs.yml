@@ -159,17 +159,18 @@ plugins:
   #     tags_file: tag.md #标签
   - git-revision-date-localized:
       enable_creation_date: true
+  - blog
 
 # [Navigtion]
-nav:
-  - Home: index.md
-  - 算法: algorithm/README.md
-  - 力扣:
-    - 题解: leetcode/problems/README.md
-  - 开发:
-    - develop/README.md
-    - 后端: develop/后端/README.md
-  - 面试: interview/README.md
-  - 资源分享: 
-    - resource-share/README.md
-    - 优质资源网站: resource-share/good-web.md
+# nav:
+#   - Home: index.md
+#   - 算法: algorithm/README.md
+#   - 力扣:
+#     - 题解: leetcode/problems/README.md
+#   - 开发:
+#     - develop/README.md
+#     - 后端: develop/后端/README.md
+#   - 面试: interview/README.md
+#   - 资源分享: 
+#     - resource-share/README.md
+#     - 优质资源网站: resource-share/good-web.md
