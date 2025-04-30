@@ -18,6 +18,24 @@ title:
     <LinkCard title="扣子" href="https://www.coze.cn/" description="字节推出的AI机器人和智能体创建平台" />
 </CardGrid>
 
+<div class="grid cards" markdown>
+
+- __[AI 工具箱导航]__ – AMZ 123
+- __[deepseek]__ – 深度求索 R 1 可推理
+- __[豆包]__ – 字节旗下新增 Beta 推理
+- __[讯飞星火]__ – By 科大讯飞
+- __[ChatGPT]__ – OpenAI
+- __[Gemini]__ – Google
+
+</div>
+
+  [AI 工具箱导航]: https://www.amz123.com/ai
+  [deepseek]: https://www.deepseek.com/
+  [豆包]: https://www.doubao.com/chat/
+  [讯飞星火]: https://xinghuo.xfyun.cn/desk
+  [ChatGPT]: https://chatgpt.com/
+  [Gemini]: https://gemini.google.com/
+
 ## 学习资源
 
 <CardGrid>

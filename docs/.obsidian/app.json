@@ -10,5 +10,6 @@
   "readableLineLength": false,
   "propertiesInDocument": "visible",
   "alwaysUpdateLinks": true,
-  "useMarkdownLinks": true
+  "useMarkdownLinks": true,
+  "promptDelete": false
 }

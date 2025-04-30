@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "2146ccbfb24b5534",
+        "id": "219de908e2506a25",
         "type": "tabs",
         "children": [
           {
-            "id": "00563b83177ff81f",
+            "id": "2fbcb545a1b296ee",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "resource-share/good-web.md",
+                "mode": "source",
+                "source": true
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "good-web"
             }
           }
         ]
@@ -175,8 +179,19 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "00563b83177ff81f",
+  "active": "2fbcb545a1b296ee",
   "lastOpenFiles": [
+    "Leetcode/top-interview-150/array-string.md",
+    "resource-share/README.md",
+    "Leetcode/top-interview-150/README.md",
+    "Leetcode/top-100-liked/hash.md",
+    "Leetcode/top-100-liked/README.md",
+    "Leetcode/problems/README.md",
+    "interview/设计模式.md",
+    "interview/README.md",
+    "develop/后端/README.md",
+    "algorithm/README.md",
+    "index.md",
     "notes/leetcode/problems/1361. 验证二叉树.md",
     "blogs/jmm的小说/小说.md",
     "notes/interview/高频面试题/MySQL.md",
@@ -192,18 +207,7 @@
     "notes/leetcode/top-interview-150/array-string.md",
     "obsidian-snippets/frontmatter.md",
     "obsidian-snippets/problem-link.md",
-    "obsidian-snippets/blog-model.md",
-    "blogs/测试/tags测试.md",
-    "obsidian-snippets/model.md",
-    "obsidian-snippets/codetabs.md",
-    "obsidian-snippets/codetab.md",
     "obsidian-snippets",
-    "notes/interview/README.md",
-    "notes/interview/questions-develop/Java 面向对象编程与面向过程编程的区别是什么？.md",
-    "notes/interview/questions-develop/README.md",
-    "notes/面试题/什么样的字段适合加索引？索引失效了解吗？.md",
-    "notes/面试题/数据库的脏读、不可重复读和幻读分别是什么？.md",
-    "notes/面试题/MySQL 是如何实现事务的？.md",
     "notes/leetcode/problems",
     "notes/面试题",
     "notes/interview/面试题",

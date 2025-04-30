@@ -1,17 +1,3 @@
-# Welcome to MkDocs
+# Welcome to Doppler's Notes
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
-
-## Commands
-
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+我是 DopplerYXC，来自中国地质大学（北京）。该网站为我的笔记在线浏览页，通过 MkDocs 模板 + Material 主题 + Github Pages 部署。

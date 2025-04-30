@@ -4,7 +4,7 @@ title:
 ---
 ## 88 合并两个有序数组
 
-题目链接 https://leetcode.cn/problems/merge-sorted-array/description/?envType=study-plan-v2&envId=top-interview-150
+题目链接 [link](https://leetcode.cn/problems/merge-sorted-array/description/?envType=study-plan-v2&envId=top-interview-150)
 
 给定的数组是有序的，那么逐个对比放到一个新数组中，最后复制给 nums1 即可。
 
