@@ -46,6 +46,16 @@ title:
 	<LinkCard title="领域树" href="http://www.rumen.icu/product/domaintree" description="汇集入门经典书籍，让领域入门从此不再困难" />
 </CardGrid>
 
+<div class="grid cards" markdown>
+
+- **[提问指南](https://lug.ustc.edu.cn/wiki/doc/howtoask/)** – 旨在用简洁、清晰、友好的语言表述与提问相关的注意事项
+- **[提问的智慧](https://lug.ustc.edu.cn/wiki/doc/smart-questions/)** – LUG @ USTC 中国科学技术大学 Linux 用户协会 对英文原版进行的中文翻译
+- **[Markdown 中文手册](https://www.dba.cn/book/markdown/)** –
+- **[LaTeX 常用公式语法总结](https://zhuanlan.zhihu.com/p/696652520)** – 我自己写的
+- **[领域树](http://www.rumen.icu/product/domaintree)** – 汇集入门经典书籍，让领域入门从此不再困难
+
+</div>
+
 ## 计算机科学
 
 <CardGrid>
