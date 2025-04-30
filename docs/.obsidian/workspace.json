@@ -53,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "–",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -180,7 +180,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "ea1f7734b35c4346",
+  "active": "2fbcb545a1b296ee",
   "lastOpenFiles": [
     "Leetcode/top-interview-150/array-string.md",
     "resource-share/README.md",
