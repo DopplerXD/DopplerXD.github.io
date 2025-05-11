@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "219de908e2506a25",
+        "id": "2452d8b6ef98959d",
         "type": "tabs",
         "children": [
           {
-            "id": "2fbcb545a1b296ee",
+            "id": "dbd19031e90f0668",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "resource-share/good-web.md",
+                "file": "develop/后端/tree 命令生成项目目录结构.md",
                 "mode": "source",
-                "source": true
+                "source": false
               },
               "icon": "lucide-file",
-              "title": "good-web"
+              "title": "tree 命令生成项目目录结构"
             }
           }
         ]
@@ -74,8 +74,7 @@
               "title": "书签"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -180,8 +179,12 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "2fbcb545a1b296ee",
+  "active": "dbd19031e90f0668",
   "lastOpenFiles": [
+    "develop/后端/assets/Pasted image 20250511110311.png",
+    "develop/后端/assets/Pasted image 20250511110231.png",
+    "develop/后端/tree 命令生成项目目录结构.md",
+    "resource-share/good-web.md",
     "Leetcode/top-interview-150/array-string.md",
     "resource-share/README.md",
     "Leetcode/top-interview-150/README.md",
@@ -205,9 +208,6 @@
     "notes/interview/questions-develop/举例说明哪些是事务的手段，哪些是目的.md",
     "notes/interview/面经收集/小米.md",
     "notes/resource-share/good-web.md",
-    "notes/leetcode/top-interview-150/array-string.md",
-    "obsidian-snippets/frontmatter.md",
-    "obsidian-snippets/problem-link.md",
     "obsidian-snippets",
     "notes/leetcode/problems",
     "notes/面试题",
@@ -227,7 +227,6 @@
     "notes/interview/高频面试题/assets/Pasted image 20250305215638.png",
     "notes/interview/高频面试题/assets/Pasted image 20250305213307.png",
     "notes/interview/高频面试题/assets/Pasted image 20250305213204.png",
-    "notes/interview/高频面试题/assets/Pasted image 20250303175408.png",
     "notes/leetcode/top-100-liked"
   ]
 }
