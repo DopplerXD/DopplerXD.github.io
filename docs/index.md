@@ -6,4 +6,4 @@
 
 我的博客，基于 WordPress 部署 [Doppler's Blog](https://www.dopplerxd.site)。
 
-使用 Vue3 开发的猜 CS 选手小游戏，灵感来自 [blast.tv](https://blast.tv/counter-strikle)。
+使用 Vue3 开发的猜 CS 选手小游戏 [Guess And Guess](https://www.dopplerxd.fun/guessandguess/)，灵感来自 [blast.tv](https://blast.tv/counter-strikle)。
