@@ -1,4 +1,4 @@
-Springboot3 项目中，实体 User 属性 userAccount，数据库字段也为 userAccount，后端报错
+SpringBoot 项目中，实体 User 属性 userAccount，数据库字段也为 userAccount，后端报错
 ```
 ### Error updating database.  Cause: java.sql.SQLSyntaxErrorException: Unknown column 'user_account' in 'field list'
 ### The error may exist in site/dopplerxd/backend/mapper/UserMapper.java (best guess)
@@ -24,3 +24,4 @@ public class UserInfo {
     private String userAccount;
 }
 ```
+

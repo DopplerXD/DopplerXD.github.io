@@ -206,7 +206,5 @@ infrastructure/
 |domain 定义 Redis 接口，infrastructure 实现|✅ 推荐|清晰职责分离，保持依赖倒置，灵活扩展|
 |RedisCacheManager 的方法暴露给 domain|❌ 不推荐|domain 看到太多基础设施细节|
 
----
 
-如果你愿意，我可以为你生成一份完整的 `RedisTokenCachePort` 接口 + `RedisTokenCacheAdapter` 实现的模板代码。需要吗？
 
