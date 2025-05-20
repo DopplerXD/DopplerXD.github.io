@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "develop/项目/拼团营销服务 group-buy-market/2-2~2-3 规则树设计模式模板.md",
+                "file": "develop/项目/拼团营销服务 group-buy-market/2-5 人群标签数据采集.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2-2~2-3 规则树设计模式模板"
+              "title": "2-5 人群标签数据采集"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "develop/项目/拼团营销服务 group-buy-market/2-2~2-3 规则树设计模式模板.md",
+                "file": "develop/项目/拼团营销服务 group-buy-market/2-5 人群标签数据采集.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "2-2~2-3 规则树设计模式模板 的大纲"
+              "title": "2-5 人群标签数据采集 的大纲"
             }
           },
           {
@@ -162,7 +162,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -179,11 +179,12 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "504c4e9474e76cb2",
+  "active": "897db495b28583d0",
   "lastOpenFiles": [
+    "develop/项目/拼团营销服务 group-buy-market/2-2~2-3 规则树设计模式模板.md",
+    "develop/项目/拼团营销服务 group-buy-market/2-5 人群标签数据采集.md",
     "develop/项目/拼团营销服务 group-buy-market/assets/Pasted image 20250518193807.png",
     "develop/项目/拼团营销服务 group-buy-market/2-3 多线程异步数据加载.md",
-    "develop/项目/拼团营销服务 group-buy-market/2-2~2-3 规则树设计模式模板.md",
     "develop/项目/拼团营销服务 group-buy-market/assets/Pasted image 20250518191639.png",
     "develop/项目/拼团营销服务 group-buy-market/assets/Pasted image 20250518191540.png",
     "develop/项目/拼团营销服务 group-buy-market/assets",
@@ -225,7 +226,6 @@
     "notes/develop/后端/assets/Pasted image 20250325110638.png",
     "notes/develop/后端/assets/Pasted image 20250325110319.png",
     "notes/develop/后端/assets/Pasted image 20250324165259.png",
-    "notes/develop/后端/assets/Pasted image 20250324165245.png",
     "未命名.canvas",
     "obsidian-snippets/codetabs.txt"
   ]
