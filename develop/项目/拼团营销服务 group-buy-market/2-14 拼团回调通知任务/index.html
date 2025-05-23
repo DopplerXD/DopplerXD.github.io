@@ -785,6 +785,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../%E5%90%8E%E7%AB%AF/Date%20%E7%B1%BB%E5%9E%8B%E8%A7%A3%E6%9E%90%E9%94%99%E8%AF%AF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Date 类型解析错误
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../%E5%90%8E%E7%AB%AF/IDEA%20Spring%20initialer%20%E6%96%B0%E5%BB%BA%E6%A8%A1%E5%9D%97%E4%B8%8D%E8%83%BD%E9%80%89Java%208/" class="md-nav__link">
         
   
@@ -998,6 +1021,29 @@
   
   <span class="md-ellipsis">
     常见术语：什么是 DTO & VO & PO & DO
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%90%8E%E7%AB%AF/%E6%8A%A5%E9%94%99%20Expression%201%20of%20SELECT%20list%20is%20not%20in%20GROUP%20BY%20clause%20and%20contains%20nonaggregated%20column/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    报错 Expression 1 of SELECT list is not in GROUP BY clause and contains nonaggregated column
     
   </span>
   
@@ -2240,7 +2286,7 @@ RPC、MQ，这一类的都是需要有一个公用的注册中心，它的技术
 <li>回调服务，在基础设置层的 gateway 中实现。用于动态调用外部的接口，进行回调通知。</li>
 <li>这部分业务代码可以通过 Apipost、Apifox 等工具生成，结合 IDEA 上对应的插件，可以把接口上传到 api 测试软件上。</li>
 </ul>
-<h3 id="_7">回调封装和直接调用<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>如我使用 <code>Apifox</code> 生成的接口请求代码</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
@@ -2254,177 +2300,22 @@ RPC、MQ，这一类的都是需要有一个公用的注册中心，它的技术
 <span class="normal"><a href="#__codelineno-2-11">11</a></span>
 <span class="normal"><a href="#__codelineno-2-12">12</a></span>
 <span class="normal"><a href="#__codelineno-2-13">13</a></span>
-<span class="normal"><a href="#__codelineno-2-14">14</a></span>
-<span class="normal"><a href="#__codelineno-2-15">15</a></span>
-<span class="normal"><a href="#__codelineno-2-16">16</a></span>
-<span class="normal"><a href="#__codelineno-2-17">17</a></span>
-<span class="normal"><a href="#__codelineno-2-18">18</a></span>
-<span class="normal"><a href="#__codelineno-2-19">19</a></span>
-<span class="normal"><a href="#__codelineno-2-20">20</a></span>
-<span class="normal"><a href="#__codelineno-2-21">21</a></span>
-<span class="normal"><a href="#__codelineno-2-22">22</a></span>
-<span class="normal"><a href="#__codelineno-2-23">23</a></span>
-<span class="normal"><a href="#__codelineno-2-24">24</a></span>
-<span class="normal"><a href="#__codelineno-2-25">25</a></span>
-<span class="normal"><a href="#__codelineno-2-26">26</a></span>
-<span class="normal"><a href="#__codelineno-2-27">27</a></span>
-<span class="normal"><a href="#__codelineno-2-28">28</a></span>
-<span class="normal"><a href="#__codelineno-2-29">29</a></span>
-<span class="normal"><a href="#__codelineno-2-30">30</a></span>
-<span class="normal"><a href="#__codelineno-2-31">31</a></span>
-<span class="normal"><a href="#__codelineno-2-32">32</a></span>
-<span class="normal"><a href="#__codelineno-2-33">33</a></span>
-<span class="normal"><a href="#__codelineno-2-34">34</a></span>
-<span class="normal"><a href="#__codelineno-2-35">35</a></span>
-<span class="normal"><a href="#__codelineno-2-36">36</a></span>
-<span class="normal"><a href="#__codelineno-2-37">37</a></span>
-<span class="normal"><a href="#__codelineno-2-38">38</a></span>
-<span class="normal"><a href="#__codelineno-2-39">39</a></span>
-<span class="normal"><a href="#__codelineno-2-40">40</a></span>
-<span class="normal"><a href="#__codelineno-2-41">41</a></span>
-<span class="normal"><a href="#__codelineno-2-42">42</a></span>
-<span class="normal"><a href="#__codelineno-2-43">43</a></span>
-<span class="normal"><a href="#__codelineno-2-44">44</a></span>
-<span class="normal"><a href="#__codelineno-2-45">45</a></span>
-<span class="normal"><a href="#__codelineno-2-46">46</a></span>
-<span class="normal"><a href="#__codelineno-2-47">47</a></span>
-<span class="normal"><a href="#__codelineno-2-48">48</a></span>
-<span class="normal"><a href="#__codelineno-2-49">49</a></span>
-<span class="normal"><a href="#__codelineno-2-50">50</a></span>
-<span class="normal"><a href="#__codelineno-2-51">51</a></span>
-<span class="normal"><a href="#__codelineno-2-52">52</a></span>
-<span class="normal"><a href="#__codelineno-2-53">53</a></span>
-<span class="normal"><a href="#__codelineno-2-54">54</a></span>
-<span class="normal"><a href="#__codelineno-2-55">55</a></span>
-<span class="normal"><a href="#__codelineno-2-56">56</a></span>
-<span class="normal"><a href="#__codelineno-2-57">57</a></span>
-<span class="normal"><a href="#__codelineno-2-58">58</a></span>
-<span class="normal"><a href="#__codelineno-2-59">59</a></span>
-<span class="normal"><a href="#__codelineno-2-60">60</a></span>
-<span class="normal"><a href="#__codelineno-2-61">61</a></span>
-<span class="normal"><a href="#__codelineno-2-62">62</a></span>
-<span class="normal"><a href="#__codelineno-2-63">63</a></span>
-<span class="normal"><a href="#__codelineno-2-64">64</a></span>
-<span class="normal"><a href="#__codelineno-2-65">65</a></span>
-<span class="normal"><a href="#__codelineno-2-66">66</a></span>
-<span class="normal"><a href="#__codelineno-2-67">67</a></span>
-<span class="normal"><a href="#__codelineno-2-68">68</a></span>
-<span class="normal"><a href="#__codelineno-2-69">69</a></span>
-<span class="normal"><a href="#__codelineno-2-70">70</a></span>
-<span class="normal"><a href="#__codelineno-2-71">71</a></span>
-<span class="normal"><a href="#__codelineno-2-72">72</a></span>
-<span class="normal"><a href="#__codelineno-2-73">73</a></span>
-<span class="normal"><a href="#__codelineno-2-74">74</a></span>
-<span class="normal"><a href="#__codelineno-2-75">75</a></span>
-<span class="normal"><a href="#__codelineno-2-76">76</a></span>
-<span class="normal"><a href="#__codelineno-2-77">77</a></span>
-<span class="normal"><a href="#__codelineno-2-78">78</a></span>
-<span class="normal"><a href="#__codelineno-2-79">79</a></span>
-<span class="normal"><a href="#__codelineno-2-80">80</a></span>
-<span class="normal"><a href="#__codelineno-2-81">81</a></span>
-<span class="normal"><a href="#__codelineno-2-82">82</a></span>
-<span class="normal"><a href="#__codelineno-2-83">83</a></span>
-<span class="normal"><a href="#__codelineno-2-84">84</a></span>
-<span class="normal"><a href="#__codelineno-2-85">85</a></span>
-<span class="normal"><a href="#__codelineno-2-86">86</a></span>
-<span class="normal"><a href="#__codelineno-2-87">87</a></span>
-<span class="normal"><a href="#__codelineno-2-88">88</a></span>
-<span class="normal"><a href="#__codelineno-2-89">89</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">site.dopplerxd.domain.trade.service.settlement</span><span class="p">;</span><span class="w">  </span>
-<a id="__codelineno-2-2" name="__codelineno-2-2"></a>
-<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="cm">/**  </span>
-<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="cm">* @description 拼团交易结算服务  </span>
-<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="cm">*/</span><span class="w">   </span>
-<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">TradeSettlementOrderService</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">ITradeSettlementOrderService</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="normal"><a href="#__codelineno-2-14">14</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">OkHttpClient</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">OkHttpClient</span><span class="p">().</span><span class="na">newBuilder</span><span class="p">()</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">   </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="n">MediaType</span><span class="w"> </span><span class="n">mediaType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MediaType</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="s">&quot;application/json&quot;</span><span class="p">);</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="n">RequestBody</span><span class="w"> </span><span class="n">body</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RequestBody</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="n">mediaType</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">);</span>
 <a id="__codelineno-2-7" name="__codelineno-2-7"></a>
-<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">    </span><span class="nd">@Resource</span><span class="w">  </span>
-<a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">ITradeRepository</span><span class="w"> </span><span class="n">repository</span><span class="p">;</span><span class="w">  </span>
-<a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="w">    </span><span class="nd">@Resource</span><span class="w">  </span>
-<a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">ITradePort</span><span class="w"> </span><span class="n">port</span><span class="p">;</span><span class="w">  </span>
-<a id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="w">    </span><span class="nd">@Resource</span><span class="w">  </span>
-<a id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">BusinessLinkedList</span><span class="o">&lt;</span><span class="n">TradeSettlementRuleCommandEntity</span><span class="p">,</span><span class="w"> </span><span class="n">TradeSettlementRuleFilterFactory</span><span class="p">.</span><span class="na">DynamicContext</span><span class="p">,</span><span class="w"> </span><span class="n">TradeSettlementRuleFilterBackEntity</span><span class="o">&gt;</span><span class="w">  </span>
-<a id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="w">    </span><span class="n">tradeSettlementRuleFilter</span><span class="p">;</span><span class="w">  </span>
-<a id="__codelineno-2-15" name="__codelineno-2-15"></a>
-<a id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="w">    </span><span class="nd">@Override</span><span class="w">  </span>
-<a id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">TradePaySettlementEntity</span><span class="w"> </span><span class="nf">settlementMarketPayOrder</span><span class="p">(</span><span class="n">TradePaySuccessEntity</span><span class="w"> </span><span class="n">tradePaySuccessEntity</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
-<a id="__codelineno-2-18" name="__codelineno-2-18"></a><span class="w">    </span><span class="n">log</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;拼团交易-支付订单结算:{} outTradeNo:{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">tradePaySuccessEntity</span><span class="p">.</span><span class="na">getUserId</span><span class="p">(),</span><span class="w"> </span><span class="n">tradePaySuccessEntity</span><span class="p">.</span><span class="na">getOutTradeNo</span><span class="p">());</span><span class="w">  </span>
-<a id="__codelineno-2-19" name="__codelineno-2-19"></a>
-<a id="__codelineno-2-20" name="__codelineno-2-20"></a><span class="w">    </span><span class="p">......</span>
-<a id="__codelineno-2-21" name="__codelineno-2-21"></a>
-<a id="__codelineno-2-22" name="__codelineno-2-22"></a><span class="w">    </span><span class="c1">// 4. 拼团交易结算  </span>
-<a id="__codelineno-2-23" name="__codelineno-2-23"></a><span class="w">    </span><span class="kt">boolean</span><span class="w"> </span><span class="n">needNotify</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">repository</span><span class="p">.</span><span class="na">settlementMarketPayOrder</span><span class="p">(</span><span class="n">groupBuyTeamSettlementAggregate</span><span class="p">);</span><span class="w">  </span>
-<a id="__codelineno-2-24" name="__codelineno-2-24"></a>
-<a id="__codelineno-2-25" name="__codelineno-2-25"></a><span class="w">    </span><span class="c1">// 5. 组队回调处理 - 处理失败也会有定时任务补偿，通过这样的方式吗，减轻任务调度，提高时效性  </span>
-<a id="__codelineno-2-26" name="__codelineno-2-26"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">needNotify</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
-<a id="__codelineno-2-27" name="__codelineno-2-27"></a><span class="w">        </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">notifyResultMap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">execSettlementNotifyJob</span><span class="p">(</span><span class="n">teamId</span><span class="p">);</span><span class="w">  </span>
-<a id="__codelineno-2-28" name="__codelineno-2-28"></a><span class="w">        </span><span class="n">log</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;回调通知拼团完结 result:{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">JSON</span><span class="p">.</span><span class="na">toJSONString</span><span class="p">(</span><span class="n">notifyResultMap</span><span class="p">));</span><span class="w">  </span>
-<a id="__codelineno-2-29" name="__codelineno-2-29"></a><span class="w">    </span><span class="p">}</span><span class="w">  </span>
-<a id="__codelineno-2-30" name="__codelineno-2-30"></a>
-<a id="__codelineno-2-31" name="__codelineno-2-31"></a><span class="w">    </span><span class="c1">// 6. 返回结算信息  </span>
-<a id="__codelineno-2-32" name="__codelineno-2-32"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">...;</span>
-<a id="__codelineno-2-33" name="__codelineno-2-33"></a><span class="w">    </span><span class="p">}</span><span class="w">  </span>
-<a id="__codelineno-2-34" name="__codelineno-2-34"></a>
-<a id="__codelineno-2-35" name="__codelineno-2-35"></a><span class="w">    </span><span class="nd">@Override</span><span class="w">  </span>
-<a id="__codelineno-2-36" name="__codelineno-2-36"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">execSettlementNotifyJob</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
-<a id="__codelineno-2-37" name="__codelineno-2-37"></a><span class="w">        </span><span class="n">log</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;拼团交易-执行结算通知任务&quot;</span><span class="p">);</span><span class="w">  </span>
-<a id="__codelineno-2-38" name="__codelineno-2-38"></a>
-<a id="__codelineno-2-39" name="__codelineno-2-39"></a><span class="w">        </span><span class="c1">// 查询未执行任务</span>
-<a id="__codelineno-2-40" name="__codelineno-2-40"></a><span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">NotifyTaskEntity</span><span class="o">&gt;</span><span class="w"> </span><span class="n">notifyTaskEntityList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">repository</span><span class="p">.</span><span class="na">queryUnExecutedNotifyTaskList</span><span class="p">();</span><span class="w">  </span>
-<a id="__codelineno-2-41" name="__codelineno-2-41"></a>
-<a id="__codelineno-2-42" name="__codelineno-2-42"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">execSettlementNotifyJob</span><span class="p">(</span><span class="n">notifyTaskEntityList</span><span class="p">);</span><span class="w">  </span>
-<a id="__codelineno-2-43" name="__codelineno-2-43"></a><span class="w">    </span><span class="p">}</span><span class="w">  </span>
-<a id="__codelineno-2-44" name="__codelineno-2-44"></a>
-<a id="__codelineno-2-45" name="__codelineno-2-45"></a><span class="w">    </span><span class="nd">@Override</span><span class="w">  </span>
-<a id="__codelineno-2-46" name="__codelineno-2-46"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">execSettlementNotifyJob</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">teamId</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
-<a id="__codelineno-2-47" name="__codelineno-2-47"></a><span class="w">        </span><span class="n">log</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;拼团交易-执行结算通知任务，指定teamId:{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">teamId</span><span class="p">);</span><span class="w">  </span>
-<a id="__codelineno-2-48" name="__codelineno-2-48"></a>
-<a id="__codelineno-2-49" name="__codelineno-2-49"></a><span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">NotifyTaskEntity</span><span class="o">&gt;</span><span class="w"> </span><span class="n">notifyTaskEntityList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">repository</span><span class="p">.</span><span class="na">queryUnExecutedNotifyTaskList</span><span class="p">(</span><span class="n">teamId</span><span class="p">);</span><span class="w">  </span>
-<a id="__codelineno-2-50" name="__codelineno-2-50"></a>
-<a id="__codelineno-2-51" name="__codelineno-2-51"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">execSettlementNotifyJob</span><span class="p">(</span><span class="n">notifyTaskEntityList</span><span class="p">);</span><span class="w">  </span>
-<a id="__codelineno-2-52" name="__codelineno-2-52"></a><span class="w">    </span><span class="p">}</span><span class="w">  </span>
-<a id="__codelineno-2-53" name="__codelineno-2-53"></a>
-<a id="__codelineno-2-54" name="__codelineno-2-54"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">execSettlementNotifyJob</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">NotifyTaskEntity</span><span class="o">&gt;</span><span class="w"> </span><span class="n">notifyTaskEntityList</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
-<a id="__codelineno-2-55" name="__codelineno-2-55"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">successCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">retryCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">errorCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">  </span>
-<a id="__codelineno-2-56" name="__codelineno-2-56"></a>
-<a id="__codelineno-2-57" name="__codelineno-2-57"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">NotifyTaskEntity</span><span class="w"> </span><span class="n">notifyTaskEntity</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">notifyTaskEntityList</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
-<a id="__codelineno-2-58" name="__codelineno-2-58"></a><span class="w">            </span><span class="n">String</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">port</span><span class="p">.</span><span class="na">groupBuyNotify</span><span class="p">(</span><span class="n">notifyTaskEntity</span><span class="p">);</span><span class="w">  </span>
-<a id="__codelineno-2-59" name="__codelineno-2-59"></a>
-<a id="__codelineno-2-60" name="__codelineno-2-60"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">NotifyTaskHTTPEnumVO</span><span class="p">.</span><span class="na">SUCCESS</span><span class="p">.</span><span class="na">getCode</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="n">response</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
-<a id="__codelineno-2-61" name="__codelineno-2-61"></a><span class="w">                </span><span class="kt">int</span><span class="w"> </span><span class="n">updateSuccessCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">repository</span><span class="p">.</span><span class="na">updateNotifyTaskStatusSuccess</span><span class="p">(</span><span class="n">notifyTaskEntity</span><span class="p">.</span><span class="na">getTeamId</span><span class="p">());</span><span class="w">  </span>
-<a id="__codelineno-2-62" name="__codelineno-2-62"></a><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">updateSuccessCount</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
-<a id="__codelineno-2-63" name="__codelineno-2-63"></a><span class="w">                </span><span class="n">successCount</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">  </span>
-<a id="__codelineno-2-64" name="__codelineno-2-64"></a><span class="w">                </span><span class="p">}</span><span class="w">  </span>
-<a id="__codelineno-2-65" name="__codelineno-2-65"></a><span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">NotifyTaskHTTPEnumVO</span><span class="p">.</span><span class="na">ERROR</span><span class="p">.</span><span class="na">getCode</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="n">response</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
-<a id="__codelineno-2-66" name="__codelineno-2-66"></a><span class="w">                </span><span class="c1">// 回调尝试次数小于5次，重试  </span>
-<a id="__codelineno-2-67" name="__codelineno-2-67"></a><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">notifyTaskEntity</span><span class="p">.</span><span class="na">getNotifyCount</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
-<a id="__codelineno-2-68" name="__codelineno-2-68"></a><span class="w">                    </span><span class="kt">int</span><span class="w"> </span><span class="n">updateRetryCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">repository</span><span class="p">.</span><span class="na">updateNotifyTaskStatusRetry</span><span class="p">(</span><span class="n">notifyTaskEntity</span><span class="p">.</span><span class="na">getTeamId</span><span class="p">());</span><span class="w">  </span>
-<a id="__codelineno-2-69" name="__codelineno-2-69"></a><span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">updateRetryCount</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
-<a id="__codelineno-2-70" name="__codelineno-2-70"></a><span class="w">                        </span><span class="n">retryCount</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">  </span>
-<a id="__codelineno-2-71" name="__codelineno-2-71"></a><span class="w">                    </span><span class="p">}</span><span class="w">  </span>
-<a id="__codelineno-2-72" name="__codelineno-2-72"></a><span class="w">                </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
-<a id="__codelineno-2-73" name="__codelineno-2-73"></a><span class="w">                    </span><span class="kt">int</span><span class="w"> </span><span class="n">updateErrorCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">repository</span><span class="p">.</span><span class="na">updateNotifyTaskStatusError</span><span class="p">(</span><span class="n">notifyTaskEntity</span><span class="p">.</span><span class="na">getTeamId</span><span class="p">());</span><span class="w">  </span>
-<a id="__codelineno-2-74" name="__codelineno-2-74"></a><span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">updateErrorCount</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
-<a id="__codelineno-2-75" name="__codelineno-2-75"></a><span class="w">                        </span><span class="n">errorCount</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">  </span>
-<a id="__codelineno-2-76" name="__codelineno-2-76"></a><span class="w">                    </span><span class="p">}</span><span class="w">  </span>
-<a id="__codelineno-2-77" name="__codelineno-2-77"></a><span class="w">                </span><span class="p">}</span><span class="w">  </span>
-<a id="__codelineno-2-78" name="__codelineno-2-78"></a><span class="w">            </span><span class="p">}</span><span class="w">  </span>
-<a id="__codelineno-2-79" name="__codelineno-2-79"></a><span class="w">        </span><span class="p">}</span><span class="w">  </span>
-<a id="__codelineno-2-80" name="__codelineno-2-80"></a>
-<a id="__codelineno-2-81" name="__codelineno-2-81"></a><span class="w">        </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">resultMap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w">  </span>
-<a id="__codelineno-2-82" name="__codelineno-2-82"></a><span class="w">        </span><span class="n">resultMap</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;waitCount&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">notifyTaskEntityList</span><span class="p">.</span><span class="na">size</span><span class="p">());</span><span class="w">  </span>
-<a id="__codelineno-2-83" name="__codelineno-2-83"></a><span class="w">        </span><span class="n">resultMap</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;successCount&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">successCount</span><span class="p">);</span><span class="w">  </span>
-<a id="__codelineno-2-84" name="__codelineno-2-84"></a><span class="w">        </span><span class="n">resultMap</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;retryCount&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">retryCount</span><span class="p">);</span><span class="w">  </span>
-<a id="__codelineno-2-85" name="__codelineno-2-85"></a><span class="w">        </span><span class="n">resultMap</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;errorCount&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">errorCount</span><span class="p">);</span><span class="w">  </span>
-<a id="__codelineno-2-86" name="__codelineno-2-86"></a>
-<a id="__codelineno-2-87" name="__codelineno-2-87"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">resultMap</span><span class="p">;</span><span class="w">  </span>
-<a id="__codelineno-2-88" name="__codelineno-2-88"></a><span class="w">    </span><span class="p">}</span><span class="w">  </span>
-<a id="__codelineno-2-89" name="__codelineno-2-89"></a><span class="p">}</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="n">Request</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Request</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">   </span><span class="p">.</span><span class="na">url</span><span class="p">(</span><span class="s">&quot;/api/test/group_buy_notify&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="w">   </span><span class="p">.</span><span class="na">method</span><span class="p">(</span><span class="s">&quot;POST&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">body</span><span class="p">)</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w">   </span><span class="p">.</span><span class="na">addHeader</span><span class="p">(</span><span class="s">&quot;Content-Type&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;application/json&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="w">   </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13"></a>
+<a id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="n">Response</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">client</span><span class="p">.</span><span class="na">newCall</span><span class="p">(</span><span class="n">request</span><span class="p">).</span><span class="na">execute</span><span class="p">();</span>
 </code></pre></div></td></tr></table></div>
-<ul>
-<li><code>Map&lt;String, Integer&gt; notifyResultMap = execSettlementNotifyJob(teamId);</code> 回调通知处理。这步失败也没关系，后续会有定时任务处理。</li>
-<li><code>execSettlementNotifyJob(List&lt;NotifyTaskEntity&gt; notifyTaskEntityList)</code> 回调任务，调用 <code>port.groupBuyNotify(notifyTask);</code> 回调服务。</li>
-<li>根据回调服务返回的结果，更新回调任务表记录。包括；调用了几次、成功的状态。</li>
-</ul>
-<h3 id="_8">任务补偿<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<h3 id="_7">回调封装和直接调用<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
@@ -2444,26 +2335,210 @@ RPC、MQ，这一类的都是需要有一个公用的注册中心，它的技术
 <span class="normal"><a href="#__codelineno-3-17">17</a></span>
 <span class="normal"><a href="#__codelineno-3-18">18</a></span>
 <span class="normal"><a href="#__codelineno-3-19">19</a></span>
-<span class="normal"><a href="#__codelineno-3-20">20</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">site.dopplerxd.trigger.job</span><span class="p">;</span><span class="w">  </span>
+<span class="normal"><a href="#__codelineno-3-20">20</a></span>
+<span class="normal"><a href="#__codelineno-3-21">21</a></span>
+<span class="normal"><a href="#__codelineno-3-22">22</a></span>
+<span class="normal"><a href="#__codelineno-3-23">23</a></span>
+<span class="normal"><a href="#__codelineno-3-24">24</a></span>
+<span class="normal"><a href="#__codelineno-3-25">25</a></span>
+<span class="normal"><a href="#__codelineno-3-26">26</a></span>
+<span class="normal"><a href="#__codelineno-3-27">27</a></span>
+<span class="normal"><a href="#__codelineno-3-28">28</a></span>
+<span class="normal"><a href="#__codelineno-3-29">29</a></span>
+<span class="normal"><a href="#__codelineno-3-30">30</a></span>
+<span class="normal"><a href="#__codelineno-3-31">31</a></span>
+<span class="normal"><a href="#__codelineno-3-32">32</a></span>
+<span class="normal"><a href="#__codelineno-3-33">33</a></span>
+<span class="normal"><a href="#__codelineno-3-34">34</a></span>
+<span class="normal"><a href="#__codelineno-3-35">35</a></span>
+<span class="normal"><a href="#__codelineno-3-36">36</a></span>
+<span class="normal"><a href="#__codelineno-3-37">37</a></span>
+<span class="normal"><a href="#__codelineno-3-38">38</a></span>
+<span class="normal"><a href="#__codelineno-3-39">39</a></span>
+<span class="normal"><a href="#__codelineno-3-40">40</a></span>
+<span class="normal"><a href="#__codelineno-3-41">41</a></span>
+<span class="normal"><a href="#__codelineno-3-42">42</a></span>
+<span class="normal"><a href="#__codelineno-3-43">43</a></span>
+<span class="normal"><a href="#__codelineno-3-44">44</a></span>
+<span class="normal"><a href="#__codelineno-3-45">45</a></span>
+<span class="normal"><a href="#__codelineno-3-46">46</a></span>
+<span class="normal"><a href="#__codelineno-3-47">47</a></span>
+<span class="normal"><a href="#__codelineno-3-48">48</a></span>
+<span class="normal"><a href="#__codelineno-3-49">49</a></span>
+<span class="normal"><a href="#__codelineno-3-50">50</a></span>
+<span class="normal"><a href="#__codelineno-3-51">51</a></span>
+<span class="normal"><a href="#__codelineno-3-52">52</a></span>
+<span class="normal"><a href="#__codelineno-3-53">53</a></span>
+<span class="normal"><a href="#__codelineno-3-54">54</a></span>
+<span class="normal"><a href="#__codelineno-3-55">55</a></span>
+<span class="normal"><a href="#__codelineno-3-56">56</a></span>
+<span class="normal"><a href="#__codelineno-3-57">57</a></span>
+<span class="normal"><a href="#__codelineno-3-58">58</a></span>
+<span class="normal"><a href="#__codelineno-3-59">59</a></span>
+<span class="normal"><a href="#__codelineno-3-60">60</a></span>
+<span class="normal"><a href="#__codelineno-3-61">61</a></span>
+<span class="normal"><a href="#__codelineno-3-62">62</a></span>
+<span class="normal"><a href="#__codelineno-3-63">63</a></span>
+<span class="normal"><a href="#__codelineno-3-64">64</a></span>
+<span class="normal"><a href="#__codelineno-3-65">65</a></span>
+<span class="normal"><a href="#__codelineno-3-66">66</a></span>
+<span class="normal"><a href="#__codelineno-3-67">67</a></span>
+<span class="normal"><a href="#__codelineno-3-68">68</a></span>
+<span class="normal"><a href="#__codelineno-3-69">69</a></span>
+<span class="normal"><a href="#__codelineno-3-70">70</a></span>
+<span class="normal"><a href="#__codelineno-3-71">71</a></span>
+<span class="normal"><a href="#__codelineno-3-72">72</a></span>
+<span class="normal"><a href="#__codelineno-3-73">73</a></span>
+<span class="normal"><a href="#__codelineno-3-74">74</a></span>
+<span class="normal"><a href="#__codelineno-3-75">75</a></span>
+<span class="normal"><a href="#__codelineno-3-76">76</a></span>
+<span class="normal"><a href="#__codelineno-3-77">77</a></span>
+<span class="normal"><a href="#__codelineno-3-78">78</a></span>
+<span class="normal"><a href="#__codelineno-3-79">79</a></span>
+<span class="normal"><a href="#__codelineno-3-80">80</a></span>
+<span class="normal"><a href="#__codelineno-3-81">81</a></span>
+<span class="normal"><a href="#__codelineno-3-82">82</a></span>
+<span class="normal"><a href="#__codelineno-3-83">83</a></span>
+<span class="normal"><a href="#__codelineno-3-84">84</a></span>
+<span class="normal"><a href="#__codelineno-3-85">85</a></span>
+<span class="normal"><a href="#__codelineno-3-86">86</a></span>
+<span class="normal"><a href="#__codelineno-3-87">87</a></span>
+<span class="normal"><a href="#__codelineno-3-88">88</a></span>
+<span class="normal"><a href="#__codelineno-3-89">89</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">site.dopplerxd.domain.trade.service.settlement</span><span class="p">;</span><span class="w">  </span>
 <a id="__codelineno-3-2" name="__codelineno-3-2"></a>
 <a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="cm">/**  </span>
-<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="cm">* @description 拼团完结回调通知任务；拼团回调任务表，实际公司场景会定时清理数据结转，不会有太多数据挤压  </span>
-<a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="cm">*/</span><span class="w">    </span>
-<a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">GroupBuyNotifyJob</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="cm">* @description 拼团交易结算服务  </span>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="cm">*/</span><span class="w">   </span>
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">TradeSettlementOrderService</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">ITradeSettlementOrderService</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
 <a id="__codelineno-3-7" name="__codelineno-3-7"></a>
 <a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="w">    </span><span class="nd">@Resource</span><span class="w">  </span>
-<a id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">ITradeSettlementOrderService</span><span class="w"> </span><span class="n">tradeSettlementOrderService</span><span class="p">;</span><span class="w">  </span>
-<a id="__codelineno-3-10" name="__codelineno-3-10"></a>
-<a id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="w">    </span><span class="nd">@Scheduled</span><span class="p">(</span><span class="n">cron</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;0/15 * * * * ?&quot;</span><span class="p">)</span><span class="w">  </span>
-<a id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">exec</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
-<a id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
-<a id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="w">            </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tradeSettlementOrderService</span><span class="p">.</span><span class="na">execSettlementNotifyJob</span><span class="p">();</span><span class="w">  </span>
-<a id="__codelineno-3-15" name="__codelineno-3-15"></a><span class="w">            </span><span class="n">log</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;定时任务，回调通知拼团完结任务 result:{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">JSON</span><span class="p">.</span><span class="na">toJSONString</span><span class="p">(</span><span class="n">result</span><span class="p">));</span><span class="w">  </span>
-<a id="__codelineno-3-16" name="__codelineno-3-16"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
-<a id="__codelineno-3-17" name="__codelineno-3-17"></a><span class="w">            </span><span class="n">log</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="s">&quot;定时任务，回调通知拼团完结任务失败&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">);</span><span class="w">  </span>
-<a id="__codelineno-3-18" name="__codelineno-3-18"></a><span class="w">        </span><span class="p">}</span><span class="w">  </span>
-<a id="__codelineno-3-19" name="__codelineno-3-19"></a><span class="w">    </span><span class="p">}</span><span class="w">  </span>
-<a id="__codelineno-3-20" name="__codelineno-3-20"></a><span class="p">}</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">ITradeRepository</span><span class="w"> </span><span class="n">repository</span><span class="p">;</span><span class="w">  </span>
+<a id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="w">    </span><span class="nd">@Resource</span><span class="w">  </span>
+<a id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">ITradePort</span><span class="w"> </span><span class="n">port</span><span class="p">;</span><span class="w">  </span>
+<a id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="w">    </span><span class="nd">@Resource</span><span class="w">  </span>
+<a id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">BusinessLinkedList</span><span class="o">&lt;</span><span class="n">TradeSettlementRuleCommandEntity</span><span class="p">,</span><span class="w"> </span><span class="n">TradeSettlementRuleFilterFactory</span><span class="p">.</span><span class="na">DynamicContext</span><span class="p">,</span><span class="w"> </span><span class="n">TradeSettlementRuleFilterBackEntity</span><span class="o">&gt;</span><span class="w">  </span>
+<a id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="w">    </span><span class="n">tradeSettlementRuleFilter</span><span class="p">;</span><span class="w">  </span>
+<a id="__codelineno-3-15" name="__codelineno-3-15"></a>
+<a id="__codelineno-3-16" name="__codelineno-3-16"></a><span class="w">    </span><span class="nd">@Override</span><span class="w">  </span>
+<a id="__codelineno-3-17" name="__codelineno-3-17"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">TradePaySettlementEntity</span><span class="w"> </span><span class="nf">settlementMarketPayOrder</span><span class="p">(</span><span class="n">TradePaySuccessEntity</span><span class="w"> </span><span class="n">tradePaySuccessEntity</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<a id="__codelineno-3-18" name="__codelineno-3-18"></a><span class="w">    </span><span class="n">log</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;拼团交易-支付订单结算:{} outTradeNo:{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">tradePaySuccessEntity</span><span class="p">.</span><span class="na">getUserId</span><span class="p">(),</span><span class="w"> </span><span class="n">tradePaySuccessEntity</span><span class="p">.</span><span class="na">getOutTradeNo</span><span class="p">());</span><span class="w">  </span>
+<a id="__codelineno-3-19" name="__codelineno-3-19"></a>
+<a id="__codelineno-3-20" name="__codelineno-3-20"></a><span class="w">    </span><span class="p">......</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21"></a>
+<a id="__codelineno-3-22" name="__codelineno-3-22"></a><span class="w">    </span><span class="c1">// 4. 拼团交易结算  </span>
+<a id="__codelineno-3-23" name="__codelineno-3-23"></a><span class="w">    </span><span class="kt">boolean</span><span class="w"> </span><span class="n">needNotify</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">repository</span><span class="p">.</span><span class="na">settlementMarketPayOrder</span><span class="p">(</span><span class="n">groupBuyTeamSettlementAggregate</span><span class="p">);</span><span class="w">  </span>
+<a id="__codelineno-3-24" name="__codelineno-3-24"></a>
+<a id="__codelineno-3-25" name="__codelineno-3-25"></a><span class="w">    </span><span class="c1">// 5. 组队回调处理 - 处理失败也会有定时任务补偿，通过这样的方式吗，减轻任务调度，提高时效性  </span>
+<a id="__codelineno-3-26" name="__codelineno-3-26"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">needNotify</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<a id="__codelineno-3-27" name="__codelineno-3-27"></a><span class="w">        </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">notifyResultMap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">execSettlementNotifyJob</span><span class="p">(</span><span class="n">teamId</span><span class="p">);</span><span class="w">  </span>
+<a id="__codelineno-3-28" name="__codelineno-3-28"></a><span class="w">        </span><span class="n">log</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;回调通知拼团完结 result:{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">JSON</span><span class="p">.</span><span class="na">toJSONString</span><span class="p">(</span><span class="n">notifyResultMap</span><span class="p">));</span><span class="w">  </span>
+<a id="__codelineno-3-29" name="__codelineno-3-29"></a><span class="w">    </span><span class="p">}</span><span class="w">  </span>
+<a id="__codelineno-3-30" name="__codelineno-3-30"></a>
+<a id="__codelineno-3-31" name="__codelineno-3-31"></a><span class="w">    </span><span class="c1">// 6. 返回结算信息  </span>
+<a id="__codelineno-3-32" name="__codelineno-3-32"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">...;</span>
+<a id="__codelineno-3-33" name="__codelineno-3-33"></a><span class="w">    </span><span class="p">}</span><span class="w">  </span>
+<a id="__codelineno-3-34" name="__codelineno-3-34"></a>
+<a id="__codelineno-3-35" name="__codelineno-3-35"></a><span class="w">    </span><span class="nd">@Override</span><span class="w">  </span>
+<a id="__codelineno-3-36" name="__codelineno-3-36"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">execSettlementNotifyJob</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<a id="__codelineno-3-37" name="__codelineno-3-37"></a><span class="w">        </span><span class="n">log</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;拼团交易-执行结算通知任务&quot;</span><span class="p">);</span><span class="w">  </span>
+<a id="__codelineno-3-38" name="__codelineno-3-38"></a>
+<a id="__codelineno-3-39" name="__codelineno-3-39"></a><span class="w">        </span><span class="c1">// 查询未执行任务</span>
+<a id="__codelineno-3-40" name="__codelineno-3-40"></a><span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">NotifyTaskEntity</span><span class="o">&gt;</span><span class="w"> </span><span class="n">notifyTaskEntityList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">repository</span><span class="p">.</span><span class="na">queryUnExecutedNotifyTaskList</span><span class="p">();</span><span class="w">  </span>
+<a id="__codelineno-3-41" name="__codelineno-3-41"></a>
+<a id="__codelineno-3-42" name="__codelineno-3-42"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">execSettlementNotifyJob</span><span class="p">(</span><span class="n">notifyTaskEntityList</span><span class="p">);</span><span class="w">  </span>
+<a id="__codelineno-3-43" name="__codelineno-3-43"></a><span class="w">    </span><span class="p">}</span><span class="w">  </span>
+<a id="__codelineno-3-44" name="__codelineno-3-44"></a>
+<a id="__codelineno-3-45" name="__codelineno-3-45"></a><span class="w">    </span><span class="nd">@Override</span><span class="w">  </span>
+<a id="__codelineno-3-46" name="__codelineno-3-46"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">execSettlementNotifyJob</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">teamId</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<a id="__codelineno-3-47" name="__codelineno-3-47"></a><span class="w">        </span><span class="n">log</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;拼团交易-执行结算通知任务，指定teamId:{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">teamId</span><span class="p">);</span><span class="w">  </span>
+<a id="__codelineno-3-48" name="__codelineno-3-48"></a>
+<a id="__codelineno-3-49" name="__codelineno-3-49"></a><span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">NotifyTaskEntity</span><span class="o">&gt;</span><span class="w"> </span><span class="n">notifyTaskEntityList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">repository</span><span class="p">.</span><span class="na">queryUnExecutedNotifyTaskList</span><span class="p">(</span><span class="n">teamId</span><span class="p">);</span><span class="w">  </span>
+<a id="__codelineno-3-50" name="__codelineno-3-50"></a>
+<a id="__codelineno-3-51" name="__codelineno-3-51"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">execSettlementNotifyJob</span><span class="p">(</span><span class="n">notifyTaskEntityList</span><span class="p">);</span><span class="w">  </span>
+<a id="__codelineno-3-52" name="__codelineno-3-52"></a><span class="w">    </span><span class="p">}</span><span class="w">  </span>
+<a id="__codelineno-3-53" name="__codelineno-3-53"></a>
+<a id="__codelineno-3-54" name="__codelineno-3-54"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">execSettlementNotifyJob</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">NotifyTaskEntity</span><span class="o">&gt;</span><span class="w"> </span><span class="n">notifyTaskEntityList</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<a id="__codelineno-3-55" name="__codelineno-3-55"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">successCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">retryCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">errorCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">  </span>
+<a id="__codelineno-3-56" name="__codelineno-3-56"></a>
+<a id="__codelineno-3-57" name="__codelineno-3-57"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">NotifyTaskEntity</span><span class="w"> </span><span class="n">notifyTaskEntity</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">notifyTaskEntityList</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<a id="__codelineno-3-58" name="__codelineno-3-58"></a><span class="w">            </span><span class="n">String</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">port</span><span class="p">.</span><span class="na">groupBuyNotify</span><span class="p">(</span><span class="n">notifyTaskEntity</span><span class="p">);</span><span class="w">  </span>
+<a id="__codelineno-3-59" name="__codelineno-3-59"></a>
+<a id="__codelineno-3-60" name="__codelineno-3-60"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">NotifyTaskHTTPEnumVO</span><span class="p">.</span><span class="na">SUCCESS</span><span class="p">.</span><span class="na">getCode</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="n">response</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<a id="__codelineno-3-61" name="__codelineno-3-61"></a><span class="w">                </span><span class="kt">int</span><span class="w"> </span><span class="n">updateSuccessCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">repository</span><span class="p">.</span><span class="na">updateNotifyTaskStatusSuccess</span><span class="p">(</span><span class="n">notifyTaskEntity</span><span class="p">.</span><span class="na">getTeamId</span><span class="p">());</span><span class="w">  </span>
+<a id="__codelineno-3-62" name="__codelineno-3-62"></a><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">updateSuccessCount</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<a id="__codelineno-3-63" name="__codelineno-3-63"></a><span class="w">                </span><span class="n">successCount</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">  </span>
+<a id="__codelineno-3-64" name="__codelineno-3-64"></a><span class="w">                </span><span class="p">}</span><span class="w">  </span>
+<a id="__codelineno-3-65" name="__codelineno-3-65"></a><span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">NotifyTaskHTTPEnumVO</span><span class="p">.</span><span class="na">ERROR</span><span class="p">.</span><span class="na">getCode</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="n">response</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<a id="__codelineno-3-66" name="__codelineno-3-66"></a><span class="w">                </span><span class="c1">// 回调尝试次数小于5次，重试  </span>
+<a id="__codelineno-3-67" name="__codelineno-3-67"></a><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">notifyTaskEntity</span><span class="p">.</span><span class="na">getNotifyCount</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<a id="__codelineno-3-68" name="__codelineno-3-68"></a><span class="w">                    </span><span class="kt">int</span><span class="w"> </span><span class="n">updateRetryCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">repository</span><span class="p">.</span><span class="na">updateNotifyTaskStatusRetry</span><span class="p">(</span><span class="n">notifyTaskEntity</span><span class="p">.</span><span class="na">getTeamId</span><span class="p">());</span><span class="w">  </span>
+<a id="__codelineno-3-69" name="__codelineno-3-69"></a><span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">updateRetryCount</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<a id="__codelineno-3-70" name="__codelineno-3-70"></a><span class="w">                        </span><span class="n">retryCount</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">  </span>
+<a id="__codelineno-3-71" name="__codelineno-3-71"></a><span class="w">                    </span><span class="p">}</span><span class="w">  </span>
+<a id="__codelineno-3-72" name="__codelineno-3-72"></a><span class="w">                </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<a id="__codelineno-3-73" name="__codelineno-3-73"></a><span class="w">                    </span><span class="kt">int</span><span class="w"> </span><span class="n">updateErrorCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">repository</span><span class="p">.</span><span class="na">updateNotifyTaskStatusError</span><span class="p">(</span><span class="n">notifyTaskEntity</span><span class="p">.</span><span class="na">getTeamId</span><span class="p">());</span><span class="w">  </span>
+<a id="__codelineno-3-74" name="__codelineno-3-74"></a><span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">updateErrorCount</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<a id="__codelineno-3-75" name="__codelineno-3-75"></a><span class="w">                        </span><span class="n">errorCount</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">  </span>
+<a id="__codelineno-3-76" name="__codelineno-3-76"></a><span class="w">                    </span><span class="p">}</span><span class="w">  </span>
+<a id="__codelineno-3-77" name="__codelineno-3-77"></a><span class="w">                </span><span class="p">}</span><span class="w">  </span>
+<a id="__codelineno-3-78" name="__codelineno-3-78"></a><span class="w">            </span><span class="p">}</span><span class="w">  </span>
+<a id="__codelineno-3-79" name="__codelineno-3-79"></a><span class="w">        </span><span class="p">}</span><span class="w">  </span>
+<a id="__codelineno-3-80" name="__codelineno-3-80"></a>
+<a id="__codelineno-3-81" name="__codelineno-3-81"></a><span class="w">        </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">resultMap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w">  </span>
+<a id="__codelineno-3-82" name="__codelineno-3-82"></a><span class="w">        </span><span class="n">resultMap</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;waitCount&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">notifyTaskEntityList</span><span class="p">.</span><span class="na">size</span><span class="p">());</span><span class="w">  </span>
+<a id="__codelineno-3-83" name="__codelineno-3-83"></a><span class="w">        </span><span class="n">resultMap</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;successCount&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">successCount</span><span class="p">);</span><span class="w">  </span>
+<a id="__codelineno-3-84" name="__codelineno-3-84"></a><span class="w">        </span><span class="n">resultMap</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;retryCount&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">retryCount</span><span class="p">);</span><span class="w">  </span>
+<a id="__codelineno-3-85" name="__codelineno-3-85"></a><span class="w">        </span><span class="n">resultMap</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;errorCount&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">errorCount</span><span class="p">);</span><span class="w">  </span>
+<a id="__codelineno-3-86" name="__codelineno-3-86"></a>
+<a id="__codelineno-3-87" name="__codelineno-3-87"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">resultMap</span><span class="p">;</span><span class="w">  </span>
+<a id="__codelineno-3-88" name="__codelineno-3-88"></a><span class="w">    </span><span class="p">}</span><span class="w">  </span>
+<a id="__codelineno-3-89" name="__codelineno-3-89"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li><code>Map&lt;String, Integer&gt; notifyResultMap = execSettlementNotifyJob(teamId);</code> 回调通知处理。这步失败也没关系，后续会有定时任务处理。</li>
+<li><code>execSettlementNotifyJob(List&lt;NotifyTaskEntity&gt; notifyTaskEntityList)</code> 回调任务，调用 <code>port.groupBuyNotify(notifyTask);</code> 回调服务。</li>
+<li>根据回调服务返回的结果，更新回调任务表记录。包括；调用了几次、成功的状态。</li>
+</ul>
+<h3 id="_8">任务补偿<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-4-10">10</a></span>
+<span class="normal"><a href="#__codelineno-4-11">11</a></span>
+<span class="normal"><a href="#__codelineno-4-12">12</a></span>
+<span class="normal"><a href="#__codelineno-4-13">13</a></span>
+<span class="normal"><a href="#__codelineno-4-14">14</a></span>
+<span class="normal"><a href="#__codelineno-4-15">15</a></span>
+<span class="normal"><a href="#__codelineno-4-16">16</a></span>
+<span class="normal"><a href="#__codelineno-4-17">17</a></span>
+<span class="normal"><a href="#__codelineno-4-18">18</a></span>
+<span class="normal"><a href="#__codelineno-4-19">19</a></span>
+<span class="normal"><a href="#__codelineno-4-20">20</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">site.dopplerxd.trigger.job</span><span class="p">;</span><span class="w">  </span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="cm">/**  </span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="cm">* @description 拼团完结回调通知任务；拼团回调任务表，实际公司场景会定时清理数据结转，不会有太多数据挤压  </span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="cm">*/</span><span class="w">    </span>
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">GroupBuyNotifyJob</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a>
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="w">    </span><span class="nd">@Resource</span><span class="w">  </span>
+<a id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">ITradeSettlementOrderService</span><span class="w"> </span><span class="n">tradeSettlementOrderService</span><span class="p">;</span><span class="w">  </span>
+<a id="__codelineno-4-10" name="__codelineno-4-10"></a>
+<a id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="w">    </span><span class="nd">@Scheduled</span><span class="p">(</span><span class="n">cron</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;0/15 * * * * ?&quot;</span><span class="p">)</span><span class="w">  </span>
+<a id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">exec</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<a id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<a id="__codelineno-4-14" name="__codelineno-4-14"></a><span class="w">            </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tradeSettlementOrderService</span><span class="p">.</span><span class="na">execSettlementNotifyJob</span><span class="p">();</span><span class="w">  </span>
+<a id="__codelineno-4-15" name="__codelineno-4-15"></a><span class="w">            </span><span class="n">log</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;定时任务，回调通知拼团完结任务 result:{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">JSON</span><span class="p">.</span><span class="na">toJSONString</span><span class="p">(</span><span class="n">result</span><span class="p">));</span><span class="w">  </span>
+<a id="__codelineno-4-16" name="__codelineno-4-16"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<a id="__codelineno-4-17" name="__codelineno-4-17"></a><span class="w">            </span><span class="n">log</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="s">&quot;定时任务，回调通知拼团完结任务失败&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">);</span><span class="w">  </span>
+<a id="__codelineno-4-18" name="__codelineno-4-18"></a><span class="w">        </span><span class="p">}</span><span class="w">  </span>
+<a id="__codelineno-4-19" name="__codelineno-4-19"></a><span class="w">    </span><span class="p">}</span><span class="w">  </span>
+<a id="__codelineno-4-20" name="__codelineno-4-20"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <ul>
 <li>首先，app 下的 Application 类，要添加一个 <code>@EnableScheduling</code> 注解，这样才能使用任务。</li>
@@ -2491,7 +2566,7 @@ RPC、MQ，这一类的都是需要有一个公用的注册中心，它的技术
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年5月23日 09:51:47">2025年5月23日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年5月23日 17:18:53">2025年5月23日</span>
   </span>
 
     
