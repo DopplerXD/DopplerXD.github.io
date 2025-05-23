@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "5cd04a92e016527c",
+        "id": "3cb1230e4056a071",
         "type": "tabs",
         "children": [
           {
-            "id": "35d14defe2c15cda",
+            "id": "89e2afa56199a08f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "develop/后端/IDEA 快捷键.md",
+                "file": "develop/项目/拼团营销服务 group-buy-market/2-14 拼团回调通知任务.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "IDEA 快捷键"
+              "title": "2-14 拼团回调通知任务"
             }
           }
         ]
@@ -179,16 +179,34 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "504c4e9474e76cb2",
+  "active": "89e2afa56199a08f",
   "lastOpenFiles": [
-    "develop/后端/git 到处差异 diff 文件.md",
-    "develop/后端/IDEA 快捷键.md",
-    "develop/项目/拼团营销服务 group-buy-market/2-5 人群标签数据采集.md",
-    "develop/项目/拼团营销服务 group-buy-market/2-2~2-3 规则树设计模式模板.md",
+    "develop/项目/拼团营销服务 group-buy-market/assets/2-14流程图-xfg.png",
+    "develop/项目/拼团营销服务 group-buy-market/2-13 交易结算责任链过滤.md",
+    "develop/项目/拼团营销服务 group-buy-market/2-14 拼团回调通知任务.md",
+    "develop/项目/拼团营销服务 group-buy-market/assets/2-13流程图-星尘.png",
+    "develop/项目/拼团营销服务 group-buy-market/assets/2-13流程图-xfg.png",
     "develop/项目/拼团营销服务 group-buy-market/assets/Pasted image 20250518193807.png",
-    "develop/项目/拼团营销服务 group-buy-market/2-3 多线程异步数据加载.md",
     "develop/项目/拼团营销服务 group-buy-market/assets/Pasted image 20250518191639.png",
     "develop/项目/拼团营销服务 group-buy-market/assets/Pasted image 20250518191540.png",
+    "develop/项目/拼团营销服务 group-buy-market/2-12 拼团组队结算统计.md",
+    "develop/项目/拼团营销服务 group-buy-market/assets/2-12流程图-xfg.png",
+    "develop/项目/拼团营销服务 group-buy-market/assets/2-12流程图-星尘.png",
+    "develop/项目/拼团营销服务 group-buy-market/2-11 交易规则责任链过滤.md",
+    "develop/项目/拼团营销服务 group-buy-market/2-10 责任链抽象模板设计.md",
+    "assets/Fqiev8kFGWaEu6NEcSm1qN7fIcSS.md",
+    "assets",
+    "develop/项目/拼团营销服务 group-buy-market/2-9 拼团交易锁单逻辑.md",
+    "develop/项目/拼团营销服务 group-buy-market/2-8 基于Redis的动态配置开关.md",
+    "develop/项目/拼团营销服务 group-buy-market/2-2~2-3 规则树设计模式模板.md",
+    "develop/后端/IDEA 快捷键.md",
+    "develop/项目/拼团营销服务 group-buy-market/assets/Fqiev8kFGWaEu6NEcSm1qN7fIcSS",
+    "develop/项目/拼团营销服务 group-buy-market/assets/Fkzfk6YwCbO2n1oWSE1ZbxTeEzJ9",
+    "develop/项目/拼团营销服务 group-buy-market/assets/FkFd03VBKQ5MNZveAo5HQIeqDdrT",
+    "develop/项目/拼团营销服务 group-buy-market/assets/Fjlxe7EwmHCX-hjJrqWuHCOcMbjp",
+    "develop/后端/git 到处差异 diff 文件.md",
+    "develop/项目/拼团营销服务 group-buy-market/2-5 人群标签数据采集.md",
+    "develop/项目/拼团营销服务 group-buy-market/2-3 多线程异步数据加载.md",
     "develop/项目/拼团营销服务 group-buy-market/assets",
     "develop/项目/拼团营销服务 group-buy-market/README.md",
     "develop/项目/拼团营销服务 group-buy-market",
@@ -202,31 +220,13 @@
     "develop/项目/小型支付商城 s-pay-mall/未命名.md",
     "develop/项目/小型支付商城 s-pay-mall",
     "develop/后端/assets/Pasted image 20250511110311.png",
-    "develop/后端/assets/Pasted image 20250511110231.png",
     "develop/后端/tree 命令生成项目目录结构.md",
     "resource-share/good-web.md",
     "Leetcode/top-interview-150/array-string.md",
     "resource-share/README.md",
     "Leetcode/top-interview-150/README.md",
-    "Leetcode/top-100-liked/hash.md",
-    "Leetcode/top-100-liked/README.md",
-    "Leetcode/problems/README.md",
-    "interview/设计模式.md",
-    "interview/README.md",
-    "develop/后端/README.md",
-    "algorithm/README.md",
-    "notes/leetcode/problems/1361. 验证二叉树.md",
-    "blogs/jmm的小说/小说.md",
     "obsidian-snippets",
     "notes/leetcode/problems",
-    "notes/面试题",
-    "notes/interview/面试题",
-    "notes/interview/面经收集/小米",
-    "notes/interview/面经收集",
-    "notes/develop/后端/assets/Pasted image 20250325110638.png",
-    "notes/develop/后端/assets/Pasted image 20250325110319.png",
-    "notes/develop/后端/assets/Pasted image 20250324165259.png",
-    "未命名.canvas",
-    "obsidian-snippets/codetabs.txt"
+    "未命名.canvas"
   ]
 }
