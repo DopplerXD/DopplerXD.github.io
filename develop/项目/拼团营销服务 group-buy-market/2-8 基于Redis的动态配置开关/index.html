@@ -1986,10 +1986,8 @@
   <h1>2 8 基于Redis的动态配置开关</h1>
 
 <p>项目引入了基于 Redis 的动态配置开关（Dynamic Configuration Control，简称 DCC）机制。这一功能旨在实现系统配置的动态调整，无需重启应用，从而提高系统的灵活性和可维护性。</p>
-<hr />
 <h2 id="_1">🧩 功能概述<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>该提交实现了一个基于 Redis 的动态配置开关系统，允许开发者在不重启应用的情况下，动态地启用或禁用某些功能模块。这对于需要快速响应市场变化或进行 A/B 测试的场景尤为重要。</p>
-<hr />
 <h2 id="_2">🔍 实现原理<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>该功能的实现主要涉及以下几个组件：</p>
 <ol>
@@ -1999,7 +1997,6 @@
 <li><strong>配置服务</strong>：<code>DCCService</code> 提供了接口供其他模块查询配置项的当前状态，从而决定是否执行某些功能。</li>
 <li><strong>控制器接口</strong>：<code>DCCController</code> 提供了 HTTP 接口，允许运维人员或其他系统通过 API 动态修改配置项的值，实现对功能的启用或禁用。</li>
 </ol>
-<hr />
 <h2 id="_3">🔄 工作流程<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <ol>
 <li><strong>配置定义</strong>：开发者在需要动态控制的功能点上使用 <code>@DCCValue</code> 注解标记。</li>
@@ -2007,7 +2004,8 @@
 <li><strong>功能判断</strong>：在运行时，功能模块通过调用 <code>DCCService</code> 提供的接口，查询配置项的当前状态，决定是否执行相关功能。</li>
 <li><strong>动态修改</strong>：运维人员可以通过调用 <code>DCCController</code> 提供的 HTTP 接口，修改 Redis 中的配置值，从而动态控制功能的启用或禁用。</li>
 </ol>
-<p><img alt="img" src="assets/Fh0HIFD-ZS_YeojD9FayccoG0q7Z" /></p>
+<p><img alt="" src="../assets/2-8%E6%B5%81%E7%A8%8B%E5%9B%BE-xfg.png" /></p>
+<p><img alt="" src="../assets/2-8%E6%B5%81%E7%A8%8B%E5%9B%BE-%E7%9F%A5%E9%9B%A8.png" /></p>
 <h2 id="_4">🧱 主要组件职责解释<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -2050,7 +2048,6 @@
 </tr>
 </tbody>
 </table>
-<hr />
 <h2 id="_5">🔁 完整工作流程详解（对应图片）<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <h3 id="_6">🧩 <strong>阶段一：应用启动时初始化注入配置值</strong><a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <ol>
@@ -2067,7 +2064,6 @@
 <li><strong>返回配置值 → 注入完成</strong>
     字段已被正确赋值为 Redis 中的最新配置状态。</li>
 </ol>
-<hr />
 <h3 id="_7">🧩 <strong>阶段二：运行时配置发生变更，字段动态刷新</strong><a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <ol>
 <li><strong>Redis 中配置项发生变更</strong>
@@ -2079,7 +2075,6 @@
 <li><strong>反射更新字段值为最新值</strong>
     字段被重新注入新值（如从 <code>true → false</code>），即刻生效。</li>
 </ol>
-<hr />
 <h2 id="_8">🧩 核心类职责对照<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -2115,7 +2110,6 @@
 </tr>
 </tbody>
 </table>
-<hr />
 <h2 id="_9">🌐 示例：如何声明并使用动态配置字段<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
@@ -2188,7 +2182,6 @@
 <a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>调用接口 <code>http://127.0.0.1:8092/api/v1/gbm/dcc/update_config?key=downgradeSwitch&amp;value=1</code>，就会将 <code>downgradeSwitch</code> 设置为 <code>1</code>，不关机实现 <code>降级拦截</code>。</p>
-<hr />
 <h2 id="dcc">✅ DCC 的优势<a class="headerlink" href="#dcc" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>无需重启</strong>：配置项的修改不需要重启应用，减少了系统的停机时间。</li>
@@ -2244,7 +2237,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年5月20日 13:45:55">2025年5月20日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年5月25日 15:07:23">2025年5月25日</span>
   </span>
 
     

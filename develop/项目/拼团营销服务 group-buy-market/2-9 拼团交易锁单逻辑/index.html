@@ -1987,7 +1987,13 @@
 <li><strong>基础设施层</strong> (<code>doppler-group-buy-market-infrastructure</code>)：实现了数据持久化逻辑，包括DAO接口及其MyBatis XML映射文件。</li>
 </ul>
 <h2 id="_3">核心流程：锁定营销支付订单<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p><img alt="img" src="assets/FiTJ2927f0HvuLQ46oAVmDLBD6gx" /></p>
+<p><img alt="" src="../assets/2-9%E6%B5%81%E7%A8%8B%E5%9B%BE-xfg.png" /></p>
+<ul>
+<li>首先，团购的商品下单。下单过程分为创建流水单、锁定营销优惠（拼团、积分、券）、创建支付订单、唤起收银台支付、用户扫码支付、支付完成核销优惠等。</li>
+<li>那么，这里用户以拼团方式下单，创建流水单完成后，需要与拼团系统交互，锁定营销优惠。更新流水单优惠金额和支付金额。接下来就可以创建支付单了（支付单需要最终的支付金额）。</li>
+<li>注意，拼团表 group_buy_order 除了有目标量（target_count）、完成量（complete），还要有一个锁单量（lock_count），当锁单量达到目标量后，用户在此组织下，不能在参与拼团。直至这些用户支付完成达成拼团或者锁单超时回退支付营销，空出可参与锁单量，这样其他用户可以继续参与。</li>
+</ul>
+<p><img alt="" src="../assets/2-9%E6%B5%81%E7%A8%8B%E5%9B%BE-%E6%98%9F%E5%B0%98.png" /></p>
 <p>当商城系统用户选择参与拼团并下单时，大致流程如下：</p>
 <ol>
 <li>
@@ -2695,7 +2701,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年5月21日 13:34:42">2025年5月21日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年5月25日 15:07:23">2025年5月25日</span>
   </span>
 
     
