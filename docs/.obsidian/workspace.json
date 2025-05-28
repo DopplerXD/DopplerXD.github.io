@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "develop/项目/拼团营销服务 group-buy-market/2-11 交易规则责任链过滤.md",
+                "file": "index.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2-11 交易规则责任链过滤"
+              "title": "index"
             }
           }
         ]
@@ -179,8 +179,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "504c4e9474e76cb2",
+  "active": "48fd464eb08b514b",
   "lastOpenFiles": [
+    "develop/项目/拼团营销服务 group-buy-market/2-11 交易规则责任链过滤.md",
     "develop/项目/拼团营销服务 group-buy-market/assets/2-11流程图-xfg.png",
     "develop/项目/拼团营销服务 group-buy-market/2-10 责任链抽象模板设计.md",
     "develop/项目/拼团营销服务 group-buy-market/assets/2-10流程图-xfg.png",
@@ -208,9 +209,7 @@
     "develop/项目/拼团营销服务 group-buy-market/2-13 交易结算责任链过滤.md",
     "develop/项目/拼团营销服务 group-buy-market/assets/2-13流程图-星尘.png",
     "develop/项目/拼团营销服务 group-buy-market/assets/2-13流程图-xfg.png",
-    "develop/项目/拼团营销服务 group-buy-market/assets/Pasted image 20250518193807.png",
     "develop/项目/拼团营销服务 group-buy-market/2-12 拼团组队结算统计.md",
-    "develop/项目/拼团营销服务 group-buy-market/2-11 交易规则责任链过滤.md",
     "assets/Fqiev8kFGWaEu6NEcSm1qN7fIcSS.md",
     "assets",
     "develop/后端/IDEA 快捷键.md",
