@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "index.md",
+                "file": "other/Markdown与LaTeX常用语法对比.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "index"
+              "title": "Markdown与LaTeX常用语法对比"
             }
           }
         ]
@@ -181,6 +181,9 @@
   },
   "active": "48fd464eb08b514b",
   "lastOpenFiles": [
+    "index.md",
+    "other/Markdown与LaTeX常用语法对比.md",
+    "other",
     "develop/项目/拼团营销服务 group-buy-market/2-11 交易规则责任链过滤.md",
     "develop/项目/拼团营销服务 group-buy-market/assets/2-11流程图-xfg.png",
     "develop/项目/拼团营销服务 group-buy-market/2-10 责任链抽象模板设计.md",
@@ -221,11 +224,9 @@
     "develop/项目/拼团营销服务 group-buy-market/assets",
     "develop/项目/拼团营销服务 group-buy-market/README.md",
     "develop/项目/拼团营销服务 group-buy-market",
-    "index.md",
     "develop/后端/DDD 基础设施向上依赖领域导致依赖倒置与循环引用问题.md",
     "develop/项目/小型支付商城 s-pay-mall",
     "obsidian-snippets",
-    "notes/leetcode/problems",
     "未命名.canvas"
   ]
 }
