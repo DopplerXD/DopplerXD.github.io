@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "e6a096c6c8dd9912",
+        "id": "acd88a49136fe980",
         "type": "tabs",
         "children": [
           {
-            "id": "48fd464eb08b514b",
+            "id": "3ecc01a0a916c5d4",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "other/Markdown与LaTeX常用语法对比.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Markdown与LaTeX常用语法对比"
+              "title": "新标签页"
             }
           }
         ]
@@ -142,13 +138,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "develop/项目/拼团营销服务 group-buy-market/2-11 交易规则责任链过滤.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "2-11 交易规则责任链过滤 的大纲"
+              "title": "大纲"
             }
           },
           {
@@ -179,10 +174,14 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "48fd464eb08b514b",
+  "active": "504c4e9474e76cb2",
   "lastOpenFiles": [
+    "interview/Java 基础.md",
+    "interview/设计模式.md",
+    "Leetcode/problems/1361. 验证二叉树.md",
+    "other/如何使用 LaTeX.md",
+    "2025-06-21.md",
     "index.md",
-    "other/Markdown与LaTeX常用语法对比.md",
     "other",
     "develop/项目/拼团营销服务 group-buy-market/2-11 交易规则责任链过滤.md",
     "develop/项目/拼团营销服务 group-buy-market/assets/2-11流程图-xfg.png",
@@ -215,16 +214,12 @@
     "develop/项目/拼团营销服务 group-buy-market/2-12 拼团组队结算统计.md",
     "assets/Fqiev8kFGWaEu6NEcSm1qN7fIcSS.md",
     "assets",
-    "develop/后端/IDEA 快捷键.md",
     "develop/项目/拼团营销服务 group-buy-market/assets/Fqiev8kFGWaEu6NEcSm1qN7fIcSS",
     "develop/项目/拼团营销服务 group-buy-market/assets/Fkzfk6YwCbO2n1oWSE1ZbxTeEzJ9",
     "develop/项目/拼团营销服务 group-buy-market/assets/FkFd03VBKQ5MNZveAo5HQIeqDdrT",
     "develop/项目/拼团营销服务 group-buy-market/assets/Fjlxe7EwmHCX-hjJrqWuHCOcMbjp",
-    "develop/项目/拼团营销服务 group-buy-market/2-3 多线程异步数据加载.md",
     "develop/项目/拼团营销服务 group-buy-market/assets",
-    "develop/项目/拼团营销服务 group-buy-market/README.md",
     "develop/项目/拼团营销服务 group-buy-market",
-    "develop/后端/DDD 基础设施向上依赖领域导致依赖倒置与循环引用问题.md",
     "develop/项目/小型支付商城 s-pay-mall",
     "obsidian-snippets",
     "未命名.canvas"
