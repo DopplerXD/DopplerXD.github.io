@@ -12,28 +12,28 @@
         <meta name="author" content="DopplerXD">
       
       
-        <link rel="canonical" href="https://dopplerxd.top/interview/">
+        <link rel="canonical" href="https://dopplerxd.top/interview/JVM/">
       
       
-        <link rel="prev" href="../develop/%E9%A1%B9%E7%9B%AE/%E6%8B%BC%E5%9B%A2%E8%90%A5%E9%94%80%E6%9C%8D%E5%8A%A1%20group-buy-market/2-9%20%E6%8B%BC%E5%9B%A2%E4%BA%A4%E6%98%93%E9%94%81%E5%8D%95%E9%80%BB%E8%BE%91/">
+        <link rel="prev" href="../JUC/">
       
       
-        <link rel="next" href="JUC/">
+        <link rel="next" href="../Java%20%E5%9F%BA%E7%A1%80/">
       
       
-      <link rel="icon" href="../assets/favicon.png">
+      <link rel="icon" href="../../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
     
     
       
-        <title>面试知识整理 - DopplerXD Docs</title>
+        <title>JVM - DopplerXD Docs</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -52,9 +52,9 @@
       
     
     
-      <link rel="stylesheet" href="../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -79,6 +79,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -89,7 +94,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href=".." title="DopplerXD Docs" class="md-header__button md-logo" aria-label="DopplerXD Docs" data-md-component="logo">
+    <a href="../.." title="DopplerXD Docs" class="md-header__button md-logo" aria-label="DopplerXD Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -109,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              面试知识整理
+              JVM
             
           </span>
         </div>
@@ -237,7 +242,7 @@
   
   
     <li class="md-tabs__item">
-      <a href=".." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -265,7 +270,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../algorithm/%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF/" class="md-tabs__link">
+        <a href="../../algorithm/%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF/" class="md-tabs__link">
           
   
   
@@ -288,7 +293,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../assets/Fqiev8kFGWaEu6NEcSm1qN7fIcSS/" class="md-tabs__link">
+        <a href="../../assets/Fqiev8kFGWaEu6NEcSm1qN7fIcSS/" class="md-tabs__link">
           
   
   
@@ -308,7 +313,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../blog/" class="md-tabs__link">
+        <a href="../../blog/" class="md-tabs__link">
           
   
   
@@ -328,7 +333,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../develop/" class="md-tabs__link">
+        <a href="../../develop/" class="md-tabs__link">
           
   
   
@@ -350,7 +355,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+        <a href="../" class="md-tabs__link">
           
   
   
@@ -377,7 +382,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../leetcode/problems/1361.%20%E9%AA%8C%E8%AF%81%E4%BA%8C%E5%8F%89%E6%A0%91/" class="md-tabs__link">
+        <a href="../../leetcode/problems/1361.%20%E9%AA%8C%E8%AF%81%E4%BA%8C%E5%8F%89%E6%A0%91/" class="md-tabs__link">
           
   
   
@@ -400,7 +405,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../other/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%20LaTeX/" class="md-tabs__link">
+        <a href="../../other/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%20LaTeX/" class="md-tabs__link">
           
   
   
@@ -420,7 +425,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../resource-share/good-web/" class="md-tabs__link">
+        <a href="../../resource-share/good-web/" class="md-tabs__link">
           
   
   
@@ -454,7 +459,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="DopplerXD Docs" class="md-nav__button md-logo" aria-label="DopplerXD Docs" data-md-component="logo">
+    <a href="../.." title="DopplerXD Docs" class="md-nav__button md-logo" aria-label="DopplerXD Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -484,7 +489,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -530,7 +535,7 @@
   
   
   
-    <a href="../algorithm/%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF/" class="md-nav__link">
+    <a href="../../algorithm/%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF/" class="md-nav__link">
       
   
   
@@ -580,7 +585,7 @@
   
   
   
-    <a href="../assets/Fqiev8kFGWaEu6NEcSm1qN7fIcSS/" class="md-nav__link">
+    <a href="../../assets/Fqiev8kFGWaEu6NEcSm1qN7fIcSS/" class="md-nav__link">
       
   
   
@@ -628,7 +633,7 @@
   
   
   
-    <a href="../blog/" class="md-nav__link">
+    <a href="../../blog/" class="md-nav__link">
       
   
   
@@ -676,7 +681,7 @@
   
   
   
-    <a href="../develop/" class="md-nav__link">
+    <a href="../../develop/" class="md-nav__link">
       
   
   
@@ -751,17 +756,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
         
   
   
@@ -772,7 +770,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -785,7 +782,7 @@
   
   
     <li class="md-nav__item">
-      <a href="JUC/" class="md-nav__link">
+      <a href="../JUC/" class="md-nav__link">
         
   
   
@@ -805,10 +802,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="JVM/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    JVM
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -819,6 +836,131 @@
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      类加载器的分类
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="类加载器的分类">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bootstrap-class-loader" class="md-nav__link">
+    <span class="md-ellipsis">
+      启动类加载器（Bootstrap Class Loader）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extension-class-loader" class="md-nav__link">
+    <span class="md-ellipsis">
+      扩展类加载器（Extension Class Loader）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#application-class-loader" class="md-nav__link">
+    <span class="md-ellipsis">
+      应用程序类加载器（Application Class Loader）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-class-loader" class="md-nav__link">
+    <span class="md-ellipsis">
+      自定义类加载器（Custom Class Loader）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      什么是双亲委派模型
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#string-jvm-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      如何自己实现一个 String，并让 JVM 加载这个 String
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      如何破坏双亲委派机制
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jvm" class="md-nav__link">
+    <span class="md-ellipsis">
+      JVM 内存结构
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      堆内存中新生代和老年代的区别
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jvm_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      JVM 垃圾回收
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -831,7 +973,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Java%20%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+      <a href="../Java%20%E5%9F%BA%E7%A1%80/" class="md-nav__link">
         
   
   
@@ -854,7 +996,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Java%20%E9%9B%86%E5%90%88/" class="md-nav__link">
+      <a href="../Java%20%E9%9B%86%E5%90%88/" class="md-nav__link">
         
   
   
@@ -877,7 +1019,7 @@
   
   
     <li class="md-nav__item">
-      <a href="MySQL/" class="md-nav__link">
+      <a href="../MySQL/" class="md-nav__link">
         
   
   
@@ -900,7 +1042,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Mybatis/" class="md-nav__link">
+      <a href="../Mybatis/" class="md-nav__link">
         
   
   
@@ -923,7 +1065,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Redis/" class="md-nav__link">
+      <a href="../Redis/" class="md-nav__link">
         
   
   
@@ -946,7 +1088,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Spring/" class="md-nav__link">
+      <a href="../Spring/" class="md-nav__link">
         
   
   
@@ -969,7 +1111,7 @@
   
   
     <li class="md-nav__item">
-      <a href="%E5%85%B6%E4%BB%96%EF%BC%88Linux%E3%80%81Docker%E7%AD%89%EF%BC%89/" class="md-nav__link">
+      <a href="../%E5%85%B6%E4%BB%96%EF%BC%88Linux%E3%80%81Docker%E7%AD%89%EF%BC%89/" class="md-nav__link">
         
   
   
@@ -992,7 +1134,7 @@
   
   
     <li class="md-nav__item">
-      <a href="%E5%9C%BA%E6%99%AF%E9%A2%98/" class="md-nav__link">
+      <a href="../%E5%9C%BA%E6%99%AF%E9%A2%98/" class="md-nav__link">
         
   
   
@@ -1015,7 +1157,7 @@
   
   
     <li class="md-nav__item">
-      <a href="%E5%BE%AE%E6%9C%8D%E5%8A%A1/" class="md-nav__link">
+      <a href="../%E5%BE%AE%E6%9C%8D%E5%8A%A1/" class="md-nav__link">
         
   
   
@@ -1038,7 +1180,7 @@
   
   
     <li class="md-nav__item">
-      <a href="%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="md-nav__link">
+      <a href="../%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="md-nav__link">
         
   
   
@@ -1061,7 +1203,7 @@
   
   
     <li class="md-nav__item">
-      <a href="%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" class="md-nav__link">
+      <a href="../%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" class="md-nav__link">
         
   
   
@@ -1084,7 +1226,7 @@
   
   
     <li class="md-nav__item">
-      <a href="%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%EF%BC%88DDD%E7%AD%89%EF%BC%89/" class="md-nav__link">
+      <a href="../%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%EF%BC%88DDD%E7%AD%89%EF%BC%89/" class="md-nav__link">
         
   
   
@@ -1107,7 +1249,7 @@
   
   
     <li class="md-nav__item">
-      <a href="%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="md-nav__link">
+      <a href="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="md-nav__link">
         
   
   
@@ -1130,7 +1272,7 @@
   
   
     <li class="md-nav__item">
-      <a href="%E8%AE%A4%E8%AF%81%E6%8E%88%E6%9D%83/" class="md-nav__link">
+      <a href="../%E8%AE%A4%E8%AF%81%E6%8E%88%E6%9D%83/" class="md-nav__link">
         
   
   
@@ -1153,7 +1295,7 @@
   
   
     <li class="md-nav__item">
-      <a href="%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="md-nav__link">
+      <a href="../%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="md-nav__link">
         
   
   
@@ -1207,7 +1349,7 @@
   
   
   
-    <a href="../leetcode/problems/1361.%20%E9%AA%8C%E8%AF%81%E4%BA%8C%E5%8F%89%E6%A0%91/" class="md-nav__link">
+    <a href="../../leetcode/problems/1361.%20%E9%AA%8C%E8%AF%81%E4%BA%8C%E5%8F%89%E6%A0%91/" class="md-nav__link">
       
   
   
@@ -1257,7 +1399,7 @@
   
   
   
-    <a href="../other/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%20LaTeX/" class="md-nav__link">
+    <a href="../../other/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%20LaTeX/" class="md-nav__link">
       
   
   
@@ -1305,7 +1447,7 @@
   
   
   
-    <a href="../resource-share/good-web/" class="md-nav__link">
+    <a href="../../resource-share/good-web/" class="md-nav__link">
       
   
   
@@ -1346,6 +1488,119 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      类加载器的分类
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="类加载器的分类">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bootstrap-class-loader" class="md-nav__link">
+    <span class="md-ellipsis">
+      启动类加载器（Bootstrap Class Loader）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extension-class-loader" class="md-nav__link">
+    <span class="md-ellipsis">
+      扩展类加载器（Extension Class Loader）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#application-class-loader" class="md-nav__link">
+    <span class="md-ellipsis">
+      应用程序类加载器（Application Class Loader）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-class-loader" class="md-nav__link">
+    <span class="md-ellipsis">
+      自定义类加载器（Custom Class Loader）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      什么是双亲委派模型
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#string-jvm-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      如何自己实现一个 String，并让 JVM 加载这个 String
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      如何破坏双亲委派机制
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jvm" class="md-nav__link">
+    <span class="md-ellipsis">
+      JVM 内存结构
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      堆内存中新生代和老年代的区别
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jvm_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      JVM 垃圾回收
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1363,9 +1618,98 @@
   
 
 
-  <h1>面试知识整理</h1>
+  <h1>JVM</h1>
 
-
+<h2 id="_1">类加载器的分类<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li><font style="background-color:rgba(255, 255, 255, 0);">类加载器是 JVM 中负责加载类的组件。它将类的字节码从文件系统或网络等位置加载到 JVM 中，并将其解析成 JVM 能够理解的运行时数据结构。</font></li>
+<li><font style="background-color:rgba(255, 255, 255, 0);">主要有以下几种类型的类加载器：</font><ul>
+<li><strong><font style="background-color:rgba(255, 255, 255, 0);">启动类加载器（Bootstrap ClassLoader）</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：是最顶层的类加载器，由 C++ 实现，负责加载 Java 核心类库，如</font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;java.lang&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);">包下的类。</font></li>
+<li><strong><font style="background-color:rgba(255, 255, 255, 0);">扩展类加载器（Extension ClassLoader）</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：负责加载 Java 的扩展类库，如</font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;jre/lib/ext&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);">目录下的类。</font></li>
+<li><strong><font style="background-color:rgba(255, 255, 255, 0);">应用程序类加载器（AppClassLoader）</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：也称为系统类加载器，负责加载应用程序的类路径下的类，是大多数 Java 应用中自定义类的默认类加载器。</font></li>
+</ul>
+</li>
+</ul>
+<h3 id="bootstrap-class-loader"><font style="color:rgb(0, 0, 0);">启动类加载器（Bootstrap Class Loader）</font><a class="headerlink" href="#bootstrap-class-loader" title="Permanent link">&para;</a></h3>
+<ul>
+<li>它是 JVM 中最顶层的类加载器，由 C++ 语言实现，负责加载 Java 核心类库，如 <code>java.lang</code>、<code>java.util</code>、<code>java.io</code> 等。这些类库位于 JDK 的 <code>jre/lib</code> 目录下，是 Java 运行时必不可少的基础类。</li>
+<li>启动类加载器比较特殊，它没有父类加载器，因为它是最顶层的类加载器。</li>
+</ul>
+<h3 id="extension-class-loader"><font style="color:rgb(0, 0, 0);">扩展类加载器（Extension Class Loader）</font><a class="headerlink" href="#extension-class-loader" title="Permanent link">&para;</a></h3>
+<ul>
+<li>扩展类加载器由 Java 语言实现，父类加载器是启动类加载器。它负责加载 JDK 扩展目录 <code>jre/lib/ext</code> 中的类库，以及 <code>java.ext.dirs</code> 系统属性指定的目录中的类。</li>
+<li>可以通过扩展类加载器来加载一些通用的、可扩展的类库，以便在多个应用程序中共享使用。</li>
+</ul>
+<h3 id="application-class-loader"><font style="color:rgb(0, 0, 0);">应用程序类加载器（Application Class Loader）</font><a class="headerlink" href="#application-class-loader" title="Permanent link">&para;</a></h3>
+<ul>
+<li>也称为系统类加载器，同样由 Java 语言实现，父类加载器是扩展类加载器。它是 ClassLoader 类中的 <code>getSystemClassLoader()</code> 方法返回的类加载器，负责加载应用程序的类路径（classpath）下的所有类。</li>
+<li>应用程序中的自定义类和第三方类库通常都是由应用程序类加载器来加载的。</li>
+</ul>
+<h3 id="custom-class-loader"><font style="color:rgb(0, 0, 0);">自定义类加载器（Custom Class Loader）</font><a class="headerlink" href="#custom-class-loader" title="Permanent link">&para;</a></h3>
+<ul>
+<li>开发人员可以根据自己的需求自定义类加载器，通过继承 <code>java.lang.ClassLoader</code> 类来实现。自定义类加载器可以实现一些特殊的类加载逻辑，比如从网络、数据库等非传统的存储位置加载类，或者对类进行加密、解密等特殊处理。</li>
+<li>自定义类加载器的父类加载器通常是应用程序类加载器，当然也可以在创建自定义类加载器时指定其他类加载器作为父类加载器。</li>
+</ul>
+<p>不同的类加载器负责不同范围的类加载任务，它们之间形成了一种层次结构，这种结构被称为类加载器的双亲委派模型，保证了类加载的安全性和有序性。</p>
+<h2 id="_2"><font style="background-color:rgba(255, 255, 255, 0);">什么是双亲委派模型</font><a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong><font style="background-color:rgba(255, 255, 255, 0);">定义</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：双亲委派模型是一种类加载器的工作模式。当一个类加载器收到类加载请求时，它首先不会自己去尝试加载这个类，而是把请求委托给父类加载器去完成，依次向上，直到顶层的启动类加载器。只有当父类加载器无法完成加载任务时，子类加载器才会尝试自己去加载。</font></li>
+<li><strong><font style="background-color:rgba(255, 255, 255, 0);">作用</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：保证了 Java 核心类库的安全性和唯一性，避免了不同类加载器对同一核心类的重复加载，也防止了用户自定义的类覆盖核心类库中的类。</font></li>
+</ul>
+<h2 id="string-jvm-string"><font style="background-color:rgba(255, 255, 255, 0);">如何自己实现一个 String，并让 JVM 加载这个 String</font><a class="headerlink" href="#string-jvm-string" title="Permanent link">&para;</a></h2>
+<ul>
+<li><font style="background-color:rgba(255, 255, 255, 0);">首先，不能直接实现一个完全等同于 Java 标准库中的</font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;String&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);">类，因为</font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;String&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);">类在 Java 中是</font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;final&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);">类型，不能被继承和重写。</font></li>
+<li><font style="background-color:rgba(255, 255, 255, 0);">若要自定义一个类似</font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;String&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);">功能的类，比如命名为</font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;MyString&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);">，可以通过实现</font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;Serializable&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);">接口、</font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;Comparable&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);">接口等，来实现字符串的基本功能，如存储字符序列、实现比较、序列化等操作。</font></li>
+<li><font style="background-color:rgba(255, 255, 255, 0);">让 JVM 加载自定义的</font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;MyString&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);">类，需要通过类加载器。可以自定义一个类加载器，继承自</font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;ClassLoader&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);">类，重写</font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;findClass&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);">方法，在该方法中通过读取字节码文件等方式将</font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;MyString&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);">类的字节码加载到 JVM 中。</font></li>
+</ul>
+<h2 id="_3"><font style="background-color:rgba(255, 255, 255, 0);">如何破坏双亲委派机制</font><a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<ul>
+<li><font style="background-color:rgba(255, 255, 255, 0);">自定义类加载器，重写</font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;loadClass&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);">方法，在方法中不调用父类加载器的</font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;loadClass&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);">方法，而是直接自己加载类。例如，在一些框架中，如 Tomcat，为了实现不同 Web 应用之间的类隔离，会自定义类加载器，打破双亲委派机制，使得每个 Web 应用可以有自己独立的类加载体系，避免类冲突。</font></li>
+</ul>
+<h2 id="jvm"><font style="background-color:rgba(255, 255, 255, 0);">JVM 内存结构</font><a class="headerlink" href="#jvm" title="Permanent link">&para;</a></h2>
+<ul>
+<li><font style="background-color:rgba(255, 255, 255, 0);">线程共享</font><ul>
+<li><strong><font style="background-color:rgba(255, 255, 255, 0);">Java 堆</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：是 JVM 所管理的内存中最大的一块，被所有线程共享。堆是存放对象实例以及数组的地方，几乎所有的对象实例和数组都在堆上分配内存。</font></li>
+<li><strong><font style="background-color:rgba(255, 255, 255, 0);">方法区</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：被所有线程共享，用于存储已被虚拟机加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。</font></li>
+</ul>
+</li>
+<li><font style="background-color:rgba(255, 255, 255, 0);">线程独占</font><ul>
+<li><strong><font style="background-color:rgba(255, 255, 255, 0);">程序计数器</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：是一块较小的内存空间，它可以看作是当前线程所执行的字节码的行号指示器。每个线程都有一个独立的程序计数器，各个线程之间的计数器互不影响，独立存储。</font></li>
+<li><strong><font style="background-color:rgba(255, 255, 255, 0);">Java 虚拟机栈</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：线程私有的，它的生命周期与线程相同。虚拟机栈描述的是 Java 方法执行的内存模型，每个方法在执行的同时都会创建一个栈帧，用于存储局部变量表、操作数栈、动态链接、方法出口等信息。</font></li>
+<li><strong><font style="background-color:rgba(255, 255, 255, 0);">本地方法栈</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：与 Java 虚拟机栈类似，只不过它是为 Native 方法服务的。</font></li>
+</ul>
+</li>
+<li><font style="background-color:rgba(255, 255, 255, 0);">本地内存</font><ul>
+<li><strong><font style="background-color:rgba(255, 255, 255, 0);">直接内存</font></strong><font style="background-color:rgba(255, 255, 255, 0);">（Direct Memory）：由 NIO（New Input/Output）直接分配，不受 JVM 堆的管理，通常用于高性能数据传输，如缓冲区（Buffer）。这个内存结构保证了 JVM 在执行 Java 代码时能够高效管理对象、执行方法调用，并支持多线程并发。</font></li>
+</ul>
+</li>
+</ul>
+<h2 id="_4"><font style="background-color:rgba(255, 255, 255, 0);">堆内存中新生代和老年代的区别</font><a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong><font style="background-color:rgba(255, 255, 255, 0);">新生代</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：</font><ul>
+<li><font style="background-color:rgba(255, 255, 255, 0);">新生的对象首先会分配在新生代。</font></li>
+<li><font style="background-color:rgba(255, 255, 255, 0);">新生代分为 Eden 区和两个 Survivor 区（一般称为 From 区和 To 区）。</font></li>
+<li><font style="background-color:rgba(255, 255, 255, 0);">新生代的特点是对象朝生夕灭，大部分对象的生命周期很短，经过几次垃圾回收后，仍然存活的对象会被晋升到老年代。</font></li>
+</ul>
+</li>
+<li><strong><font style="background-color:rgba(255, 255, 255, 0);">老年代</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：</font><ul>
+<li><font style="background-color:rgba(255, 255, 255, 0);">存储经过多次垃圾回收后仍然存活的对象。</font></li>
+<li><font style="background-color:rgba(255, 255, 255, 0);">老年代的空间一般比新生代大，垃圾回收的频率相对新生代要低。</font></li>
+</ul>
+</li>
+</ul>
+<h2 id="jvm_1"><font style="background-color:rgba(255, 255, 255, 0);">JVM 垃圾回收</font><a class="headerlink" href="#jvm_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong><font style="background-color:rgba(255, 255, 255, 0);">垃圾回收的概念</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：JVM 会自动管理内存，通过垃圾回收机制来回收不再被使用的对象所占用的内存空间，以避免内存泄漏和内存溢出，提高内存的利用率。</font></li>
+<li><strong><font style="background-color:rgba(255, 255, 255, 0);">垃圾回收算法</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：</font><ul>
+<li><strong><font style="background-color:rgba(255, 255, 255, 0);">标记 - 清除算法</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：首先标记出所有需要回收的对象，在标记完成后，统一回收所有被标记的对象。缺点是会产生内存碎片。</font></li>
+<li><strong><font style="background-color:rgba(255, 255, 255, 0);">复制算法</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：将内存分为大小相等的两块，每次只使用其中一块，当这一块内存用完后，将存活的对象复制到另一块空的内存中，然后将原来的内存空间一次性清理掉。适用于新生代，因为新生代中对象存活率低。</font></li>
+<li><strong><font style="background-color:rgba(255, 255, 255, 0);">标记 - 压缩算法</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：先标记出所有需要回收的对象，然后将存活的对象向一端移动，最后清理掉边界以外的内存。解决了标记 - 清除算法的内存碎片问题。</font></li>
+<li><strong><font style="background-color:rgba(255, 255, 255, 0);">分代收集算法</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：根据对象的生命周期不同，将堆内存分为新生代和老年代，针对不同代采用不同的垃圾回收算法。新生代使用复制算法，老年代使用标记 - 压缩或标记 - 清除算法。</font></li>
+</ul>
+</li>
+<li><strong><font style="background-color:rgba(255, 255, 255, 0);">垃圾回收的触发条件</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：当新生代或老年代的内存空间不足时，会触发垃圾回收。此外，也可以通过调用</font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;System.gc()&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);">方法来建议 JVM 进行垃圾回收，但这只是一个建议，JVM 不一定会立即执行。</font></li>
+</ul>
 
 
 
@@ -1388,7 +1732,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年4月25日 16:30:02 UTC">2025年4月25日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年6月23日 16:13:17 UTC">2025年6月23日</span>
   </span>
 
     
@@ -1398,7 +1742,7 @@
     <span class="md-icon" title="创建日期">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年4月25日 16:30:02 UTC">2025年4月25日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年6月23日 16:13:17 UTC">2025年6月23日</span>
   </span>
 
     
@@ -1433,7 +1777,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../develop/%E9%A1%B9%E7%9B%AE/%E6%8B%BC%E5%9B%A2%E8%90%A5%E9%94%80%E6%9C%8D%E5%8A%A1%20group-buy-market/2-9%20%E6%8B%BC%E5%9B%A2%E4%BA%A4%E6%98%93%E9%94%81%E5%8D%95%E9%80%BB%E8%BE%91/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 拼团营销优惠锁定功能解析">
+          <a href="../JUC/" class="md-footer__link md-footer__link--prev" aria-label="上一页: JUC">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1443,20 +1787,20 @@
                 上一页
               </span>
               <div class="md-ellipsis">
-                拼团营销优惠锁定功能解析
+                JUC
               </div>
             </div>
           </a>
         
         
           
-          <a href="JUC/" class="md-footer__link md-footer__link--next" aria-label="下一页: JUC">
+          <a href="../Java%20%E5%9F%BA%E7%A1%80/" class="md-footer__link md-footer__link--next" aria-label="下一页: Java 基础">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                JUC
+                Java 基础
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -1557,14 +1901,14 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tracking", "toc.follow", "navigation.path", "navigation.top", "navigation.tabs", "navigation.prune", "navigation.footer", "navigation.sections", "content.code.copy", "search.share", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "toc.follow", "navigation.path", "navigation.top", "navigation.tabs", "navigation.prune", "navigation.footer", "navigation.sections", "content.code.copy", "search.share", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
       
-        <script src="../javascripts/extra.js"></script>
+        <script src="../../javascripts/extra.js"></script>
       
-        <script src="../javascripts/mathjax.js"></script>
+        <script src="../../javascripts/mathjax.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       

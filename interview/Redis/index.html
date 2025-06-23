@@ -1,0 +1,2703 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="the notes record by DopplerXD">
+      
+      
+        <meta name="author" content="DopplerXD">
+      
+      
+        <link rel="canonical" href="https://dopplerxd.top/interview/Redis/">
+      
+      
+        <link rel="prev" href="../Mybatis/">
+      
+      
+        <link rel="next" href="../Spring/">
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Redis - DopplerXD Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#redis" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="DopplerXD Docs" class="md-header__button md-logo" aria-label="DopplerXD Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DopplerXD Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Redis
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="日间模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="日间模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="夜间模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="夜间模式" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="跟随系统"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="跟随系统" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5M7 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/DopplerXD/DopplerXD.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    DopplerXD.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Welcome to Doppler's Notes
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../algorithm/%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF/" class="md-tabs__link">
+          
+  
+  
+  Algorithm
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../assets/Fqiev8kFGWaEu6NEcSm1qN7fIcSS/" class="md-tabs__link">
+          
+  
+  
+  Assets
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../blog/" class="md-tabs__link">
+          
+  
+  
+  Blog
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../develop/" class="md-tabs__link">
+          
+  
+  
+  Develop
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  Interview
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../leetcode/problems/1361.%20%E9%AA%8C%E8%AF%81%E4%BA%8C%E5%8F%89%E6%A0%91/" class="md-tabs__link">
+          
+  
+  
+  Leetcode
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../other/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%20LaTeX/" class="md-tabs__link">
+          
+  
+  
+  Other
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../resource-share/good-web/" class="md-tabs__link">
+          
+  
+  
+  Resource share
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="DopplerXD Docs" class="md-nav__button md-logo" aria-label="DopplerXD Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    DopplerXD Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/DopplerXD/DopplerXD.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    DopplerXD.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Welcome to Doppler's Notes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    
+  
+  
+  
+    <a href="../../algorithm/%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Algorithm
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../assets/Fqiev8kFGWaEu6NEcSm1qN7fIcSS/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Assets
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../blog/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Blog
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../develop/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Develop
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Interview
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Interview
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    面试知识整理
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../JUC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    JUC
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../JVM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    JVM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Java%20%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Java 基础
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Java%20%E9%9B%86%E5%90%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Java 集合
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MySQL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MySQL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mybatis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Mybatis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Redis
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Redis
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#redis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Redis 能用来做什么
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redis-memcached" class="md-nav__link">
+    <span class="md-ellipsis">
+      Redis 和 Memcached 的区别和共同点
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Redis 和 Memcached 的区别和共同点">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      共同点
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      区别
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redis_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Redis 数据结构
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redis_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Redis 单线程模型
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      持久化
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      事务
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      锁
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redis_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Redis 缓存
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Redis 缓存">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      关于缓存
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      缓存更新策略
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="缓存更新策略">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      主动更新
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      缓存穿透
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      缓存雪崩
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      缓存击穿
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redis_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Redis 缓存怎么实现的
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redis_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Redis 数据结构都有什么
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redis-zset" class="md-nav__link">
+    <span class="md-ellipsis">
+      说说 Redis 中的 ZSet
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redis-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      为什么 Redis 的 string 类型效率要比传统字符串的效率高
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redis_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Redis 的持久化
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redis_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Redis 使用过程中需要有哪些注意的点
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redis-acid" class="md-nav__link">
+    <span class="md-ellipsis">
+      Redis 支持事务 ACID 特性吗
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      锁
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      缓存更新策略
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="缓存更新策略">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      主动更新
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      关于缓存三兄弟的定义和解决方法
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redis_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Redis 使用分布式锁如何避免网络分区导致的失效问题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      统计日活量使用哪个数据结构，怎么设计
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mysql-2000w-redis-20w-redis" class="md-nav__link">
+    <span class="md-ellipsis">
+      MySQL 中有 2000w 条数据，Redis 存储 20w 条，如何保证 Redis 存储的都是热点数据？
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redis_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      你对 Redis 的操作是怎么实现的，通过注解吗？
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      高并发场景下如何保证幂等性？
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redis_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      介绍一下 Redis 发布订阅
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Spring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spring
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%85%B6%E4%BB%96%EF%BC%88Linux%E3%80%81Docker%E7%AD%89%EF%BC%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    其他（Linux、Docker等）
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%9C%BA%E6%99%AF%E9%A2%98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    场景题
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%BE%AE%E6%9C%8D%E5%8A%A1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    微服务
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    操作系统
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    消息队列
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%EF%BC%88DDD%E7%AD%89%EF%BC%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    系统架构（DDD等）
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    计算机网络
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%AE%A4%E8%AF%81%E6%8E%88%E6%9D%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    认证授权
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    设计模式
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    
+  
+  
+  
+    <a href="../../leetcode/problems/1361.%20%E9%AA%8C%E8%AF%81%E4%BA%8C%E5%8F%89%E6%A0%91/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Leetcode
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../other/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%20LaTeX/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Other
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../resource-share/good-web/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Resource share
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#redis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Redis 能用来做什么
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redis-memcached" class="md-nav__link">
+    <span class="md-ellipsis">
+      Redis 和 Memcached 的区别和共同点
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Redis 和 Memcached 的区别和共同点">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      共同点
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      区别
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redis_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Redis 数据结构
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redis_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Redis 单线程模型
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      持久化
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      事务
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      锁
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redis_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Redis 缓存
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Redis 缓存">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      关于缓存
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      缓存更新策略
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="缓存更新策略">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      主动更新
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      缓存穿透
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      缓存雪崩
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      缓存击穿
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redis_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Redis 缓存怎么实现的
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redis_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Redis 数据结构都有什么
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redis-zset" class="md-nav__link">
+    <span class="md-ellipsis">
+      说说 Redis 中的 ZSet
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redis-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      为什么 Redis 的 string 类型效率要比传统字符串的效率高
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redis_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Redis 的持久化
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redis_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Redis 使用过程中需要有哪些注意的点
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redis-acid" class="md-nav__link">
+    <span class="md-ellipsis">
+      Redis 支持事务 ACID 特性吗
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      锁
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      缓存更新策略
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="缓存更新策略">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      主动更新
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      关于缓存三兄弟的定义和解决方法
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redis_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Redis 使用分布式锁如何避免网络分区导致的失效问题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      统计日活量使用哪个数据结构，怎么设计
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mysql-2000w-redis-20w-redis" class="md-nav__link">
+    <span class="md-ellipsis">
+      MySQL 中有 2000w 条数据，Redis 存储 20w 条，如何保证 Redis 存储的都是热点数据？
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redis_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      你对 Redis 的操作是怎么实现的，通过注解吗？
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      高并发场景下如何保证幂等性？
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redis_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      介绍一下 Redis 发布订阅
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+  <h1>Redis</h1>
+
+<h2 id="redis">Redis 能用来做什么<a class="headerlink" href="#redis" title="Permanent link">&para;</a></h2>
+<ul>
+<li>缓存</li>
+<li>分布式锁：通常基于 Redisson 实现。</li>
+<li>限流：可以用 Redis+Lua 来实现，如 <a href="https://mp.weixin.qq.com/s/kyFAWH3mVNJvurQDt4vchA">https://mp.weixin.qq.com/s/kyFAWH3mVNJvurQDt4vchA</a>。</li>
+<li>消息队列：list 可作为简单的队列；Redis 5.0 新增 Stream 类型更适合，类似 Kafka，有主题和消费组的概念，支持消息持久化与 ACK 机制。</li>
+<li>其他：基于 bitmap 统计活跃用户、HyperLogLog 统计 UV、Zset 维护排行榜等</li>
+</ul>
+<h2 id="redis-memcached">Redis 和 Memcached 的区别和共同点<a class="headerlink" href="#redis-memcached" title="Permanent link">&para;</a></h2>
+<h3 id="_1">共同点<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>都是基于内存的数据库，都可以用来作为缓存。</li>
+<li>都有过期策略。</li>
+<li>两者的性能都非常高。</li>
+</ul>
+<h3 id="_2">区别<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Redis 支持的数据类型更丰富，如 list、hash、set 等。</li>
+<li>Redis 支持数据持久化，能够将数据保存到磁盘。</li>
+<li>Redis 有灾难恢复机制（其实还是持久化）。</li>
+<li>Redis 在用完内存时，可以把不用的数据放到磁盘，而 Memcached 在服务器内存用完后会报异常。</li>
+<li>Redis 原生支持 cluster 集群模式。</li>
+<li>Memcached 是多线程，非阻塞 IO 复用的网络模型；Redis 是单线程的多路 IO 复用模型（Redis 6.0 引入多线程 IO）。</li>
+<li>Redis 支持发布订阅、Lua 脚本、事务等功能，支持更多编程语言。</li>
+<li>Memcached 过期数据删除策略只有惰性删除，Redis 是惰性+定期。</li>
+</ul>
+<h2 id="redis_1">Redis 数据结构<a class="headerlink" href="#redis_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>String 字符串：一种二进制安全的数据类型，可以用来存储任何类型的数据比如字符串、整数、浮点数、图片（图片的 base64 编码或者解码或者图片的路径）、序列化后的对象。使用 SDS 简单动态字符串实现。</li>
+<li>List 列表：实现为一个双向链表，即可以支持反向查找和遍历，更方便操作，不过带来了部分额外的内存开销。</li>
+<li>Set 集合：一个 String 类型的 field-value（键值对） 的映射表，特别适合用于存储对象，后续操作的时候，你可以直接修改这个对象中的某些字段的值。</li>
+<li>Hash 散列：无序集合，集合中的元素没有先后顺序但都唯一，有点类似于 Java 中的 <code>HashSet</code> 。</li>
+<li>Zset 有序集合：和 Set 相比，Sorted Set 增加了一个权重参数 <code>score</code>，使得集合中的元素能够按 <code>score</code> 进行有序排列，还可以通过 <code>score</code> 的范围来获取元素的列表。有点像是 Java 中 <code>HashMap</code> 和 <code>TreeSet</code> 的结合体。</li>
+<li>HyperLogLog 基数统计：Redis 提供的 HyperLogLog 占用空间非常非常小，只需要 12k 的空间就能存储接近<code>2^64</code>个不同元素。不过，HyperLogLog 的计数结果并不是一个精确值，存在一定的误差（标准误差为 <code>0.81%</code> ）。</li>
+<li>Bitmap 位图存储：可以将 Bitmap 看作是一个存储二进制数字（0 和 1）的数组，数组中每个元素的下标叫做 offset（偏移量）。通过 Bitmap, 只需要一个 bit 位来表示某个元素对应的值或者状态，key 就是对应元素本身 。我们知道 8 个 bit 可以组成一个 byte，所以 Bitmap 本身会极大的节省储存空间。</li>
+<li>Geospatial 地理位置：Geospatial index（地理空间索引，简称 GEO） 主要用于存储地理位置信息，基于 Sorted Set 实现。</li>
+</ul>
+<h2 id="redis_2">Redis 单线程模型<a class="headerlink" href="#redis_2" title="Permanent link">&para;</a></h2>
+<p>Redis 基于 Reactor 模式来设计开发了高效的事件处理模型，这套模型对应的是 Redis 中的文件事件处理器（file event handler）。由于文件事件处理器是单线程方式运行，所以一般说 Redis 是单线程模型。</p>
+<p><strong>Redis 通过 IO 多路复用程序来监听来自客户端的大量连接</strong>（或者说监听多个 socket），它会将感兴趣的事件及类型（读、写）注册到内核中并监听每个事件是否发生。</p>
+<h2 id="_3">持久化<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>两种持久化方案：RDB 和 AOF。</p>
+<p>RDB 通过保存数据库中所有数据实现持久化，相当于创建一个副本。</p>
+<p>AOF 通过保存修改数据的命令，恢复数据时重新执行一遍，来实现持久化。</p>
+<ul>
+<li><strong>RDB</strong><ul>
+<li>优点：加载速度快、存储体积小</li>
+<li>缺点：存储速度慢，大量消耗资源，可能会发生数据丢失</li>
+</ul>
+</li>
+<li><strong>AOF</strong><ul>
+<li>优点：存储速度快、消耗资源少，支持实时存储</li>
+<li>缺点：加载速度慢，数据体积大</li>
+</ul>
+</li>
+</ul>
+<h2 id="_4">事务<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>使用 <code>multi</code> 开启事务，开启后输入的命令会放到执行队列中，并不会立即执行。</p>
+<p>然后使用 <code>exec</code> 命令结束事务，此时会统一执行所有命令。</p>
+<p>事务过程中，执行 <code>discard</code> 退出事务，中途取消。</p>
+<h2 id="_5">锁<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>Redis 中也会出现多个命令同时竞争同一条数据的情况，如两条命令同时执行，都要修改 a 的值，那就只能通过锁机制来保证同一时间只能有一个命令操作。</p>
+<p>不同于 MySQL 中的悲观锁，Redis 中是乐观锁。</p>
+<ul>
+<li><strong>乐观锁</strong></li>
+</ul>
+<p>假设数据在处理期间不会被其他事务频繁修改。它通常在提交事务时检查数据一致性，而非在操作开始时加锁。</p>
+<p>优点<strong>：</strong> 提升并发性能，减少锁竞争，适合读多写少的场景。</p>
+<p>缺点<strong>：</strong> 在写操作频繁的情况下，可能导致多次重试，影响性能。</p>
+<ul>
+<li><strong>悲观锁</strong></li>
+</ul>
+<p>假设数据在处理期间会被其他事务频繁修改。它在操作开始时获取锁，防止其他事务修改数据，直到锁释放。</p>
+<p>优点<strong>：</strong> 保证数据一致性，防止冲突，适合写操作频繁的场景。</p>
+<p>缺点<strong>：</strong> 可能导致锁竞争和资源等待，降低并发性能。</p>
+<p>Redis 中可以使用 <code>watch</code> 来监视一个目标，如果执行事务之前被监视目标发生了修改，则取消本次事务。</p>
+<h2 id="redis_3">Redis 缓存<a class="headerlink" href="#redis_3" title="Permanent link">&para;</a></h2>
+<h3 id="_6">关于缓存<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p><strong>缓存的作用</strong></p>
+<ul>
+<li>降低后端负载</li>
+<li>提高读写效率，降低响应时间</li>
+</ul>
+<p><strong>缓存的成本</strong></p>
+<ul>
+<li>数据一致性成本</li>
+<li>代码维护成本</li>
+<li>运维成本（集群分布式部署的人力、软硬件成本）</li>
+</ul>
+<p><img alt="" src="https://cdn.nlark.com/yuque/0/2025/png/35335189/1743318428880-6df8f24b-1d87-43c0-b899-69a5f7ee7dab.png" /></p>
+<h3 id="_7">缓存更新策略<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p><img alt="" src="https://cdn.nlark.com/yuque/0/2025/png/35335189/1743320919628-f44e5f3f-1e74-497b-80b1-563b6b91771c.png" /></p>
+<h4 id="_8">主动更新<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Cache Aside Pattern：由缓存的调用者，在<strong>更新数据库的同时更新缓存</strong>。</li>
+<li>Read/Write Through Pattern：缓存与数据库整合为一个服务，由<strong>服务来维护一致性</strong>。调用者调用该服务，无需关心缓存一致性问题。</li>
+<li>Write Behind Caching Pattern：调用者只操作缓存，由其它线程<strong>异步的将缓存数据持久化到数据库</strong>，保证最终一致。</li>
+</ol>
+<p>Cache Aside Pattern 并发操作时，先删再写还是先写再删？</p>
+<p>如果先删除缓存，再更新数据库，有可能在一个线程删除缓存后，另一个线程来查询，发现缓存中没用这个键，然后就会数据库更新前进行查询，并写入到缓存中，这样缓存中就是旧的值了。</p>
+<p>先更新数据库，再删除缓存，有同样的线程安全问题。但由于缓存操作的速度高于数据库操作，所以第一种情况出现的概论相对较大。</p>
+<h4 id="_9">总结<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
+<p>缓存更新策略的最佳实践方案．</p>
+<ol>
+<li><strong>低一致性</strong>需求：使用 Redis 自带的<strong>内存淘汰</strong>机制</li>
+<li><strong>高一致性</strong>需求：<strong>主动更新</strong>，并以<strong>超时剔除</strong>作为兜底方案<ol>
+<li>读操作：<ol>
+<li>缓存命中则直接返回</li>
+<li>缓存未命中则查询数据库，并写入缓存，设定超时时间</li>
+</ol>
+</li>
+<li>写操作：<ol>
+<li>先写数据库，然后再删除缓存</li>
+<li>要确保数据库与缓存操作的原子性</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="_10">缓存穿透<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p>缓存穿透是指客户端请求的数据，<strong>在缓存中和数据库中都不存在</strong>，这样缓存永远不会生效，这些请求都会打到数据库。</p>
+<p>常见的解决方案有两种：</p>
+<ul>
+<li><strong>缓存空对象</strong><ul>
+<li>优点：<ul>
+<li>实现简单，维护方便，不会对数据库造成额外压力</li>
+</ul>
+</li>
+<li>缺点：<ul>
+<li>额外的内存消耗</li>
+<li>可能造成短期的不一致</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>布隆过滤</strong><ul>
+<li>优点：<ul>
+<li>内存占用较少，没有多余 key</li>
+</ul>
+</li>
+<li>缺点：<ul>
+<li>实现复杂</li>
+<li>存在误判可能</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="_11">缓存雪崩<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p>缓存雪崩是指在同一时段大量的缓存 key 同时失效或者 Redis 服务宕机，导致大量请求到达数据库/带来巨大压力。</p>
+<p>解决方案：</p>
+<ul>
+<li>给不同的 key 的 TTL 添加随机值</li>
+<li>利用 Redis 集群提高服务的可用性（哨兵机制）</li>
+<li>给缓存业务添加降级限流策略</li>
+<li>给业务增加多级缓存</li>
+</ul>
+<h3 id="_12">缓存击穿<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<p>缓存击穿问题也叫热点 key 问题，就是一个被<strong>高并发访问</strong>并且<strong>缓存重建业务较复杂</strong>的 key 突然消失了，无数的请求访问会在瞬间给数据库带来巨大的冲击。</p>
+<p>常见解决方案：</p>
+<ul>
+<li><strong>互斥锁</strong>：重建缓存前获取锁，写入缓存后释放锁。其他线程遇到锁后，休眠一段时间后再次尝试获取，直到缓存命中。<ul>
+<li>优点：<ul>
+<li>没有额外内存消耗</li>
+<li>保证了数据一致性</li>
+<li>实现简单</li>
+</ul>
+</li>
+<li>缺点：<ul>
+<li>线程需要等待，影响性能</li>
+<li>可能有死锁风险</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>逻辑过期</strong>：存储数据时，不设置 TTL，而是添加一个过期时间的字段。缓存命中后，如果已过期，尝试获取锁。获取到锁的线程，新开一个线程进行缓存重建，同时返回逻辑上过期的数据。未获取到锁的线程直接返回过期的数据，不需要管缓存重建的事情。<ul>
+<li>优点：<ul>
+<li>线程无需等待，性能较好</li>
+</ul>
+</li>
+<li>缺点：<ul>
+<li>不保证一致性</li>
+<li>有额外内存消耗</li>
+<li>实现复杂</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img alt="" src="https://cdn.nlark.com/yuque/0/2025/png/35335189/1743326390970-02270ae5-e2ca-46fa-bc0c-2cdea21dc4cc.png" /></p>
+<p><a href="https://www.yuque.com/doppler-vy6h7/adsmgs/om5ltx5n0h1taiz5">CodeSpace 算法学习平台开发笔记</a></p>
+<p>可通过 Redis <code>setnx</code> 命令实现互斥锁</p>
+<h2 id="redis_4"><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">Redis 缓存怎么实现的<a class="headerlink" href="#redis_4" title="Permanent link">&para;</a></h2>
+<p><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">Redis 缓存通过将数据存储在内存中，<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">利用内存的高速读写</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">特性来提高数据访问速度。当应用程序请求数据时，首先检查 Redis 缓存中是否存在所需数据。如果存在，则直接从缓存中返回数据，避免了对后端数据库的查询，从而大大提高了系统的响应速度。当数据发生变化时，需要及时更新缓存中的数据，以保证数据的一致性。更新策略通常有多种，如定时更新、根据数据变化实时更新等。</p>
+<h2 id="redis_5"><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">Redis 数据结构都有什么<a class="headerlink" href="#redis_5" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">字符串（String）</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：最基本的数据结构，用于存储单个值，例如一个字符串、数字或二进制数据。</li>
+<li><strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">列表（List）</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：有序的字符串列表，支持在列表的两端进行插入和删除操作，常用于存储队列或栈数据结构。</li>
+<li><strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">哈希（Hash）</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：包含键值对的无序散列表，适合存储对象，其中字段作为哈希的键，字段的值作为哈希的值。</li>
+<li><strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">集合（Set）</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：无序的字符串集合，其中每个元素都是唯一的，常用于去重或实现交集、并集、差集等集合操作。</li>
+<li><strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">有序集合（Sorted Set / ZSet）</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：类似于集合，但每个元素都关联一个分数，根据分数进行排序，常用于排行榜等需要按某种权重进行排序的场景。</li>
+</ul>
+<h2 id="redis-zset"><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">说说 Redis 中的 ZSet<a class="headerlink" href="#redis-zset" title="Permanent link">&para;</a></h2>
+<p><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">Redis 的 ZSet 是有序集合（Sorted Set），它是 Redis 中一种非常重要的数据结构。以下是关于 ZSet 的详细介绍：</p>
+<ul>
+<li><strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">数据结构特点</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：ZSet 中的每个元素都由一个成员（member）和一个分数（score）组成，分数用于对成员进行排序。ZSet 中的成员是唯一的，但分数可以重复。它通过跳跃表（Skip List）和哈希表来实现，能够在保证元素有序的同时，提供高效的插入、删除和查找操作。</li>
+<li><strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">应用场景</strong><ul>
+<li><strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">排行榜</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：例如游戏中的玩家排行榜、网站的文章阅读量排行榜等。通过将玩家或文章的相关数据作为成员，对应的分数作为排名依据，就可以轻松实现各种排行榜功能。</li>
+<li><strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">带权重的任务队列</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：在任务队列中，每个任务可能有不同的优先级或权重。可以将任务作为成员，任务的权重作为分数，这样就可以按照权重来优先处理高优先级的任务。</li>
+<li><strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">时间序列数据</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：如果数据具有时间属性，比如股票价格的实时数据、服务器的性能监控数据等，可以将时间戳作为分数，数据本身作为成员，方便按照时间顺序进行查询和分析。</li>
+</ul>
+</li>
+<li><strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">常用命令</strong><ul>
+<li><code>&lt;font style="color:#000000;background-color:rgba(255, 255, 255, 0);"&gt;ZADD</code><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：用于向 ZSet 中添加一个或多个成员及其分数。例如，<code>&lt;font style="color:#000000;background-color:rgba(255, 255, 255, 0);"&gt;ZADD myzset 10 "apple" 20 "banana"</code><font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 会将 "apple" 和 "banana" 添加到名为 "myzset" 的 ZSet 中，分别对应分数 10 和 20。</li>
+<li><code>&lt;font style="color:#000000;background-color:rgba(255, 255, 255, 0);"&gt;ZRANGE</code><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：按照分数从小到大的顺序返回指定范围内的成员。如<code>&lt;font style="color:#000000;background-color:rgba(255, 255, 255, 0);"&gt;ZRANGE myzset 0 5</code><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">会返回 "myzset" 中分数排名第 0 到第 5 的成员。</li>
+<li><code>&lt;font style="color:#000000;background-color:rgba(255, 255, 255, 0);"&gt;ZREVRANGE</code><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：与<code>&lt;font style="color:#000000;background-color:rgba(255, 255, 255, 0);"&gt;ZRANGE</code><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">相反，按照分数从大到小的顺序返回指定范围内的成员。</li>
+<li><code>&lt;font style="color:#000000;background-color:rgba(255, 255, 255, 0);"&gt;ZSCORE</code><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：获取指定成员的分数。例如，<code>&lt;font style="color:#000000;background-color:rgba(255, 255, 255, 0);"&gt;ZSCORE myzset "apple"</code><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">会返回 "apple" 在 "myzset" 中的分数。</li>
+<li><code>&lt;font style="color:#000000;background-color:rgba(255, 255, 255, 0);"&gt;ZREM</code><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：从 ZSet 中移除指定的成员。例如，<code>&lt;font style="color:#000000;background-color:rgba(255, 255, 255, 0);"&gt;ZREM myzset "apple"</code><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">会将 "apple" 从 "myzset" 中删除。</li>
+</ul>
+</li>
+</ul>
+<h2 id="redis-string"><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">为什么 Redis 的 string 类型效率要比传统字符串的效率高<a class="headerlink" href="#redis-string" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">数据结构简单</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：Redis 的字符串内部实现采用了<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">简单动态字符串（SDS）</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">结构，它克服了传统 C 字符串在长度计算、内存分配等方面的一些缺陷。SDS 可以<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">快速获取字符串长度</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">，时间复杂度为 $ O(1) $<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">，而传统 C 字符串获取长度需要遍历整个字符串，时间复杂度为 $ (n) $<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">。</li>
+<li><strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">内存分配优化</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：Redis 在<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">分配内存</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">时采用了<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">预分配和惰性释放</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">策略。当字符串增长时，会预先分配一定的额外空间，减少内存重新分配的次数；当字符串缩短时，不会立即释放内存，而是将释放的内存用于后续可能的增长操作，避免了频繁的内存分配和释放带来的开销。</li>
+<li><strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">操作原子性</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：Redis 的字符串操作是原子性的，这意味着在执行字符串操作时不会被其他操作打断，保证了数据的一致性和操作的高效性。例如，对字符串进行自增操作 <code>&lt;font style="color:#000000;background-color:rgba(255, 255, 255, 0);"&gt;INCR</code><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">，在 Redis 中是一个原子操作，不会出现并发安全问题。</li>
+</ul>
+<h2 id="redis_6"><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">Redis 的持久化<a class="headerlink" href="#redis_6" title="Permanent link">&para;</a></h2>
+<p><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">Redis 提供了两种持久化方式：</p>
+<ul>
+<li><strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">RDB（Redis Database）全量备份</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：RDB 是一种<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">快照式</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">的持久化方式，它会在指定的时间间隔内将内存中的数据以二进制的形式保存到磁盘上的一个 <code>&lt;font style="color:#000000;background-color:rgba(255, 255, 255, 0);"&gt;.rdb</code><font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 文件中。优点是<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">恢复速度快</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">，因为是直接将数据加载到内存中；缺点是<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">可能会丢失最后一次快照到当前时间的数据，数据一致性相对较差</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">。</li>
+<li><strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">AOF（Append Only File）增量备份</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：AOF 是一种<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">日志式</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">的持久化方式，它会将每一个<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">写命令追加</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">到一个<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">日志</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">文件中。当 Redis 重启时，会<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">重新执行</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">这些命令<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">来恢复</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">数据。优点是<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">数据安全性高</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">，基本可以保证不丢失数据；缺点是日志文件可能会越<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">来越大</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">，恢复速度<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">相对较慢</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">，而且在重写日志文件时可能会消耗一定的<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">性能</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">。</li>
+</ul>
+<h2 id="redis_7"><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">Redis 使用过程中需要有哪些注意的点<a class="headerlink" href="#redis_7" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">内存管理</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：Redis 是内存数据库，内存空间有限，需要<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">合理规划</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">内存使用，<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">避免内存溢出</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">。可以通过设置 <code>&lt;font style="color:#000000;background-color:rgba(255, 255, 255, 0);"&gt;maxmemory</code><font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 配置项来限制 Redis 使用的最大内存，并选择<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">合适的内存淘汰策略</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">，如 <code>&lt;font style="color:#000000;background-color:rgba(255, 255, 255, 0);"&gt;volatile-lru</code><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">（对设置了过期时间的键值对采用 LRU 算法淘汰）、<code>&lt;font style="color:#000000;background-color:rgba(255, 255, 255, 0);"&gt;allkeys-lru</code><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">（对所有键值对采用 LRU 算法淘汰）等。</li>
+<li><strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">数据一致性</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：在使用缓存时，要注意数据的一致性问题。当后端<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">数据库</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">的数据发生<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">变化</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">时，需要<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">及时更新 Redis</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 缓存中的数据，或者设置<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">合理的过期时间</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">，让缓存数据在一定时间后自动失效，以保证缓存数据与数据库数据的一致性。</li>
+<li><strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">并发访问</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：虽然 Redis 本身是单线程模型，但在多个客户端并发访问时，仍然需要注意一些并发问题。例如，在使用 <code>&lt;font style="color:#000000;background-color:rgba(255, 255, 255, 0);"&gt;INCR</code><font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 等原子操作时，可以保证数据的准确性，但对于一些复杂的操作，可能需要使用分布式锁来保证数据的一致性。</li>
+<li><strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">过期时间设置</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：合理设置过期时间可以有效利用内存空间，同时避免缓存数据长时间不更新导致数据不一致。对于一些经常变化的数据，可以设置较短的过期时间；对于一些相对稳定的数据，可以设置较长的过期时间。但要注意<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">避免大量数据同时过期</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">，导致<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">缓存雪崩</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">问题。</li>
+</ul>
+<h2 id="redis-acid"><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">Redis 支持事务 ACID 特性吗<a class="headerlink" href="#redis-acid" title="Permanent link">&para;</a></h2>
+<p><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">Redis 的事务支持并不符合传统数据库中的 ACID 特性，而是<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">基于乐观锁</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">实现的一种简单事务机制。</p>
+<p><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">Redis 中的事务使用 MULTI、EXEC、WATCH 和 DISCARD 等命令来实现，它们的作用如下：</p>
+<ol>
+<li><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">MULTI： 开启一个事务块，将后续的命令加入到事务队列中等待执行。</li>
+<li><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">EXEC： 执行事务队列中的所有命令。</li>
+<li><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">WATCH： 监视一个或多个键，如果在事务执行之前监视的键被修改，则事务将被打断。</li>
+<li><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">DISCARD： 取消事务，清空事务队列中的所有命令。</li>
+</ol>
+<p><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">Redis 中的事务并不具有原子性，即在 EXEC 命令执行期间，如果某个命令出现了错误，不会影响其他命令的执行。另外，Redis 中的事务也<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">不支持回滚</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">操作，即使在 EXEC 执行之后发生错误，也无法撤销之前的操作。因此，Redis 的事务并不满足 ACID 中的原子性和一致性特性。<br />
+<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">需要注意的是，Redis 的事务机制更适用于一系列原子性较弱的操作，例如批量写入或者批量删除等操作。对于需要满足严格的 ACID 特性的场景，建议使用传统的关系型数据库来实现。</p>
+<h2 id="_13"><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">锁<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<p><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">Redis 中也会出现多个命令同时竞争同一条数据的情况，如两条命令同时执行，都要修改 a 的值，那就只能通过锁机制来保证同一时间只能有一个命令操作。</p>
+<p><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">不同于 MySQL 中的悲观锁，Redis 中是乐观锁。</p>
+<ul>
+<li><strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">乐观锁</strong></li>
+</ul>
+<p><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">假设数据在处理期间不会被其他事务频繁修改。它通常在提交事务时检查数据一致性，而非在操作开始时加锁。</p>
+<p><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">优点<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 提升并发性能，减少锁竞争，适合读多写少的场景。</p>
+<p><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">缺点<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 在写操作频繁的情况下，可能导致多次重试，影响性能。</p>
+<ul>
+<li><strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">悲观锁</strong></li>
+</ul>
+<p><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">假设数据在处理期间会被其他事务频繁修改。它在操作开始时获取锁，防止其他事务修改数据，直到锁释放。</p>
+<p><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">优点<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 保证数据一致性，防止冲突，适合写操作频繁的场景。</p>
+<p><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">缺点<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 可能导致锁竞争和资源等待，降低并发性能。</p>
+<p><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">Redis 中可以使用 <code>&lt;font style="color:#000000;background-color:rgba(255, 255, 255, 0);"&gt;watch</code><font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 来监视一个目标，如果执行事务之前被监视目标发生了修改，则取消本次事务。</p>
+<h2 id="_14"><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">缓存更新策略<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
+<p><img alt="" src="https://cdn.nlark.com/yuque/0/2025/png/35335189/1743320919628-f44e5f3f-1e74-497b-80b1-563b6b91771c.png?x-oss-process=image%2Fformat%2Cwebp%2Fresize%2Cw_1516%2Climit_0" /></p>
+<h3 id="_15"><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">主动更新<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<ol>
+<li><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">Cache Aside Pattern：由缓存的调用者，在<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">更新数据库的同时更新缓存</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">。</li>
+<li><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">Read/Write Through Pattern：缓存与数据库整合为一个服务，由<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">服务来维护一致性</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">。调用者调用该服务，无需关心缓存一致性问题。</li>
+<li><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">Write Behind Caching Pattern：调用者只操作缓存，由其它线程<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">异步的将缓存数据持久化到数据库</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">，保证最终一致。</li>
+</ol>
+<p><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">Cache Aside Pattern 并发操作时，先删再写还是先写再删？</p>
+<p><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">如果先删除缓存，再更新数据库，有可能在一个线程删除缓存后，另一个线程来查询，发现缓存中没用这个键，然后就会数据库更新前进行查询，并写入到缓存中，这样缓存中就是旧的值了。</p>
+<p><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">先更新数据库，再删除缓存，有同样的线程安全问题。但由于缓存操作的速度高于数据库操作，所以第一种情况出现的概论相对较大。</p>
+<h3 id="_16"><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">总结<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<p><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">缓存更新策略的最佳实践方案．</p>
+<ol>
+<li><strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">低一致性</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">需求：使用 Redis 自带的<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">内存淘汰</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">机制</li>
+<li><strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">高一致性</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">需求：<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">主动更新</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">，并以<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">超时剔除</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">作为兜底方案<ol>
+<li><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">读操作：<ol>
+<li><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">缓存命中则直接返回</li>
+<li><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">缓存未命中则查询数据库，并写入缓存，设定超时时间</li>
+</ol>
+</li>
+<li><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">写操作：<ol>
+<li><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">先写数据库，然后再删除缓存</li>
+<li><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">要确保数据库与缓存操作的原子性</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="_17"><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">关于缓存三兄弟的定义和解决方法<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">缓存穿透</strong><ul>
+<li><strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">定义</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：指查询一个<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">不存在</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">的数据，由于缓存中没有该数据，会直接查询数据库，导致大量请求直接打到数据库上，可能会使数据库压力过大甚至崩溃。</li>
+<li><strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">解决方法</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：可以在缓存中设置一个空值或默认值，当查询不存在的数据时，将空值或默认值存入缓存，下次查询时直接从缓存中返回，避免再次查询数据库。也可以使用布隆过滤器，提前过滤掉不存在的数据，避免无效查询。<ul>
+<li><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">缓存空对象：实现简单，维护方便，不会对数据库造成额外压力。但是会造成额外的内存消耗，可能会造成短暂的数据不一致。</li>
+<li><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">使用布隆过滤器：内存占用少，不需要多余的 key。但实现复杂，存在误判的可能。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">缓存雪崩</strong><ul>
+<li><strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">定义</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：指在同一时刻，<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">大量</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">的缓存数据同时<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">过期</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">，导致大量请求同时访问数据库，使数据库压力骤增，甚至可能导致系统崩溃。</li>
+<li><strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">解决方法</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：可以将缓存的过期时间设置为随机值，避免大量数据同时过期。也可以使用分布式缓存，将数据分散到不同的节点上，避免单个节点上的数据集中过期。同时，可以增加缓存的冗余备份，当部分缓存节点失效时，从其他节点获取数据。<ul>
+<li><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">给不同的 key 的 TTL 添加随机值</li>
+<li><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">利用 Redis 集群提高服务的可用性（哨兵机制）</li>
+<li><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">给缓存业务添加降级限流策略</li>
+<li><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">给业务增加多级缓存</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">缓存击穿</strong><ul>
+<li><strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">定义</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：指缓存中某个<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">热点</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">数据<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">过期</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">的瞬间，<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">大量并发请求</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">同时访问该数据，导致这些请求直接打到数据库上，对数据库造成较大压力。</li>
+<li><strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">解决方法</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：可以使用互斥锁或分布式锁，在缓存数据过期时，只允许一个请求去查询数据库并更新缓存，其他请求等待该请求完成后从缓存中获取数据。也可以将热点数据设置为永不过期，但需要定期在后台更新数据，或者使用逻辑过期，在查询数据时判断数据是否逻辑过期，如果过期则异步更新数据。<ul>
+<li><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">互斥锁：重建缓存前获取锁，写入缓存后释放锁。其他线程遇到锁后，休眠一段时间后再次尝试获取，直到缓存命中。没有额外内存消耗，保证了数据一致性，实现简单。但线程需要等待，影响性能，且可能有死锁风险。</li>
+<li><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">逻辑过期：存储数据时，不设置 TTL，而是添加一个过期时间的字段。缓存命中后，如果已过期，尝试获取锁。获取到锁的线程，新开一个线程进行缓存重建，同时返回逻辑上过期的数据。未获取到锁的线程直接返回过期的数据，不需要管缓存重建的事情。线程无需等待，性能较好。但不能保证数据一致性，有额外内存消耗，实现复杂。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img alt="" src="https://cdn.nlark.com/yuque/0/2025/png/35335189/1743326390970-02270ae5-e2ca-46fa-bc0c-2cdea21dc4cc.png?x-oss-process=image%2Fformat%2Cwebp%2Fresize%2Cw_1516%2Climit_0" /></p>
+<h2 id="redis_8"><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">Redis 使用分布式锁如何避免网络分区导致的失效问题<a class="headerlink" href="#redis_8" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">使用 Redlock 算法</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：Redlock 是一种基于多个 Redis 节点的分布式锁算法。它通过在多个独立的 Redis 节点上获取锁来提高锁的可靠性。具体来说，客户端首先获取当前时间，然后依次向多个 Redis 节点发送获取锁的请求。如果客户端能够在大多数节点（超过一半的节点）上成功获取锁，并且获取锁的总时间小于锁的有效时间，那么就认为锁获取成功。在释放锁时，需要向所有获取锁的节点发送释放锁的请求。这样，即使在网络分区的情况下，只要大多数节点正常工作，分布式锁仍然能够正常工作，避免了因部分节点故障导致锁失效的问题。</li>
+<li><strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">设置合理的超时时间</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：在使用分布式锁时，要设置合理的超时时间。超时时间不能过长，否则可能会导致其他客户端长时间等待；也不能过短，否则可能会因为网络延迟等原因导致锁提前释放。可以根据实际业务场景和网络状况来调整超时时间，以保证在网络分区等异常情况下，锁能够在一定时间后自动释放，避免死锁的发生。</li>
+<li><strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">监控和重试机制</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：客户端可以定期监控分布式锁的状态，当发现锁出现异常（如获取锁失败或锁提前释放）时，可以根据具体情况进行重试。例如，在网络分区恢复后，客户端可以重新尝试获取锁，以保证业务的正常进行。同时，对于一些关键业务操作，可以在获取锁失败时进行适当的补偿操作，以避免数据不一致等问题。</li>
+</ul>
+<h2 id="_18"><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">统计日活量使用哪个数据结构，怎么设计<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h2>
+<p><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">Redis 数据结构 Set</p>
+<ul>
+<li><strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">键名设计</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：以 <code>&lt;font style="color:#000000;background-color:rgba(255, 255, 255, 0);"&gt;day:yyyyMMdd:uv</code><font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 作为键名，其中 <code>&lt;font style="color:#000000;background-color:rgba(255, 255, 255, 0);"&gt;yyyyMMdd</code><font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 表示具体的日期，例如 <code>&lt;font style="color:#000000;background-color:rgba(255, 255, 255, 0);"&gt;day:20250409:uv</code><font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 表示 2025 年 4 月 9 日的日活量统计。</li>
+<li><strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">数据存储</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：每当有一个用户在当天访问系统时，使用 <code>&lt;font style="color:#000000;background-color:rgba(255, 255, 255, 0);"&gt;SADD</code><font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 命令将该用户的唯一标识（如用户 ID）添加到对应的 <code>&lt;font style="color:#000000;background-color:rgba(255, 255, 255, 0);"&gt;Set</code><font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 中。由于 <code>&lt;font style="color:#000000;background-color:rgba(255, 255, 255, 0);"&gt;Set</code><font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 中的元素是唯一的，所以无论同一个用户在当天访问多少次，都只会在 <code>&lt;font style="color:#000000;background-color:rgba(255, 255, 255, 0);"&gt;Set</code><font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 中存储一次。</li>
+<li><strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">统计日活量</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：通过 <code>&lt;font style="color:#000000;background-color:rgba(255, 255, 255, 0);"&gt;SCARD</code><font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 命令获取 <code>&lt;font style="color:#000000;background-color:rgba(255, 255, 255, 0);"&gt;Set</code><font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 中元素的数量，即当天的日活量。例如，执行 <code>&lt;font style="color:#000000;background-color:rgba(255, 255, 255, 0);"&gt;SCARD day:20250409:uv</code><font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 就可以得到 2025 年 4 月 9 日的日活量。</li>
+</ul>
+<h2 id="mysql-2000w-redis-20w-redis"><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">MySQL 中有 2000w 条数据，Redis 存储 20w 条，如何保证 Redis 存储的都是热点数据？<a class="headerlink" href="#mysql-2000w-redis-20w-redis" title="Permanent link">&para;</a></h2>
+<p><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">可以考虑以下几种策略：</p>
+<ol>
+<li><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">使用<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">缓存淘汰</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">策略： 设置合适的缓存淘汰策略，如 LRU（最近最少使用）、LFU（最不经常使用）等。这些策略可以自动将不常访问的数据从缓存中删除，<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">保留访问频率较高</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">的热点数据。</li>
+<li><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">设置<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">合适过期时间</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">： 对于不需要长期缓存的数据，可以设置适当的过期时间，让 Redis 自动删除过期的数据。通过合理设置过期时间，可以保证缓存中的数据始终保持新鲜和热点。</li>
+<li><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">使用<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">缓存预热</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">： 在应用启动时，可以预先将热点数据加载到 Redis 中，以确保 Redis 中的数据始终保持热点状态。可以通过定时任务或者在应用启动时加载数据到 Redis 中。</li>
+<li><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">监控和调优： 定期监控 Redis 的使用情况和缓存命中率，根据实际情况进行调优。可以根据监控数据来优化缓存淘汰策略、调整过期时间等，以确保 Redis 中的数据都是热点数据。</li>
+<li><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">使用自动化工具： 可以使用一些自动化工具来<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">动态地识别和缓存</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">热点数据。这些工具可以根据访问频率和访问模式来自动缓存和更新热点数据，从而保证 Redis 中的数据始终保持热点状态。</li>
+</ol>
+<p><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">确保 Redis 中存储的数据始终都是热点数据，能够<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">提高缓存命中率和系统性能</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">。</p>
+<h2 id="redis_9"><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">你对 Redis 的操作是怎么实现的，通过注解吗？<a class="headerlink" href="#redis_9" title="Permanent link">&para;</a></h2>
+<p><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">在 Spring Boot 中，可以通过以下步骤实现对 Redis 的操作：</p>
+<ul>
+<li><strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">添加依赖</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：在 <code>&lt;font style="color:#000000;background-color:rgba(255, 255, 255, 0);"&gt;pom.xml</code><font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 文件中添加 Spring Data Redis 和 Redis 客户端的依赖，例如：</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">XML</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">4</a></span>
+<span class="normal"><a href="#__codelineno-0-5">5</a></span>
+<span class="normal"><a href="#__codelineno-0-6">6</a></span>
+<span class="normal"><a href="#__codelineno-0-7">7</a></span>
+<span class="normal"><a href="#__codelineno-0-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nt">&lt;dependency&gt;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>spring<span class="w"> </span>-<span class="w"> </span>boot<span class="w"> </span>-<span class="w"> </span>starter<span class="w"> </span>-<span class="w"> </span>data<span class="w"> </span>-<span class="w"> </span>redis<span class="nt">&lt;/artifactId&gt;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="nt">&lt;/dependency&gt;</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="nt">&lt;dependency&gt;</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">    </span><span class="nt">&lt;groupId&gt;</span>redis.clients<span class="nt">&lt;/groupId&gt;</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>jedis<span class="nt">&lt;/artifactId&gt;</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="nt">&lt;/dependency&gt;</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li><strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">配置 Redis 连接</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：在 <code>&lt;font style="color:#000000;background-color:rgba(255, 255, 255, 0);"&gt;application.properties</code><font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 或 <code>&lt;font style="color:#000000;background-color:rgba(255, 255, 255, 0);"&gt;application.yml</code><font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 文件中配置 Redis 服务器的连接信息，如主机地址、端口号、密码等。例如：</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Properties</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="na">spring.redis.host</span><span class="o">=</span><span class="s">127.0.0.1</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="na">spring.redis.port</span><span class="o">=</span><span class="s">6379</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="na">spring.redis.password</span><span class="o">=</span><span class="s">123456</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li><strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">使用 RedisTemplate 操作 Redis</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：在 Spring Boot 应用中，可以通过注入 <code>&lt;font style="color:#000000;background-color:rgba(255, 255, 255, 0);"&gt;RedisTemplate</code><font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 来操作 Redis。<code>&lt;font style="color:#000000;background-color:rgba(255, 255, 255, 0);"&gt;RedisTemplate</code><font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 提供了一系列方法来对不同的数据结构进行操作。例如，使用 <code>&lt;font style="color:#000000;background-color:rgba(255, 255, 255, 0);"&gt;redisTemplate.opsForValue().set(key, value)</code><font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 方法可以设置字符串类型的键值对，使用 <code>&lt;font style="color:#000000;background-color:rgba(255, 255, 255, 0);"&gt;redisTemplate.opsForHash().put(hashKey, field, value)</code><font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 方法可以在哈希中设置一个字段值等。</li>
+<li><strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">使用 StringRedisTemplate</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：如果只需要操作字符串类型的数据，也可以使用 <code>&lt;font style="color:#000000;background-color:rgba(255, 255, 255, 0);"&gt;StringRedisTemplate</code><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">，它是 <code>&lt;font style="color:#000000;background-color:rgba(255, 255, 255, 0);"&gt;RedisTemplate</code><font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 的子类，专门用于操作字符串类型的数据，其方法的参数和返回值都是字符串类型，使用起来更加方便。例如，<code>&lt;font style="color:#000000;background-color:rgba(255, 255, 255, 0);"&gt;stringRedisTemplate.opsForValue().set(key, value)</code><font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 可以直接设置字符串键值对。</li>
+</ul>
+<h2 id="_19"><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">高并发场景下如何保证幂等性？<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h2>
+<p><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">在高并发场景下，保证幂等性是非常重要的，可以通过以下几种方式来实现：</p>
+<ol>
+<li><strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">唯一标识符</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">（ID）： 在每次请求中包含一个唯一标识符（例如，UUID），服务端在接收到请求后首先<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">检查该标识符是否已经处理</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">过。如果已经处理过，则直接返回之前的结果，如果没有处理过，则进行正常处理并保存该标识符，以便下次检查。</li>
+<li><strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">版本号</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">（Versioning）： 在每个资源上添加一个版本号，客户端在<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">更新资源</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">时需要<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">提供</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">该<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">版本号</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">。服务端在更新资源时<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">先比较</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">客户端提供的版本号和当前资源的版本号是否一致，如果<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">一致</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">则执行<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">更新</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">操作，如果<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">不一致</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">则<strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">拒绝</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">请求。</li>
+<li><strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">乐观锁</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">（Optimistic Locking）： 在更新资源时，先获取当前资源的版本号或者时间戳，在更新时比较该版本号或时间戳是否和之前一致。如果一致，则执行更新操作，否则拒绝请求或者重试更新操作。</li>
+<li><strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">幂等性接口设计</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">： 设计幂等性的接口，确保多次调用接口对系统状态的影响是一致的。例如，对于增删改操作，可以设计为幂等性操作，多次执行效果是相同的。</li>
+<li><strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">幂等性校验逻辑</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">： 在业务处理逻辑中添加幂等性校验逻辑，例如通过唯一索引、状态码等信息来检查是否已经处理过该请求，如果已经处理过则直接返回结果，避免重复处理。</li>
+<li><strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">使用分布式锁</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">： 在关键业务操作前获取分布式锁，确保同一时刻只有一个线程能够执行该操作，避免多个线程并发执行导致的数据不一致问题。</li>
+</ol>
+<p><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">综上所述，通过以上方法可以在高并发场景下保证系统的幂等性，避免重复操作和数据不一致问题，提高系统的可靠性和稳定性。选择合适的方式取决于具体的业务场景和系统架构设计。</p>
+<h2 id="redis_10"><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">介绍一下 Redis 发布订阅<a class="headerlink" href="#redis_10" title="Permanent link">&para;</a></h2>
+<p><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">Redis 发布订阅是一种消息通信模式，它允许客户端将消息发送到指定的频道，而其他订阅了该频道的客户端可以接收到相应的消息，实现了消息的异步通知和广播功能。</p>
+<ul>
+<li><strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">发布者</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：发布者是发送消息的客户端，它通过<code>&lt;font style="color:#000000;background-color:rgba(255, 255, 255, 0);"&gt;PUBLISH</code><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">命令将消息发送到指定的频道。例如，<code>&lt;font style="color:#000000;background-color:rgba(255, 255, 255, 0);"&gt;PUBLISH channel_name message</code><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">，其中<code>&lt;font style="color:#000000;background-color:rgba(255, 255, 255, 0);"&gt;channel_name</code><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">是频道名称，<code>&lt;font style="color:#000000;background-color:rgba(255, 255, 255, 0);"&gt;message</code><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">是要发送的消息内容。</li>
+<li><strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">订阅者</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：订阅者是接收消息的客户端，它通过<code>&lt;font style="color:#000000;background-color:rgba(255, 255, 255, 0);"&gt;SUBSCRIBE</code><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">命令来订阅一个或多个频道。例如，<code>&lt;font style="color:#000000;background-color:rgba(255, 255, 255, 0);"&gt;SUBSCRIBE channel1 channel2</code><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">，表示订阅<code>&lt;font style="color:#000000;background-color:rgba(255, 255, 255, 0);"&gt;channel1</code><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">和<code>&lt;font style="color:#000000;background-color:rgba(255, 255, 255, 0);"&gt;channel2</code><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">两个频道。当有消息发布到订阅的频道时，Redis 会将消息推送给所有订阅该频道的客户端。</li>
+<li><strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">应用场景</strong><font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：常用于实时消息通知、分布式系统中的事件广播、聊天应用等场景。例如，在一个实时股票交易系统中，服务器可以将股票价格的变化消息发布到相应的频道，而客户端可以订阅这些频道，及时获取股票价格的更新信息。它提供了一种简单、高效的消息通信方式，使得不同的客户端之间可以方便地进行信息交互。</li>
+</ul>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="最后更新">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年6月23日 16:13:17 UTC">2025年6月23日</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="创建日期">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年6月23日 16:13:17 UTC">2025年6月23日</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../Mybatis/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Mybatis">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                Mybatis
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../Spring/" class="md-footer__link md-footer__link--next" aria-label="下一页: Spring">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                Spring
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 DopplerXD
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/DopplerXD/" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://space.bilibili.com/32152704/" target="_blank" rel="noopener" title="space.bilibili.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M488.6 104.1c16.7 18.1 24.4 39.7 23.3 65.7v202.4c-.4 26.4-9.2 48.1-26.5 65.1-17.2 17-39.1 25.9-65.5 26.7H92.02c-26.45-.8-48.21-9.8-65.28-27.2C9.682 419.4.767 396.5 0 368.2V169.8c.767-26 9.682-47.6 26.74-65.7C43.81 87.75 65.57 78.77 92.02 78h29.38L96.05 52.19c-5.75-5.73-8.63-13-8.63-21.79 0-8.8 2.88-16.06 8.63-21.797C101.8 2.868 109.1 0 117.9 0q13.2 0 21.9 8.603L213.1 78h88l74.5-69.397C381.7 2.868 389.2 0 398 0q13.2 0 21.9 8.603c5.7 5.737 8.6 12.997 8.6 21.797 0 8.79-2.9 16.06-8.6 21.79L394.6 78h29.3c26.4.77 48 9.75 64.7 26.1m-38.8 69.7c-.4-9.6-3.7-17.4-10.7-23.5-5.2-6.1-14-9.4-22.7-9.8H96.05c-9.59.4-17.45 3.7-23.58 9.8-6.14 6.1-9.4 13.9-9.78 23.5v194.4c0 9.2 3.26 17 9.78 23.5s14.38 9.8 23.58 9.8H416.4c9.2 0 17-3.3 23.3-9.8s9.7-14.3 10.1-23.5zm-264.3 42.7c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2-6.2 6.3-14 9.5-23.6 9.5s-17.5-3.2-23.6-9.5-9.4-14-9.8-23.2v-33.3c.4-9.1 3.8-16.9 10.1-23.2s13.2-9.6 23.3-10c9.2.4 17 3.7 23.3 10m191.5 0c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2s-14 9.5-23.6 9.5-17.4-3.2-23.6-9.5c-7-6.3-9.4-14-9.7-23.2v-33.3c.3-9.1 3.7-16.9 10-23.2s14.1-9.6 23.3-10c9.2.4 17 3.7 23.3 10"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:<1509209607@qq.com>" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m20 8-8 5-8-5V6l8 5 8-5m0-2H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:<doppleryxc@gmail.com>" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 18h-2V9.25L12 13 6 9.25V18H4V6h1.2l6.8 4.25L18.8 6H20m0-2H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.zhihu.com/people/DopplerXD/" target="_blank" rel="noopener" title="www.zhihu.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M170.54 148.13v217.54l23.43.01 7.71 26.37 42.01-26.37h49.53V148.13zm97.75 193.93h-27.94l-27.9 17.51-5.08-17.47-11.9-.04V171.75h72.82zm-118.46-94.39H97.5c1.74-27.1 2.2-51.59 2.2-73.46h51.16s1.97-22.56-8.58-22.31h-88.5c3.49-13.12 7.87-26.66 13.12-40.67 0 0-24.07 0-32.27 21.57-3.39 8.9-13.21 43.14-30.7 78.12 5.89-.64 25.37-1.18 36.84-22.21 2.11-5.89 2.51-6.66 5.14-14.53h28.87c0 10.5-1.2 66.88-1.68 73.44H20.83c-11.74 0-15.56 23.62-15.56 23.62h65.58C66.45 321.1 42.83 363.12 0 396.34c20.49 5.85 40.91-.93 51-9.9 0 0 22.98-20.9 35.59-69.25l53.96 64.94s7.91-26.89-1.24-39.99c-7.58-8.92-28.06-33.06-36.79-41.81L87.9 311.95c4.36-13.98 6.99-27.55 7.87-40.67h61.65s-.09-23.62-7.59-23.62zm412.02-1.6c20.83-25.64 44.98-58.57 44.98-58.57s-18.65-14.8-27.38-4.06c-6 8.15-36.83 48.2-36.83 48.2zm-150.09-59.09c-9.01-8.25-25.91 2.13-25.91 2.13s39.52 55.04 41.12 57.45l19.46-13.73s-25.67-37.61-34.66-45.86h-.01zM640 258.35c-19.78 0-130.91.93-131.06.93v-101c4.81 0 12.42-.4 22.85-1.2 40.88-2.41 70.13-4 87.77-4.81 0 0 12.22-27.19-.59-33.44-3.07-1.18-23.17 4.58-23.17 4.58s-165.22 16.49-232.36 18.05c1.6 8.82 7.62 17.08 15.78 19.55 13.31 3.48 22.69 1.7 49.15.89 24.83-1.6 43.68-2.43 56.51-2.43v99.81H351.41s2.82 22.31 25.51 22.85h107.94v70.92c0 13.97-11.19 21.99-24.48 21.12-14.08.11-26.08-1.15-41.69-1.81 1.99 3.97 6.33 14.39 19.31 21.84 9.88 4.81 16.17 6.57 26.02 6.57 29.56 0 45.67-17.28 44.89-45.31v-73.32h122.36c9.68 0 8.7-23.78 8.7-23.78z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://www.dopplerxd.site/" target="_blank" rel="noopener" title="DopplerXD&#39;s Blog" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "toc.follow", "navigation.path", "navigation.top", "navigation.tabs", "navigation.prune", "navigation.footer", "navigation.sections", "content.code.copy", "search.share", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
