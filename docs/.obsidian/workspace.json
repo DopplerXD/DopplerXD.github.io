@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "acd88a49136fe980",
+        "id": "8225de9947e09c22",
         "type": "tabs",
         "children": [
           {
-            "id": "3ecc01a0a916c5d4",
+            "id": "9c33d5c2378e1d34",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "interview/Redis.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "Redis"
             }
           }
         ]
@@ -74,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 262.5
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "79bdb176e23c7a86",
@@ -90,7 +95,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "notes/interview/高频面试题/MySQL.md",
+                "file": "interview/Redis.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -100,7 +105,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "MySQL 的反向链接列表"
+              "title": "Redis 的反向链接列表"
             }
           },
           {
@@ -138,12 +143,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "interview/Redis.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "大纲"
+              "title": "Redis 的大纲"
             }
           },
           {
@@ -161,7 +167,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 318.5
+    "width": 287.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -177,11 +183,27 @@
   "active": "504c4e9474e76cb2",
   "lastOpenFiles": [
     "interview/Java 基础.md",
+    "interview/其他（Linux、Docker等）.md",
+    "interview/消息队列.md",
+    "interview/系统架构（DDD等）.md",
+    "interview/微服务.md",
+    "interview/认证授权.md",
+    "interview/计算机网络.md",
+    "interview/场景题.md",
+    "interview/操作系统.md",
+    "interview/Spring.md",
+    "interview/Redis.md",
+    "interview/MySQL.md",
+    "interview/Mybatis.md",
+    "interview/JVM.md",
+    "interview/JUC.md",
+    "interview/Java 集合.md",
+    "index.md",
+    "未命名.md",
     "interview/设计模式.md",
     "Leetcode/problems/1361. 验证二叉树.md",
     "other/如何使用 LaTeX.md",
     "2025-06-21.md",
-    "index.md",
     "other",
     "develop/项目/拼团营销服务 group-buy-market/2-11 交易规则责任链过滤.md",
     "develop/项目/拼团营销服务 group-buy-market/assets/2-11流程图-xfg.png",
@@ -193,26 +215,10 @@
     "develop/项目/拼团营销服务 group-buy-market/2-8 基于Redis的动态配置开关.md",
     "develop/项目/拼团营销服务 group-buy-market/assets/2-8流程图-知雨.png",
     "develop/项目/拼团营销服务 group-buy-market/assets/2-8流程图-xfg.png",
-    "develop/项目/拼团营销服务 group-buy-market/2-2~2-3 规则树设计模式模板.md",
-    "develop/项目/拼团营销服务 group-buy-market/2-5 人群标签数据采集.md",
     "develop/项目/拼团营销服务 group-buy-market/assets/2-5流程图-知雨.png",
-    "develop/后端/IDEA Spring initialer 新建模块不能选Java 8.md",
-    "develop/后端/SpringBoot 项目设置全局路径.md",
-    "develop/后端/SpringBoot Test 时报错 Failed to load ApplicationContext.md",
-    "develop/后端/SpringBoot3.x 整合 Swagger-UI + Knife4j 接口文档.md",
-    "develop/后端/tree 命令生成项目目录结构.md",
-    "develop/后端/数据库与后端查询返回结果的值不一致.md",
-    "develop/后端/IDEA mvn clean 后 Annotation processors 自动失效.md",
-    "develop/后端/git 导出差异 diff 文件.md",
-    "develop/后端/报错 Expression 1 of SELECT list is not in GROUP BY clause and contains nonaggregated column.md",
-    "develop/后端/Date 类型解析错误.md",
-    "develop/项目/拼团营销服务 group-buy-market/2-14 拼团回调通知任务.md",
     "develop/项目/拼团营销服务 group-buy-market/assets/2-14流程图-xfg.png",
-    "develop/项目/拼团营销服务 group-buy-market/2-13 交易结算责任链过滤.md",
     "develop/项目/拼团营销服务 group-buy-market/assets/2-13流程图-星尘.png",
     "develop/项目/拼团营销服务 group-buy-market/assets/2-13流程图-xfg.png",
-    "develop/项目/拼团营销服务 group-buy-market/2-12 拼团组队结算统计.md",
-    "assets/Fqiev8kFGWaEu6NEcSm1qN7fIcSS.md",
     "assets",
     "develop/项目/拼团营销服务 group-buy-market/assets/Fqiev8kFGWaEu6NEcSm1qN7fIcSS",
     "develop/项目/拼团营销服务 group-buy-market/assets/Fkzfk6YwCbO2n1oWSE1ZbxTeEzJ9",
