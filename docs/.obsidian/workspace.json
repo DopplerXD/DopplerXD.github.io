@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "interview/Redis.md",
-                "mode": "source",
+                "file": "develop/项目/拼团营销服务 group-buy-market/2-2~2-3 规则树设计模式模板.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Redis"
+              "title": "2-2~2-3 规则树设计模式模板"
             }
           }
         ]
@@ -78,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "79bdb176e23c7a86",
@@ -143,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "interview/Redis.md",
+                "file": "develop/项目/拼团营销服务 group-buy-market/2-2~2-3 规则树设计模式模板.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Redis 的大纲"
+              "title": "2-2~2-3 规则树设计模式模板 的大纲"
             }
           },
           {
@@ -180,8 +179,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "504c4e9474e76cb2",
+  "active": "9c33d5c2378e1d34",
   "lastOpenFiles": [
+    "develop/README.md",
+    "interview/Redis.md",
     "interview/Java 基础.md",
     "interview/其他（Linux、Docker等）.md",
     "interview/消息队列.md",
@@ -192,7 +193,6 @@
     "interview/场景题.md",
     "interview/操作系统.md",
     "interview/Spring.md",
-    "interview/Redis.md",
     "interview/MySQL.md",
     "interview/Mybatis.md",
     "interview/JVM.md",
@@ -212,7 +212,6 @@
     "develop/项目/拼团营销服务 group-buy-market/2-9 拼团交易锁单逻辑.md",
     "develop/项目/拼团营销服务 group-buy-market/assets/2-9流程图-xfg.png",
     "develop/项目/拼团营销服务 group-buy-market/assets/2-9流程图-星尘.png",
-    "develop/项目/拼团营销服务 group-buy-market/2-8 基于Redis的动态配置开关.md",
     "develop/项目/拼团营销服务 group-buy-market/assets/2-8流程图-知雨.png",
     "develop/项目/拼团营销服务 group-buy-market/assets/2-8流程图-xfg.png",
     "develop/项目/拼团营销服务 group-buy-market/assets/2-5流程图-知雨.png",

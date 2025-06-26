@@ -7,7 +7,7 @@
   "strictLineBreaks": true,
   "showLineNumber": false,
   "useTab": false,
-  "readableLineLength": false,
+  "readableLineLength": true,
   "propertiesInDocument": "visible",
   "alwaysUpdateLinks": true,
   "useMarkdownLinks": true,
