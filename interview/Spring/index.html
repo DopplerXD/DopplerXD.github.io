@@ -1512,6 +1512,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    软件测试
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2028,111 +2051,111 @@
 <p>Spring Bean 并没有可变的状态（如 Service 和 DAO 类），所以在某种程度上说 Spring 单例 Bean 是线程安全的。</p>
 <p>但是如果 bean 中定义了可修改的成员变量，就需要考虑线程安全问题了，可以用多例或加锁来解决。</p>
 <p>如定义 bean 时添加注解 <code>@Scope("prototype")</code>（默认为 singleton），这样请求 bean 相当于 new Bean() 了，就能够保证线程安全了。</p>
-<h2 id="bean"><font style="background-color:rgba(255, 255, 255, 0);">Bean 的生命周期</font><a class="headerlink" href="#bean" title="Permanent link">&para;</a></h2>
-<p><font style="background-color:rgba(255, 255, 255, 0);">Spring 中 Bean 的生命周期包含以下几个关键阶段：</font></p>
+<h2 id="bean">Bean 的生命周期<a class="headerlink" href="#bean" title="Permanent link">&para;</a></h2>
+<p>Spring 中 Bean 的生命周期包含以下几个关键阶段：</p>
 <ul>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">实例化</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：通过反射机制创建 Bean 的实例。</font></li>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">属性赋值</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：为 Bean 的属性设置值和对其他 Bean 的引用。</font></li>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">初始化</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：</font><ul>
-<li><font style="background-color:rgba(255, 255, 255, 0);">实现</font><font style="background-color:rgba(255, 255, 255, 0);"> </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;InitializingBean&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">接口，调用</font><font style="background-color:rgba(255, 255, 255, 0);"> </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;afterPropertiesSet&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">方法。</font></li>
-<li><font style="background-color:rgba(255, 255, 255, 0);">自定义初始化方法（使用</font><font style="background-color:rgba(255, 255, 255, 0);"> </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@PostConstruct&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">注解或</font><font style="background-color:rgba(255, 255, 255, 0);"> </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;init - method&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">属性指定）。</font></li>
+<li><strong>实例化</strong>：通过反射机制创建 Bean 的实例。</li>
+<li><strong>属性赋值</strong>：为 Bean 的属性设置值和对其他 Bean 的引用。</li>
+<li><strong>初始化</strong>：<ul>
+<li>实现 <code>InitializingBean</code> 接口，调用 <code>afterPropertiesSet</code> 方法。</li>
+<li>自定义初始化方法（使用 <code>@PostConstruct</code> 注解或 <code>init - method</code> 属性指定）。</li>
 </ul>
 </li>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">使用</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：Bean 正常使用，处理业务逻辑。</font></li>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">销毁</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：</font><ul>
-<li><font style="background-color:rgba(255, 255, 255, 0);">实现</font><font style="background-color:rgba(255, 255, 255, 0);"> </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;DisposableBean&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">接口，调用</font><font style="background-color:rgba(255, 255, 255, 0);"> </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;destroy&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">方法。</font></li>
-<li><font style="background-color:rgba(255, 255, 255, 0);">自定义销毁方法（使用 </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@PreDestroy&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> 注解或 </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;destroy - method&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> 属性指定）。</font></li>
+<li><strong>使用</strong>：Bean 正常使用，处理业务逻辑。</li>
+<li><strong>销毁</strong>：<ul>
+<li>实现 <code>DisposableBean</code> 接口，调用 <code>destroy</code> 方法。</li>
+<li>自定义销毁方法（使用 <code>@PreDestroy</code> 注解或 <code>destroy - method</code> 属性指定）。</li>
 </ul>
 </li>
 </ul>
-<h2 id="ioc-aop"><font style="background-color:rgba(255, 255, 255, 0);">什么是 IoC 和 AOP，怎么理解的</font><a class="headerlink" href="#ioc-aop" title="Permanent link">&para;</a></h2>
+<h2 id="ioc-aop">什么是 IoC 和 AOP，怎么理解的<a class="headerlink" href="#ioc-aop" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">IoC（Inversion of Control，控制反转）</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：是一种设计原则，将对象的创建和依赖关系的管理从代码中转移到外部容器（如 Spring 容器）。以前对象的创建和依赖关系的维护由开发者手动控制，现在交给容器来完成。例如，一个</font><font style="background-color:rgba(255, 255, 255, 0);"> </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;UserService&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">依赖</font><font style="background-color:rgba(255, 255, 255, 0);"> </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;UserDao&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);">，在传统方式中，</font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;UserService&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">内部会手动创建</font><font style="background-color:rgba(255, 255, 255, 0);"> </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;UserDao&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">实例，而在 IoC 模式下，Spring 容器会创建</font><font style="background-color:rgba(255, 255, 255, 0);"> </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;UserDao&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">实例并注入到</font><font style="background-color:rgba(255, 255, 255, 0);"> </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;UserService&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">中。</font></li>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">AOP（Aspect - Oriented Programming，面向切面编程）</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：是对面向对象编程的一种补充。它将与业务逻辑无关但被多个模块共同使用的功能（如日志记录、事务管理等）提取出来，形成一个切面，然后将这些切面动态地织入到目标对象的方法执行过程中。比如在多个业务方法执行前后添加日志记录，使用 AOP 可以避免在每个方法中重复编写日志代码。</font></li>
+<li><strong>IoC（Inversion of Control，控制反转）</strong>：是一种设计原则，将对象的创建和依赖关系的管理从代码中转移到外部容器（如 Spring 容器）。以前对象的创建和依赖关系的维护由开发者手动控制，现在交给容器来完成。例如，一个 <code>UserService</code> 依赖 <code>UserDao</code>，在传统方式中，<code>UserService</code> 内部会手动创建 <code>UserDao</code> 实例，而在 IoC 模式下，Spring 容器会创建 <code>UserDao</code> 实例并注入到 <code>UserService</code> 中。</li>
+<li><strong>AOP（Aspect - Oriented Programming，面向切面编程）</strong>：是对面向对象编程的一种补充。它将与业务逻辑无关但被多个模块共同使用的功能（如日志记录、事务管理等）提取出来，形成一个切面，然后将这些切面动态地织入到目标对象的方法执行过程中。比如在多个业务方法执行前后添加日志记录，使用 AOP 可以避免在每个方法中重复编写日志代码。</li>
 </ul>
-<h2 id="ioc-bean"><font style="background-color:rgba(255, 255, 255, 0);">为什么要 IOC，自己管理 Bean 不行吗</font><a class="headerlink" href="#ioc-bean" title="Permanent link">&para;</a></h2>
-<p><font style="background-color:rgba(255, 255, 255, 0);">可以自己管理 Bean，但使用 IOC 有以下优势：</font></p>
+<h2 id="ioc-bean">为什么要 IOC，自己管理 Bean 不行吗<a class="headerlink" href="#ioc-bean" title="Permanent link">&para;</a></h2>
+<p>可以自己管理 Bean，但使用 IOC 有以下优势：</p>
 <ul>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">降低耦合度</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：对象之间的依赖关系由容器管理，对象只需要关注自身的业务逻辑，不需要关心依赖对象的创建和管理，降低了代码的耦合度。</font></li>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">提高可维护性和可测试性</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：由于依赖关系的管理集中在容器中，当依赖关系发生变化时，只需要修改容器的配置，而不需要修改大量的业务代码。同时，在进行单元测试时，可以方便地替换依赖对象。</font></li>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">方便实现单例模式和对象的生命周期管理</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：Spring 容器可以方便地实现单例模式，并且可以管理对象的生命周期，确保对象在合适的时间被创建和销毁。</font></li>
+<li><strong>降低耦合度</strong>：对象之间的依赖关系由容器管理，对象只需要关注自身的业务逻辑，不需要关心依赖对象的创建和管理，降低了代码的耦合度。</li>
+<li><strong>提高可维护性和可测试性</strong>：由于依赖关系的管理集中在容器中，当依赖关系发生变化时，只需要修改容器的配置，而不需要修改大量的业务代码。同时，在进行单元测试时，可以方便地替换依赖对象。</li>
+<li><strong>方便实现单例模式和对象的生命周期管理</strong>：Spring 容器可以方便地实现单例模式，并且可以管理对象的生命周期，确保对象在合适的时间被创建和销毁。</li>
 </ul>
-<h2 id="springboot"><font style="background-color:rgba(255, 255, 255, 0);">SpringBoot 自动装配原理</font><a class="headerlink" href="#springboot" title="Permanent link">&para;</a></h2>
-<p><font style="background-color:rgba(255, 255, 255, 0);">Spring Boot 自动装配基于以下几个核心机制：</font></p>
+<h2 id="springboot">SpringBoot 自动装配原理<a class="headerlink" href="#springboot" title="Permanent link">&para;</a></h2>
+<p>Spring Boot 自动装配基于以下几个核心机制：</p>
 <ul>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">@SpringBootApplication 注解</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：它是一个组合注解，包含</font><font style="background-color:rgba(255, 255, 255, 0);"> </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@SpringBootConfiguration&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);">、</font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@EnableAutoConfiguration&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">和</font><font style="background-color:rgba(255, 255, 255, 0);"> </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@ComponentScan&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);">。其中</font><font style="background-color:rgba(255, 255, 255, 0);"> </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@EnableAutoConfiguration&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">是开启自动装配的关键。</font></li>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">自动配置类</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：Spring Boot 在</font><font style="background-color:rgba(255, 255, 255, 0);"> </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;spring - boot - autoconfigure&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">模块中提供了大量的自动配置类，这些类位于</font><font style="background-color:rgba(255, 255, 255, 0);"> </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;META - INF/spring.factories&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">文件中。当 Spring Boot 应用启动时，会根据类路径下的依赖和配置信息，自动加载合适的自动配置类。</font></li>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">条件注解</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：自动配置类中使用了大量的条件注解（如 </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@ConditionalOnClass&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);">、</font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@ConditionalOnMissingBean&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> 等），根据不同的条件来决定是否加载该配置类。例如，</font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@ConditionalOnClass&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> 表示只有当类路径下存在指定的类时，才会加载该配置类。</font></li>
+<li><strong>@SpringBootApplication 注解</strong>：它是一个组合注解，包含 <code>@SpringBootConfiguration</code>、<code>@EnableAutoConfiguration</code> 和 <code>@ComponentScan</code>。其中 <code>@EnableAutoConfiguration</code> 是开启自动装配的关键。</li>
+<li><strong>自动配置类</strong>：Spring Boot 在 <code>spring - boot - autoconfigure</code> 模块中提供了大量的自动配置类，这些类位于 <code>META - INF/spring.factories</code> 文件中。当 Spring Boot 应用启动时，会根据类路径下的依赖和配置信息，自动加载合适的自动配置类。</li>
+<li><strong>条件注解</strong>：自动配置类中使用了大量的条件注解（如 <code>@ConditionalOnClass</code>、<code>@ConditionalOnMissingBean</code> 等），根据不同的条件来决定是否加载该配置类。例如，<code>@ConditionalOnClass</code> 表示只有当类路径下存在指定的类时，才会加载该配置类。</li>
 </ul>
-<h2 id="_1"><font style="background-color:rgba(255, 255, 255, 0);">循环依赖问题</font><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p><font style="background-color:rgba(255, 255, 255, 0);">循环依赖指的是两个或多个 Bean 之间相互依赖，形成一个闭环。例如，</font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;A&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> 依赖 </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;B&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);">，</font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;B&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> 又依赖 </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;A&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);">。Spring 可以解决单例 Bean 的循环依赖问题，主要通过三级缓存机制：</font></p>
+<h2 id="_1">循环依赖问题<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>循环依赖指的是两个或多个 Bean 之间相互依赖，形成一个闭环。例如，<code>A</code> 依赖 <code>B</code>，<code>B</code> 又依赖 <code>A</code>。Spring 可以解决单例 Bean 的循环依赖问题，主要通过三级缓存机制：</p>
 <ul>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">一级缓存（singletonObjects）</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：存储已经完全初始化好的单例 Bean。</font></li>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">二级缓存（singletonFactories）</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：存储单例 Bean 的工厂对象，用于提前暴露 Bean 的引用。</font></li>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">三级缓存（earlySingletonObjects）</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：存储提前曝光的单例 Bean 实例，这些 Bean 还没有完成初始化。</font></li>
+<li><strong>一级缓存（singletonObjects）</strong>：存储已经完全初始化好的单例 Bean。</li>
+<li><strong>二级缓存（singletonFactories）</strong>：存储单例 Bean 的工厂对象，用于提前暴露 Bean 的引用。</li>
+<li><strong>三级缓存（earlySingletonObjects）</strong>：存储提前曝光的单例 Bean 实例，这些 Bean 还没有完成初始化。</li>
 </ul>
-<p><font style="background-color:rgba(255, 255, 255, 0);">当出现循环依赖时，Spring 会先将创建中的 Bean 放入三级缓存，当另一个 Bean 需要依赖该 Bean 时，会从三级缓存中获取其引用，避免了死循环。</font></p>
-<h2 id="spring"><font style="background-color:rgba(255, 255, 255, 0);">Spring 事务是什么，事务隔离级别有？</font><a class="headerlink" href="#spring" title="Permanent link">&para;</a></h2>
-<p><font style="background-color:rgba(255, 255, 255, 0);">Spring 事务是对数据库事务的封装，通过 Spring 的事务管理机制，可以方便地对数据库操作进行事务控制。Spring 支持编程式事务和声明式事务（使用 </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@Transactional&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> 注解）。</font></p>
-<p><font style="background-color:rgba(255, 255, 255, 0);">Spring 支持的事务隔离级别与数据库的事务隔离级别相对应，主要有：</font></p>
+<p>当出现循环依赖时，Spring 会先将创建中的 Bean 放入三级缓存，当另一个 Bean 需要依赖该 Bean 时，会从三级缓存中获取其引用，避免了死循环。</p>
+<h2 id="spring">Spring 事务是什么，事务隔离级别有？<a class="headerlink" href="#spring" title="Permanent link">&para;</a></h2>
+<p>Spring 事务是对数据库事务的封装，通过 Spring 的事务管理机制，可以方便地对数据库操作进行事务控制。Spring 支持编程式事务和声明式事务（使用 <code>@Transactional</code> 注解）。</p>
+<p>Spring 支持的事务隔离级别与数据库的事务隔离级别相对应，主要有：</p>
 <ul>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">ISOLATION_DEFAULT</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：使用数据库默认的隔离级别。</font></li>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">ISOLATION_READ_UNCOMMITTED</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：读未提交，允许读取未提交的数据，可能会出现脏读、不可重复读和幻读问题。</font></li>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">ISOLATION_READ_COMMITTED</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：读已提交，避免了脏读，但可能会出现不可重复读和幻读问题。</font></li>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">ISOLATION_REPEATABLE_READ</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：可重复读，保证在同一个事务中多次读取同一数据的结果是一致的，避免了脏读和不可重复读，但可能会出现幻读问题。</font></li>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">ISOLATION_SERIALIZABLE</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：串行化，最高的隔离级别，避免了脏读、不可重复读和幻读问题，但会导致并发性能下降。</font></li>
+<li><strong>ISOLATION_DEFAULT</strong>：使用数据库默认的隔离级别。</li>
+<li><strong>ISOLATION_READ_UNCOMMITTED</strong>：读未提交，允许读取未提交的数据，可能会出现脏读、不可重复读和幻读问题。</li>
+<li><strong>ISOLATION_READ_COMMITTED</strong>：读已提交，避免了脏读，但可能会出现不可重复读和幻读问题。</li>
+<li><strong>ISOLATION_REPEATABLE_READ</strong>：可重复读，保证在同一个事务中多次读取同一数据的结果是一致的，避免了脏读和不可重复读，但可能会出现幻读问题。</li>
+<li><strong>ISOLATION_SERIALIZABLE</strong>：串行化，最高的隔离级别，避免了脏读、不可重复读和幻读问题，但会导致并发性能下降。</li>
 </ul>
-<h2 id="transactional"><font style="background-color:rgba(255, 255, 255, 0);">@Transactional 的失效场景</font><a class="headerlink" href="#transactional" title="Permanent link">&para;</a></h2>
+<h2 id="transactional">@Transactional 的失效场景<a class="headerlink" href="#transactional" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">方法不是 public</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：</font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@Transactional&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">注解只能应用于</font><font style="background-color:rgba(255, 255, 255, 0);"> </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;public&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">方法，因为 Spring 的 AOP 是基于代理模式实现的，非</font><font style="background-color:rgba(255, 255, 255, 0);"> </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;public&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">方法无法被代理。</font></li>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">自调用问题</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：在同一个类中，一个方法调用另一个带有</font><font style="background-color:rgba(255, 255, 255, 0);"> </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@Transactional&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">注解的方法，事务不会生效，因为这种调用没有经过 Spring 的代理对象。</font></li>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">异常类型不匹配</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：</font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@Transactional&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">注解默认只对</font><font style="background-color:rgba(255, 255, 255, 0);"> </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;RuntimeException&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">和</font><font style="background-color:rgba(255, 255, 255, 0);"> </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;Error&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">进行回滚，如果抛出的异常不是这两种类型，且没有指定</font><font style="background-color:rgba(255, 255, 255, 0);"> </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;rollbackFor&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">属性，事务不会回滚。</font></li>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">数据库不支持事务</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：如果使用的数据库不支持事务（如 MySQL 的 MyISAM 存储引擎），</font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@Transactional&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> 注解不会生效。</font></li>
+<li><strong>方法不是 public</strong>：<code>@Transactional</code> 注解只能应用于 <code>public</code> 方法，因为 Spring 的 AOP 是基于代理模式实现的，非 <code>public</code> 方法无法被代理。</li>
+<li><strong>自调用问题</strong>：在同一个类中，一个方法调用另一个带有 <code>@Transactional</code> 注解的方法，事务不会生效，因为这种调用没有经过 Spring 的代理对象。</li>
+<li><strong>异常类型不匹配</strong>：<code>@Transactional</code> 注解默认只对 <code>RuntimeException</code> 和 <code>Error</code> 进行回滚，如果抛出的异常不是这两种类型，且没有指定 <code>rollbackFor</code> 属性，事务不会回滚。</li>
+<li><strong>数据库不支持事务</strong>：如果使用的数据库不支持事务（如 MySQL 的 MyISAM 存储引擎），<code>@Transactional</code> 注解不会生效。</li>
 </ul>
-<h2 id="transactional-aop"><font style="background-color:rgba(255, 255, 255, 0);">@Transactional 在 AOP 中会失效吗，为什么</font><a class="headerlink" href="#transactional-aop" title="Permanent link">&para;</a></h2>
-<p><font style="background-color:rgba(255, 255, 255, 0);">可能会失效。原因如下：</font></p>
+<h2 id="transactional-aop">@Transactional 在 AOP 中会失效吗，为什么<a class="headerlink" href="#transactional-aop" title="Permanent link">&para;</a></h2>
+<p>可能会失效。原因如下：</p>
 <ul>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">代理对象问题</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：</font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@Transactional&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">是基于 AOP 代理实现的，如果调用的方法不是通过代理对象调用，而是直接在同一个类中进行方法调用，事务不会生效。因为 AOP 代理是在对象外部进行增强，内部方法调用绕过了代理对象。</font></li>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">异常处理问题</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：如果在方法内部捕获了异常并且没有重新抛出，Spring 无法感知到异常，也就不会触发事务的回滚。</font></li>
+<li><strong>代理对象问题</strong>：<code>@Transactional</code> 是基于 AOP 代理实现的，如果调用的方法不是通过代理对象调用，而是直接在同一个类中进行方法调用，事务不会生效。因为 AOP 代理是在对象外部进行增强，内部方法调用绕过了代理对象。</li>
+<li><strong>异常处理问题</strong>：如果在方法内部捕获了异常并且没有重新抛出，Spring 无法感知到异常，也就不会触发事务的回滚。</li>
 </ul>
-<h2 id="_2"><font style="background-color:rgba(255, 255, 255, 0);">事务嵌套注解生效吗，为什么</font><a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p><font style="background-color:rgba(255, 255, 255, 0);">事务嵌套注解可以生效。当一个带有 </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@Transactional&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> 注解的方法调用另一个同样带有 </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@Transactional&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> 注解的方法时，会根据 </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;propagation&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> 属性（事务传播行为）来决定如何处理嵌套事务。例如，</font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;PROPAGATION_REQUIRED&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> 表示如果当前存在事务，则加入该事务；如果不存在事务，则创建一个新的事务。不同的传播行为可以满足不同的业务需求。</font></p>
-<h2 id="springboot_1"><font style="background-color:rgba(255, 255, 255, 0);">用过什么 SpringBoot 中的注解</font><a class="headerlink" href="#springboot_1" title="Permanent link">&para;</a></h2>
+<h2 id="_2">事务嵌套注解生效吗，为什么<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>事务嵌套注解可以生效。当一个带有 <code>@Transactional</code> 注解的方法调用另一个同样带有 <code>@Transactional</code> 注解的方法时，会根据 <code>propagation</code> 属性（事务传播行为）来决定如何处理嵌套事务。例如，<code>PROPAGATION_REQUIRED</code> 表示如果当前存在事务，则加入该事务；如果不存在事务，则创建一个新的事务。不同的传播行为可以满足不同的业务需求。</p>
+<h2 id="springboot_1">用过什么 SpringBoot 中的注解<a class="headerlink" href="#springboot_1" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">@SpringBootApplication</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：开启 Spring Boot 应用的自动配置、组件扫描等功能。</font></li>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">@RestController</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：用于创建 RESTful 风格的控制器，相当于</font><font style="background-color:rgba(255, 255, 255, 0);"> </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@Controller&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">和</font><font style="background-color:rgba(255, 255, 255, 0);"> </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@ResponseBody&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">的组合。</font></li>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">@RequestMapping</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：用于映射 HTTP 请求到控制器的方法上。</font></li>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">@GetMapping</font></strong><font style="background-color:rgba(255, 255, 255, 0);">、</font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@PostMapping&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);">、</font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@PutMapping&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);">、</font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@DeleteMapping&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);">：分别用于处理 GET、POST、PUT、DELETE 请求。</font></li>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">@Autowired</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：用于自动注入依赖的 Bean。</font></li>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">@Value</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：用于从配置文件中获取属性值。</font></li>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">@Configuration</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：用于定义配置类，相当于 Spring 的 XML 配置文件。</font></li>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">@ComponentScan</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：用于指定 Spring 扫描组件的包路径。</font></li>
+<li><strong>@SpringBootApplication</strong>：开启 Spring Boot 应用的自动配置、组件扫描等功能。</li>
+<li><strong>@RestController</strong>：用于创建 RESTful 风格的控制器，相当于 <code>@Controller</code> 和 <code>@ResponseBody</code> 的组合。</li>
+<li><strong>@RequestMapping</strong>：用于映射 HTTP 请求到控制器的方法上。</li>
+<li><strong>@GetMapping</strong>、<code>@PostMapping</code>、<code>@PutMapping</code>、<code>@DeleteMapping</code>：分别用于处理 GET、POST、PUT、DELETE 请求。</li>
+<li><strong>@Autowired</strong>：用于自动注入依赖的 Bean。</li>
+<li><strong>@Value</strong>：用于从配置文件中获取属性值。</li>
+<li><strong>@Configuration</strong>：用于定义配置类，相当于 Spring 的 XML 配置文件。</li>
+<li><strong>@ComponentScan</strong>：用于指定 Spring 扫描组件的包路径。</li>
 </ul>
-<h2 id="spring_1"><font style="background-color:rgba(255, 255, 255, 0);">Spring 中注入的常见注解，有什么区别</font><a class="headerlink" href="#spring_1" title="Permanent link">&para;</a></h2>
+<h2 id="spring_1">Spring 中注入的常见注解，有什么区别<a class="headerlink" href="#spring_1" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">@Autowired</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：Spring 框架提供的注解，默认按照类型进行注入。如果存在多个相同类型的 Bean，会根据属性名进行匹配，如果匹配不上会抛出异常。可以通过</font><font style="background-color:rgba(255, 255, 255, 0);"> </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@Qualifier&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">注解指定具体的 Bean 名称。</font></li>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">@Resource</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：Java 提供的注解，默认按照名称进行注入，如果找不到对应的名称，则按照类型进行注入。</font></li>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">@Inject</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：JSR - 330 规范提供的注解，功能和 </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@Autowired&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> 类似，默认按照类型进行注入。</font></li>
+<li><strong>@Autowired</strong>：Spring 框架提供的注解，默认按照类型进行注入。如果存在多个相同类型的 Bean，会根据属性名进行匹配，如果匹配不上会抛出异常。可以通过 <code>@Qualifier</code> 注解指定具体的 Bean 名称。</li>
+<li><strong>@Resource</strong>：Java 提供的注解，默认按照名称进行注入，如果找不到对应的名称，则按照类型进行注入。</li>
+<li><strong>@Inject</strong>：JSR - 330 规范提供的注解，功能和 <code>@Autowired</code> 类似，默认按照类型进行注入。</li>
 </ul>
-<h2 id="controller-restcontroller"><font style="background-color:rgba(255, 255, 255, 0);">@Controller 和 @RestController 的区别</font><a class="headerlink" href="#controller-restcontroller" title="Permanent link">&para;</a></h2>
-<p><font style="background-color:rgba(255, 255, 255, 0);">@Controller 和 @RestController 在Spring框架中，</font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@Controller&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> 和 </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@RestController&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> 都用于标识一个类作为控制器，但它们之间存在一些关键区别：</font></p>
-<h3 id="1"><font style="background-color:rgba(255, 255, 255, 0);">1. 功能侧重点</font><a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<h2 id="controller-restcontroller">@Controller 和 @RestController 的区别<a class="headerlink" href="#controller-restcontroller" title="Permanent link">&para;</a></h2>
+<p>@Controller 和 @RestController 在Spring框架中，<code>@Controller</code> 和 <code>@RestController</code> 都用于标识一个类作为控制器，但它们之间存在一些关键区别：</p>
+<h3 id="1">1. 功能侧重点<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
 <ul>
-<li><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@Controller&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);">：主要用于处理Web请求，并将请求映射到相应的处理方法。它通常用于传统的MVC（Model - View - Controller）架构中，侧重于返回一个视图（View），例如JSP、Thymeleaf模板等。处理方法可以通过 </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;Model&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> 对象将数据传递给视图进行展示。</font></li>
-<li><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@RestController&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);">：是一个专门用于创建RESTful Web服务的控制器。它侧重于返回数据，通常以JSON、XML等格式直接返回给客户端，而不是返回一个视图。这在前后端分离的开发模式中非常常用，前端通过HTTP请求获取后端返回的数据来渲染页面。</font></li>
+<li><code>@Controller</code>：主要用于处理Web请求，并将请求映射到相应的处理方法。它通常用于传统的MVC（Model - View - Controller）架构中，侧重于返回一个视图（View），例如JSP、Thymeleaf模板等。处理方法可以通过 <code>Model</code> 对象将数据传递给视图进行展示。</li>
+<li><code>@RestController</code>：是一个专门用于创建RESTful Web服务的控制器。它侧重于返回数据，通常以JSON、XML等格式直接返回给客户端，而不是返回一个视图。这在前后端分离的开发模式中非常常用，前端通过HTTP请求获取后端返回的数据来渲染页面。</li>
 </ul>
-<h3 id="2"><font style="background-color:rgba(255, 255, 255, 0);">2. 注解本质</font><a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<h3 id="2">2. 注解本质<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
 <ul>
-<li><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@Controller&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);">：是一个常规的Spring组件注解，用于标识该类为一个控制器。它本身并不包含处理HTTP请求返回数据格式的特定逻辑。</font></li>
-<li><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@RestController&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);">：实际上是一个组合注解，它结合了 </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@Controller&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> 和 </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@ResponseBody&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> 注解的功能。</font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@ResponseBody&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> 注解的作用是将控制器方法的返回值直接写入HTTP响应体中，而不会经过视图解析器进行视图解析。</font></li>
+<li><code>@Controller</code>：是一个常规的Spring组件注解，用于标识该类为一个控制器。它本身并不包含处理HTTP请求返回数据格式的特定逻辑。</li>
+<li><code>@RestController</code>：实际上是一个组合注解，它结合了 <code>@Controller</code> 和 <code>@ResponseBody</code> 注解的功能。<code>@ResponseBody</code> 注解的作用是将控制器方法的返回值直接写入HTTP响应体中，而不会经过视图解析器进行视图解析。</li>
 </ul>
-<h3 id="3"><font style="background-color:rgba(255, 255, 255, 0);">3. 返回值处理</font><a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<h3 id="3">3. 返回值处理<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
 <ul>
-<li><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@Controller&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);">：处理方法的返回值通常被视为视图名。Spring会通过视图解析器将视图名解析为实际的视图资源，然后将模型数据填充到视图中进行渲染，最终返回给客户端。例如，如果返回值是 </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;"home"&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);">，视图解析器会查找名为 </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;home&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> 的视图资源（如 </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;home.jsp&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> 或 </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;home.html&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);">，取决于具体的视图解析器配置）。</font></li>
-<li><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@RestController&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);">：处理方法的返回值会直接作为HTTP响应体返回给客户端，并且会根据 </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;HttpMessageConverter&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> 机制将返回对象转换为合适的格式（如JSON、XML等）。例如，返回一个Java对象，Spring会自动将其转换为JSON格式并返回给客户端，无需额外配置视图解析。</font></li>
+<li><code>@Controller</code>：处理方法的返回值通常被视为视图名。Spring会通过视图解析器将视图名解析为实际的视图资源，然后将模型数据填充到视图中进行渲染，最终返回给客户端。例如，如果返回值是 <code>"home"</code>，视图解析器会查找名为 <code>home</code> 的视图资源（如 <code>home.jsp</code> 或 <code>home.html</code>，取决于具体的视图解析器配置）。</li>
+<li><code>@RestController</code>：处理方法的返回值会直接作为HTTP响应体返回给客户端，并且会根据 <code>HttpMessageConverter</code> 机制将返回对象转换为合适的格式（如JSON、XML等）。例如，返回一个Java对象，Spring会自动将其转换为JSON格式并返回给客户端，无需额外配置视图解析。</li>
 </ul>
-<h3 id="4"><font style="background-color:rgba(255, 255, 255, 0);">4. 示例代码</font><a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
-<p><font style="background-color:rgba(255, 255, 255, 0);">使用 </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@Controller&lt;/font&gt;</code></p>
+<h3 id="4">4. 示例代码<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<p>使用 <code>@Controller</code></p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
@@ -2159,8 +2182,8 @@
 <a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-<p><font style="background-color:rgba(255, 255, 255, 0);">在上述代码中，</font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;home&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> 方法返回视图名 </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;"home"&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);">，Spring会通过视图解析器查找并渲染对应的视图，同时将 </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;message&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> 数据传递给视图。</font></p>
-<p><font style="background-color:rgba(255, 255, 255, 0);">使用 </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@RestController&lt;/font&gt;</code></p>
+<p>在上述代码中，<code>home</code> 方法返回视图名 <code>"home"</code>，Spring会通过视图解析器查找并渲染对应的视图，同时将 <code>message</code> 数据传递给视图。</p>
+<p>使用 <code>@RestController</code></p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
@@ -2183,67 +2206,67 @@
 <a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-<p><font style="background-color:rgba(255, 255, 255, 0);">这里 </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;getData&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> 方法直接返回一个字符串，Spring会将其作为响应体返回给客户端，并且由于 </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@RestController&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> 的作用，会按照 </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;HttpMessageConverter&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> 机制处理返回值格式，默认会将字符串作为JSON格式数据返回（如果客户端期望的是JSON格式）。</font></p>
-<p><font style="background-color:rgba(255, 255, 255, 0);">总结来说，如果开发的是传统的MVC应用，需要返回视图，使用 </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@Controller&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);">；如果开发的是RESTful Web服务，主要返回数据给前端，使用 </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@RestController&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> 更为合适。</font></p>
-<h2 id="springmvc"><font style="background-color:rgba(255, 255, 255, 0);">SpringMVC 工作流程</font><a class="headerlink" href="#springmvc" title="Permanent link">&para;</a></h2>
+<p>这里 <code>getData</code> 方法直接返回一个字符串，Spring会将其作为响应体返回给客户端，并且由于 <code>@RestController</code> 的作用，会按照 <code>HttpMessageConverter</code> 机制处理返回值格式，默认会将字符串作为JSON格式数据返回（如果客户端期望的是JSON格式）。</p>
+<p>总结来说，如果开发的是传统的MVC应用，需要返回视图，使用 <code>@Controller</code>；如果开发的是RESTful Web服务，主要返回数据给前端，使用 <code>@RestController</code> 更为合适。</p>
+<h2 id="springmvc">SpringMVC 工作流程<a class="headerlink" href="#springmvc" title="Permanent link">&para;</a></h2>
 <ul>
-<li><font style="background-color:rgba(255, 255, 255, 0);">用户发送请求到前端控制器</font><font style="background-color:rgba(255, 255, 255, 0);"> </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;DispatcherServlet&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);">。</font></li>
-<li><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;DispatcherServlet&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">接收请求后，调用</font><font style="background-color:rgba(255, 255, 255, 0);"> </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;HandlerMapping&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">查找处理该请求的</font><font style="background-color:rgba(255, 255, 255, 0);"> </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;Handler&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);">（控制器方法）。</font></li>
-<li><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;HandlerMapping&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">返回一个</font><font style="background-color:rgba(255, 255, 255, 0);"> </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;HandlerExecutionChain&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">对象，包含</font><font style="background-color:rgba(255, 255, 255, 0);"> </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;Handler&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">和对应的拦截器。</font></li>
-<li><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;DispatcherServlet&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">调用</font><font style="background-color:rgba(255, 255, 255, 0);"> </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;HandlerAdapter&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">来执行</font><font style="background-color:rgba(255, 255, 255, 0);"> </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;Handler&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);">。</font></li>
-<li><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;HandlerAdapter&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">调用具体的</font><font style="background-color:rgba(255, 255, 255, 0);"> </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;Handler&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">处理请求，并返回一个</font><font style="background-color:rgba(255, 255, 255, 0);"> </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;ModelAndView&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">对象。</font></li>
-<li><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;DispatcherServlet&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">调用</font><font style="background-color:rgba(255, 255, 255, 0);"> </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;ViewResolver&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">解析</font><font style="background-color:rgba(255, 255, 255, 0);"> </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;ModelAndView&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">中的视图名称，返回一个</font><font style="background-color:rgba(255, 255, 255, 0);"> </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;View&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">对象。</font></li>
-<li><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;DispatcherServlet&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> 调用 </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;View&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> 的 </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;render&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> 方法，将模型数据渲染到视图上，并返回给用户。</font></li>
+<li>用户发送请求到前端控制器 <code>DispatcherServlet</code>。</li>
+<li><code>DispatcherServlet</code> 接收请求后，调用 <code>HandlerMapping</code> 查找处理该请求的 <code>Handler</code>（控制器方法）。</li>
+<li><code>HandlerMapping</code> 返回一个 <code>HandlerExecutionChain</code> 对象，包含 <code>Handler</code> 和对应的拦截器。</li>
+<li><code>DispatcherServlet</code> 调用 <code>HandlerAdapter</code> 来执行 <code>Handler</code>。</li>
+<li><code>HandlerAdapter</code> 调用具体的 <code>Handler</code> 处理请求，并返回一个 <code>ModelAndView</code> 对象。</li>
+<li><code>DispatcherServlet</code> 调用 <code>ViewResolver</code> 解析 <code>ModelAndView</code> 中的视图名称，返回一个 <code>View</code> 对象。</li>
+<li><code>DispatcherServlet</code> 调用 <code>View</code> 的 <code>render</code> 方法，将模型数据渲染到视图上，并返回给用户。</li>
 </ul>
-<h2 id="springboot_2"><font style="background-color:rgba(255, 255, 255, 0);">怎么实现 SpringBoot 自动装配、条件装配</font><a class="headerlink" href="#springboot_2" title="Permanent link">&para;</a></h2>
+<h2 id="springboot_2">怎么实现 SpringBoot 自动装配、条件装配<a class="headerlink" href="#springboot_2" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">自动装配</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：</font><ul>
-<li><font style="background-color:rgba(255, 255, 255, 0);">创建自动配置类，使用</font><font style="background-color:rgba(255, 255, 255, 0);"> </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@Configuration&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">注解标记。</font></li>
-<li><font style="background-color:rgba(255, 255, 255, 0);">在自动配置类中使用</font><font style="background-color:rgba(255, 255, 255, 0);"> </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@Conditional&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">系列注解（如</font><font style="background-color:rgba(255, 255, 255, 0);"> </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@ConditionalOnClass&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);">、</font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@ConditionalOnMissingBean&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">等）根据条件进行配置。</font></li>
-<li><font style="background-color:rgba(255, 255, 255, 0);">在</font><font style="background-color:rgba(255, 255, 255, 0);"> </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;META - INF/spring.factories&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">文件中指定自动配置类的全限定名。</font></li>
+<li><strong>自动装配</strong>：<ul>
+<li>创建自动配置类，使用 <code>@Configuration</code> 注解标记。</li>
+<li>在自动配置类中使用 <code>@Conditional</code> 系列注解（如 <code>@ConditionalOnClass</code>、<code>@ConditionalOnMissingBean</code> 等）根据条件进行配置。</li>
+<li>在 <code>META - INF/spring.factories</code> 文件中指定自动配置类的全限定名。</li>
 </ul>
 </li>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">条件装配</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：</font><ul>
-<li><font style="background-color:rgba(255, 255, 255, 0);">使用 </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@Conditional&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> 注解及其派生注解（如 </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@ConditionalOnProperty&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);">、</font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@ConditionalOnResource&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> 等）来控制 Bean 的创建条件。例如，</font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@ConditionalOnProperty&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> 可以根据配置文件中的属性值来决定是否创建 Bean。</font></li>
-</ul>
-</li>
-</ul>
-<h2 id="_3"><font style="background-color:rgba(255, 255, 255, 0);">切面的常用注解是什么，切面切的是什么？</font><a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">常用注解</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：</font><ul>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">@Aspect</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：用于定义切面类。</font></li>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">@Before</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：前置通知，在目标方法执行之前执行。</font></li>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">@After</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：后置通知，在目标方法执行之后执行，无论目标方法是否抛出异常。</font></li>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">@AfterReturning</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：返回通知，在目标方法正常返回后执行。</font></li>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">@AfterThrowing</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：异常通知，在目标方法抛出异常后执行。</font></li>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">@Around</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：环绕通知，在目标方法执行前后都可以进行增强。</font></li>
-</ul>
-</li>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">切面切的是连接点</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：连接点是程序执行过程中的一个点，如方法调用、异常抛出等。在 Spring AOP 中，主要切的是方法调用，通过定义切入点表达式来指定要拦截的方法。</font></li>
-</ul>
-<h2 id="aop"><font style="background-color:rgba(255, 255, 255, 0);">注解和 AOP 结合的方式怎么实现，还可以在哪些场景使用</font><a class="headerlink" href="#aop" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">实现方式</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：</font><ul>
-<li><font style="background-color:rgba(255, 255, 255, 0);">定义一个自定义注解，例如</font><font style="background-color:rgba(255, 255, 255, 0);"> </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@MyAnnotation&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);">。</font></li>
-<li><font style="background-color:rgba(255, 255, 255, 0);">创建一个切面类，使用</font><font style="background-color:rgba(255, 255, 255, 0);"> </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@Aspect&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">注解标记，在切面类中使用切入点表达式匹配使用了</font><font style="background-color:rgba(255, 255, 255, 0);"> </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@MyAnnotation&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">注解的方法。</font></li>
-<li><font style="background-color:rgba(255, 255, 255, 0);">在切面类中使用</font><font style="background-color:rgba(255, 255, 255, 0);"> </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@Before&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);">、</font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@After&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">等通知注解对匹配的方法进行增强。</font></li>
-</ul>
-</li>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">应用场景</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：</font><ul>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">日志记录</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：在方法执行前后记录日志。</font></li>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">权限验证</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：在方法执行前验证用户的权限。</font></li>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">事务管理</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：使用</font><font style="background-color:rgba(255, 255, 255, 0);"> </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@Transactional&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">注解结合 AOP 实现事务的管理。</font></li>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">性能监控</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：记录方法的执行时间。</font></li>
+<li><strong>条件装配</strong>：<ul>
+<li>使用 <code>@Conditional</code> 注解及其派生注解（如 <code>@ConditionalOnProperty</code>、<code>@ConditionalOnResource</code> 等）来控制 Bean 的创建条件。例如，<code>@ConditionalOnProperty</code> 可以根据配置文件中的属性值来决定是否创建 Bean。</li>
 </ul>
 </li>
 </ul>
-<h2 id="resource-autowired"><font style="background-color:rgba(255, 255, 255, 0);">@Resource 和 @Autowired 区别</font><a class="headerlink" href="#resource-autowired" title="Permanent link">&para;</a></h2>
+<h2 id="_3">切面的常用注解是什么，切面切的是什么？<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">来源不同</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：</font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@Autowired&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">是 Spring 框架提供的注解，</font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@Resource&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">是 Java 提供的注解（JSR - 250 规范）。</font></li>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">注入方式不同</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：</font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@Autowired&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">默认按照类型进行注入，</font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@Resource&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">默认按照名称进行注入。</font></li>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">处理多个 Bean 时的行为不同</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：当存在多个相同类型的 Bean 时，</font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@Autowired&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> 需要结合 </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@Qualifier&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> 注解指定 Bean 名称，</font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;@Resource&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> 可以直接通过名称匹配。</font></li>
+<li><strong>常用注解</strong>：<ul>
+<li><strong>@Aspect</strong>：用于定义切面类。</li>
+<li><strong>@Before</strong>：前置通知，在目标方法执行之前执行。</li>
+<li><strong>@After</strong>：后置通知，在目标方法执行之后执行，无论目标方法是否抛出异常。</li>
+<li><strong>@AfterReturning</strong>：返回通知，在目标方法正常返回后执行。</li>
+<li><strong>@AfterThrowing</strong>：异常通知，在目标方法抛出异常后执行。</li>
+<li><strong>@Around</strong>：环绕通知，在目标方法执行前后都可以进行增强。</li>
 </ul>
-<h2 id="component-bean"><font style="color:rgb(24, 25, 28);">@Component 和 @Bean 有什么区别？</font><a class="headerlink" href="#component-bean" title="Permanent link">&para;</a></h2>
+</li>
+<li><strong>切面切的是连接点</strong>：连接点是程序执行过程中的一个点，如方法调用、异常抛出等。在 Spring AOP 中，主要切的是方法调用，通过定义切入点表达式来指定要拦截的方法。</li>
+</ul>
+<h2 id="aop">注解和 AOP 结合的方式怎么实现，还可以在哪些场景使用<a class="headerlink" href="#aop" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>实现方式</strong>：<ul>
+<li>定义一个自定义注解，例如 <code>@MyAnnotation</code>。</li>
+<li>创建一个切面类，使用 <code>@Aspect</code> 注解标记，在切面类中使用切入点表达式匹配使用了 <code>@MyAnnotation</code> 注解的方法。</li>
+<li>在切面类中使用 <code>@Before</code>、<code>@After</code> 等通知注解对匹配的方法进行增强。</li>
+</ul>
+</li>
+<li><strong>应用场景</strong>：<ul>
+<li><strong>日志记录</strong>：在方法执行前后记录日志。</li>
+<li><strong>权限验证</strong>：在方法执行前验证用户的权限。</li>
+<li><strong>事务管理</strong>：使用 <code>@Transactional</code> 注解结合 AOP 实现事务的管理。</li>
+<li><strong>性能监控</strong>：记录方法的执行时间。</li>
+</ul>
+</li>
+</ul>
+<h2 id="resource-autowired">@Resource 和 @Autowired 区别<a class="headerlink" href="#resource-autowired" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>来源不同</strong>：<code>@Autowired</code> 是 Spring 框架提供的注解，<code>@Resource</code> 是 Java 提供的注解（JSR - 250 规范）。</li>
+<li><strong>注入方式不同</strong>：<code>@Autowired</code> 默认按照类型进行注入，<code>@Resource</code> 默认按照名称进行注入。</li>
+<li><strong>处理多个 Bean 时的行为不同</strong>：当存在多个相同类型的 Bean 时，<code>@Autowired</code> 需要结合 <code>@Qualifier</code> 注解指定 Bean 名称，<code>@Resource</code> 可以直接通过名称匹配。</li>
+</ul>
+<h2 id="component-bean"><font style="color:rgb(24, 25, 28);">@Component 和 @Bean 有什么区别？<a class="headerlink" href="#component-bean" title="Permanent link">&para;</a></h2>
 <p>都用于将对象交给 Spring 容器管理，但在使用场景、使用方式和作用目标等方面存在区别：</p>
 <h3 id="_4">使用场景<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <ul>
@@ -2295,15 +2318,15 @@
 </ul>
 <p>综上所述，<code>@Component</code> 适合自动扫描和注册常规组件，而 <code>@Bean</code> 更适合手动创建和配置 Bean，尤其是在需要对 Bean 的创建过程进行精细控制时。</p>
 <p>如需要引入第三方包的一个类，我们不能通过修改源码使用 @Component，这时就可以用 @Bean 来进行注入。</p>
-<h2 id="spring_2"><font style="background-color:rgba(255, 255, 255, 0);">Spring 中你认为比较重要的设计模式</font><a class="headerlink" href="#spring_2" title="Permanent link">&para;</a></h2>
+<h2 id="spring_2">Spring 中你认为比较重要的设计模式<a class="headerlink" href="#spring_2" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">单例模式</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：Spring 容器中的 Bean 默认是单例的，通过单例模式确保一个 Bean 在整个应用中只有一个实例，减少了资源的消耗。</font></li>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">工厂模式</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：Spring 的</font><font style="background-color:rgba(255, 255, 255, 0);"> </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;BeanFactory&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">和</font><font style="background-color:rgba(255, 255, 255, 0);"> </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;ApplicationContext&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">就是工厂模式的体现，负责创建和管理 Bean 对象。</font></li>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">代理模式</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：Spring AOP 是基于代理模式实现的，通过代理对象对目标对象进行增强，实现了日志记录、事务管理等功能。</font></li>
-<li><strong><font style="background-color:rgba(255, 255, 255, 0);">观察者模式</font></strong><font style="background-color:rgba(255, 255, 255, 0);">：Spring 中的事件机制就是观察者模式的应用，当一个事件发生时，会通知所有注册的监听器进行相应的处理。</font></li>
+<li><strong>单例模式</strong>：Spring 容器中的 Bean 默认是单例的，通过单例模式确保一个 Bean 在整个应用中只有一个实例，减少了资源的消耗。</li>
+<li><strong>工厂模式</strong>：Spring 的 <code>BeanFactory</code> 和 <code>ApplicationContext</code> 就是工厂模式的体现，负责创建和管理 Bean 对象。</li>
+<li><strong>代理模式</strong>：Spring AOP 是基于代理模式实现的，通过代理对象对目标对象进行增强，实现了日志记录、事务管理等功能。</li>
+<li><strong>观察者模式</strong>：Spring 中的事件机制就是观察者模式的应用，当一个事件发生时，会通知所有注册的监听器进行相应的处理。</li>
 </ul>
-<h2 id="spring-transactional"><font style="background-color:rgba(255, 255, 255, 0);">Spring 的事务 @Transactional 如果不抛出异常，如何回滚</font><a class="headerlink" href="#spring-transactional" title="Permanent link">&para;</a></h2>
-<p><font style="background-color:rgba(255, 255, 255, 0);">可以在方法内部手动调用 </font><code>&lt;font style="background-color:rgba(255, 255, 255, 0);"&gt;TransactionAspectSupport.currentTransactionStatus().setRollbackOnly()&lt;/font&gt;</code><font style="background-color:rgba(255, 255, 255, 0);"> 方法来设置事务回滚。例如：</font></p>
+<h2 id="spring-transactional">Spring 的事务 @Transactional 如果不抛出异常，如何回滚<a class="headerlink" href="#spring-transactional" title="Permanent link">&para;</a></h2>
+<p>可以在方法内部手动调用 <code>TransactionAspectSupport.currentTransactionStatus().setRollbackOnly()</code> 方法来设置事务回滚。例如：</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
@@ -2467,7 +2490,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年6月23日 16:13:17 UTC">2025年6月23日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年6月30日 14:41:46 UTC">2025年6月30日</span>
   </span>
 
     
