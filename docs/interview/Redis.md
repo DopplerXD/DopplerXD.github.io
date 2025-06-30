@@ -214,158 +214,158 @@ Cache Aside Pattern 并发操作时，先删再写还是先写再删？
 
 可通过 Redis `setnx` 命令实现互斥锁
 
-## <font style="color:#000000;background-color:rgba(255, 255, 255, 0);">Redis 缓存怎么实现的
-<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">Redis 缓存通过将数据存储在内存中，**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">利用内存的高速读写**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">特性来提高数据访问速度。当应用程序请求数据时，首先检查 Redis 缓存中是否存在所需数据。如果存在，则直接从缓存中返回数据，避免了对后端数据库的查询，从而大大提高了系统的响应速度。当数据发生变化时，需要及时更新缓存中的数据，以保证数据的一致性。更新策略通常有多种，如定时更新、根据数据变化实时更新等。
+## Redis 缓存怎么实现的
+Redis 缓存通过将数据存储在内存中，**利用内存的高速读写**特性来提高数据访问速度。当应用程序请求数据时，首先检查 Redis 缓存中是否存在所需数据。如果存在，则直接从缓存中返回数据，避免了对后端数据库的查询，从而大大提高了系统的响应速度。当数据发生变化时，需要及时更新缓存中的数据，以保证数据的一致性。更新策略通常有多种，如定时更新、根据数据变化实时更新等。
 
-## <font style="color:#000000;background-color:rgba(255, 255, 255, 0);">Redis 数据结构都有什么
-+ **<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">字符串（String）**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：最基本的数据结构，用于存储单个值，例如一个字符串、数字或二进制数据。
-+ **<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">列表（List）**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：有序的字符串列表，支持在列表的两端进行插入和删除操作，常用于存储队列或栈数据结构。
-+ **<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">哈希（Hash）**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：包含键值对的无序散列表，适合存储对象，其中字段作为哈希的键，字段的值作为哈希的值。
-+ **<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">集合（Set）**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：无序的字符串集合，其中每个元素都是唯一的，常用于去重或实现交集、并集、差集等集合操作。
-+ **<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">有序集合（Sorted Set / ZSet）**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：类似于集合，但每个元素都关联一个分数，根据分数进行排序，常用于排行榜等需要按某种权重进行排序的场景。
+## Redis 数据结构都有什么
++ **字符串（String）**：最基本的数据结构，用于存储单个值，例如一个字符串、数字或二进制数据。
++ **列表（List）**：有序的字符串列表，支持在列表的两端进行插入和删除操作，常用于存储队列或栈数据结构。
++ **哈希（Hash）**：包含键值对的无序散列表，适合存储对象，其中字段作为哈希的键，字段的值作为哈希的值。
++ **集合（Set）**：无序的字符串集合，其中每个元素都是唯一的，常用于去重或实现交集、并集、差集等集合操作。
++ **有序集合（Sorted Set / ZSet）**：类似于集合，但每个元素都关联一个分数，根据分数进行排序，常用于排行榜等需要按某种权重进行排序的场景。
 
-## <font style="color:#000000;background-color:rgba(255, 255, 255, 0);">说说 Redis 中的 ZSet
-<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">Redis 的 ZSet 是有序集合（Sorted Set），它是 Redis 中一种非常重要的数据结构。以下是关于 ZSet 的详细介绍：
+## 说说 Redis 中的 ZSet
+Redis 的 ZSet 是有序集合（Sorted Set），它是 Redis 中一种非常重要的数据结构。以下是关于 ZSet 的详细介绍：
 
-+ **<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">数据结构特点**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：ZSet 中的每个元素都由一个成员（member）和一个分数（score）组成，分数用于对成员进行排序。ZSet 中的成员是唯一的，但分数可以重复。它通过跳跃表（Skip List）和哈希表来实现，能够在保证元素有序的同时，提供高效的插入、删除和查找操作。
-+ **<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">应用场景**
-    - **<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">排行榜**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：例如游戏中的玩家排行榜、网站的文章阅读量排行榜等。通过将玩家或文章的相关数据作为成员，对应的分数作为排名依据，就可以轻松实现各种排行榜功能。
-    - **<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">带权重的任务队列**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：在任务队列中，每个任务可能有不同的优先级或权重。可以将任务作为成员，任务的权重作为分数，这样就可以按照权重来优先处理高优先级的任务。
-    - **<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">时间序列数据**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：如果数据具有时间属性，比如股票价格的实时数据、服务器的性能监控数据等，可以将时间戳作为分数，数据本身作为成员，方便按照时间顺序进行查询和分析。
-+ **<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">常用命令**
-    - `<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">ZADD`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：用于向 ZSet 中添加一个或多个成员及其分数。例如，`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">ZADD myzset 10 "apple" 20 "banana"`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 会将 "apple" 和 "banana" 添加到名为 "myzset" 的 ZSet 中，分别对应分数 10 和 20。
-    - `<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">ZRANGE`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：按照分数从小到大的顺序返回指定范围内的成员。如`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">ZRANGE myzset 0 5`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">会返回 "myzset" 中分数排名第 0 到第 5 的成员。
-    - `<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">ZREVRANGE`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：与`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">ZRANGE`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">相反，按照分数从大到小的顺序返回指定范围内的成员。
-    - `<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">ZSCORE`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：获取指定成员的分数。例如，`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">ZSCORE myzset "apple"`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">会返回 "apple" 在 "myzset" 中的分数。
-    - `<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">ZREM`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：从 ZSet 中移除指定的成员。例如，`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">ZREM myzset "apple"`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">会将 "apple" 从 "myzset" 中删除。
++ **数据结构特点**：ZSet 中的每个元素都由一个成员（member）和一个分数（score）组成，分数用于对成员进行排序。ZSet 中的成员是唯一的，但分数可以重复。它通过跳跃表（Skip List）和哈希表来实现，能够在保证元素有序的同时，提供高效的插入、删除和查找操作。
++ **应用场景**
+    - **排行榜**：例如游戏中的玩家排行榜、网站的文章阅读量排行榜等。通过将玩家或文章的相关数据作为成员，对应的分数作为排名依据，就可以轻松实现各种排行榜功能。
+    - **带权重的任务队列**：在任务队列中，每个任务可能有不同的优先级或权重。可以将任务作为成员，任务的权重作为分数，这样就可以按照权重来优先处理高优先级的任务。
+    - **时间序列数据**：如果数据具有时间属性，比如股票价格的实时数据、服务器的性能监控数据等，可以将时间戳作为分数，数据本身作为成员，方便按照时间顺序进行查询和分析。
++ **常用命令**
+    - `ZADD`：用于向 ZSet 中添加一个或多个成员及其分数。例如，`ZADD myzset 10 "apple" 20 "banana"` 会将 "apple" 和 "banana" 添加到名为 "myzset" 的 ZSet 中，分别对应分数 10 和 20。
+    - `ZRANGE`：按照分数从小到大的顺序返回指定范围内的成员。如`ZRANGE myzset 0 5`会返回 "myzset" 中分数排名第 0 到第 5 的成员。
+    - `ZREVRANGE`：与`ZRANGE`相反，按照分数从大到小的顺序返回指定范围内的成员。
+    - `ZSCORE`：获取指定成员的分数。例如，`ZSCORE myzset "apple"`会返回 "apple" 在 "myzset" 中的分数。
+    - `ZREM`：从 ZSet 中移除指定的成员。例如，`ZREM myzset "apple"`会将 "apple" 从 "myzset" 中删除。
 
-## <font style="color:#000000;background-color:rgba(255, 255, 255, 0);">为什么 Redis 的 string 类型效率要比传统字符串的效率高
-+ **<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">数据结构简单**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：Redis 的字符串内部实现采用了**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">简单动态字符串（SDS）**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">结构，它克服了传统 C 字符串在长度计算、内存分配等方面的一些缺陷。SDS 可以**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">快速获取字符串长度**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">，时间复杂度为 $ O(1) $<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">，而传统 C 字符串获取长度需要遍历整个字符串，时间复杂度为 $ (n) $<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">。
-+ **<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">内存分配优化**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：Redis 在**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">分配内存**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">时采用了**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">预分配和惰性释放**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">策略。当字符串增长时，会预先分配一定的额外空间，减少内存重新分配的次数；当字符串缩短时，不会立即释放内存，而是将释放的内存用于后续可能的增长操作，避免了频繁的内存分配和释放带来的开销。
-+ **<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">操作原子性**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：Redis 的字符串操作是原子性的，这意味着在执行字符串操作时不会被其他操作打断，保证了数据的一致性和操作的高效性。例如，对字符串进行自增操作 `<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">INCR`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">，在 Redis 中是一个原子操作，不会出现并发安全问题。
+## 为什么 Redis 的 string 类型效率要比传统字符串的效率高
++ **数据结构简单**：Redis 的字符串内部实现采用了**简单动态字符串（SDS）**结构，它克服了传统 C 字符串在长度计算、内存分配等方面的一些缺陷。SDS 可以**快速获取字符串长度**，时间复杂度为 $ O(1) $，而传统 C 字符串获取长度需要遍历整个字符串，时间复杂度为 $ (n) $。
++ **内存分配优化**：Redis 在**分配内存**时采用了**预分配和惰性释放**策略。当字符串增长时，会预先分配一定的额外空间，减少内存重新分配的次数；当字符串缩短时，不会立即释放内存，而是将释放的内存用于后续可能的增长操作，避免了频繁的内存分配和释放带来的开销。
++ **操作原子性**：Redis 的字符串操作是原子性的，这意味着在执行字符串操作时不会被其他操作打断，保证了数据的一致性和操作的高效性。例如，对字符串进行自增操作 `INCR`，在 Redis 中是一个原子操作，不会出现并发安全问题。
 
-## <font style="color:#000000;background-color:rgba(255, 255, 255, 0);">Redis 的持久化
-<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">Redis 提供了两种持久化方式：
+## Redis 的持久化
+Redis 提供了两种持久化方式：
 
-+ **<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">RDB（Redis Database）全量备份**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：RDB 是一种**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">快照式**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">的持久化方式，它会在指定的时间间隔内将内存中的数据以二进制的形式保存到磁盘上的一个 `<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">.rdb`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 文件中。优点是**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">恢复速度快**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">，因为是直接将数据加载到内存中；缺点是**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">可能会丢失最后一次快照到当前时间的数据，数据一致性相对较差**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">。
-+ **<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">AOF（Append Only File）增量备份**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：AOF 是一种**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">日志式**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">的持久化方式，它会将每一个**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">写命令追加**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">到一个**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">日志**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">文件中。当 Redis 重启时，会**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">重新执行**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">这些命令**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">来恢复**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">数据。优点是**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">数据安全性高**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">，基本可以保证不丢失数据；缺点是日志文件可能会越**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">来越大**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">，恢复速度**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">相对较慢**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">，而且在重写日志文件时可能会消耗一定的**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">性能**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">。
++ **RDB（Redis Database）全量备份**：RDB 是一种**快照式**的持久化方式，它会在指定的时间间隔内将内存中的数据以二进制的形式保存到磁盘上的一个 `.rdb` 文件中。优点是**恢复速度快**，因为是直接将数据加载到内存中；缺点是**可能会丢失最后一次快照到当前时间的数据，数据一致性相对较差**。
++ **AOF（Append Only File）增量备份**：AOF 是一种**日志式**的持久化方式，它会将每一个**写命令追加**到一个**日志**文件中。当 Redis 重启时，会**重新执行**这些命令**来恢复**数据。优点是**数据安全性高**，基本可以保证不丢失数据；缺点是日志文件可能会越**来越大**，恢复速度**相对较慢**，而且在重写日志文件时可能会消耗一定的**性能**。
 
-## <font style="color:#000000;background-color:rgba(255, 255, 255, 0);">Redis 使用过程中需要有哪些注意的点
-+ **<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">内存管理**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：Redis 是内存数据库，内存空间有限，需要**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">合理规划**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">内存使用，**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">避免内存溢出**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">。可以通过设置 `<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">maxmemory`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 配置项来限制 Redis 使用的最大内存，并选择**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">合适的内存淘汰策略**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">，如 `<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">volatile-lru`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">（对设置了过期时间的键值对采用 LRU 算法淘汰）、`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">allkeys-lru`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">（对所有键值对采用 LRU 算法淘汰）等。
-+ **<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">数据一致性**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：在使用缓存时，要注意数据的一致性问题。当后端**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">数据库**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">的数据发生**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">变化**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">时，需要**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">及时更新 Redis**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 缓存中的数据，或者设置**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">合理的过期时间**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">，让缓存数据在一定时间后自动失效，以保证缓存数据与数据库数据的一致性。
-+ **<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">并发访问**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：虽然 Redis 本身是单线程模型，但在多个客户端并发访问时，仍然需要注意一些并发问题。例如，在使用 `<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">INCR`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 等原子操作时，可以保证数据的准确性，但对于一些复杂的操作，可能需要使用分布式锁来保证数据的一致性。
-+ **<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">过期时间设置**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：合理设置过期时间可以有效利用内存空间，同时避免缓存数据长时间不更新导致数据不一致。对于一些经常变化的数据，可以设置较短的过期时间；对于一些相对稳定的数据，可以设置较长的过期时间。但要注意**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">避免大量数据同时过期**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">，导致**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">缓存雪崩**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">问题。
+## Redis 使用过程中需要有哪些注意的点
++ **内存管理**：Redis 是内存数据库，内存空间有限，需要**合理规划**内存使用，**避免内存溢出**。可以通过设置 `maxmemory` 配置项来限制 Redis 使用的最大内存，并选择**合适的内存淘汰策略**，如 `volatile-lru`（对设置了过期时间的键值对采用 LRU 算法淘汰）、`allkeys-lru`（对所有键值对采用 LRU 算法淘汰）等。
++ **数据一致性**：在使用缓存时，要注意数据的一致性问题。当后端**数据库**的数据发生**变化**时，需要**及时更新 Redis** 缓存中的数据，或者设置**合理的过期时间**，让缓存数据在一定时间后自动失效，以保证缓存数据与数据库数据的一致性。
++ **并发访问**：虽然 Redis 本身是单线程模型，但在多个客户端并发访问时，仍然需要注意一些并发问题。例如，在使用 `INCR` 等原子操作时，可以保证数据的准确性，但对于一些复杂的操作，可能需要使用分布式锁来保证数据的一致性。
++ **过期时间设置**：合理设置过期时间可以有效利用内存空间，同时避免缓存数据长时间不更新导致数据不一致。对于一些经常变化的数据，可以设置较短的过期时间；对于一些相对稳定的数据，可以设置较长的过期时间。但要注意**避免大量数据同时过期**，导致**缓存雪崩**问题。
 
-## <font style="color:#000000;background-color:rgba(255, 255, 255, 0);">Redis 支持事务 ACID 特性吗
-<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">Redis 的事务支持并不符合传统数据库中的 ACID 特性，而是**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">基于乐观锁**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">实现的一种简单事务机制。
+## Redis 支持事务 ACID 特性吗
+Redis 的事务支持并不符合传统数据库中的 ACID 特性，而是**基于乐观锁**实现的一种简单事务机制。
 
-<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">Redis 中的事务使用 MULTI、EXEC、WATCH 和 DISCARD 等命令来实现，它们的作用如下：
+Redis 中的事务使用 MULTI、EXEC、WATCH 和 DISCARD 等命令来实现，它们的作用如下：
 
-1. <font style="color:#000000;background-color:rgba(255, 255, 255, 0);">MULTI： 开启一个事务块，将后续的命令加入到事务队列中等待执行。
-2. <font style="color:#000000;background-color:rgba(255, 255, 255, 0);">EXEC： 执行事务队列中的所有命令。
-3. <font style="color:#000000;background-color:rgba(255, 255, 255, 0);">WATCH： 监视一个或多个键，如果在事务执行之前监视的键被修改，则事务将被打断。
-4. <font style="color:#000000;background-color:rgba(255, 255, 255, 0);">DISCARD： 取消事务，清空事务队列中的所有命令。
+1. MULTI： 开启一个事务块，将后续的命令加入到事务队列中等待执行。
+2. EXEC： 执行事务队列中的所有命令。
+3. WATCH： 监视一个或多个键，如果在事务执行之前监视的键被修改，则事务将被打断。
+4. DISCARD： 取消事务，清空事务队列中的所有命令。
 
-<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">Redis 中的事务并不具有原子性，即在 EXEC 命令执行期间，如果某个命令出现了错误，不会影响其他命令的执行。另外，Redis 中的事务也**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">不支持回滚**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">操作，即使在 EXEC 执行之后发生错误，也无法撤销之前的操作。因此，Redis 的事务并不满足 ACID 中的原子性和一致性特性。  
-<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">需要注意的是，Redis 的事务机制更适用于一系列原子性较弱的操作，例如批量写入或者批量删除等操作。对于需要满足严格的 ACID 特性的场景，建议使用传统的关系型数据库来实现。
+Redis 中的事务并不具有原子性，即在 EXEC 命令执行期间，如果某个命令出现了错误，不会影响其他命令的执行。另外，Redis 中的事务也**不支持回滚**操作，即使在 EXEC 执行之后发生错误，也无法撤销之前的操作。因此，Redis 的事务并不满足 ACID 中的原子性和一致性特性。  
+需要注意的是，Redis 的事务机制更适用于一系列原子性较弱的操作，例如批量写入或者批量删除等操作。对于需要满足严格的 ACID 特性的场景，建议使用传统的关系型数据库来实现。
 
-## <font style="color:#000000;background-color:rgba(255, 255, 255, 0);">锁
-<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">Redis 中也会出现多个命令同时竞争同一条数据的情况，如两条命令同时执行，都要修改 a 的值，那就只能通过锁机制来保证同一时间只能有一个命令操作。
+## 锁
+Redis 中也会出现多个命令同时竞争同一条数据的情况，如两条命令同时执行，都要修改 a 的值，那就只能通过锁机制来保证同一时间只能有一个命令操作。
 
-<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">不同于 MySQL 中的悲观锁，Redis 中是乐观锁。
+不同于 MySQL 中的悲观锁，Redis 中是乐观锁。
 
-+ **<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">乐观锁**
++ **乐观锁**
 
-<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">假设数据在处理期间不会被其他事务频繁修改。它通常在提交事务时检查数据一致性，而非在操作开始时加锁。
+假设数据在处理期间不会被其他事务频繁修改。它通常在提交事务时检查数据一致性，而非在操作开始时加锁。
 
-<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">优点**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 提升并发性能，减少锁竞争，适合读多写少的场景。
+优点**：** 提升并发性能，减少锁竞争，适合读多写少的场景。
 
-<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">缺点**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 在写操作频繁的情况下，可能导致多次重试，影响性能。
+缺点**：** 在写操作频繁的情况下，可能导致多次重试，影响性能。
 
-+ **<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">悲观锁**
++ **悲观锁**
 
-<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">假设数据在处理期间会被其他事务频繁修改。它在操作开始时获取锁，防止其他事务修改数据，直到锁释放。
+假设数据在处理期间会被其他事务频繁修改。它在操作开始时获取锁，防止其他事务修改数据，直到锁释放。
 
-<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">优点**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 保证数据一致性，防止冲突，适合写操作频繁的场景。
+优点**：** 保证数据一致性，防止冲突，适合写操作频繁的场景。
 
-<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">缺点**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 可能导致锁竞争和资源等待，降低并发性能。
+缺点**：** 可能导致锁竞争和资源等待，降低并发性能。
 
-<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">Redis 中可以使用 `<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">watch`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 来监视一个目标，如果执行事务之前被监视目标发生了修改，则取消本次事务。
+Redis 中可以使用 `watch` 来监视一个目标，如果执行事务之前被监视目标发生了修改，则取消本次事务。
 
-## <font style="color:#000000;background-color:rgba(255, 255, 255, 0);">缓存更新策略
+## 缓存更新策略
 ![](https://cdn.nlark.com/yuque/0/2025/png/35335189/1743320919628-f44e5f3f-1e74-497b-80b1-563b6b91771c.png?x-oss-process=image%2Fformat%2Cwebp%2Fresize%2Cw_1516%2Climit_0)
 
-### <font style="color:#000000;background-color:rgba(255, 255, 255, 0);">主动更新
-1. <font style="color:#000000;background-color:rgba(255, 255, 255, 0);">Cache Aside Pattern：由缓存的调用者，在**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">更新数据库的同时更新缓存**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">。
-2. <font style="color:#000000;background-color:rgba(255, 255, 255, 0);">Read/Write Through Pattern：缓存与数据库整合为一个服务，由**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">服务来维护一致性**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">。调用者调用该服务，无需关心缓存一致性问题。
-3. <font style="color:#000000;background-color:rgba(255, 255, 255, 0);">Write Behind Caching Pattern：调用者只操作缓存，由其它线程**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">异步的将缓存数据持久化到数据库**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">，保证最终一致。
+### 主动更新
+1. Cache Aside Pattern：由缓存的调用者，在**更新数据库的同时更新缓存**。
+2. Read/Write Through Pattern：缓存与数据库整合为一个服务，由**服务来维护一致性**。调用者调用该服务，无需关心缓存一致性问题。
+3. Write Behind Caching Pattern：调用者只操作缓存，由其它线程**异步的将缓存数据持久化到数据库**，保证最终一致。
 
-<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">Cache Aside Pattern 并发操作时，先删再写还是先写再删？
+Cache Aside Pattern 并发操作时，先删再写还是先写再删？
 
-<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">如果先删除缓存，再更新数据库，有可能在一个线程删除缓存后，另一个线程来查询，发现缓存中没用这个键，然后就会数据库更新前进行查询，并写入到缓存中，这样缓存中就是旧的值了。
+如果先删除缓存，再更新数据库，有可能在一个线程删除缓存后，另一个线程来查询，发现缓存中没用这个键，然后就会数据库更新前进行查询，并写入到缓存中，这样缓存中就是旧的值了。
 
-<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">先更新数据库，再删除缓存，有同样的线程安全问题。但由于缓存操作的速度高于数据库操作，所以第一种情况出现的概论相对较大。
+先更新数据库，再删除缓存，有同样的线程安全问题。但由于缓存操作的速度高于数据库操作，所以第一种情况出现的概论相对较大。
 
-### <font style="color:#000000;background-color:rgba(255, 255, 255, 0);">总结
-<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">缓存更新策略的最佳实践方案．
+### 总结
+缓存更新策略的最佳实践方案．
 
-1. **<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">低一致性**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">需求：使用 Redis 自带的**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">内存淘汰**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">机制
-2. **<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">高一致性**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">需求：**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">主动更新**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">，并以**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">超时剔除**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">作为兜底方案
-    1. <font style="color:#000000;background-color:rgba(255, 255, 255, 0);">读操作：
-        1. <font style="color:#000000;background-color:rgba(255, 255, 255, 0);">缓存命中则直接返回
-        2. <font style="color:#000000;background-color:rgba(255, 255, 255, 0);">缓存未命中则查询数据库，并写入缓存，设定超时时间
-    2. <font style="color:#000000;background-color:rgba(255, 255, 255, 0);">写操作：
-        1. <font style="color:#000000;background-color:rgba(255, 255, 255, 0);">先写数据库，然后再删除缓存
-        2. <font style="color:#000000;background-color:rgba(255, 255, 255, 0);">要确保数据库与缓存操作的原子性
+1. **低一致性**需求：使用 Redis 自带的**内存淘汰**机制
+2. **高一致性**需求：**主动更新**，并以**超时剔除**作为兜底方案
+    1. 读操作：
+        1. 缓存命中则直接返回
+        2. 缓存未命中则查询数据库，并写入缓存，设定超时时间
+    2. 写操作：
+        1. 先写数据库，然后再删除缓存
+        2. 要确保数据库与缓存操作的原子性
 
-## <font style="color:#000000;background-color:rgba(255, 255, 255, 0);">关于缓存三兄弟的定义和解决方法
-+ **<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">缓存穿透**
-    - **<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">定义**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：指查询一个**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">不存在**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">的数据，由于缓存中没有该数据，会直接查询数据库，导致大量请求直接打到数据库上，可能会使数据库压力过大甚至崩溃。
-    - **<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">解决方法**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：可以在缓存中设置一个空值或默认值，当查询不存在的数据时，将空值或默认值存入缓存，下次查询时直接从缓存中返回，避免再次查询数据库。也可以使用布隆过滤器，提前过滤掉不存在的数据，避免无效查询。
-        * <font style="color:#000000;background-color:rgba(255, 255, 255, 0);">缓存空对象：实现简单，维护方便，不会对数据库造成额外压力。但是会造成额外的内存消耗，可能会造成短暂的数据不一致。
-        * <font style="color:#000000;background-color:rgba(255, 255, 255, 0);">使用布隆过滤器：内存占用少，不需要多余的 key。但实现复杂，存在误判的可能。
-+ **<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">缓存雪崩**
-    - **<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">定义**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：指在同一时刻，**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">大量**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">的缓存数据同时**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">过期**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">，导致大量请求同时访问数据库，使数据库压力骤增，甚至可能导致系统崩溃。
-    - **<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">解决方法**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：可以将缓存的过期时间设置为随机值，避免大量数据同时过期。也可以使用分布式缓存，将数据分散到不同的节点上，避免单个节点上的数据集中过期。同时，可以增加缓存的冗余备份，当部分缓存节点失效时，从其他节点获取数据。
-        * <font style="color:#000000;background-color:rgba(255, 255, 255, 0);">给不同的 key 的 TTL 添加随机值
-        * <font style="color:#000000;background-color:rgba(255, 255, 255, 0);">利用 Redis 集群提高服务的可用性（哨兵机制）
-        * <font style="color:#000000;background-color:rgba(255, 255, 255, 0);">给缓存业务添加降级限流策略
-        * <font style="color:#000000;background-color:rgba(255, 255, 255, 0);">给业务增加多级缓存
-+ **<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">缓存击穿**
-    - **<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">定义**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：指缓存中某个**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">热点**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">数据**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">过期**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">的瞬间，**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">大量并发请求**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">同时访问该数据，导致这些请求直接打到数据库上，对数据库造成较大压力。
-    - **<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">解决方法**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：可以使用互斥锁或分布式锁，在缓存数据过期时，只允许一个请求去查询数据库并更新缓存，其他请求等待该请求完成后从缓存中获取数据。也可以将热点数据设置为永不过期，但需要定期在后台更新数据，或者使用逻辑过期，在查询数据时判断数据是否逻辑过期，如果过期则异步更新数据。
-        * <font style="color:#000000;background-color:rgba(255, 255, 255, 0);">互斥锁：重建缓存前获取锁，写入缓存后释放锁。其他线程遇到锁后，休眠一段时间后再次尝试获取，直到缓存命中。没有额外内存消耗，保证了数据一致性，实现简单。但线程需要等待，影响性能，且可能有死锁风险。
-        * <font style="color:#000000;background-color:rgba(255, 255, 255, 0);">逻辑过期：存储数据时，不设置 TTL，而是添加一个过期时间的字段。缓存命中后，如果已过期，尝试获取锁。获取到锁的线程，新开一个线程进行缓存重建，同时返回逻辑上过期的数据。未获取到锁的线程直接返回过期的数据，不需要管缓存重建的事情。线程无需等待，性能较好。但不能保证数据一致性，有额外内存消耗，实现复杂。
+## 关于缓存三兄弟的定义和解决方法
++ **缓存穿透**
+    - **定义**：指查询一个**不存在**的数据，由于缓存中没有该数据，会直接查询数据库，导致大量请求直接打到数据库上，可能会使数据库压力过大甚至崩溃。
+    - **解决方法**：可以在缓存中设置一个空值或默认值，当查询不存在的数据时，将空值或默认值存入缓存，下次查询时直接从缓存中返回，避免再次查询数据库。也可以使用布隆过滤器，提前过滤掉不存在的数据，避免无效查询。
+        * 缓存空对象：实现简单，维护方便，不会对数据库造成额外压力。但是会造成额外的内存消耗，可能会造成短暂的数据不一致。
+        * 使用布隆过滤器：内存占用少，不需要多余的 key。但实现复杂，存在误判的可能。
++ **缓存雪崩**
+    - **定义**：指在同一时刻，**大量**的缓存数据同时**过期**，导致大量请求同时访问数据库，使数据库压力骤增，甚至可能导致系统崩溃。
+    - **解决方法**：可以将缓存的过期时间设置为随机值，避免大量数据同时过期。也可以使用分布式缓存，将数据分散到不同的节点上，避免单个节点上的数据集中过期。同时，可以增加缓存的冗余备份，当部分缓存节点失效时，从其他节点获取数据。
+        * 给不同的 key 的 TTL 添加随机值
+        * 利用 Redis 集群提高服务的可用性（哨兵机制）
+        * 给缓存业务添加降级限流策略
+        * 给业务增加多级缓存
++ **缓存击穿**
+    - **定义**：指缓存中某个**热点**数据**过期**的瞬间，**大量并发请求**同时访问该数据，导致这些请求直接打到数据库上，对数据库造成较大压力。
+    - **解决方法**：可以使用互斥锁或分布式锁，在缓存数据过期时，只允许一个请求去查询数据库并更新缓存，其他请求等待该请求完成后从缓存中获取数据。也可以将热点数据设置为永不过期，但需要定期在后台更新数据，或者使用逻辑过期，在查询数据时判断数据是否逻辑过期，如果过期则异步更新数据。
+        * 互斥锁：重建缓存前获取锁，写入缓存后释放锁。其他线程遇到锁后，休眠一段时间后再次尝试获取，直到缓存命中。没有额外内存消耗，保证了数据一致性，实现简单。但线程需要等待，影响性能，且可能有死锁风险。
+        * 逻辑过期：存储数据时，不设置 TTL，而是添加一个过期时间的字段。缓存命中后，如果已过期，尝试获取锁。获取到锁的线程，新开一个线程进行缓存重建，同时返回逻辑上过期的数据。未获取到锁的线程直接返回过期的数据，不需要管缓存重建的事情。线程无需等待，性能较好。但不能保证数据一致性，有额外内存消耗，实现复杂。
 
 ![](https://cdn.nlark.com/yuque/0/2025/png/35335189/1743326390970-02270ae5-e2ca-46fa-bc0c-2cdea21dc4cc.png?x-oss-process=image%2Fformat%2Cwebp%2Fresize%2Cw_1516%2Climit_0)
 
-## <font style="color:#000000;background-color:rgba(255, 255, 255, 0);">Redis 使用分布式锁如何避免网络分区导致的失效问题
-+ **<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">使用 Redlock 算法**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：Redlock 是一种基于多个 Redis 节点的分布式锁算法。它通过在多个独立的 Redis 节点上获取锁来提高锁的可靠性。具体来说，客户端首先获取当前时间，然后依次向多个 Redis 节点发送获取锁的请求。如果客户端能够在大多数节点（超过一半的节点）上成功获取锁，并且获取锁的总时间小于锁的有效时间，那么就认为锁获取成功。在释放锁时，需要向所有获取锁的节点发送释放锁的请求。这样，即使在网络分区的情况下，只要大多数节点正常工作，分布式锁仍然能够正常工作，避免了因部分节点故障导致锁失效的问题。
-+ **<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">设置合理的超时时间**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：在使用分布式锁时，要设置合理的超时时间。超时时间不能过长，否则可能会导致其他客户端长时间等待；也不能过短，否则可能会因为网络延迟等原因导致锁提前释放。可以根据实际业务场景和网络状况来调整超时时间，以保证在网络分区等异常情况下，锁能够在一定时间后自动释放，避免死锁的发生。
-+ **<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">监控和重试机制**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：客户端可以定期监控分布式锁的状态，当发现锁出现异常（如获取锁失败或锁提前释放）时，可以根据具体情况进行重试。例如，在网络分区恢复后，客户端可以重新尝试获取锁，以保证业务的正常进行。同时，对于一些关键业务操作，可以在获取锁失败时进行适当的补偿操作，以避免数据不一致等问题。
+## Redis 使用分布式锁如何避免网络分区导致的失效问题
++ **使用 Redlock 算法**：Redlock 是一种基于多个 Redis 节点的分布式锁算法。它通过在多个独立的 Redis 节点上获取锁来提高锁的可靠性。具体来说，客户端首先获取当前时间，然后依次向多个 Redis 节点发送获取锁的请求。如果客户端能够在大多数节点（超过一半的节点）上成功获取锁，并且获取锁的总时间小于锁的有效时间，那么就认为锁获取成功。在释放锁时，需要向所有获取锁的节点发送释放锁的请求。这样，即使在网络分区的情况下，只要大多数节点正常工作，分布式锁仍然能够正常工作，避免了因部分节点故障导致锁失效的问题。
++ **设置合理的超时时间**：在使用分布式锁时，要设置合理的超时时间。超时时间不能过长，否则可能会导致其他客户端长时间等待；也不能过短，否则可能会因为网络延迟等原因导致锁提前释放。可以根据实际业务场景和网络状况来调整超时时间，以保证在网络分区等异常情况下，锁能够在一定时间后自动释放，避免死锁的发生。
++ **监控和重试机制**：客户端可以定期监控分布式锁的状态，当发现锁出现异常（如获取锁失败或锁提前释放）时，可以根据具体情况进行重试。例如，在网络分区恢复后，客户端可以重新尝试获取锁，以保证业务的正常进行。同时，对于一些关键业务操作，可以在获取锁失败时进行适当的补偿操作，以避免数据不一致等问题。
 
-## <font style="color:#000000;background-color:rgba(255, 255, 255, 0);">统计日活量使用哪个数据结构，怎么设计
-<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">Redis 数据结构 Set
+## 统计日活量使用哪个数据结构，怎么设计
+Redis 数据结构 Set
 
-+ **<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">键名设计**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：以 `<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">day:yyyyMMdd:uv`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 作为键名，其中 `<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">yyyyMMdd`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 表示具体的日期，例如 `<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">day:20250409:uv`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 表示 2025 年 4 月 9 日的日活量统计。
-+ **<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">数据存储**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：每当有一个用户在当天访问系统时，使用 `<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">SADD`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 命令将该用户的唯一标识（如用户 ID）添加到对应的 `<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">Set`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 中。由于 `<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">Set`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 中的元素是唯一的，所以无论同一个用户在当天访问多少次，都只会在 `<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">Set`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 中存储一次。
-+ **<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">统计日活量**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：通过 `<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">SCARD`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 命令获取 `<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">Set`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 中元素的数量，即当天的日活量。例如，执行 `<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">SCARD day:20250409:uv`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 就可以得到 2025 年 4 月 9 日的日活量。
++ **键名设计**：以 `day:yyyyMMdd:uv` 作为键名，其中 `yyyyMMdd` 表示具体的日期，例如 `day:20250409:uv` 表示 2025 年 4 月 9 日的日活量统计。
++ **数据存储**：每当有一个用户在当天访问系统时，使用 `SADD` 命令将该用户的唯一标识（如用户 ID）添加到对应的 `Set` 中。由于 `Set` 中的元素是唯一的，所以无论同一个用户在当天访问多少次，都只会在 `Set` 中存储一次。
++ **统计日活量**：通过 `SCARD` 命令获取 `Set` 中元素的数量，即当天的日活量。例如，执行 `SCARD day:20250409:uv` 就可以得到 2025 年 4 月 9 日的日活量。
 
-## <font style="color:#000000;background-color:rgba(255, 255, 255, 0);">MySQL 中有 2000w 条数据，Redis 存储 20w 条，如何保证 Redis 存储的都是热点数据？
-<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">可以考虑以下几种策略：
+## MySQL 中有 2000w 条数据，Redis 存储 20w 条，如何保证 Redis 存储的都是热点数据？
+可以考虑以下几种策略：
 
-1. <font style="color:#000000;background-color:rgba(255, 255, 255, 0);">使用**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">缓存淘汰**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">策略： 设置合适的缓存淘汰策略，如 LRU（最近最少使用）、LFU（最不经常使用）等。这些策略可以自动将不常访问的数据从缓存中删除，**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">保留访问频率较高**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">的热点数据。
-2. <font style="color:#000000;background-color:rgba(255, 255, 255, 0);">设置**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">合适过期时间**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">： 对于不需要长期缓存的数据，可以设置适当的过期时间，让 Redis 自动删除过期的数据。通过合理设置过期时间，可以保证缓存中的数据始终保持新鲜和热点。
-3. <font style="color:#000000;background-color:rgba(255, 255, 255, 0);">使用**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">缓存预热**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">： 在应用启动时，可以预先将热点数据加载到 Redis 中，以确保 Redis 中的数据始终保持热点状态。可以通过定时任务或者在应用启动时加载数据到 Redis 中。
-4. <font style="color:#000000;background-color:rgba(255, 255, 255, 0);">监控和调优： 定期监控 Redis 的使用情况和缓存命中率，根据实际情况进行调优。可以根据监控数据来优化缓存淘汰策略、调整过期时间等，以确保 Redis 中的数据都是热点数据。
-5. <font style="color:#000000;background-color:rgba(255, 255, 255, 0);">使用自动化工具： 可以使用一些自动化工具来**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">动态地识别和缓存**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">热点数据。这些工具可以根据访问频率和访问模式来自动缓存和更新热点数据，从而保证 Redis 中的数据始终保持热点状态。
+1. 使用**缓存淘汰**策略： 设置合适的缓存淘汰策略，如 LRU（最近最少使用）、LFU（最不经常使用）等。这些策略可以自动将不常访问的数据从缓存中删除，**保留访问频率较高**的热点数据。
+2. 设置**合适过期时间**： 对于不需要长期缓存的数据，可以设置适当的过期时间，让 Redis 自动删除过期的数据。通过合理设置过期时间，可以保证缓存中的数据始终保持新鲜和热点。
+3. 使用**缓存预热**： 在应用启动时，可以预先将热点数据加载到 Redis 中，以确保 Redis 中的数据始终保持热点状态。可以通过定时任务或者在应用启动时加载数据到 Redis 中。
+4. 监控和调优： 定期监控 Redis 的使用情况和缓存命中率，根据实际情况进行调优。可以根据监控数据来优化缓存淘汰策略、调整过期时间等，以确保 Redis 中的数据都是热点数据。
+5. 使用自动化工具： 可以使用一些自动化工具来**动态地识别和缓存**热点数据。这些工具可以根据访问频率和访问模式来自动缓存和更新热点数据，从而保证 Redis 中的数据始终保持热点状态。
 
-<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">确保 Redis 中存储的数据始终都是热点数据，能够**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">提高缓存命中率和系统性能**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">。
+确保 Redis 中存储的数据始终都是热点数据，能够**提高缓存命中率和系统性能**。
 
-## <font style="color:#000000;background-color:rgba(255, 255, 255, 0);">你对 Redis 的操作是怎么实现的，通过注解吗？
-<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">在 Spring Boot 中，可以通过以下步骤实现对 Redis 的操作：
+## 你对 Redis 的操作是怎么实现的，通过注解吗？
+在 Spring Boot 中，可以通过以下步骤实现对 Redis 的操作：
 
-+ **<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">添加依赖**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：在 `<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">pom.xml`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 文件中添加 Spring Data Redis 和 Redis 客户端的依赖，例如：
++ **添加依赖**：在 `pom.xml` 文件中添加 Spring Data Redis 和 Redis 客户端的依赖，例如：
 
 ```xml
 <dependency>
@@ -378,7 +378,7 @@ Cache Aside Pattern 并发操作时，先删再写还是先写再删？
 </dependency>
 ```
 
-+ **<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">配置 Redis 连接**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：在 `<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">application.properties`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 或 `<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">application.yml`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 文件中配置 Redis 服务器的连接信息，如主机地址、端口号、密码等。例如：
++ **配置 Redis 连接**：在 `application.properties` 或 `application.yml` 文件中配置 Redis 服务器的连接信息，如主机地址、端口号、密码等。例如：
 
 ```properties
 spring.redis.host=127.0.0.1
@@ -386,27 +386,27 @@ spring.redis.port=6379
 spring.redis.password=123456
 ```
 
-+ **<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">使用 RedisTemplate 操作 Redis**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：在 Spring Boot 应用中，可以通过注入 `<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">RedisTemplate`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 来操作 Redis。`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">RedisTemplate`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 提供了一系列方法来对不同的数据结构进行操作。例如，使用 `<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">redisTemplate.opsForValue().set(key, value)`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 方法可以设置字符串类型的键值对，使用 `<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">redisTemplate.opsForHash().put(hashKey, field, value)`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 方法可以在哈希中设置一个字段值等。
-+ **<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">使用 StringRedisTemplate**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：如果只需要操作字符串类型的数据，也可以使用 `<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">StringRedisTemplate`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">，它是 `<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">RedisTemplate`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 的子类，专门用于操作字符串类型的数据，其方法的参数和返回值都是字符串类型，使用起来更加方便。例如，`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">stringRedisTemplate.opsForValue().set(key, value)`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);"> 可以直接设置字符串键值对。
++ **使用 RedisTemplate 操作 Redis**：在 Spring Boot 应用中，可以通过注入 `RedisTemplate` 来操作 Redis。`RedisTemplate` 提供了一系列方法来对不同的数据结构进行操作。例如，使用 `redisTemplate.opsForValue().set(key, value)` 方法可以设置字符串类型的键值对，使用 `redisTemplate.opsForHash().put(hashKey, field, value)` 方法可以在哈希中设置一个字段值等。
++ **使用 StringRedisTemplate**：如果只需要操作字符串类型的数据，也可以使用 `StringRedisTemplate`，它是 `RedisTemplate` 的子类，专门用于操作字符串类型的数据，其方法的参数和返回值都是字符串类型，使用起来更加方便。例如，`stringRedisTemplate.opsForValue().set(key, value)` 可以直接设置字符串键值对。
 
-## <font style="color:#000000;background-color:rgba(255, 255, 255, 0);">高并发场景下如何保证幂等性？
-<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">在高并发场景下，保证幂等性是非常重要的，可以通过以下几种方式来实现：
+## 高并发场景下如何保证幂等性？
+在高并发场景下，保证幂等性是非常重要的，可以通过以下几种方式来实现：
 
-1. **<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">唯一标识符**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">（ID）： 在每次请求中包含一个唯一标识符（例如，UUID），服务端在接收到请求后首先**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">检查该标识符是否已经处理**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">过。如果已经处理过，则直接返回之前的结果，如果没有处理过，则进行正常处理并保存该标识符，以便下次检查。
-2. **<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">版本号**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">（Versioning）： 在每个资源上添加一个版本号，客户端在**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">更新资源**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">时需要**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">提供**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">该**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">版本号**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">。服务端在更新资源时**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">先比较**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">客户端提供的版本号和当前资源的版本号是否一致，如果**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">一致**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">则执行**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">更新**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">操作，如果**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">不一致**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">则**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">拒绝**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">请求。
-3. **<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">乐观锁**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">（Optimistic Locking）： 在更新资源时，先获取当前资源的版本号或者时间戳，在更新时比较该版本号或时间戳是否和之前一致。如果一致，则执行更新操作，否则拒绝请求或者重试更新操作。
-4. **<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">幂等性接口设计**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">： 设计幂等性的接口，确保多次调用接口对系统状态的影响是一致的。例如，对于增删改操作，可以设计为幂等性操作，多次执行效果是相同的。
-5. **<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">幂等性校验逻辑**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">： 在业务处理逻辑中添加幂等性校验逻辑，例如通过唯一索引、状态码等信息来检查是否已经处理过该请求，如果已经处理过则直接返回结果，避免重复处理。
-6. **<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">使用分布式锁**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">： 在关键业务操作前获取分布式锁，确保同一时刻只有一个线程能够执行该操作，避免多个线程并发执行导致的数据不一致问题。
+1. **唯一标识符**（ID）： 在每次请求中包含一个唯一标识符（例如，UUID），服务端在接收到请求后首先**检查该标识符是否已经处理**过。如果已经处理过，则直接返回之前的结果，如果没有处理过，则进行正常处理并保存该标识符，以便下次检查。
+2. **版本号**（Versioning）： 在每个资源上添加一个版本号，客户端在**更新资源**时需要**提供**该**版本号**。服务端在更新资源时**先比较**客户端提供的版本号和当前资源的版本号是否一致，如果**一致**则执行**更新**操作，如果**不一致**则**拒绝**请求。
+3. **乐观锁**（Optimistic Locking）： 在更新资源时，先获取当前资源的版本号或者时间戳，在更新时比较该版本号或时间戳是否和之前一致。如果一致，则执行更新操作，否则拒绝请求或者重试更新操作。
+4. **幂等性接口设计**： 设计幂等性的接口，确保多次调用接口对系统状态的影响是一致的。例如，对于增删改操作，可以设计为幂等性操作，多次执行效果是相同的。
+5. **幂等性校验逻辑**： 在业务处理逻辑中添加幂等性校验逻辑，例如通过唯一索引、状态码等信息来检查是否已经处理过该请求，如果已经处理过则直接返回结果，避免重复处理。
+6. **使用分布式锁**： 在关键业务操作前获取分布式锁，确保同一时刻只有一个线程能够执行该操作，避免多个线程并发执行导致的数据不一致问题。
 
-<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">综上所述，通过以上方法可以在高并发场景下保证系统的幂等性，避免重复操作和数据不一致问题，提高系统的可靠性和稳定性。选择合适的方式取决于具体的业务场景和系统架构设计。
+综上所述，通过以上方法可以在高并发场景下保证系统的幂等性，避免重复操作和数据不一致问题，提高系统的可靠性和稳定性。选择合适的方式取决于具体的业务场景和系统架构设计。
 
-## <font style="color:#000000;background-color:rgba(255, 255, 255, 0);">介绍一下 Redis 发布订阅
-<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">Redis 发布订阅是一种消息通信模式，它允许客户端将消息发送到指定的频道，而其他订阅了该频道的客户端可以接收到相应的消息，实现了消息的异步通知和广播功能。
+## 介绍一下 Redis 发布订阅
+Redis 发布订阅是一种消息通信模式，它允许客户端将消息发送到指定的频道，而其他订阅了该频道的客户端可以接收到相应的消息，实现了消息的异步通知和广播功能。
 
-+ **<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">发布者**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：发布者是发送消息的客户端，它通过`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">PUBLISH`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">命令将消息发送到指定的频道。例如，`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">PUBLISH channel_name message`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">，其中`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">channel_name`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">是频道名称，`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">message`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">是要发送的消息内容。
-+ **<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">订阅者**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：订阅者是接收消息的客户端，它通过`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">SUBSCRIBE`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">命令来订阅一个或多个频道。例如，`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">SUBSCRIBE channel1 channel2`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">，表示订阅`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">channel1`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">和`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">channel2`<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">两个频道。当有消息发布到订阅的频道时，Redis 会将消息推送给所有订阅该频道的客户端。
-+ **<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">应用场景**<font style="color:#000000;background-color:rgba(255, 255, 255, 0);">：常用于实时消息通知、分布式系统中的事件广播、聊天应用等场景。例如，在一个实时股票交易系统中，服务器可以将股票价格的变化消息发布到相应的频道，而客户端可以订阅这些频道，及时获取股票价格的更新信息。它提供了一种简单、高效的消息通信方式，使得不同的客户端之间可以方便地进行信息交互。
++ **发布者**：发布者是发送消息的客户端，它通过`PUBLISH`命令将消息发送到指定的频道。例如，`PUBLISH channel_name message`，其中`channel_name`是频道名称，`message`是要发送的消息内容。
++ **订阅者**：订阅者是接收消息的客户端，它通过`SUBSCRIBE`命令来订阅一个或多个频道。例如，`SUBSCRIBE channel1 channel2`，表示订阅`channel1`和`channel2`两个频道。当有消息发布到订阅的频道时，Redis 会将消息推送给所有订阅该频道的客户端。
++ **应用场景**：常用于实时消息通知、分布式系统中的事件广播、聊天应用等场景。例如，在一个实时股票交易系统中，服务器可以将股票价格的变化消息发布到相应的频道，而客户端可以订阅这些频道，及时获取股票价格的更新信息。它提供了一种简单、高效的消息通信方式，使得不同的客户端之间可以方便地进行信息交互。
 
 
 

@@ -1,11 +1,11 @@
-## <font style="background-color:rgba(255, 255, 255, 0);">数据库三大范式</font>
-**<font style="background-color:rgba(255, 255, 255, 0);">第一范式</font>**<font style="background-color:rgba(255, 255, 255, 0);">：是关系型数据库的基本要求，强调的是列的</font>**<font style="background-color:rgba(255, 255, 255, 0);">原子性</font>**<font style="background-color:rgba(255, 255, 255, 0);">，即数据库表的</font>**<font style="background-color:rgba(255, 255, 255, 0);">每一列都是不可分割</font>**<font style="background-color:rgba(255, 255, 255, 0);">的原子数据项。 </font>
+## 数据库三大范式
+**第一范式**：是关系型数据库的基本要求，强调的是列的**原子性**，即数据库表的**每一列都是不可分割**的原子数据项。 
 
-**<font style="background-color:rgba(255, 255, 255, 0);">第二范式</font>**<font style="background-color:rgba(255, 255, 255, 0);">：要求实体的非主属性完全依赖于主键。所谓完全依赖是指不能存在仅依赖主键一部分的属性。 </font>
+**第二范式**：要求实体的非主属性完全依赖于主键。所谓完全依赖是指不能存在仅依赖主键一部分的属性。 
 
-**<font style="background-color:rgba(255, 255, 255, 0);">第三范式</font>**<font style="background-color:rgba(255, 255, 255, 0);">：任何非主属性不依赖于其它非主属性。</font>
+**第三范式**：任何非主属性不依赖于其它非主属性。
 
-## <font style="background-color:rgba(255, 255, 255, 0);">MySQL 中的数据排序是怎么实现的</font>
+## MySQL 中的数据排序是怎么实现的
 + 排序字段命中索引（ORDER BY 子句包含的字段在索引中且顺序一致），使用**索引排序**
 + 否则使用**文件排序**，`explain`分析 SQL 执行计划得`extra`包含`using filesort`
     - 数据量小于`sort_buffer`（通过`sort_buffer_size`）控制，则在内存中通过`sort_buffer`排序，单路排序或双路排序。
@@ -13,20 +13,20 @@
         * **双路排序**（Two-Pass Sort）：数据行多，将 id（有主键则为主键）和排序键放到`sort_buffer`，排序后拿到 id 再去回表，然后返回数据。
     - 数据量大，利用磁盘**临时文件**进行**外部排序**，一般用归并排序。
 
-## <font style="background-color:rgba(255, 255, 255, 0);">varchar 和 char 有什么区别、varchar 支持的最大长度</font>
+## varchar 和 char 有什么区别、varchar 支持的最大长度
 **主要区别：**`**varchar**`**长度可变，**`**char**`**长度固定。**
 
-### <font style="background-color:rgba(255, 255, 255, 0);">varchar</font>
+### varchar
 + 可变长度的字符串。**存储的字符串长度与实际数据长度相等。**即 varchar(100) 和 varchar(10)存储相同字符串时占用空间一致。
 + 但是在排序时，会按照固定大小的内存块进行保存，varchar(100) 字段占用的空间就会更多。
 + 存储数据时会额外**增加 1 到 2 字节**（长度超过 255 使用 2 个），用于**存储字符串的长度信息**。
 + 适合存储变化或长度较长的字符串。
 
-### <font style="background-color:rgba(255, 255, 255, 0);">char</font>
+### char
 + 固定长度的字符串。实际数据长度不足则**在末尾填充空格**（如果 char 字符串后面有空格，InnoDB 会忽略）。
 + 适合存储长度固定且较短的字符串。
 
-### <font style="background-color:rgba(255, 255, 255, 0);">varchar 支持的最大长度</font>
+### varchar 支持的最大长度
 + MySQL 的最大行长度为 65535 字节
 + 如果允许为 null，需要 1bit 标记一个字段是否为 null（MySQL 对于 null 值额外用一个 null 值列表来存储）。而 MySQL 要求 null 值列表最少需要 1 Byte。
 + varchar 需要 1~2 Byte 来存储字符串的长度信息。
@@ -90,16 +90,16 @@ CREATE TABLE my_table (
 
 这样可以确保 `TIMESTAMP` 列的行为是明确的，并且在不同版本的 MySQL 或其他数据库之间迁移时减少潜在的问题。
 
-## <font style="background-color:rgba(255, 255, 255, 0);">count(*)、count(1)、count(字段) 的区别</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">count(*)</font>**<font style="background-color:rgba(255, 255, 255, 0);">：统计结果集中的行数，包括</font><font style="background-color:rgba(255, 255, 255, 0);"> </font>`<font style="background-color:rgba(255, 255, 255, 0);">NULL</font>`<font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">值。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">count(1)</font>**<font style="background-color:rgba(255, 255, 255, 0);">：与</font><font style="background-color:rgba(255, 255, 255, 0);"> </font>`<font style="background-color:rgba(255, 255, 255, 0);">count(*)</font>`<font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">功能类似，也是统计结果集中的行数，性能上基本没有差异。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">count (字段)</font>**<font style="background-color:rgba(255, 255, 255, 0);">：统计指定字段非 </font>`<font style="background-color:rgba(255, 255, 255, 0);">NULL</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 值的行数。如果该字段存在 </font>`<font style="background-color:rgba(255, 255, 255, 0);">NULL</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 值，</font>`<font style="background-color:rgba(255, 255, 255, 0);">count(字段)</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 的结果会小于 </font>`<font style="background-color:rgba(255, 255, 255, 0);">count(*)</font>`<font style="background-color:rgba(255, 255, 255, 0);">。</font>
+## count(*)、count(1)、count(字段) 的区别
++ **count(*)**：统计结果集中的行数，包括 `NULL` 值。
++ **count(1)**：与 `count(*)` 功能类似，也是统计结果集中的行数，性能上基本没有差异。
++ **count (字段)**：统计指定字段非 `NULL` 值的行数。如果该字段存在 `NULL` 值，`count(字段)` 的结果会小于 `count(*)`。
 
-**<font style="background-color:rgba(255, 255, 255, 0);">执行效率：count(*) = count(1) > count(字段)</font>**<font style="background-color:rgba(255, 255, 255, 0);">。因为 count(字段) 的查询使用全表扫描（有索引时用索引），一般还会判断字段是否为 NULL，造成额外开销。</font>
+**执行效率：count(*) = count(1) > count(字段)**。因为 count(字段) 的查询使用全表扫描（有索引时用索引），一般还会判断字段是否为 NULL，造成额外开销。
 
-<font style="background-color:rgba(255, 255, 255, 0);">count(1) 会被 MySQL 优化成 count(*)。</font>
+count(1) 会被 MySQL 优化成 count(*)。
 
-## <font style="background-color:rgba(255, 255, 255, 0);">int(11) 中的 11 表示什么？</font>
+## int(11) 中的 11 表示什么？
 **表示的是显示宽度，不影响存储的大小或数据范围。**该设置主要是为了在查询结果中**保持一致的显示格式**。
 
 使用`ZEROFILL`属性时，`int(11)`在数值位数小于 11 位时，显示如`00000000042`，在前面填充 0，不适用该属性时，显示`42`。
@@ -116,28 +116,28 @@ CREATE TABLE example (
 );
 ```
 
-## <font style="background-color:rgba(255, 255, 255, 0);">union 和 union all 的区别</font>
-**<font style="background-color:rgba(255, 255, 255, 0);">返回结果</font>**
+## union 和 union all 的区别
+**返回结果**
 
-+ <font style="background-color:rgba(255, 255, 255, 0);">union all 取所有值，可能有重复；</font>
-+ <font style="background-color:rgba(255, 255, 255, 0);">union 取唯一值，记录不重复。</font>
++ union all 取所有值，可能有重复；
++ union 取唯一值，记录不重复。
 
-**<font style="background-color:rgba(255, 255, 255, 0);">排序</font>**
+**排序**
 
-+ <font style="background-color:rgba(255, 255, 255, 0);">union all 只是简单的将两个结果合并后就返回。</font>
-+ <font style="background-color:rgba(255, 255, 255, 0);">union 将会按照字段的顺序进行全量排序；</font>
++ union all 只是简单的将两个结果合并后就返回。
++ union 将会按照字段的顺序进行全量排序；
 
-**<font style="background-color:rgba(255, 255, 255, 0);">效率</font>**
+**效率**
 
-+ <font style="background-color:rgba(255, 255, 255, 0);">union all 要比 union 快很多，如果可以确认合并的两个结果集中，不包含重复数据且不需要排序时的话，那么就使用 union all。</font>
++ union all 要比 union 快很多，如果可以确认合并的两个结果集中，不包含重复数据且不需要排序时的话，那么就使用 union all。
 
-## <font style="background-color:rgba(255, 255, 255, 0);">LIMIT 10000000, 10 和 LIMIT 10 的执行速度对比</font>
+## LIMIT 10000000, 10 和 LIMIT 10 的执行速度对比
 **LIMIT 10 要快得多。**
 
-+ `LIMIT 1<font style="background-color:rgba(255, 255, 255, 0);">0000000, 10</font>`需要先处理（通常是读取并跳过）前 1<font style="background-color:rgba(255, 255, 255, 0);">0000000 条记录，然后再获取需要的 10 条，开销大，因为需要先扫描 10000000 条数据，需要大量磁盘 I/O。</font>
-+ `<font style="background-color:rgba(255, 255, 255, 0);">LIMIT 10</font>`<font style="background-color:rgba(255, 255, 255, 0);">从结果集第一个记录开始扫描直接返回前 10 条记录。</font>
++ `LIMIT 10000000, 10`需要先处理（通常是读取并跳过）前 10000000 条记录，然后再获取需要的 10 条，开销大，因为需要先扫描 10000000 条数据，需要大量磁盘 I/O。
++ `LIMIT 10`从结果集第一个记录开始扫描直接返回前 10 条记录。
 
-`LIMIT 1<font style="background-color:rgba(255, 255, 255, 0);">0000000, 10</font>`这种大分页，可以先用条件过滤掉，如使用主键 ID 来进行范围过滤，然后再 LIMIT 10，但这种方式要使用在**有递增关系的列条件**上：
+`LIMIT 10000000, 10`这种大分页，可以先用条件过滤掉，如使用主键 ID 来进行范围过滤，然后再 LIMIT 10，但这种方式要使用在**有递增关系的列条件**上：
 
 ```sql
 SELECT * FROM users
@@ -239,7 +239,7 @@ WHERE o.id IS NOT NULL;
 
 总而言之，没有绝对的“更好”或“更差”。理解它们的内部工作原理，并结合实际的数据量和查询模式，通过 `EXPLAIN` 进行验证，才能做出最优选择。但在很多情况下，使用 `JOIN` 是一个更通用且高效的解决方案。
 
-## <font style="background-color:rgba(255, 255, 255, 0);">SQL 查询语句的执行顺序</font>
+## SQL 查询语句的执行顺序
 1. 执行 FROM 确定主表
 2. ON 连接多个表的条件
 3. 执行 JOIN 连接
@@ -280,14 +280,14 @@ MySQL 采用分层架构，主要包括**连接层、服务层、存储引擎层
 ## TODO 一条更新语句怎么执行的
 
 
-## <font style="background-color:rgba(255, 255, 255, 0);">MySQL 存储引擎</font>
-<font style="background-color:rgba(255, 255, 255, 0);">MySQL 中的存储引擎是 MySQL 数据库处理数据存储和检索的核心组件，它决定了数据的存储方式、索引结构以及数据的访问方式等。不同的存储引擎具有不同的特点和适用场景。</font>
+## MySQL 存储引擎
+MySQL 中的存储引擎是 MySQL 数据库处理数据存储和检索的核心组件，它决定了数据的存储方式、索引结构以及数据的访问方式等。不同的存储引擎具有不同的特点和适用场景。
 
-+ **<font style="background-color:rgba(255, 255, 255, 0);">InnoDB</font>**<font style="background-color:rgba(255, 255, 255, 0);">：</font>**<font style="background-color:rgba(255, 255, 255, 0);">支持事务、外键、行级锁、崩溃恢复（依赖 redo log）、MVCC </font>**<font style="background-color:rgba(255, 255, 255, 0);">等特性，是 MySQL 5.5 及以后版本的默认存储引擎，适用于对事务处理要求较高的场景。数据以聚集索引的方式存储，提高检索效率。表数据文件本身就是按 B+ 树组织的一个索引结构，</font>**<font style="background-color:rgba(255, 255, 255, 0);">叶节点保存完整的数据记录</font>**<font style="background-color:rgba(255, 255, 255, 0);">。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">MyISAM</font>**<font style="background-color:rgba(255, 255, 255, 0);">：</font>**<font style="background-color:rgba(255, 255, 255, 0);">不支持事务和外键，只支持表级锁</font>**<font style="background-color:rgba(255, 255, 255, 0);">。具有较高的读性能和较快的表级锁定，适合读多写少、对事务要求不高的场景，如数据仓库。</font>**<font style="background-color:rgba(255, 255, 255, 0);">索引文件和数据文件分离</font>**<font style="background-color:rgba(255, 255, 255, 0);">。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">Memory</font>**<font style="background-color:rgba(255, 255, 255, 0);">：</font>**<font style="background-color:rgba(255, 255, 255, 0);">数据存储在内存中，读写速度非常快</font>**<font style="background-color:rgba(255, 255, 255, 0);">，但数据在 MySQL 服务</font>**<font style="background-color:rgba(255, 255, 255, 0);">重启后会丢失</font>**<font style="background-color:rgba(255, 255, 255, 0);">，适用于临时数据存储和缓存。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">NDB（NDBCluster）</font>**<font style="background-color:rgba(255, 255, 255, 0);">：支持高可用性和数据分布，适合大规模分布式应用。提供行级锁和自动分区。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">ARCHIVE</font>**<font style="background-color:rgba(255, 255, 255, 0);">：用于存储大量历史数据，支持高效的插入和压缩。不支持索引，适合日志数据存储。</font>
++ **InnoDB**：**支持事务、外键、行级锁、崩溃恢复（依赖 redo log）、MVCC **等特性，是 MySQL 5.5 及以后版本的默认存储引擎，适用于对事务处理要求较高的场景。数据以聚集索引的方式存储，提高检索效率。表数据文件本身就是按 B+ 树组织的一个索引结构，**叶节点保存完整的数据记录**。
++ **MyISAM**：**不支持事务和外键，只支持表级锁**。具有较高的读性能和较快的表级锁定，适合读多写少、对事务要求不高的场景，如数据仓库。**索引文件和数据文件分离**。
++ **Memory**：**数据存储在内存中，读写速度非常快**，但数据在 MySQL 服务**重启后会丢失**，适用于临时数据存储和缓存。
++ **NDB（NDBCluster）**：支持高可用性和数据分布，适合大规模分布式应用。提供行级锁和自动分区。
++ **ARCHIVE**：用于存储大量历史数据，支持高效的插入和压缩。不支持索引，适合日志数据存储。
 
 ![](https://cdn.nlark.com/yuque/0/2025/png/35335189/1748334944831-4235ff6c-ceef-4d1c-81b0-fd1a7750a9d8.png)
 
@@ -297,138 +297,138 @@ MySQL 采用分层架构，主要包括**连接层、服务层、存储引擎层
 ## TODO 说说 Buffer Pool
 
 
-## <font style="background-color:rgba(255, 255, 255, 0);">MySQL 执行计划</font>
-+ <font style="background-color:rgba(255, 255, 255, 0);">MySQL 执行计划是 MySQL 数据库在执行 SQL 查询时，对查询语句进行解析和优化后，生成的一个执行方案。通过 </font>`<font style="background-color:rgba(255, 255, 255, 0);">EXPLAIN</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 关键字可以查看执行计划，执行计划包含了查询的执行步骤、使用的索引、扫描的行数等信息，有助于分析查询性能，优化查询语句。</font>
+## MySQL 执行计划
++ MySQL 执行计划是 MySQL 数据库在执行 SQL 查询时，对查询语句进行解析和优化后，生成的一个执行方案。通过 `EXPLAIN` 关键字可以查看执行计划，执行计划包含了查询的执行步骤、使用的索引、扫描的行数等信息，有助于分析查询性能，优化查询语句。
 
-## <font style="background-color:rgba(255, 255, 255, 0);">如何定位慢查询</font>
-<font style="background-color:rgba(255, 255, 255, 0);">慢查询可能出现在：</font>
+## 如何定位慢查询
+慢查询可能出现在：
 
-+ <font style="background-color:rgba(255, 255, 255, 0);">聚合查询</font>
-+ <font style="background-color:rgba(255, 255, 255, 0);">多表查询</font>
-+ <font style="background-color:rgba(255, 255, 255, 0);">深度分页查询</font>
-+ <font style="background-color:rgba(255, 255, 255, 0);">表数据量过大查询</font>
++ 聚合查询
++ 多表查询
++ 深度分页查询
++ 表数据量过大查询
 
-<font style="background-color:rgba(255, 255, 255, 0);">表现：页面加载慢、接口响应时间过长（一两秒）</font>
+表现：页面加载慢、接口响应时间过长（一两秒）
 
-<font style="background-color:rgba(255, 255, 255, 0);">方案：</font>
+方案：
 
-+ <font style="background-color:rgba(255, 255, 255, 0);">使用开源监控工具，如 Skywalking 等，可以检测出是哪个接口的问题，可以看到 sql 的执行时间，就能最终定位到 sql</font>
-+ <font style="background-color:rgba(255, 255, 255, 0);">在 MySQL 中开启慢日志查询，如设置的值是 3 秒，那么 MySQL 就会自动记录下耗时超过 3 秒的 sql 查询</font>
++ 使用开源监控工具，如 Skywalking 等，可以检测出是哪个接口的问题，可以看到 sql 的执行时间，就能最终定位到 sql
++ 在 MySQL 中开启慢日志查询，如设置的值是 3 秒，那么 MySQL 就会自动记录下耗时超过 3 秒的 sql 查询
 
-## <font style="background-color:rgba(255, 255, 255, 0);">如何分析慢 SQL</font>
-<font style="background-color:rgba(255, 255, 255, 0);">可以用 </font>`<font style="background-color:rgba(255, 255, 255, 0);">EXPLAIN</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 或 </font>`<font style="background-color:rgba(255, 255, 255, 0);">DESC</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 命令获取 MySQL 执行 SQL 语句的信息，返回内容主要包括：</font>
+## 如何分析慢 SQL
+可以用 `EXPLAIN` 或 `DESC` 命令获取 MySQL 执行 SQL 语句的信息，返回内容主要包括：
 
-+ <font style="background-color:rgba(255, 255, 255, 0);">possible_keys：可能使用到的索引</font>
-+ <font style="background-color:rgba(255, 255, 255, 0);">key 该 sql：实际命中的索引</font>
-+ <font style="background-color:rgba(255, 255, 255, 0);">key_len：索引占用的大小（主要通过这条和上一条判断是否真的用到了索引）</font>
-+ <font style="background-color:rgba(255, 255, 255, 0);">Extra：额外的优化建议，判断是否出现了回表情况，如果出现，可以尝试添加索引或修改返回字段来优化</font>
-+ <font style="background-color:rgba(255, 255, 255, 0);">type：SQL 的连接类型，性能由高到低为：</font>
-    - <font style="background-color:rgba(255, 255, 255, 0);">NULL 没有使用到表</font>
-    - <font style="background-color:rgba(255, 255, 255, 0);">system 查询系统中的表（MySQL 自带的）</font>
-    - <font style="background-color:rgba(255, 255, 255, 0);">const 根据主键索引查询</font>
-    - <font style="background-color:rgba(255, 255, 255, 0);">eq_ref 根据主键索引查询或唯一索引查询，只能返回一条数据</font>
-    - <font style="background-color:rgba(255, 255, 255, 0);">ref 索引查询，可返回多条数据</font>
-    - <font style="background-color:rgba(255, 255, 255, 0);">range 范围查询</font>
-    - <font style="background-color:rgba(255, 255, 255, 0);">index 全索引查询</font>
-    - <font style="background-color:rgba(255, 255, 255, 0);">all 不走索引，全盘扫描</font>
++ possible_keys：可能使用到的索引
++ key 该 sql：实际命中的索引
++ key_len：索引占用的大小（主要通过这条和上一条判断是否真的用到了索引）
++ Extra：额外的优化建议，判断是否出现了回表情况，如果出现，可以尝试添加索引或修改返回字段来优化
++ type：SQL 的连接类型，性能由高到低为：
+    - NULL 没有使用到表
+    - system 查询系统中的表（MySQL 自带的）
+    - const 根据主键索引查询
+    - eq_ref 根据主键索引查询或唯一索引查询，只能返回一条数据
+    - ref 索引查询，可返回多条数据
+    - range 范围查询
+    - index 全索引查询
+    - all 不走索引，全盘扫描
 
-## <font style="background-color:rgba(255, 255, 255, 0);">什么是回表查询？</font>
-<font style="background-color:rgba(255, 255, 255, 0);">通过二级索引作为条件进行查询时，需要在</font>**<font style="background-color:rgba(255, 255, 255, 0);">找到</font>**<font style="background-color:rgba(255, 255, 255, 0);">对应的</font>**<font style="background-color:rgba(255, 255, 255, 0);">主键</font>**<font style="background-color:rgba(255, 255, 255, 0);">值后，</font>**<font style="background-color:rgba(255, 255, 255, 0);">再到聚集索引</font>**<font style="background-color:rgba(255, 255, 255, 0);">去查找整行数据，这个</font>**<font style="background-color:rgba(255, 255, 255, 0);">过程</font>**<font style="background-color:rgba(255, 255, 255, 0);">就是回表。</font>
+## 什么是回表查询？
+通过二级索引作为条件进行查询时，需要在**找到**对应的**主键**值后，**再到聚集索引**去查找整行数据，这个**过程**就是回表。
 
-<font style="background-color:rgba(255, 255, 255, 0);">为什么会需要再到聚集索引：因为聚集索引的叶子节点会存放这一数据行的完整数据，而二级索引（非聚集索引）并不会，非聚集索引的叶子节点只会存储</font>**<font style="background-color:rgba(255, 255, 255, 0);">该索引包含的</font>**<font style="background-color:rgba(255, 255, 255, 0);">数据，即被索引覆盖的数据。所以为了获取完整数据，需要回表。</font>
+为什么会需要再到聚集索引：因为聚集索引的叶子节点会存放这一数据行的完整数据，而二级索引（非聚集索引）并不会，非聚集索引的叶子节点只会存储**该索引包含的**数据，即被索引覆盖的数据。所以为了获取完整数据，需要回表。
 
-**<font style="background-color:rgba(255, 255, 255, 0);">举例</font>**<font style="background-color:rgba(255, 255, 255, 0);">：如有联合索引</font>`<font style="background-color:rgba(255, 255, 255, 0);">a、b</font>`<font style="background-color:rgba(255, 255, 255, 0);">，现通过该联合索引查找</font>`<font style="background-color:rgba(255, 255, 255, 0);">a、b、c</font>`<font style="background-color:rgba(255, 255, 255, 0);">的值，那由于这个联合索引是非聚集索引，叶子节点就只包含索引值，也就是只包含</font>`<font style="background-color:rgba(255, 255, 255, 0);">a、b</font>`<font style="background-color:rgba(255, 255, 255, 0);">，那么</font>`<font style="background-color:rgba(255, 255, 255, 0);">c</font>`<font style="background-color:rgba(255, 255, 255, 0);">就需要通过回表才能获取。</font>
+**举例**：如有联合索引`a、b`，现通过该联合索引查找`a、b、c`的值，那由于这个联合索引是非聚集索引，叶子节点就只包含索引值，也就是只包含`a、b`，那么`c`就需要通过回表才能获取。
 
-**<font style="background-color:rgba(255, 255, 255, 0);">回表的带来的问题：会导致大量随机 I/O</font>**<font style="background-color:rgba(255, 255, 255, 0);">，导致性能降低。</font>
+**回表的带来的问题：会导致大量随机 I/O**，导致性能降低。
 
-<font style="background-color:rgba(255, 255, 255, 0);">因此，在查询时要</font>**<font style="background-color:rgba(255, 255, 255, 0);">避免直接</font>**`**<font style="background-color:rgba(255, 255, 255, 0);">select *</font>**`<font style="background-color:rgba(255, 255, 255, 0);">，减少回表的发生。</font>**<font style="background-color:rgba(255, 255, 255, 0);">或者利用覆盖索引</font>**<font style="background-color:rgba(255, 255, 255, 0);">，直接拿到数据，避免回表查询。</font>
+因此，在查询时要**避免直接**`**select ***`，减少回表的发生。**或者利用覆盖索引**，直接拿到数据，避免回表查询。
 
-## <font style="background-color:rgba(255, 255, 255, 0);">索引失效的场景</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">违背最左前缀原则</font>**<font style="background-color:rgba(255, 255, 255, 0);">：对于组合索引，查询条件不满足最左前缀原则时，如索引在列 ABC 上，但是查询只用到了列 BC，索引可能失效。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">使用函数或表达式</font>**<font style="background-color:rgba(255, 255, 255, 0);">：在索引列上使用函数或表达式，如</font><font style="background-color:rgba(255, 255, 255, 0);"> </font>`<font style="background-color:rgba(255, 255, 255, 0);">WHERE YEAR(date_column) = 2023</font>`<font style="background-color:rgba(255, 255, 255, 0);">，会导致索引失效。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">类型不匹配</font>**<font style="background-color:rgba(255, 255, 255, 0);">：索引列和查询条件的数据类型不匹配，如索引在整数列上，但查询出现了与字符串比较，会导致索引失效。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">使用 </font>**`**<font style="background-color:rgba(255, 255, 255, 0);">OR</font>**`**<font style="background-color:rgba(255, 255, 255, 0);"> 连接条件</font>**<font style="background-color:rgba(255, 255, 255, 0);">：当 </font>`<font style="background-color:rgba(255, 255, 255, 0);">OR</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 连接的条件中有未使用索引的列时，索引可能失效。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">以 % 开头的 LIKE 模糊查询</font>**<font style="background-color:rgba(255, 255, 255, 0);">：如 '%abc' 或 '%abc%' 时会导致索引失效，但是 'abc%' 可以。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">使用了 </font>**`**<font style="background-color:rgba(255, 255, 255, 0);">order by</font>**`<font style="background-color:rgba(255, 255, 255, 0);">：当</font>`<font style="background-color:rgba(255, 255, 255, 0);">order by</font>`<font style="background-color:rgba(255, 255, 255, 0);">后面跟的</font>**<font style="background-color:rgba(255, 255, 255, 0);">不是主键或者不是覆盖索引</font>**<font style="background-color:rgba(255, 255, 255, 0);">时，会导致 SQL 不走索引。</font>
+## 索引失效的场景
++ **违背最左前缀原则**：对于组合索引，查询条件不满足最左前缀原则时，如索引在列 ABC 上，但是查询只用到了列 BC，索引可能失效。
++ **使用函数或表达式**：在索引列上使用函数或表达式，如 `WHERE YEAR(date_column) = 2023`，会导致索引失效。
++ **类型不匹配**：索引列和查询条件的数据类型不匹配，如索引在整数列上，但查询出现了与字符串比较，会导致索引失效。
++ **使用 **`**OR**`** 连接条件**：当 `OR` 连接的条件中有未使用索引的列时，索引可能失效。
++ **以 % 开头的 LIKE 模糊查询**：如 '%abc' 或 '%abc%' 时会导致索引失效，但是 'abc%' 可以。
++ **使用了 **`**order by**`：当`order by`后面跟的**不是主键或者不是覆盖索引**时，会导致 SQL 不走索引。
 
-## <font style="background-color:rgba(255, 255, 255, 0);">索引创建原则</font>
-1. <font style="background-color:rgba(255, 255, 255, 0);">针对</font>**<font style="background-color:rgba(255, 255, 255, 0);">数据量较大</font>**<font style="background-color:rgba(255, 255, 255, 0);">，且</font>**<font style="background-color:rgba(255, 255, 255, 0);">查询频繁</font>**<font style="background-color:rgba(255, 255, 255, 0);">的表建立索引。</font>
-2. <font style="background-color:rgba(255, 255, 255, 0);">针对于</font>**<font style="background-color:rgba(255, 255, 255, 0);">常作为查询条件</font>**<font style="background-color:rgba(255, 255, 255, 0);">（where）、</font>**<font style="background-color:rgba(255, 255, 255, 0);">排序</font>**<font style="background-color:rgba(255, 255, 255, 0);">（order by）、</font>**<font style="background-color:rgba(255, 255, 255, 0);">分组</font>**<font style="background-color:rgba(255, 255, 255, 0);">（group by）操作的字段建立索引。</font>
-3. <font style="background-color:rgba(255, 255, 255, 0);">尽量</font>**<font style="background-color:rgba(255, 255, 255, 0);">选择区分度高的列</font>**<font style="background-color:rgba(255, 255, 255, 0);">作为索引，尽量建立唯一索引，区分度越高，使用索引的效率越高。</font>
-4. <font style="background-color:rgba(255, 255, 255, 0);">如果是</font>**<font style="background-color:rgba(255, 255, 255, 0);">字符串</font>**<font style="background-color:rgba(255, 255, 255, 0);">类型的字段，字段的长度较长，可以针对于字段的特点，建立</font>**<font style="background-color:rgba(255, 255, 255, 0);">前缀索引</font>**<font style="background-color:rgba(255, 255, 255, 0);">。</font>
-5. **<font style="background-color:rgba(255, 255, 255, 0);">尽量使用联合索引，减少单列索引</font>**<font style="background-color:rgba(255, 255, 255, 0);">，查询时，联合索引很多时候可以覆盖索引，节省存储空间，避免回表，提高查询效率。</font>
-6. <font style="background-color:rgba(255, 255, 255, 0);">要</font>**<font style="background-color:rgba(255, 255, 255, 0);">控制索引的数量</font>**<font style="background-color:rgba(255, 255, 255, 0);">，索引并不是多多益善，索引越多，维护索引结构的代价也就越大，会影响增删改的效率。</font>
-7. <font style="background-color:rgba(255, 255, 255, 0);">如果索引列不能存储 NULL 值，请在创建表时使用 </font>**<font style="background-color:rgba(255, 255, 255, 0);">NOT NULL 约束</font>**<font style="background-color:rgba(255, 255, 255, 0);">它。当优化器知道每列是否包含 NULL 值时，它可以更好地确定哪个索引最有效地用于查询。</font>
+## 索引创建原则
+1. 针对**数据量较大**，且**查询频繁**的表建立索引。
+2. 针对于**常作为查询条件**（where）、**排序**（order by）、**分组**（group by）操作的字段建立索引。
+3. 尽量**选择区分度高的列**作为索引，尽量建立唯一索引，区分度越高，使用索引的效率越高。
+4. 如果是**字符串**类型的字段，字段的长度较长，可以针对于字段的特点，建立**前缀索引**。
+5. **尽量使用联合索引，减少单列索引**，查询时，联合索引很多时候可以覆盖索引，节省存储空间，避免回表，提高查询效率。
+6. 要**控制索引的数量**，索引并不是多多益善，索引越多，维护索引结构的代价也就越大，会影响增删改的效率。
+7. 如果索引列不能存储 NULL 值，请在创建表时使用 **NOT NULL 约束**它。当优化器知道每列是否包含 NULL 值时，它可以更好地确定哪个索引最有效地用于查询。
 
-## <font style="background-color:rgba(255, 255, 255, 0);">谈谈 SQL 优化的经验</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">表的设计优化</font>**
-    - <font style="background-color:rgba(255, 255, 255, 0);">设置合适的数值（tinyint int bigint），根据实际情况选择</font>
-    - <font style="background-color:rgba(255, 255, 255, 0);">设置合适的字符串类型（char 和 varchar），char 定长效率高，varchar 可变长效率稍低</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">SQL 语句优化</font>**
-    - <font style="background-color:rgba(255, 255, 255, 0);">SELECT 语句指明字段名称，避免 SELECT *</font>
-    - <font style="background-color:rgba(255, 255, 255, 0);">避免会造成索引失效的写法</font>
-    - <font style="background-color:rgba(255, 255, 255, 0);">尽量使用 union all 代替 union，union 会多一次过滤操作，效率低</font>
-    - <font style="background-color:rgba(255, 255, 255, 0);">避免在 where 子句中进行表达式的操作</font>
-    - <font style="background-color:rgba(255, 255, 255, 0);">join 优化，能用 inner join 就不要使用 left 或 right join。如果必须用，一定要以小表为驱动，内连接会对两个表进行优化，优先把小表放到外边，把大表放到里边。left join 或 right join，不会重新调整顺序</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">主从复制，读写分离</font>**
-    - <font style="background-color:rgba(255, 255, 255, 0);">读操作比较多的时候，为了避免写操作造成影响，可以设计读写分离结构</font>
+## 谈谈 SQL 优化的经验
++ **表的设计优化**
+    - 设置合适的数值（tinyint int bigint），根据实际情况选择
+    - 设置合适的字符串类型（char 和 varchar），char 定长效率高，varchar 可变长效率稍低
++ **SQL 语句优化**
+    - SELECT 语句指明字段名称，避免 SELECT *
+    - 避免会造成索引失效的写法
+    - 尽量使用 union all 代替 union，union 会多一次过滤操作，效率低
+    - 避免在 where 子句中进行表达式的操作
+    - join 优化，能用 inner join 就不要使用 left 或 right join。如果必须用，一定要以小表为驱动，内连接会对两个表进行优化，优先把小表放到外边，把大表放到里边。left join 或 right join，不会重新调整顺序
++ **主从复制，读写分离**
+    - 读操作比较多的时候，为了避免写操作造成影响，可以设计读写分离结构
 
-## <font style="background-color:rgba(255, 255, 255, 0);">MySQL 事务</font>
-<font style="background-color:rgba(255, 255, 255, 0);">数据库事务可以保证多个对数据库的操作构成一个逻辑上的整体，这些语句</font>**<font style="background-color:rgba(255, 255, 255, 0);">要么全部执行成功，要么全部不执行</font>**<font style="background-color:rgba(255, 255, 255, 0);">，以此保证数据的一致性和完整性。事务具有四个特性，即 </font>**<font style="background-color:rgba(255, 255, 255, 0);">ACID 特性</font>**<font style="background-color:rgba(255, 255, 255, 0);">：</font>
+## MySQL 事务
+数据库事务可以保证多个对数据库的操作构成一个逻辑上的整体，这些语句**要么全部执行成功，要么全部不执行**，以此保证数据的一致性和完整性。事务具有四个特性，即 **ACID 特性**：
 
-+ **<font style="background-color:rgba(255, 255, 255, 0);">原子性（Atomicity）</font>**<font style="background-color:rgba(255, 255, 255, 0);">：事务是一个不可分割的工作单位，事务中的操作要么全部成功，要么全部失败回滚。例如，在一个转账事务中，从账户 A 向账户 B 转账 100 元，这包括从 A 账户扣除 100 元以及向 B 账户增加 100 元两个操作，这两个操作必须同时成功或者同时失败。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">一致性（Consistency）</font>**<font style="background-color:rgba(255, 255, 255, 0);">：事务执行前后，数据库的数据必须保持一致状态。比如在上述转账事务中，无论事务执行成功与否，A 账户和 B 账户的总金额应该保持不变。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">隔离性（Isolation）</font>**<font style="background-color:rgba(255, 255, 255, 0);">：多个事务并发执行时，一个事务的执行不能被其他事务干扰，各个事务之间是相互隔离的。不同的隔离级别决定了事务之间的隔离程度。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">持久性（Durability）</font>**<font style="background-color:rgba(255, 255, 255, 0);">：事务一旦提交，它对数据库中数据的改变就是永久性的，即使数据库发生故障也不会丢失。通过 InnoDB 的 redo log 实现，先将修改操作写入 redo log，并刷盘持久化，崩溃后可通过 redo log 恢复数据。</font>
++ **原子性（Atomicity）**：事务是一个不可分割的工作单位，事务中的操作要么全部成功，要么全部失败回滚。例如，在一个转账事务中，从账户 A 向账户 B 转账 100 元，这包括从 A 账户扣除 100 元以及向 B 账户增加 100 元两个操作，这两个操作必须同时成功或者同时失败。
++ **一致性（Consistency）**：事务执行前后，数据库的数据必须保持一致状态。比如在上述转账事务中，无论事务执行成功与否，A 账户和 B 账户的总金额应该保持不变。
++ **隔离性（Isolation）**：多个事务并发执行时，一个事务的执行不能被其他事务干扰，各个事务之间是相互隔离的。不同的隔离级别决定了事务之间的隔离程度。
++ **持久性（Durability）**：事务一旦提交，它对数据库中数据的改变就是永久性的，即使数据库发生故障也不会丢失。通过 InnoDB 的 redo log 实现，先将修改操作写入 redo log，并刷盘持久化，崩溃后可通过 redo log 恢复数据。
 
-<font style="background-color:rgba(255, 255, 255, 0);">在 MySQL 中，使用 </font>`<font style="background-color:rgba(255, 255, 255, 0);">START TRANSACTION</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 或者 </font>`<font style="background-color:rgba(255, 255, 255, 0);">BEGIN</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 来开启一个事务，使用 </font>`<font style="background-color:rgba(255, 255, 255, 0);">COMMIT</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 提交事务，使用 </font>`<font style="background-color:rgba(255, 255, 255, 0);">ROLLBACK</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 回滚事务。</font>
+在 MySQL 中，使用 `START TRANSACTION` 或者 `BEGIN` 来开启一个事务，使用 `COMMIT` 提交事务，使用 `ROLLBACK` 回滚事务。
 
-<font style="background-color:rgba(255, 255, 255, 0);">实际上是</font>`<font style="background-color:rgba(255, 255, 255, 0);">A、I、D => C</font>`<font style="background-color:rgba(255, 255, 255, 0);">，即原子性、隔离性、持久性保证一致性。</font>
+实际上是`A、I、D => C`，即原子性、隔离性、持久性保证一致性。
 
-## <font style="background-color:rgba(255, 255, 255, 0);">TODO 事务的 ACID 怎么实现的</font>
+## TODO 事务的 ACID 怎么实现的
 **简述**：原子性通过 undo log 实现，持久性通过 redo log 实现，隔离性通过 MVCC 和锁机制实现，一致性由其他三个特性共同保证。
 
-+ **原子性（Atomicity）**<font style="background-color:rgba(255, 255, 255, 0);">：通过 undo log 实现，事务中有语句失败则回滚。</font>
-+ **一致性（Consistency）**<font style="background-color:rgba(255, 255, 255, 0);">：数据库通过约束（如主键约束、唯一约束、外键约束等）和触发器来保证数据的一致性。在事务执行过程中，数据库会检查这些约束条件是否满足，如果不满足，会回滚事务。</font>
-+ **隔离性（Isolation）**<font style="background-color:rgba(255, 255, 255, 0);">：通过锁机制和 MVCC 来实现。不同的隔离级别对应不同的锁策略和 MVCC 实现方式，例如读已提交和可重复读隔离级别就是通过不同的锁和 MVCC 机制来保证事务之间的隔离性。</font>
-+ **持久性（Durability）**<font style="background-color:rgba(255, 255, 255, 0);">：通过 redo log、双写机制、两阶段提交和 checkpoint 刷盘机制来实现。在事务提交时，数据库会将事务日志写入磁盘，确保即使在系统崩溃或故障的情况下，也可以根据事务日志恢复数据。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">锁</font>**<font style="background-color:rgba(255, 255, 255, 0);">：悲观控制的模式，通过锁来显示控制共享资源，MySQL 中主要通过读写锁实现</font>
-    - <font style="background-color:rgba(255, 255, 255, 0);">共享锁（S 锁）：读锁，允许多个事务同时获取，锁兼容</font>
-    - <font style="background-color:rgba(255, 255, 255, 0);">排他锁（X 锁）：写锁/独占锁，事务在修改记录时获取 X 锁，不允许多个事务同时获取，锁不兼容。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">MVCC</font>**<font style="background-color:rgba(255, 255, 255, 0);">：乐观控制的模式，一份数据会存储多个版本，通过事务的可见性来保证事务能看到自己应该看到的版本。通常会有一个全局的版本分配器来为每一行数据设置版本号，版本号唯一。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">undo log</font>**<font style="background-color:rgba(255, 255, 255, 0);">：记录事务的反向操作，即保存数据的历史版本用于回滚，实现原子性和隔离性。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">redo log</font>**<font style="background-color:rgba(255, 255, 255, 0);">：记录事务做出的所有修改，以便恢复数据，保证了事务的持久性。</font>
++ **原子性（Atomicity）**：通过 undo log 实现，事务中有语句失败则回滚。
++ **一致性（Consistency）**：数据库通过约束（如主键约束、唯一约束、外键约束等）和触发器来保证数据的一致性。在事务执行过程中，数据库会检查这些约束条件是否满足，如果不满足，会回滚事务。
++ **隔离性（Isolation）**：通过锁机制和 MVCC 来实现。不同的隔离级别对应不同的锁策略和 MVCC 实现方式，例如读已提交和可重复读隔离级别就是通过不同的锁和 MVCC 机制来保证事务之间的隔离性。
++ **持久性（Durability）**：通过 redo log、双写机制、两阶段提交和 checkpoint 刷盘机制来实现。在事务提交时，数据库会将事务日志写入磁盘，确保即使在系统崩溃或故障的情况下，也可以根据事务日志恢复数据。
++ **锁**：悲观控制的模式，通过锁来显示控制共享资源，MySQL 中主要通过读写锁实现
+    - 共享锁（S 锁）：读锁，允许多个事务同时获取，锁兼容
+    - 排他锁（X 锁）：写锁/独占锁，事务在修改记录时获取 X 锁，不允许多个事务同时获取，锁不兼容。
++ **MVCC**：乐观控制的模式，一份数据会存储多个版本，通过事务的可见性来保证事务能看到自己应该看到的版本。通常会有一个全局的版本分配器来为每一行数据设置版本号，版本号唯一。
++ **undo log**：记录事务的反向操作，即保存数据的历史版本用于回滚，实现原子性和隔离性。
++ **redo log**：记录事务做出的所有修改，以便恢复数据，保证了事务的持久性。
 
 [MySQL · 引擎特性 · 庖丁解InnoDB之UNDO LOG](http://mysql.taobao.org/monthly/2021/10/01/)
 
-## <font style="background-color:rgba(255, 255, 255, 0);">MySQL 实现事务的多种机制</font>
+## MySQL 实现事务的多种机制
 ![](https://cdn.nlark.com/yuque/0/2025/png/35335189/1748789507485-ee866ba0-0cae-49f4-a07d-556a20ca837b.png)
 
-## <font style="background-color:rgba(255, 255, 255, 0);">MySQL 事务的四种隔离级别和实现</font>
+## MySQL 事务的四种隔离级别和实现
 ![](https://cdn.nlark.com/yuque/0/2025/png/35335189/1748875923493-dc9f6da5-5514-4b9c-8e59-5d66c2d83095.png)
 
-<font style="background-color:rgba(255, 255, 255, 0);">MySQL 提供了四种不同的隔离级别，用于控制并发事务之间的可见性和影响范围，不同的隔离级别在并发性能和数据一致性上有所不同：</font>
+MySQL 提供了四种不同的隔离级别，用于控制并发事务之间的可见性和影响范围，不同的隔离级别在并发性能和数据一致性上有所不同：
 
-+ **<font style="background-color:rgba(255, 255, 255, 0);">读未提交（Read Uncommitted）</font>**
-    - **<font style="background-color:rgba(255, 255, 255, 0);">概念</font>**<font style="background-color:rgba(255, 255, 255, 0);">：这是</font>**<font style="background-color:rgba(255, 255, 255, 0);">最低</font>**<font style="background-color:rgba(255, 255, 255, 0);">的隔离级别，一个事务可以读取另一个未提交事务的数据。这种隔离级别可能会导致脏读、不可重复读和幻读问题。</font>
-    - **<font style="background-color:rgba(255, 255, 255, 0);">实现</font>**<font style="background-color:rgba(255, 255, 255, 0);">：数据库不对读操作加锁，对写操作加行级排他锁（X锁）。当一个事务进行写操作时，会阻止其他事务的写操作，但不会阻止读操作。所以，读操作可以看到未提交的写操作结果。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">读已提交（Read Committed）</font>**
-    - **<font style="background-color:rgba(255, 255, 255, 0);">概念</font>**<font style="background-color:rgba(255, 255, 255, 0);">：一个事务只能读取另一个已经提交事务的数据。</font>**<font style="background-color:rgba(255, 255, 255, 0);">避免了脏读</font>**<font style="background-color:rgba(255, 255, 255, 0);">问题，但仍然可能出现不可重复读和幻读问题。</font>
-    - **<font style="background-color:rgba(255, 255, 255, 0);">实现</font>**<font style="background-color:rgba(255, 255, 255, 0);">：在写操作时加行级排他锁（X锁），阻止其他事务的写操作。在读操作时加行级共享锁（S锁），但这个锁在读取操作完成后立即释放。所以，一个事务只能读取到已经提交的事务所做的修改。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">可重复读（Repeatable Read）</font>**
-    - **<font style="background-color:rgba(255, 255, 255, 0);">概念</font>**<font style="background-color:rgba(255, 255, 255, 0);">： MySQL 的</font>**<font style="background-color:rgba(255, 255, 255, 0);">默认</font>**<font style="background-color:rgba(255, 255, 255, 0);">隔离级别。在同一个事务中，多次读取同一数据的结果是一致的。</font>**<font style="background-color:rgba(255, 255, 255, 0);">解决了脏读和不可重复读</font>**<font style="background-color:rgba(255, 255, 255, 0);">问题，但仍然可能存在幻读问题。MySQL 通过 </font>**<font style="background-color:rgba(255, 255, 255, 0);">MVCC 和间隙锁来实现</font>**<font style="background-color:rgba(255, 255, 255, 0);">该隔离级别。</font>
-    - **<font style="background-color:rgba(255, 255, 255, 0);">实现</font>**<font style="background-color:rgba(255, 255, 255, 0);">：通过使用锁和 MVCC 来实现。写操作使用行级排他锁（X锁）。读操作则通过 MVCC 实现，每个事务开启时，会创建一个一致性视图，该视图记录了当时数据库的状态。在事务内的读操作，都是基于这个一致性视图，而不是直接读取最新的数据版本。所以，即使其他事务修改并提交了数据，当前事务看到的数据版本依然是事务开始时的版本。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">串行化（Serializable）</font>**
-    - **<font style="background-color:rgba(255, 255, 255, 0);">概念</font>**<font style="background-color:rgba(255, 255, 255, 0);">：</font>**<font style="background-color:rgba(255, 255, 255, 0);">最高</font>**<font style="background-color:rgba(255, 255, 255, 0);">的隔离级别，</font>**<font style="background-color:rgba(255, 255, 255, 0);">所有事务串行执行，避免了脏读、不可重复读和幻读</font>**<font style="background-color:rgba(255, 255, 255, 0);">问题。但这种隔离级别会导致并发性能严重下降，因为事务必须依次执行，会产生大量的锁等待。</font>
-    - **<font style="background-color:rgba(255, 255, 255, 0);">实现</font>**<font style="background-color:rgba(255, 255, 255, 0);">：强制事务串行执行，避免了所有的并发问题。</font>**<font style="background-color:rgba(255, 255, 255, 0);">对所有的读、写操作都加锁</font>**<font style="background-color:rgba(255, 255, 255, 0);">，这些锁会一直持有到事务结束。读操作加共享锁（S锁），写操作加排他锁（X锁）。所有事务依次执行，像单线程环境一样，完全避免了并发冲突。</font>
++ **读未提交（Read Uncommitted）**
+    - **概念**：这是**最低**的隔离级别，一个事务可以读取另一个未提交事务的数据。这种隔离级别可能会导致脏读、不可重复读和幻读问题。
+    - **实现**：数据库不对读操作加锁，对写操作加行级排他锁（X锁）。当一个事务进行写操作时，会阻止其他事务的写操作，但不会阻止读操作。所以，读操作可以看到未提交的写操作结果。
++ **读已提交（Read Committed）**
+    - **概念**：一个事务只能读取另一个已经提交事务的数据。**避免了脏读**问题，但仍然可能出现不可重复读和幻读问题。
+    - **实现**：在写操作时加行级排他锁（X锁），阻止其他事务的写操作。在读操作时加行级共享锁（S锁），但这个锁在读取操作完成后立即释放。所以，一个事务只能读取到已经提交的事务所做的修改。
++ **可重复读（Repeatable Read）**
+    - **概念**： MySQL 的**默认**隔离级别。在同一个事务中，多次读取同一数据的结果是一致的。**解决了脏读和不可重复读**问题，但仍然可能存在幻读问题。MySQL 通过 **MVCC 和间隙锁来实现**该隔离级别。
+    - **实现**：通过使用锁和 MVCC 来实现。写操作使用行级排他锁（X锁）。读操作则通过 MVCC 实现，每个事务开启时，会创建一个一致性视图，该视图记录了当时数据库的状态。在事务内的读操作，都是基于这个一致性视图，而不是直接读取最新的数据版本。所以，即使其他事务修改并提交了数据，当前事务看到的数据版本依然是事务开始时的版本。
++ **串行化（Serializable）**
+    - **概念**：**最高**的隔离级别，**所有事务串行执行，避免了脏读、不可重复读和幻读**问题。但这种隔离级别会导致并发性能严重下降，因为事务必须依次执行，会产生大量的锁等待。
+    - **实现**：强制事务串行执行，避免了所有的并发问题。**对所有的读、写操作都加锁**，这些锁会一直持有到事务结束。读操作加共享锁（S锁），写操作加排他锁（X锁）。所有事务依次执行，像单线程环境一样，完全避免了并发冲突。
 
-<font style="background-color:rgba(255, 255, 255, 0);">可以使用 </font>`<font style="background-color:rgba(255, 255, 255, 0);">SET TRANSACTION ISOLATION LEVEL</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 语句来设置当前会话或全局的隔离级别，例如 </font>`<font style="background-color:rgba(255, 255, 255, 0);">SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED;</font>`<font style="background-color:rgba(255, 255, 255, 0);">。</font>
+可以使用 `SET TRANSACTION ISOLATION LEVEL` 语句来设置当前会话或全局的隔离级别，例如 `SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED;`。
 
-<font style="background-color:rgba(255, 255, 255, 0);">MySQL 8.0 后使用</font>`<font style="background-color:rgba(255, 255, 255, 0);">SELECT @@transaction_isolation;</font>`<font style="background-color:rgba(255, 255, 255, 0);">查看隔离级别。</font>
+MySQL 8.0 后使用`SELECT @@transaction_isolation;`查看隔离级别。
 
-<font style="background-color:rgba(255, 255, 255, 0);">选择适当的事务隔离级别取决于应用程序的需求和对数据一致性和性能的要求。较低的隔离级别通常可以提高并发性能，但可能会导致数据的不一致性问题，而较高的隔离级别可以确保数据的一致性，但可能会降低并发性能。</font>
+选择适当的事务隔离级别取决于应用程序的需求和对数据一致性和性能的要求。较低的隔离级别通常可以提高并发性能，但可能会导致数据的不一致性问题，而较高的隔离级别可以确保数据的一致性，但可能会降低并发性能。
 
-## <font style="background-color:rgba(255, 255, 255, 0);">为什么互联网大厂通常选择 读已提交？</font>
+## 为什么互联网大厂通常选择 读已提交？
 主要与业务场景、性能需求和一致性权衡密切相关：
 
 ### **一、业务场景：高并发读写与实时性需求**
@@ -484,51 +484,51 @@ _（注：MySQL 8.0后，RR级别通过_`innodb_locks_unsafe_for_binlog`_参数�
 
 互联网大厂选择RC的本质是：**在数据时效性、性能优化和业务适配之间取得平衡**，通过牺牲“事务内可重复读”，换取更高的并发能力和更低的运维成本。这一选择也符合“CAP定理”中“可用性（A）和分区容错性（P）优先于强一致性（C）”的互联网架构设计原则。
 
-## <font style="background-color:rgba(255, 255, 255, 0);">并发事务可能会出现的问题</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">脏读</font>**
-    - **<font style="background-color:rgba(255, 255, 255, 0);">定义</font>**<font style="background-color:rgba(255, 255, 255, 0);">：一个事务读取到了另一个未提交事务修改的数据。</font>
-    - **<font style="background-color:rgba(255, 255, 255, 0);">示例</font>**<font style="background-color:rgba(255, 255, 255, 0);">：事务A修改了一条记录，但尚未提交，此时事务B</font>**<font style="background-color:rgba(255, 255, 255, 0);">读取了修改但未提交的记录</font>**<font style="background-color:rgba(255, 255, 255, 0);">。如果事务A随后回滚，那么事务B读取到的数据就是无效的“脏数据”。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">幻读</font>**
-    - **<font style="background-color:rgba(255, 255, 255, 0);">定义</font>**<font style="background-color:rgba(255, 255, 255, 0);">：在一个事务中，多次执行相同的查询，得到的</font>**<font style="background-color:rgba(255, 255, 255, 0);">结果集数量不一致</font>**<font style="background-color:rgba(255, 255, 255, 0);">，仿佛出现了“幻觉”。通常是因为在事务执行过程中，有其他事务插入或删除了符合查询条件的记录。</font>
-    - **<font style="background-color:rgba(255, 255, 255, 0);">示例</font>**<font style="background-color:rgba(255, 255, 255, 0);">：事务A查询记录数量为10条，然后事务B插入了一条符合该条件的记录并提交，接着事务A再次执行相同的查询，发现结果变为11条，像出现幻觉一样。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">不可重复读</font>**
-    - **<font style="background-color:rgba(255, 255, 255, 0);">定义</font>**<font style="background-color:rgba(255, 255, 255, 0);">：一个事务在</font>**<font style="background-color:rgba(255, 255, 255, 0);">两次读取同一数据的结果不同</font>**<font style="background-color:rgba(255, 255, 255, 0);">。这是由于在两次读取之间，有其他事务对该数据进行了修改并提交。</font>
-    - **<font style="background-color:rgba(255, 255, 255, 0);">示例</font>**<font style="background-color:rgba(255, 255, 255, 0);">：事务A第一次读取某条记录的某个字段值为10，然后事务B修改了该字段值为20并提交，当事务A再次读取该记录时，发现字段值变为20，导致前后读取结果不一致，无法重复读取到相同的值。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">丢失修改</font>**
-    - **<font style="background-color:rgba(255, 255, 255, 0);">定义</font>**<font style="background-color:rgba(255, 255, 255, 0);">：两个事务同时修改同一数据，并且每个事务都基于未提交的数据执行修改操作时，可能会发生丢失更新的情况。其中</font>**<font style="background-color:rgba(255, 255, 255, 0);">一个事务的修改可能会被另一个事务覆盖</font>**<font style="background-color:rgba(255, 255, 255, 0);">，导致其中一个事务的修改被丢失。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">死锁</font>**
-    - **<font style="background-color:rgba(255, 255, 255, 0);">定义</font>**<font style="background-color:rgba(255, 255, 255, 0);">：两个或多个事务相互等待对方释放所持有的资源，导致所有事务都无法继续执行的情况。这种情况下，需要数据库管理系统的死锁检测和处理机制来解决。</font>
-    - **<font style="background-color:rgba(255, 255, 255, 0);">产生条件</font>**<font style="background-color:rgba(255, 255, 255, 0);">：</font>
-        * **<font style="background-color:rgba(255, 255, 255, 0);">互斥条件</font>**<font style="background-color:rgba(255, 255, 255, 0);">：进程对所分配到的资源进行排他性使用，即在一段时间内某资源只由一个进程占用。如果此时还有其他进程请求该资源，则请求者只能等待，直至占有该资源的进程释放。</font>
-        * **<font style="background-color:rgba(255, 255, 255, 0);">请求和保持条件</font>**<font style="background-color:rgba(255, 255, 255, 0);">：进程已经保持了至少一个资源，但又提出了新的资源请求，而该资源又已被其他进程占有，此时请求进程被阻塞，但对自己已获得的资源保持不放。</font>
-        * **<font style="background-color:rgba(255, 255, 255, 0);">不可剥夺条件</font>**<font style="background-color:rgba(255, 255, 255, 0);">：进程已获得的资源，在未使用完之前，不能被剥夺，只能在使用完时由自己释放。</font>
-        * **<font style="background-color:rgba(255, 255, 255, 0);">环路等待条件</font>**<font style="background-color:rgba(255, 255, 255, 0);">：在发生死锁时，必然存在一个进程 - 资源的环形链，即进程集合 {P0，P1，P2，・・・，Pn} 中的 P0 正在等待一个 P1 占用的资源；P1 正在等待 P2 占用的资源，……，Pn 正在等待已被 P0 占用的资源。</font>
+## 并发事务可能会出现的问题
++ **脏读**
+    - **定义**：一个事务读取到了另一个未提交事务修改的数据。
+    - **示例**：事务A修改了一条记录，但尚未提交，此时事务B**读取了修改但未提交的记录**。如果事务A随后回滚，那么事务B读取到的数据就是无效的“脏数据”。
++ **幻读**
+    - **定义**：在一个事务中，多次执行相同的查询，得到的**结果集数量不一致**，仿佛出现了“幻觉”。通常是因为在事务执行过程中，有其他事务插入或删除了符合查询条件的记录。
+    - **示例**：事务A查询记录数量为10条，然后事务B插入了一条符合该条件的记录并提交，接着事务A再次执行相同的查询，发现结果变为11条，像出现幻觉一样。
++ **不可重复读**
+    - **定义**：一个事务在**两次读取同一数据的结果不同**。这是由于在两次读取之间，有其他事务对该数据进行了修改并提交。
+    - **示例**：事务A第一次读取某条记录的某个字段值为10，然后事务B修改了该字段值为20并提交，当事务A再次读取该记录时，发现字段值变为20，导致前后读取结果不一致，无法重复读取到相同的值。
++ **丢失修改**
+    - **定义**：两个事务同时修改同一数据，并且每个事务都基于未提交的数据执行修改操作时，可能会发生丢失更新的情况。其中**一个事务的修改可能会被另一个事务覆盖**，导致其中一个事务的修改被丢失。
++ **死锁**
+    - **定义**：两个或多个事务相互等待对方释放所持有的资源，导致所有事务都无法继续执行的情况。这种情况下，需要数据库管理系统的死锁检测和处理机制来解决。
+    - **产生条件**：
+        * **互斥条件**：进程对所分配到的资源进行排他性使用，即在一段时间内某资源只由一个进程占用。如果此时还有其他进程请求该资源，则请求者只能等待，直至占有该资源的进程释放。
+        * **请求和保持条件**：进程已经保持了至少一个资源，但又提出了新的资源请求，而该资源又已被其他进程占有，此时请求进程被阻塞，但对自己已获得的资源保持不放。
+        * **不可剥夺条件**：进程已获得的资源，在未使用完之前，不能被剥夺，只能在使用完时由自己释放。
+        * **环路等待条件**：在发生死锁时，必然存在一个进程 - 资源的环形链，即进程集合 {P0，P1，P2，・・・，Pn} 中的 P0 正在等待一个 P1 占用的资源；P1 正在等待 P2 占用的资源，……，Pn 正在等待已被 P0 占用的资源。
 
-<font style="background-color:rgba(255, 255, 255, 0);">这几种情况都会影响数据库事务的一致性和准确性，在数据库管理中，通常通过设置不同的事务隔离级别来避免或减少这些问题的发生。</font>
+这几种情况都会影响数据库事务的一致性和准确性，在数据库管理中，通常通过设置不同的事务隔离级别来避免或减少这些问题的发生。
 
-## <font style="background-color:rgba(255, 255, 255, 0);">在读已提交的隔离级别下，a 事务对表进行查询后，b 事务对表进行更新并提交事务，此时 a 再次查询，那么 a 两次查询的数据？为什么？</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">两次查询的数据不同</font>**<font style="background-color:rgba(255, 255, 255, 0);">。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">原因</font>**<font style="background-color:rgba(255, 255, 255, 0);">：在读已提交（Read Committed）隔离级别下，一个事务只能读取其他事务已经提交的数据。当事务 a 第一次查询时，获取到的是当时数据库中的数据状态。接着事务 b 对表进行更新并提交事务，这意味着事务 b 对数据的修改已经持久化到数据库中。当事务 a 再次查询时，由于读已提交隔离级别允许读取已提交事务的数据，所以事务 a 第二次查询时会读取到事务 b 提交后的数据，从而导致两次查询的数据不同，这就是不可重复读现象。例如，事务 a 第一次查询某账户余额为 1000 元，事务 b 将该账户余额更新为 1500 元并提交，事务 a 再次查询时，就会看到账户余额变为 1500 元。</font>
+## 在读已提交的隔离级别下，a 事务对表进行查询后，b 事务对表进行更新并提交事务，此时 a 再次查询，那么 a 两次查询的数据？为什么？
++ **两次查询的数据不同**。
++ **原因**：在读已提交（Read Committed）隔离级别下，一个事务只能读取其他事务已经提交的数据。当事务 a 第一次查询时，获取到的是当时数据库中的数据状态。接着事务 b 对表进行更新并提交事务，这意味着事务 b 对数据的修改已经持久化到数据库中。当事务 a 再次查询时，由于读已提交隔离级别允许读取已提交事务的数据，所以事务 a 第二次查询时会读取到事务 b 提交后的数据，从而导致两次查询的数据不同，这就是不可重复读现象。例如，事务 a 第一次查询某账户余额为 1000 元，事务 b 将该账户余额更新为 1500 元并提交，事务 a 再次查询时，就会看到账户余额变为 1500 元。
 
-## <font style="background-color:rgba(255, 255, 255, 0);">说说 MySQL 中的锁</font>
+## 说说 MySQL 中的锁
 ![](https://cdn.nlark.com/yuque/0/2025/png/35335189/1748924853927-b70f7471-94df-43ec-9540-a5d59a1e3bb8.png)
 
-+ **<font style="background-color:rgba(255, 255, 255, 0);">表级锁</font>**<font style="background-color:rgba(255, 255, 255, 0);">：针对非索引字段加的锁，加锁快，不会死锁，高并发下低效</font>
-    - <font style="background-color:rgba(255, 255, 255, 0);">表共享读锁（S 锁）</font>
-    - <font style="background-color:rgba(255, 255, 255, 0);">表独占写锁（X 锁）</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">行级锁</font>**<font style="background-color:rgba(255, 255, 255, 0);">：针对索引字段加的锁，并发度高，加锁开销大、慢，会出现死锁</font>
-    - **记录锁（Record Lock）**<font style="background-color:rgba(255, 255, 255, 0);">：单个行记录上的锁，使用唯一索引或主键索引进行等值查询时，MySQL 会为该记录加排他锁。</font>
-    - **间隙锁（Gap Lock）**<font style="background-color:rgba(255, 255, 255, 0);">：锁一个范围，不包含记录本身。RR 隔离级别下，执行</font>`<font style="background-color:rgba(255, 255, 255, 0);">FOR UPDATE</font>`<font style="background-color:rgba(255, 255, 255, 0);">或</font>`<font style="background-color:rgba(255, 255, 255, 0);">LOCK IN SHARE MODE</font>`<font style="background-color:rgba(255, 255, 255, 0);">等加锁语句，且查询条件是范围查询时，就会自动加间隙锁。</font>
-    - **临键锁（Next-Key Lock）**<font style="background-color:rgba(255, 255, 255, 0);">：记录锁+间隙锁，锁一个范围，包括记录本身，能够解决幻读问题。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">共享锁</font>**<font style="background-color:rgba(255, 255, 255, 0);">（S 锁/读锁）：允许多个事务同时读，但阻塞写</font>`<font style="background-color:rgba(255, 255, 255, 0);">SELECT ... LOCK IN SHARE MODE</font>`
-+ **<font style="background-color:rgba(255, 255, 255, 0);">独占锁</font>**<font style="background-color:rgba(255, 255, 255, 0);">：阻塞其他事务读写</font>`<font style="background-color:rgba(255, 255, 255, 0);">SELECT ... FOR UPDATE</font>`
-+ **<font style="background-color:rgba(255, 255, 255, 0);">乐观锁</font>**<font style="background-color:rgba(255, 255, 255, 0);">：假设冲突少，通过版本号或 CAS 机制检测冲突。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">悲观锁</font>**<font style="background-color:rgba(255, 255, 255, 0);">：假设并发冲突频繁，先加锁再操作。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">意向共享锁、意向排他锁</font>**
-    - **意向共享锁（Intention Shared Lock，IS 锁）**<font style="background-color:rgba(255, 255, 255, 0);">：事务有意向对表中的某些记录加共享锁（S 锁），加共享锁前必须先取得该表的 IS 锁。</font>
-    - **意向排他锁（Intention Exclusive Lock，IX 锁）**<font style="background-color:rgba(255, 255, 255, 0);">：事务有意向对表中的某些记录加排他锁（X 锁），加排他锁之前必须先取得该表的 IX 锁。</font>
++ **表级锁**：针对非索引字段加的锁，加锁快，不会死锁，高并发下低效
+    - 表共享读锁（S 锁）
+    - 表独占写锁（X 锁）
++ **行级锁**：针对索引字段加的锁，并发度高，加锁开销大、慢，会出现死锁
+    - **记录锁（Record Lock）**：单个行记录上的锁，使用唯一索引或主键索引进行等值查询时，MySQL 会为该记录加排他锁。
+    - **间隙锁（Gap Lock）**：锁一个范围，不包含记录本身。RR 隔离级别下，执行`FOR UPDATE`或`LOCK IN SHARE MODE`等加锁语句，且查询条件是范围查询时，就会自动加间隙锁。
+    - **临键锁（Next-Key Lock）**：记录锁+间隙锁，锁一个范围，包括记录本身，能够解决幻读问题。
++ **共享锁**（S 锁/读锁）：允许多个事务同时读，但阻塞写`SELECT ... LOCK IN SHARE MODE`
++ **独占锁**：阻塞其他事务读写`SELECT ... FOR UPDATE`
++ **乐观锁**：假设冲突少，通过版本号或 CAS 机制检测冲突。
++ **悲观锁**：假设并发冲突频繁，先加锁再操作。
++ **意向共享锁、意向排他锁**
+    - **意向共享锁（Intention Shared Lock，IS 锁）**：事务有意向对表中的某些记录加共享锁（S 锁），加共享锁前必须先取得该表的 IS 锁。
+    - **意向排他锁（Intention Exclusive Lock，IX 锁）**：事务有意向对表中的某些记录加排他锁（X 锁），加排他锁之前必须先取得该表的 IX 锁。
 
-## <font style="background-color:rgba(255, 255, 255, 0);">说一说当前读和快照读</font>
+## 说一说当前读和快照读
 ### 当前读
 当前读是读取记录的**最新已提交版本**，并且在**读取时对记录加锁**，确保其他事务不能修改当前记录。
 
@@ -551,11 +551,11 @@ MySQL 的默认行锁类型就是临键锁，当使用唯一索引的等值查�
 ## 说说 MySQL 中的乐观锁和悲观锁
 [https://www.cnblogs.com/mingyueyy/p/13049431.html](https://www.cnblogs.com/mingyueyy/p/13049431.html)
 
-**<font style="background-color:rgba(255, 255, 255, 0);">乐观锁</font>**<font style="background-color:rgba(255, 255, 255, 0);">：假设冲突少，通过版本号或 CAS 机制检测冲突，通过在表中增加 version 字段或 timestamp 字段（如 update_time）来实现。</font>
+**乐观锁**：假设冲突少，通过版本号或 CAS 机制检测冲突，通过在表中增加 version 字段或 timestamp 字段（如 update_time）来实现。
 
-**<font style="background-color:rgba(255, 255, 255, 0);">悲观锁</font>**<font style="background-color:rgba(255, 255, 255, 0);">：假设并发冲突频繁，先加锁再操作。MySQL 中的行锁和表锁都是悲观锁。</font>
+**悲观锁**：假设并发冲突频繁，先加锁再操作。MySQL 中的行锁和表锁都是悲观锁。
 
-### <font style="background-color:rgba(255, 255, 255, 0);">通过乐观锁或悲观锁防止库存超卖问题</font>
+### 通过乐观锁或悲观锁防止库存超卖问题
 Java 程序与对应的 mapper：
 
 ```java
@@ -603,27 +603,27 @@ WHERE id = 1 AND update_time = 旧时间戳;
 
 这两种方式都需要保证操作的原子性，需要将多个 SQL 放在同一个事务执行。
 
-## <font style="background-color:rgba(255, 255, 255, 0);">数据库死锁的场景</font>
+## 数据库死锁的场景
 MySQL 的死锁是由于多个事务持有资源并相互等待引起的，可通过`SHOW ENGINE INNODB STATUS`查看死锁信息。若由于加锁顺序不一致导致死锁，可通过调整加锁顺序解决。
 
-## <font style="background-color:rgba(255, 255, 255, 0);">InnoDB 有哪些索引</font>
-+ **主键索引**<font style="background-color:rgba(255, 255, 255, 0);">：也称为聚簇索引，它是基于数据表的主键构建的索引。在 InnoDB 里，表数据会按照主键顺序进行存储，索引的叶子节点存储的是完整的行数据。主键索引能够加快主键的查询速度，并且在插入数据时，会按照主键顺序进行存储。</font>
-+ **二级索引**<font style="background-color:rgba(255, 255, 255, 0);">：也叫辅助索引，它是除主键索引之外的索引。二级索引的叶子节点存储的是索引列的值以及对应的主键值。当通过二级索引查询数据时，首先会在二级索引中找到对应的主键值，然后再通过主键索引查找完整的行数据，这个过程被称为回表。</font>
-+ **唯一索引**<font style="background-color:rgba(255, 255, 255, 0);">：属于二级索引的一种特殊类型，它要求索引列的值必须唯一，但允许有空值。唯一索引可以保证数据的唯一性，同时也能加快对该列的查询速度。</font>
-+ **全文索引**<font style="background-color:rgba(255, 255, 255, 0);">：用于在文本数据中进行全文搜索。它会对文本内容进行分词处理，并建立索引，从而支持高效的全文搜索操作。在 MySQL 中，全文索引可以用于</font><font style="background-color:rgba(255, 255, 255, 0);"> </font>`CHAR`<font style="background-color:rgba(255, 255, 255, 0);">、</font>`VARCHAR`<font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">和</font><font style="background-color:rgba(255, 255, 255, 0);"> </font>`TEXT`<font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">类型的列。</font>
-+ **空间索引**<font style="background-color:rgba(255, 255, 255, 0);">：主要用于存储和查询空间数据，例如地理坐标、图形等。空间索引能够提高空间数据的查询效率，在地理信息系统（GIS）等领域有广泛应用。</font>
+## InnoDB 有哪些索引
++ **主键索引**：也称为聚簇索引，它是基于数据表的主键构建的索引。在 InnoDB 里，表数据会按照主键顺序进行存储，索引的叶子节点存储的是完整的行数据。主键索引能够加快主键的查询速度，并且在插入数据时，会按照主键顺序进行存储。
++ **二级索引**：也叫辅助索引，它是除主键索引之外的索引。二级索引的叶子节点存储的是索引列的值以及对应的主键值。当通过二级索引查询数据时，首先会在二级索引中找到对应的主键值，然后再通过主键索引查找完整的行数据，这个过程被称为回表。
++ **唯一索引**：属于二级索引的一种特殊类型，它要求索引列的值必须唯一，但允许有空值。唯一索引可以保证数据的唯一性，同时也能加快对该列的查询速度。
++ **全文索引**：用于在文本数据中进行全文搜索。它会对文本内容进行分词处理，并建立索引，从而支持高效的全文搜索操作。在 MySQL 中，全文索引可以用于 `CHAR`、`VARCHAR` 和 `TEXT` 类型的列。
++ **空间索引**：主要用于存储和查询空间数据，例如地理坐标、图形等。空间索引能够提高空间数据的查询效率，在地理信息系统（GIS）等领域有广泛应用。
 
-## <font style="background-color:rgba(255, 255, 255, 0);">什么是 MVCC</font>
+## 什么是 MVCC
 [https://javaguide.cn/database/mysql/innodb-implementation-of-mvcc.html](https://javaguide.cn/database/mysql/innodb-implementation-of-mvcc.html)
 
-**<font style="background-color:rgba(255, 255, 255, 0);">MVCC（Multi-Version Concurrency Control）多版本并发控制</font>**<font style="background-color:rgba(255, 255, 255, 0);">，一种</font>**<font style="background-color:rgba(255, 255, 255, 0);">并发控制机制</font>**<font style="background-color:rgba(255, 255, 255, 0);">，用于在多个并发事务同时读写数据库时保持数据的一致性和隔离性。通过在每个数据行上</font>**<font style="background-color:rgba(255, 255, 255, 0);">维护多个版本的数据</font>**<font style="background-color:rgba(255, 255, 255, 0);">来实现。当一个事务要对数据库中的数据进行修改时，MVCC 会为该事务</font>**<font style="background-color:rgba(255, 255, 255, 0);">创建一个数据快照</font>**<font style="background-color:rgba(255, 255, 255, 0);">，而不是直接修改实际的数据行。每个记录都保留了对应的版本号或时间戳。</font>
+**MVCC（Multi-Version Concurrency Control）多版本并发控制**，一种**并发控制机制**，用于在多个并发事务同时读写数据库时保持数据的一致性和隔离性。通过在每个数据行上**维护多个版本的数据**来实现。当一个事务要对数据库中的数据进行修改时，MVCC 会为该事务**创建一个数据快照**，而不是直接修改实际的数据行。每个记录都保留了对应的版本号或时间戳。
 
-+ **<font style="background-color:rgba(255, 255, 255, 0);">读操作</font>**<font style="background-color:rgba(255, 255, 255, 0);">：事务执行读操作时，会使用快照读取。快照读取是基于事务开始时数据库中的状态创建的，因此事务不会读取其他事务尚未提交的修改。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">写操作</font>**<font style="background-color:rgba(255, 255, 255, 0);">：事务执行写操作时，会生成一个新的数据版本，然后将修改后的数据写入数据库。未提交的事务不会影响其他事务的读取。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">事务提交和回滚</font>**<font style="background-color:rgba(255, 255, 255, 0);">：提交时，该事务所做的修改会成为数据库的最新版本，对其他事务可见。回滚时，该事务所做的修改将被撤销，对其他事务不可见。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">版本回收</font>**<font style="background-color:rgba(255, 255, 255, 0);">：MVCC 会定期进行版本的回收，以防止版本的无限增长。</font>
++ **读操作**：事务执行读操作时，会使用快照读取。快照读取是基于事务开始时数据库中的状态创建的，因此事务不会读取其他事务尚未提交的修改。
++ **写操作**：事务执行写操作时，会生成一个新的数据版本，然后将修改后的数据写入数据库。未提交的事务不会影响其他事务的读取。
++ **事务提交和回滚**：提交时，该事务所做的修改会成为数据库的最新版本，对其他事务可见。回滚时，该事务所做的修改将被撤销，对其他事务不可见。
++ **版本回收**：MVCC 会定期进行版本的回收，以防止版本的无限增长。
 
-## <font style="background-color:rgba(255, 255, 255, 0);">InnoDB 怎么实现 MVCC 的？</font>
+## InnoDB 怎么实现 MVCC 的？
 [https://javaguide.cn/database/mysql/innodb-implementation-of-mvcc.html#%E5%A4%9A%E7%89%88%E6%9C%AC%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6-multi-version-concurrency-control](https://javaguide.cn/database/mysql/innodb-implementation-of-mvcc.html#%E5%A4%9A%E7%89%88%E6%9C%AC%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6-multi-version-concurrency-control)
 
 MVCC 的实现依赖于**隐藏字段、Read View、undo log**。
@@ -681,35 +681,35 @@ ReadView 是 InnoDB 为每个事务创建的一份“**可见性视图**”，�
 
 读已提交：每次读数据前都生成一个 ReadView，这样就能保证每次读取的数据都是最新的。
 
-## <font style="background-color:rgba(255, 255, 255, 0);">涉及两个事务的竞争，如何解决死锁</font>
-+ **超时机制**<font style="background-color:rgba(255, 255, 255, 0);">：为事务设置一个超时时间，如果事务在规定的时间内无法获取所需的锁资源，会自动回滚事务，释放已持有的锁资源，从而打破死锁。</font>
-+ **死锁检测与回滚**<font style="background-color:rgba(255, 255, 255, 0);">：数据库系统会定期检测是否存在死锁。当检测到死锁时，会选择一个事务进行回滚，释放该事务持有的锁资源，从而打破死锁。通常会选择回滚代价最小的事务。</font>
-+ **优化事务逻辑**<font style="background-color:rgba(255, 255, 255, 0);">：合理设计事务的执行逻辑，减少事务的执行时间和锁的持有时间。例如，将大事务拆分成多个小事务，或者调整事务的执行顺序，避免资源的循环等待。</font>
-+ **锁粒度控制**<font style="background-color:rgba(255, 255, 255, 0);">：根据业务需求，合理控制锁的粒度。可以使用行级锁代替表级锁，减少锁的竞争，从而降低死锁的发生概率。</font>
+## 涉及两个事务的竞争，如何解决死锁
++ **超时机制**：为事务设置一个超时时间，如果事务在规定的时间内无法获取所需的锁资源，会自动回滚事务，释放已持有的锁资源，从而打破死锁。
++ **死锁检测与回滚**：数据库系统会定期检测是否存在死锁。当检测到死锁时，会选择一个事务进行回滚，释放该事务持有的锁资源，从而打破死锁。通常会选择回滚代价最小的事务。
++ **优化事务逻辑**：合理设计事务的执行逻辑，减少事务的执行时间和锁的持有时间。例如，将大事务拆分成多个小事务，或者调整事务的执行顺序，避免资源的循环等待。
++ **锁粒度控制**：根据业务需求，合理控制锁的粒度。可以使用行级锁代替表级锁，减少锁的竞争，从而降低死锁的发生概率。
 
-## <font style="background-color:rgba(255, 255, 255, 0);">MySQL 索引分类</font>
-**<font style="background-color:rgba(255, 255, 255, 0);">从功能分类：</font>**
+## MySQL 索引分类
+**从功能分类：**
 
-+ **<font style="background-color:rgba(255, 255, 255, 0);">普通索引</font>**<font style="background-color:rgba(255, 255, 255, 0);">：基本索引类型，没有限制，允许在定义索引的列中插入重复值和空值，叶子节点存的是主键id。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">唯一索引</font>**<font style="background-color:rgba(255, 255, 255, 0);">：索引列的值必须唯一，但允许有多个空值。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">复合索引（联合索引）</font>**<font style="background-color:rgba(255, 255, 255, 0);">：多列值组成一个索引，专门用于组合搜索，其效率大于索引合并。联合索引中的列是按照指定顺序排列的（查询时列的顺序不同可能会导致索引失效）。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">聚簇索引（聚集索引、主键索引）</font>**<font style="background-color:rgba(255, 255, 255, 0);">：并不是一种单独的索引类型，而是一种数据存储方式。每个表只能有一个主键索引，且主键值不能是 NULL。InnoDB 的聚簇索引其实就是在同一个结构中保存了 B+Tree 索引和数据行 ，叶子节点存的是数据。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">空间索引</font>**<font style="background-color:rgba(255, 255, 255, 0);">：</font><font style="color:rgb(31, 35, 40);">用于空间数据（如地图上的经纬度坐标等）查询。通常使用 </font>**<font style="color:rgb(31, 35, 40);">R-树</font>**<font style="color:rgb(31, 35, 40);"> 结构，适合多维数据的查询，如区域查询和最近距离查询，主要用于 MyISAM 和 InnoDB 存储引擎中的地理信息数据。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">全文索引</font>**<font style="background-color:rgba(255, 255, 255, 0);">：用于全文搜索，支持对长文本字段进行关键字查找，支持自然语言处理、模糊匹配等操作。适用于需要对文本内容进行复杂搜索的场景。</font>
++ **普通索引**：基本索引类型，没有限制，允许在定义索引的列中插入重复值和空值，叶子节点存的是主键id。
++ **唯一索引**：索引列的值必须唯一，但允许有多个空值。
++ **复合索引（联合索引）**：多列值组成一个索引，专门用于组合搜索，其效率大于索引合并。联合索引中的列是按照指定顺序排列的（查询时列的顺序不同可能会导致索引失效）。
++ **聚簇索引（聚集索引、主键索引）**：并不是一种单独的索引类型，而是一种数据存储方式。每个表只能有一个主键索引，且主键值不能是 NULL。InnoDB 的聚簇索引其实就是在同一个结构中保存了 B+Tree 索引和数据行 ，叶子节点存的是数据。
++ **空间索引**：<font style="color:rgb(31, 35, 40);">用于空间数据（如地图上的经纬度坐标等）查询。通常使用 **<font style="color:rgb(31, 35, 40);">R-树**<font style="color:rgb(31, 35, 40);"> 结构，适合多维数据的查询，如区域查询和最近距离查询，主要用于 MyISAM 和 InnoDB 存储引擎中的地理信息数据。
++ **全文索引**：用于全文搜索，支持对长文本字段进行关键字查找，支持自然语言处理、模糊匹配等操作。适用于需要对文本内容进行复杂搜索的场景。
 
-**<font style="background-color:rgba(255, 255, 255, 0);">从存储结构</font>**<font style="background-color:rgba(255, 255, 255, 0);">：</font>
+**从存储结构**：
 
-+ **<font style="background-color:rgba(255, 255, 255, 0);">BTree 索引</font>**<font style="background-color:rgba(255, 255, 255, 0);">：mysql 使用最频繁，InnoDB，MyISAM 默认的索引类型，底层是 B+Tree 数据结构</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">Hash 索引</font>**<font style="background-color:rgba(255, 255, 255, 0);">：memory存储引擎支持的索引类型</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">Full-Text 全文索引</font>**<font style="background-color:rgba(255, 255, 255, 0);">：Full-Text 是倒排索引的一种应用方式，是一种快速匹配全部文档的方式，将全文分词，通过，存储词与文档的映射，支持模糊匹配和关键字搜索。InnoDB 5.6后支持，MEMORY不支持。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">R-树索引</font>**<font style="background-color:rgba(255, 255, 255, 0);">：专为多维空间数据（地理坐标等）设计，适用于空间查询（如计算地理位置的最近距离、区域查询等）。常用于存储和查询地理信息系统中的空间数据。</font>
++ **BTree 索引**：mysql 使用最频繁，InnoDB，MyISAM 默认的索引类型，底层是 B+Tree 数据结构
++ **Hash 索引**：memory存储引擎支持的索引类型
++ **Full-Text 全文索引**：Full-Text 是倒排索引的一种应用方式，是一种快速匹配全部文档的方式，将全文分词，通过，存储词与文档的映射，支持模糊匹配和关键字搜索。InnoDB 5.6后支持，MEMORY不支持。
++ **R-树索引**：专为多维空间数据（地理坐标等）设计，适用于空间查询（如计算地理位置的最近距离、区域查询等）。常用于存储和查询地理信息系统中的空间数据。
 
-**<font style="background-color:rgba(255, 255, 255, 0);">从数据的物理顺序与键值的逻辑（索引）顺序关系</font>**<font style="background-color:rgba(255, 255, 255, 0);">：</font>
+**从数据的物理顺序与键值的逻辑（索引）顺序关系**：
 
-+ **<font style="background-color:rgba(255, 255, 255, 0);">聚簇索引</font>**<font style="background-color:rgba(255, 255, 255, 0);">：InnoDB 中主键索引就是聚簇索引，基于主键排序存储。叶子节点存储完整数据行数据。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">非聚簇索引</font>**<font style="background-color:rgba(255, 255, 255, 0);">：InnoDB 中非主键索引的索引，叶子节点仅保存索引字段和主键的值。查询完整该行数据需要再从聚簇索引通过主键查询。</font>
++ **聚簇索引**：InnoDB 中主键索引就是聚簇索引，基于主键排序存储。叶子节点存储完整数据行数据。
++ **非聚簇索引**：InnoDB 中非主键索引的索引，叶子节点仅保存索引字段和主键的值。查询完整该行数据需要再从聚簇索引通过主键查询。
 
-## <font style="background-color:rgba(255, 255, 255, 0);">聚簇索引和非聚簇索引的区别</font>
+## 聚簇索引和非聚簇索引的区别
 |  | **聚簇索引** | **非聚簇索引** |
 | --- | --- | --- |
 | **数据存储** | 叶子节点存储完整数据行 | 叶子节点存储索引列+主键值 |
@@ -770,39 +770,39 @@ SELECT name, age FROM users WHERE email = 'test@example.com';
 + **聚簇索引是 InnoDB 性能的核心**，主键设计直接影响数据存储和查询效率。  
 + **避免过度使用非聚簇索引**：每个索引都会增加写操作开销（如插入、更新时需维护索引），需平衡查询与写入性能。
 
-## <font style="background-color:rgba(255, 255, 255, 0);">怎么设计索引，注意点都有什么</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">选择合适的列</font>**<font style="background-color:rgba(255, 255, 255, 0);">：选择在</font><font style="background-color:rgba(255, 255, 255, 0);"> </font>`<font style="background-color:rgba(255, 255, 255, 0);">WHERE</font>`<font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">子句、</font>`<font style="background-color:rgba(255, 255, 255, 0);">JOIN</font>`<font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">子句中经常出现的列作为索引列。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">避免冗余索引</font>**<font style="background-color:rgba(255, 255, 255, 0);">：如果一个索引包含了另一个索引的所有列，那么这个索引就是冗余的。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">组合索引</font>**<font style="background-color:rgba(255, 255, 255, 0);">：对于多个列的查询，可以创建组合索引，但要注意列的顺序，遵循最左前缀原则。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">索引维护开销</font>**<font style="background-color:rgba(255, 255, 255, 0);">：索引会增加插入、更新和删除操作的开销，因为需要同时更新索引。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">索引选择性</font>**<font style="background-color:rgba(255, 255, 255, 0);">：索引列的取值越分散，索引的选择性越好，查询效率越高。</font>
+## 怎么设计索引，注意点都有什么
++ **选择合适的列**：选择在 `WHERE` 子句、`JOIN` 子句中经常出现的列作为索引列。
++ **避免冗余索引**：如果一个索引包含了另一个索引的所有列，那么这个索引就是冗余的。
++ **组合索引**：对于多个列的查询，可以创建组合索引，但要注意列的顺序，遵循最左前缀原则。
++ **索引维护开销**：索引会增加插入、更新和删除操作的开销，因为需要同时更新索引。
++ **索引选择性**：索引列的取值越分散，索引的选择性越好，查询效率越高。
 
-## <font style="background-color:rgba(255, 255, 255, 0);">为什么索引默认使用 B+ 树</font>
-<font style="background-color:rgba(255, 255, 255, 0);">B+ 树具有</font>**<font style="background-color:rgba(255, 255, 255, 0);">矮胖</font>**<font style="background-color:rgba(255, 255, 255, 0);">的优势：</font>
+## 为什么索引默认使用 B+ 树
+B+ 树具有**矮胖**的优势：
 
-+ <font style="background-color:rgba(255, 255, 255, 0);">矮：非叶子节点不存放实际的记录数据，仅存放索引</font>
-    - <font style="background-color:rgba(255, 255, 255, 0);">能够减少IO次数，树每向下翻一层都会进行一次磁盘IO</font>
-+ <font style="background-color:rgba(255, 255, 255, 0);">胖：数据都在叶子节点，用双向链表连接，支持范围查询，顺序查询</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">范围查询高效</font>**<font style="background-color:rgba(255, 255, 255, 0);">：B+ 树的叶子节点通过指针相连，便于进行范围查询，只需要遍历叶子节点即可。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">磁盘读写次数少</font>**<font style="background-color:rgba(255, 255, 255, 0);">：B+ 树的非叶子节点只存储索引信息，不存储数据，因此每个节点可以存储更多的索引，减少了磁盘 I/O 次数。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">查询效率稳定</font>**<font style="background-color:rgba(255, 255, 255, 0);">：B+ 树的所有查询都要到叶子节点，查询效率比较稳定。</font>
++ 矮：非叶子节点不存放实际的记录数据，仅存放索引
+    - 能够减少IO次数，树每向下翻一层都会进行一次磁盘IO
++ 胖：数据都在叶子节点，用双向链表连接，支持范围查询，顺序查询
++ **范围查询高效**：B+ 树的叶子节点通过指针相连，便于进行范围查询，只需要遍历叶子节点即可。
++ **磁盘读写次数少**：B+ 树的非叶子节点只存储索引信息，不存储数据，因此每个节点可以存储更多的索引，减少了磁盘 I/O 次数。
++ **查询效率稳定**：B+ 树的所有查询都要到叶子节点，查询效率比较稳定。
 
-## <font style="background-color:rgba(255, 255, 255, 0);">B 树 B+ 树区别</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">数据存储位置</font>**<font style="background-color:rgba(255, 255, 255, 0);">：B 树的数据可以存储在非叶子节点和叶子节点，而 B+ 树的数据只存储在叶子节点。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">叶子节点关系</font>**<font style="background-color:rgba(255, 255, 255, 0);">：B+ 树的叶子节点之间通过指针相连，形成有序链表，而 B 树的叶子节点之间没有指针相连。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">查询效率</font>**<font style="background-color:rgba(255, 255, 255, 0);">：B+ 树的查询效率更稳定，因为所有查询都要到叶子节点；B 树的查询可能在非叶子节点就结束。</font>
+## B 树 B+ 树区别
++ **数据存储位置**：B 树的数据可以存储在非叶子节点和叶子节点，而 B+ 树的数据只存储在叶子节点。
++ **叶子节点关系**：B+ 树的叶子节点之间通过指针相连，形成有序链表，而 B 树的叶子节点之间没有指针相连。
++ **查询效率**：B+ 树的查询效率更稳定，因为所有查询都要到叶子节点；B 树的查询可能在非叶子节点就结束。
 
-## <font style="background-color:rgba(255, 255, 255, 0);">为什么 B 树的层级比 B+ 树要高</font>
-+ <font style="background-color:rgba(255, 255, 255, 0);">B 树的非叶子节点也存储数据，导致每个节点存储的索引数量相对较少。为了存储相同数量的索引，B 树需要更多的节点，从而使得树的层级更高。而 B+ 树的非叶子节点只存储索引信息，每个节点可以存储更多的索引，树的层级相对较低。</font>
+## 为什么 B 树的层级比 B+ 树要高
++ B 树的非叶子节点也存储数据，导致每个节点存储的索引数量相对较少。为了存储相同数量的索引，B 树需要更多的节点，从而使得树的层级更高。而 B+ 树的非叶子节点只存储索引信息，每个节点可以存储更多的索引，树的层级相对较低。
 
 ## MySQL B+ 树中查询数据的全过程
 1. 数据从根节点开始查找。使用**二分**比较数据键值与节点中存储的索引键值，来确定数据所在区间，从而确定分支，从上到下最终定位到叶子节点。
 2. 叶子节点存放实际的数据行记录，叶子节点中数据行以组的形式划分，利用目录页结构，通过二分查找定位到对应的组。
 3. 定位到组后，利用链表遍历来找到目标数据行。
 
-## <font style="background-color:rgba(255, 255, 255, 0);">where having 的使用</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">WHERE 子句</font>**<font style="background-color:rgba(255, 255, 255, 0);">：用于在数据从表中读取出来之前进行过滤，它作用于表中的原始数据。</font>`<font style="background-color:rgba(255, 255, 255, 0);">WHERE</font>`<font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">子句不能使用聚合函数。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">HAVING 子句</font>**<font style="background-color:rgba(255, 255, 255, 0);">：用于在数据分组和聚合之后进行过滤，它作用于分组后的结果集。</font>`<font style="background-color:rgba(255, 255, 255, 0);">HAVING</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 子句可以使用聚合函数。例如：</font>
+## where having 的使用
++ **WHERE 子句**：用于在数据从表中读取出来之前进行过滤，它作用于表中的原始数据。`WHERE` 子句不能使用聚合函数。
++ **HAVING 子句**：用于在数据分组和聚合之后进行过滤，它作用于分组后的结果集。`HAVING` 子句可以使用聚合函数。例如：
 
 ```sql
 -- 查询每个部门的平均工资大于 5000 的部门
@@ -812,18 +812,18 @@ GROUP BY department_id
 HAVING AVG(salary) > 5000;
 ```
 
-## <font style="background-color:rgba(255, 255, 255, 0);">手动备份数据库</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">使用 </font>**`**<font style="background-color:rgba(255, 255, 255, 0);">mysqldump</font>**`**<font style="background-color:rgba(255, 255, 255, 0);"> 命令</font>**<font style="background-color:rgba(255, 255, 255, 0);">：可以备份整个数据库或指定的表。例如，备份名为 </font>`<font style="background-color:rgba(255, 255, 255, 0);">test_db</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 的数据库：</font>
+## 手动备份数据库
++ **使用 **`**mysqldump**`** 命令**：可以备份整个数据库或指定的表。例如，备份名为 `test_db` 的数据库：
 
 ```bash
 mysqldump -u username -p test_db > test_db_backup.sql
 ```
 
-<font style="background-color:rgba(255, 255, 255, 0);">其中，</font>`<font style="background-color:rgba(255, 255, 255, 0);">username</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 是数据库用户名，执行命令后会提示输入密码。备份文件 </font>`<font style="background-color:rgba(255, 255, 255, 0);">test_db_backup.sql</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 包含了数据库的结构和数据。</font>
+其中，`username` 是数据库用户名，执行命令后会提示输入密码。备份文件 `test_db_backup.sql` 包含了数据库的结构和数据。
 
-## <font style="background-color:rgba(255, 255, 255, 0);">两张表，A 表数据量是 B 的 1/10，怎么做关联查询</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">选择合适的连接方式</font>**<font style="background-color:rgba(255, 255, 255, 0);">：如果关联条件可以使用索引，优先使用</font><font style="background-color:rgba(255, 255, 255, 0);"> </font>`<font style="background-color:rgba(255, 255, 255, 0);">INNER JOIN</font>`<font style="background-color:rgba(255, 255, 255, 0);">。如果需要包含</font><font style="background-color:rgba(255, 255, 255, 0);"> </font>`<font style="background-color:rgba(255, 255, 255, 0);">A</font>`<font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">表或</font><font style="background-color:rgba(255, 255, 255, 0);"> </font>`<font style="background-color:rgba(255, 255, 255, 0);">B</font>`<font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">表的所有记录，可以使用</font><font style="background-color:rgba(255, 255, 255, 0);"> </font>`<font style="background-color:rgba(255, 255, 255, 0);">LEFT JOIN</font>`<font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">或</font><font style="background-color:rgba(255, 255, 255, 0);"> </font>`<font style="background-color:rgba(255, 255, 255, 0);">RIGHT JOIN</font>`<font style="background-color:rgba(255, 255, 255, 0);">。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">创建合适的索引</font>**<font style="background-color:rgba(255, 255, 255, 0);">：在关联字段上创建索引，提高查询效率。一般来说，将数据量小的 </font>`<font style="background-color:rgba(255, 255, 255, 0);">A</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 表作为驱动表，数据量大的 </font>`<font style="background-color:rgba(255, 255, 255, 0);">B</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 表作为被驱动表，这样可以减少中间结果集的大小。例如：</font>
+## 两张表，A 表数据量是 B 的 1/10，怎么做关联查询
++ **选择合适的连接方式**：如果关联条件可以使用索引，优先使用 `INNER JOIN`。如果需要包含 `A` 表或 `B` 表的所有记录，可以使用 `LEFT JOIN` 或 `RIGHT JOIN`。
++ **创建合适的索引**：在关联字段上创建索引，提高查询效率。一般来说，将数据量小的 `A` 表作为驱动表，数据量大的 `B` 表作为被驱动表，这样可以减少中间结果集的大小。例如：
 
 ```sql
 -- 创建关联字段的索引
@@ -846,68 +846,68 @@ JOIN B ON A.col = B.col;
 5. **重做日志 redo log**：用于崩溃恢复，保证事务持久性，记录对 InnoDB 表的每个写操作。
 6. **回滚日志 undo log**：用于回滚事务和 MVCC，记录数据被修改之前的值。
 
-## <font style="background-color:rgba(255, 255, 255, 0);">说说 undo log、redo log、binlog</font>
-<font style="background-color:rgba(255, 255, 255, 0);">MySQL 中的 redo log、undo log、binlog 是保证数据库</font>**<font style="background-color:rgba(255, 255, 255, 0);">原子性、持久性、主从复制</font>**<font style="background-color:rgba(255, 255, 255, 0);">的重要机制：</font>
+## 说说 undo log、redo log、binlog
+MySQL 中的 redo log、undo log、binlog 是保证数据库**原子性、持久性、主从复制**的重要机制：
 
-### <font style="background-color:rgba(255, 255, 255, 0);">redo log</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">作用</font>**<font style="background-color:rgba(255, 255, 255, 0);">：用于保证事务的</font>**<font style="background-color:rgba(255, 255, 255, 0);">持久性</font>**<font style="background-color:rgba(255, 255, 255, 0);">和</font>**<font style="background-color:rgba(255, 255, 255, 0);">崩溃恢复</font>**<font style="background-color:rgba(255, 255, 255, 0);">。在数据库系统崩溃或出现其他故障时，redo log 可以帮助数据库恢复到故障前的状态，确保已提交的事务不会丢失。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">工作原理</font>**<font style="background-color:rgba(255, 255, 255, 0);">：当事务对数据库进行修改时，这些修改</font>**<font style="background-color:rgba(255, 255, 255, 0);">首先</font>**<font style="background-color:rgba(255, 255, 255, 0);">会记录到 </font>**<font style="background-color:rgba(255, 255, 255, 0);">redo log</font>**<font style="background-color:rgba(255, 255, 255, 0);"> 中，然后</font>**<font style="background-color:rgba(255, 255, 255, 0);">再</font>**<font style="background-color:rgba(255, 255, 255, 0);">将数据</font>**<font style="background-color:rgba(255, 255, 255, 0);">持久化到磁盘</font>**<font style="background-color:rgba(255, 255, 255, 0);">。即使在数据还没有来得及写入磁盘时系统发生故障，在数据库重启后，也可以根据 redo log 中的记录，将数据恢复到事务提交后的状态。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">实现方式</font>**<font style="background-color:rgba(255, 255, 255, 0);">：redo log 是顺序写入的，通常采用固定大小的日志文件循环使用，这样可以提高写入性能。</font>
+### redo log
++ **作用**：用于保证事务的**持久性**和**崩溃恢复**。在数据库系统崩溃或出现其他故障时，redo log 可以帮助数据库恢复到故障前的状态，确保已提交的事务不会丢失。
++ **工作原理**：当事务对数据库进行修改时，这些修改**首先**会记录到 **redo log** 中，然后**再**将数据**持久化到磁盘**。即使在数据还没有来得及写入磁盘时系统发生故障，在数据库重启后，也可以根据 redo log 中的记录，将数据恢复到事务提交后的状态。
++ **实现方式**：redo log 是顺序写入的，通常采用固定大小的日志文件循环使用，这样可以提高写入性能。
 
-### <font style="background-color:rgba(255, 255, 255, 0);">undo log</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">作用</font>**<font style="background-color:rgba(255, 255, 255, 0);">：主要用于事务的</font>**<font style="background-color:rgba(255, 255, 255, 0);">回滚（原子性）</font>**<font style="background-color:rgba(255, 255, 255, 0);">以及实现</font>**<font style="background-color:rgba(255, 255, 255, 0);">MVCC</font>**<font style="background-color:rgba(255, 255, 255, 0);">（多版本并发控制）。在事务执行过程中，如果需要回滚事务，undo log 可以提供撤销操作所需的信息。同时，在 MVCC 中，undo log 用于构建数据的历史版本，以实现并发事务的隔离性。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">工作原理</font>**<font style="background-color:rgba(255, 255, 255, 0);">：在事务对数据进行修改之前，会</font>**<font style="background-color:rgba(255, 255, 255, 0);">先将修改前的数据记录到 undo log</font>**<font style="background-color:rgba(255, 255, 255, 0);"> 中。当事务需要回滚时，就可以根据 undo log 中的记录，将数据恢复到修改前的状态。在 MVCC 中，通过读取 undo log 中的历史版本数据，不同的事务可以看到数据在不同时间点的状态，从而实现了并发事务之间的隔离。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">实现方式</font>**<font style="background-color:rgba(255, 255, 255, 0);">：undo log 也是以日志的形式记录，存储在数据库的系统表空间或独立的 undo 表空间中。</font>
+### undo log
++ **作用**：主要用于事务的**回滚（原子性）**以及实现**MVCC**（多版本并发控制）。在事务执行过程中，如果需要回滚事务，undo log 可以提供撤销操作所需的信息。同时，在 MVCC 中，undo log 用于构建数据的历史版本，以实现并发事务的隔离性。
++ **工作原理**：在事务对数据进行修改之前，会**先将修改前的数据记录到 undo log** 中。当事务需要回滚时，就可以根据 undo log 中的记录，将数据恢复到修改前的状态。在 MVCC 中，通过读取 undo log 中的历史版本数据，不同的事务可以看到数据在不同时间点的状态，从而实现了并发事务之间的隔离。
++ **实现方式**：undo log 也是以日志的形式记录，存储在数据库的系统表空间或独立的 undo 表空间中。
 
-### <font style="background-color:rgba(255, 255, 255, 0);">binlog</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">作用</font>**<font style="background-color:rgba(255, 255, 255, 0);">：用于记录数据库的所有更新和修改操作，即所有 DDL 和 DML 操作，用于</font>**<font style="background-color:rgba(255, 255, 255, 0);">主从同步</font>**<font style="background-color:rgba(255, 255, 255, 0);">（如同步 MySQL 到 ES），或通过备份和 binlog 实现时间点</font>**<font style="background-color:rgba(255, 255, 255, 0);">恢复</font>**<font style="background-color:rgba(255, 255, 255, 0);">（PITR）。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">工作模式</font>**<font style="background-color:rgba(255, 255, 255, 0);">：</font>
-    - <font style="background-color:rgba(255, 255, 255, 0);">STATEMENT：记录 SQL 语句。日志量小，但某些语句在复制时可能导致不一致。</font>
-    - <font style="background-color:rgba(255, 255, 255, 0);">ROW：记录行的实际变更。复制精确，但日志数据量大。</font>
-    - <font style="background-color:rgba(255, 255, 255, 0);">MIXED：自动选择 STATEMENT 或 ROW 模式。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">实现方式</font>**<font style="background-color:rgba(255, 255, 255, 0);">：事务提交时，将事务内的所有变更按顺序写入 binlog。写入后，通过</font>`<font style="background-color:rgba(255, 255, 255, 0);">sync_binlog</font>`<font style="background-color:rgba(255, 255, 255, 0);">参数控制是否刷盘。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">启用</font>**<font style="background-color:rgba(255, 255, 255, 0);">：在 my.cnf 文件中配置 log_bin 参数</font>`<font style="background-color:rgba(255, 255, 255, 0);">log_bin = mysql-bin</font>`<font style="background-color:rgba(255, 255, 255, 0);">。</font>
+### binlog
++ **作用**：用于记录数据库的所有更新和修改操作，即所有 DDL 和 DML 操作，用于**主从同步**（如同步 MySQL 到 ES），或通过备份和 binlog 实现时间点**恢复**（PITR）。
++ **工作模式**：
+    - STATEMENT：记录 SQL 语句。日志量小，但某些语句在复制时可能导致不一致。
+    - ROW：记录行的实际变更。复制精确，但日志数据量大。
+    - MIXED：自动选择 STATEMENT 或 ROW 模式。
++ **实现方式**：事务提交时，将事务内的所有变更按顺序写入 binlog。写入后，通过`sync_binlog`参数控制是否刷盘。
++ **启用**：在 my.cnf 文件中配置 log_bin 参数`log_bin = mysql-bin`。
 
-### <font style="background-color:rgba(255, 255, 255, 0);">对比</font>
+### 对比
 binlog 属于 Server 层，与存储引擎无关，无法直接操作物理数据页。而 redo log 和 undo log 是 InnoDB 存储引擎实现 ACID 的基石。
 
 binlog 会记录整个 SQL 或行变化；redo log 是为了恢复“已提交但未刷盘”的数据，undo log 是为了撤销未提交的事务。
 
-| **<font style="color:rgb(0, 0, 0) !important;">日志类型</font>** | **<font style="color:rgb(0, 0, 0) !important;">所属引擎</font>** | **<font style="color:rgb(0, 0, 0) !important;">记录内容</font>** | **<font style="color:rgb(0, 0, 0) !important;">用途</font>** | **<font style="color:rgb(0, 0, 0) !important;">写入时机</font>** |
+| **<font style="color:rgb(0, 0, 0) !important;">日志类型** | **<font style="color:rgb(0, 0, 0) !important;">所属引擎** | **<font style="color:rgb(0, 0, 0) !important;">记录内容** | **<font style="color:rgb(0, 0, 0) !important;">用途** | **<font style="color:rgb(0, 0, 0) !important;">写入时机** |
 | :--- | :--- | :--- | :--- | :--- |
-| **<font style="color:rgb(0, 0, 0) !important;">Undo Log</font>** | <font style="color:rgba(0, 0, 0, 0.85) !important;">InnoDB</font> | <font style="color:rgba(0, 0, 0, 0.85) !important;">数据修改前的状态</font> | <font style="color:rgba(0, 0, 0, 0.85) !important;">事务回滚、MVCC</font> | <font style="color:rgba(0, 0, 0, 0.85) !important;">事务执行过程中</font> |
-| **<font style="color:rgb(0, 0, 0) !important;">Redo Log</font>** | <font style="color:rgba(0, 0, 0, 0.85) !important;">InnoDB</font> | <font style="color:rgba(0, 0, 0, 0.85) !important;">数据页的物理修改</font> | <font style="color:rgba(0, 0, 0, 0.85) !important;">崩溃恢复、持久性</font> | <font style="color:rgba(0, 0, 0, 0.85) !important;">事务执行过程中，提交前</font> |
-| **<font style="color:rgb(0, 0, 0) !important;">Binlog</font>** | <font style="color:rgba(0, 0, 0, 0.85) !important;">所有引擎</font> | <font style="color:rgba(0, 0, 0, 0.85) !important;">逻辑变更（SQL 或行变更）</font> | <font style="color:rgba(0, 0, 0, 0.85) !important;">主从复制、时间点恢复</font> | <font style="color:rgba(0, 0, 0, 0.85) !important;">事务提交后</font> |
+| **<font style="color:rgb(0, 0, 0) !important;">Undo Log** | <font style="color:rgba(0, 0, 0, 0.85) !important;">InnoDB | <font style="color:rgba(0, 0, 0, 0.85) !important;">数据修改前的状态 | <font style="color:rgba(0, 0, 0, 0.85) !important;">事务回滚、MVCC | <font style="color:rgba(0, 0, 0, 0.85) !important;">事务执行过程中 |
+| **<font style="color:rgb(0, 0, 0) !important;">Redo Log** | <font style="color:rgba(0, 0, 0, 0.85) !important;">InnoDB | <font style="color:rgba(0, 0, 0, 0.85) !important;">数据页的物理修改 | <font style="color:rgba(0, 0, 0, 0.85) !important;">崩溃恢复、持久性 | <font style="color:rgba(0, 0, 0, 0.85) !important;">事务执行过程中，提交前 |
+| **<font style="color:rgb(0, 0, 0) !important;">Binlog** | <font style="color:rgba(0, 0, 0, 0.85) !important;">所有引擎 | <font style="color:rgba(0, 0, 0, 0.85) !important;">逻辑变更（SQL 或行变更） | <font style="color:rgba(0, 0, 0, 0.85) !important;">主从复制、时间点恢复 | <font style="color:rgba(0, 0, 0, 0.85) !important;">事务提交后 |
 
 
-**<font style="background-color:rgba(255, 255, 255, 0);">示例说明</font>**
+**示例说明**
 
-<font style="background-color:rgba(255, 255, 255, 0);">假设一个事务要将表中某一行的 </font>`<font style="background-color:rgba(255, 255, 255, 0);">age</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 字段从 20 更新为 30，</font>`<font style="background-color:rgba(255, 255, 255, 0);">redo log</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 会记录这个更新操作，即 </font>`<font style="background-color:rgba(255, 255, 255, 0);">age</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 字段被修改为 30；而 </font>`<font style="background-color:rgba(255, 255, 255, 0);">undo log</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 会记录更新前的值，即 </font>`<font style="background-color:rgba(255, 255, 255, 0);">age</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 字段原来的值是 20。如果事务需要回滚，就可以根据 </font>`<font style="background-color:rgba(255, 255, 255, 0);">undo log</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 将 </font>`<font style="background-color:rgba(255, 255, 255, 0);">age</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 字段的值恢复到 20；如果数据库崩溃恢复，就可以根据 </font>`<font style="background-color:rgba(255, 255, 255, 0);">redo log</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 将 </font>`<font style="background-color:rgba(255, 255, 255, 0);">age</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 字段的值更新为 30。从库可以读取主库的 </font>`<font style="background-color:rgba(255, 255, 255, 0);">binlog</font>`<font style="background-color:rgba(255, 255, 255, 0);">，重放变更。</font>
+假设一个事务要将表中某一行的 `age` 字段从 20 更新为 30，`redo log` 会记录这个更新操作，即 `age` 字段被修改为 30；而 `undo log` 会记录更新前的值，即 `age` 字段原来的值是 20。如果事务需要回滚，就可以根据 `undo log` 将 `age` 字段的值恢复到 20；如果数据库崩溃恢复，就可以根据 `redo log` 将 `age` 字段的值更新为 30。从库可以读取主库的 `binlog`，重放变更。
 
-## <font style="background-color:rgba(255, 255, 255, 0);">什么是索引？</font>
-<font style="background-color:rgba(255, 255, 255, 0);">索引是数据库中一种用于</font>**<font style="background-color:rgba(255, 255, 255, 0);">提高数据检索效率的数据结构</font>**<font style="background-color:rgba(255, 255, 255, 0);">，它可以帮助数据库系统</font>**<font style="background-color:rgba(255, 255, 255, 0);">快速定位</font>**<font style="background-color:rgba(255, 255, 255, 0);">到需要的数据记录。索引通常是根据表中的一个或多个列的值创建的，数据库系统会根据索引的值来快速定位到满足查询条件的记录。</font>
+## 什么是索引？
+索引是数据库中一种用于**提高数据检索效率的数据结构**，它可以帮助数据库系统**快速定位**到需要的数据记录。索引通常是根据表中的一个或多个列的值创建的，数据库系统会根据索引的值来快速定位到满足查询条件的记录。
 
-**<font style="background-color:rgba(255, 255, 255, 0);">索引的优点包括：</font>**
+**索引的优点包括：**
 
-1. <font style="background-color:rgba(255, 255, 255, 0);">提高查询性能：索引可以使数据库系统更快地定位到需要的数据记录，从而加速查询操作的执行速度。</font>
-2. <font style="background-color:rgba(255, 255, 255, 0);">加速排序：当查询需要对数据进行排序时，索引可以提供已经排序好的数据，避免了对整个表进行排序的操作，降低了 CPU 消耗。</font>
-3. <font style="background-color:rgba(255, 255, 255, 0);">加速连接：当查询涉及到多个表的连接操作时，索引可以加速连接的执行，减少连接操作的时间。</font>
-4. <font style="background-color:rgba(255, 255, 255, 0);">保证数据完整性：索引可以通过唯一性约束（UNIQUE 索引）来保证数据的唯一性，防止重复数据的插入。</font>
+1. 提高查询性能：索引可以使数据库系统更快地定位到需要的数据记录，从而加速查询操作的执行速度。
+2. 加速排序：当查询需要对数据进行排序时，索引可以提供已经排序好的数据，避免了对整个表进行排序的操作，降低了 CPU 消耗。
+3. 加速连接：当查询涉及到多个表的连接操作时，索引可以加速连接的执行，减少连接操作的时间。
+4. 保证数据完整性：索引可以通过唯一性约束（UNIQUE 索引）来保证数据的唯一性，防止重复数据的插入。
 
-**<font style="background-color:rgba(255, 255, 255, 0);">索引的缺点包括：</font>**
+**索引的缺点包括：**
 
-1. **<font style="background-color:rgba(255, 255, 255, 0);">占用额外的存储空间</font>**<font style="background-color:rgba(255, 255, 255, 0);">：索引需要占用额外的存储空间，尤其是大型表和复合索引。每建立一个二级索引，都要新建一个B+树。</font>
-2. **<font style="background-color:rgba(255, 255, 255, 0);">降低写操作的性能</font>**<font style="background-color:rgba(255, 255, 255, 0);">：对表进行写操作（如插入、更新、删除）时，索引需要维护更新，可能会降低写操作的性能。</font>
-3. **<font style="background-color:rgba(255, 255, 255, 0);">可能导致查询优化失效</font>**<font style="background-color:rgba(255, 255, 255, 0);">：进行查询时，MySQL 的查询优化器会分析查询并选择最优计划。索引过多会导致优化器分析时间较长，甚至可能因为数据不准确而导致索引选择不当，查询性能下降。</font>
+1. **占用额外的存储空间**：索引需要占用额外的存储空间，尤其是大型表和复合索引。每建立一个二级索引，都要新建一个B+树。
+2. **降低写操作的性能**：对表进行写操作（如插入、更新、删除）时，索引需要维护更新，可能会降低写操作的性能。
+3. **可能导致查询优化失效**：进行查询时，MySQL 的查询优化器会分析查询并选择最优计划。索引过多会导致优化器分析时间较长，甚至可能因为数据不准确而导致索引选择不当，查询性能下降。
 
-## <font style="background-color:rgba(255, 255, 255, 0);">索引底层数据结构</font>
-<font style="background-color:rgba(255, 255, 255, 0);">MySQL 的 InnoDB 引擎采用的 B+ 树的数据结构来存储索引</font>
+## 索引底层数据结构
+MySQL 的 InnoDB 引擎采用的 B+ 树的数据结构来存储索引
 
-+ <font style="background-color:rgba(255, 255, 255, 0);">阶数更多，路径更短</font>
-+ <font style="background-color:rgba(255, 255, 255, 0);">磁盘读写代价 B+ 树更低，非叶子节点只存储指针，叶子节点存储数据</font>
-+ <font style="background-color:rgba(255, 255, 255, 0);">B+ 树便于扫库和区间查询，叶子节点是一个双向链表</font>
++ 阶数更多，路径更短
++ 磁盘读写代价 B+ 树更低，非叶子节点只存储指针，叶子节点存储数据
++ B+ 树便于扫库和区间查询，叶子节点是一个双向链表
 
-## <font style="background-color:rgba(255, 255, 255, 0);">什么是最左前缀匹配原则</font>
+## 什么是最左前缀匹配原则
 MySQL 的最左前缀匹配原则指的是，在使用联合索引时，查询条件必须从索引的最左侧开始匹配，只有当左侧列被完全匹配时，右侧列才能被用于进一步过滤数据。
 
 **匹配规则**
@@ -947,72 +947,72 @@ SELECT * FROM users WHERE name = 'Eve' AND gender = 'F';  -- 只有name生效
 SELECT * FROM users WHERE name = 'Frank' AND age > 20 AND gender = 'M';
 ```
 
-## <font style="background-color:rgba(255, 255, 255, 0);">什么是索引长度 key_len？</font>
-<font style="background-color:rgba(255, 255, 255, 0);">在MySQL数据库索引中，</font>`<font style="background-color:rgba(255, 255, 255, 0);">key_len</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 表示索引字段在存储时所占用的字节数。它是一个重要的指标，在查询优化时，MySQL查询优化器会根据 </font>`<font style="background-color:rgba(255, 255, 255, 0);">key_len</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 等信息来评估使用哪个索引执行查询更为高效。</font>
+## 什么是索引长度 key_len？
+在MySQL数据库索引中，`key_len` 表示索引字段在存储时所占用的字节数。它是一个重要的指标，在查询优化时，MySQL查询优化器会根据 `key_len` 等信息来评估使用哪个索引执行查询更为高效。
 
-`<font style="background-color:rgba(255, 255, 255, 0);">key_len</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 的计算取决于多个因素：</font>
+`key_len` 的计算取决于多个因素：
 
-**<font style="background-color:rgba(255, 255, 255, 0);">1. 字段类型</font>**
+**1. 字段类型**
 
-+ **<font style="background-color:rgba(255, 255, 255, 0);">数值类型</font>**<font style="background-color:rgba(255, 255, 255, 0);">：不同数值类型占用的字节数不同。例如，</font>`<font style="background-color:rgba(255, 255, 255, 0);">TINYINT</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 通常占用1字节，</font>`<font style="background-color:rgba(255, 255, 255, 0);">SMALLINT</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 占用2字节，</font>`<font style="background-color:rgba(255, 255, 255, 0);">INT</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 占用4字节，</font>`<font style="background-color:rgba(255, 255, 255, 0);">BIGINT</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 占用8字节。如果索引包含这些数值类型的字段，</font>`<font style="background-color:rgba(255, 255, 255, 0);">key_len</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 就根据相应类型的字节数来计算。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">日期和时间类型</font>**<font style="background-color:rgba(255, 255, 255, 0);">：</font>`<font style="background-color:rgba(255, 255, 255, 0);">DATE</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 类型占用3字节，存储日期值（年、月、日）；</font>`<font style="background-color:rgba(255, 255, 255, 0);">DATETIME</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 占用8字节，</font>`<font style="background-color:rgba(255, 255, 255, 0);">TIMESTAMP</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 占用4字节（在MySQL 5.6.4之前，</font>`<font style="background-color:rgba(255, 255, 255, 0);">TIMESTAMP</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 占用4字节，之后支持6字节存储以提供更高精度）。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">字符串类型</font>**<font style="background-color:rgba(255, 255, 255, 0);">：</font>
-    - **<font style="background-color:rgba(255, 255, 255, 0);">固定长度字符串（</font>**`<font style="background-color:rgba(255, 255, 255, 0);">CHAR</font>`**<font style="background-color:rgba(255, 255, 255, 0);">）</font>**<font style="background-color:rgba(255, 255, 255, 0);">：</font>`<font style="background-color:rgba(255, 255, 255, 0);">CHAR(n)</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 类型，</font>`<font style="background-color:rgba(255, 255, 255, 0);">n</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 代表字符数，它会根据字符集来确定占用字节数。例如，在UTF - 8字符集中，每个字符最多占用3字节，所以 </font>`<font style="background-color:rgba(255, 255, 255, 0);">CHAR(10)</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 在UTF - 8字符集中，</font>`<font style="background-color:rgba(255, 255, 255, 0);">key_len</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 为 </font>`<font style="background-color:rgba(255, 255, 255, 0);">10 * 3 = 30</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 字节（不考虑NULL值情况）。</font>
-    - **<font style="background-color:rgba(255, 255, 255, 0);">可变长度字符串（</font>**`<font style="background-color:rgba(255, 255, 255, 0);">VARCHAR</font>`**<font style="background-color:rgba(255, 255, 255, 0);">）</font>**<font style="background-color:rgba(255, 255, 255, 0);">：</font>`<font style="background-color:rgba(255, 255, 255, 0);">VARCHAR(n)</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 除了存储实际数据外，还需要额外的字节来记录字符串的长度。在MySQL中，对于 </font>`<font style="background-color:rgba(255, 255, 255, 0);">VARCHAR</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 类型，如果列可以为NULL，还需要额外1字节来标记NULL值。在UTF - 8字符集中，</font>`<font style="background-color:rgba(255, 255, 255, 0);">VARCHAR(20)</font>`<font style="background-color:rgba(255, 255, 255, 0);">，若列允许为NULL，</font>`<font style="background-color:rgba(255, 255, 255, 0);">key_len</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 为 </font>`<font style="background-color:rgba(255, 255, 255, 0);">20 * 3 + 2 + 1 = 63</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 字节（</font>`<font style="background-color:rgba(255, 255, 255, 0);">20 * 3</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 是数据部分，2字节用于记录长度，1字节用于标记NULL）。</font>
++ **数值类型**：不同数值类型占用的字节数不同。例如，`TINYINT` 通常占用1字节，`SMALLINT` 占用2字节，`INT` 占用4字节，`BIGINT` 占用8字节。如果索引包含这些数值类型的字段，`key_len` 就根据相应类型的字节数来计算。
++ **日期和时间类型**：`DATE` 类型占用3字节，存储日期值（年、月、日）；`DATETIME` 占用8字节，`TIMESTAMP` 占用4字节（在MySQL 5.6.4之前，`TIMESTAMP` 占用4字节，之后支持6字节存储以提供更高精度）。
++ **字符串类型**：
+    - **固定长度字符串（**`CHAR`**）**：`CHAR(n)` 类型，`n` 代表字符数，它会根据字符集来确定占用字节数。例如，在UTF - 8字符集中，每个字符最多占用3字节，所以 `CHAR(10)` 在UTF - 8字符集中，`key_len` 为 `10 * 3 = 30` 字节（不考虑NULL值情况）。
+    - **可变长度字符串（**`VARCHAR`**）**：`VARCHAR(n)` 除了存储实际数据外，还需要额外的字节来记录字符串的长度。在MySQL中，对于 `VARCHAR` 类型，如果列可以为NULL，还需要额外1字节来标记NULL值。在UTF - 8字符集中，`VARCHAR(20)`，若列允许为NULL，`key_len` 为 `20 * 3 + 2 + 1 = 63` 字节（`20 * 3` 是数据部分，2字节用于记录长度，1字节用于标记NULL）。
 
-**<font style="background-color:rgba(255, 255, 255, 0);">2. NULL属性</font>**
+**2. NULL属性**
 
-<font style="background-color:rgba(255, 255, 255, 0);">如果索引字段允许为NULL，</font>`<font style="background-color:rgba(255, 255, 255, 0);">key_len</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 会额外增加1字节用于标记NULL值。例如，一个 </font>`<font style="background-color:rgba(255, 255, 255, 0);">INT</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 类型字段，如果允许为NULL，</font>`<font style="background-color:rgba(255, 255, 255, 0);">key_len</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 为5字节（4字节存储 </font>`<font style="background-color:rgba(255, 255, 255, 0);">INT</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 数据 + 1字节标记NULL）；如果不允许为NULL，</font>`<font style="background-color:rgba(255, 255, 255, 0);">key_len</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 就是4字节。</font>
+如果索引字段允许为NULL，`key_len` 会额外增加1字节用于标记NULL值。例如，一个 `INT` 类型字段，如果允许为NULL，`key_len` 为5字节（4字节存储 `INT` 数据 + 1字节标记NULL）；如果不允许为NULL，`key_len` 就是4字节。
 
-**<font style="background-color:rgba(255, 255, 255, 0);">3. 字符集</font>**
+**3. 字符集**
 
-<font style="background-color:rgba(255, 255, 255, 0);">不同字符集每个字符占用的字节数不同，这会影响字符串类型字段的 </font>`<font style="background-color:rgba(255, 255, 255, 0);">key_len</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 计算。除了UTF - 8，还有如UTF - 16、GBK等字符集。在GBK字符集中，每个字符通常占用2字节，所以 </font>`<font style="background-color:rgba(255, 255, 255, 0);">CHAR(10)</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 在GBK字符集中，</font>`<font style="background-color:rgba(255, 255, 255, 0);">key_len</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 为 </font>`<font style="background-color:rgba(255, 255, 255, 0);">10 * 2 = 20</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 字节（不考虑NULL值情况）。</font>
+不同字符集每个字符占用的字节数不同，这会影响字符串类型字段的 `key_len` 计算。除了UTF - 8，还有如UTF - 16、GBK等字符集。在GBK字符集中，每个字符通常占用2字节，所以 `CHAR(10)` 在GBK字符集中，`key_len` 为 `10 * 2 = 20` 字节（不考虑NULL值情况）。
 
-<font style="background-color:rgba(255, 255, 255, 0);">通过分析查询执行计划中的 </font>`<font style="background-color:rgba(255, 255, 255, 0);">key_len</font>`<font style="background-color:rgba(255, 255, 255, 0);">，可以了解MySQL实际使用索引的情况，判断索引是否被正确使用以及是否需要优化索引结构，从而提高查询性能。</font>
+通过分析查询执行计划中的 `key_len`，可以了解MySQL实际使用索引的情况，判断索引是否被正确使用以及是否需要优化索引结构，从而提高查询性能。
 
-## <font style="background-color:rgba(255, 255, 255, 0);">TODO 主从同步的原理？</font>
-<font style="background-color:rgba(255, 255, 255, 0);"></font>
+## TODO 主从同步的原理？
 
-## <font style="background-color:rgba(255, 255, 255, 0);">TODO 说一下你对分库分表的理解</font>
-<font style="background-color:rgba(255, 255, 255, 0);"></font>
 
-## <font style="background-color:rgba(255, 255, 255, 0);">如何避免回表查询</font>
-<font style="background-color:rgba(255, 255, 255, 0);">回表查询是指在使用索引查询时，先通过索引找到满足条件的记录的主键值，然后再根据主键值去聚簇索引（InnoDB存储引擎中，聚簇索引包含了完整的数据记录）中查询完整的记录信息。要避免回表查询，可以考虑以下几种方法：</font>
+## TODO 说一下你对分库分表的理解
 
-### <font style="background-color:rgba(255, 255, 255, 0);">覆盖索引</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">原理</font>**<font style="background-color:rgba(255, 255, 255, 0);">：覆盖索引是指查询所需要的所有列都包含在索引中，这样查询时只需要在索引中查找，而不需要再回表查询数据。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">示例</font>**<font style="background-color:rgba(255, 255, 255, 0);">：假设有一个 </font>`<font style="background-color:rgba(255, 255, 255, 0);">users</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 表，包含 </font>`<font style="background-color:rgba(255, 255, 255, 0);">id</font>`<font style="background-color:rgba(255, 255, 255, 0);">、</font>`<font style="background-color:rgba(255, 255, 255, 0);">name</font>`<font style="background-color:rgba(255, 255, 255, 0);">、</font>`<font style="background-color:rgba(255, 255, 255, 0);">age</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 等字段，并且在 </font>`<font style="background-color:rgba(255, 255, 255, 0);">(name, age)</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 上建立了联合索引。如果要查询 </font>`<font style="background-color:rgba(255, 255, 255, 0);">name</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 为 </font>`<font style="background-color:rgba(255, 255, 255, 0);">'John'</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 且 </font>`<font style="background-color:rgba(255, 255, 255, 0);">age</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 为 </font>`<font style="background-color:rgba(255, 255, 255, 0);">30</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 的用户的 </font>`<font style="background-color:rgba(255, 255, 255, 0);">name</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 和 </font>`<font style="background-color:rgba(255, 255, 255, 0);">age</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 字段，就可以使用这个联合索引来覆盖查询，不需要回表查询。查询语句如下：</font>
+
+## 如何避免回表查询
+回表查询是指在使用索引查询时，先通过索引找到满足条件的记录的主键值，然后再根据主键值去聚簇索引（InnoDB存储引擎中，聚簇索引包含了完整的数据记录）中查询完整的记录信息。要避免回表查询，可以考虑以下几种方法：
+
+### 覆盖索引
++ **原理**：覆盖索引是指查询所需要的所有列都包含在索引中，这样查询时只需要在索引中查找，而不需要再回表查询数据。
++ **示例**：假设有一个 `users` 表，包含 `id`、`name`、`age` 等字段，并且在 `(name, age)` 上建立了联合索引。如果要查询 `name` 为 `'John'` 且 `age` 为 `30` 的用户的 `name` 和 `age` 字段，就可以使用这个联合索引来覆盖查询，不需要回表查询。查询语句如下：
 
 ```sql
 SELECT name, age FROM users WHERE name = 'John' AND age = 30;
 ```
 
-### <font style="background-color:rgba(255, 255, 255, 0);">索引合并</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">原理</font>**<font style="background-color:rgba(255, 255, 255, 0);">：索引合并是指MySQL在处理查询时，会同时使用多个索引，然后将结果合并起来。如果多个索引能够覆盖查询所需的列，就可以避免回表查询。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">示例</font>**<font style="background-color:rgba(255, 255, 255, 0);">：假设 </font>`<font style="background-color:rgba(255, 255, 255, 0);">users</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 表上有 </font>`<font style="background-color:rgba(255, 255, 255, 0);">name</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 索引和 </font>`<font style="background-color:rgba(255, 255, 255, 0);">age</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 索引，要查询 </font>`<font style="background-color:rgba(255, 255, 255, 0);">name</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 为 </font>`<font style="background-color:rgba(255, 255, 255, 0);">'John'</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 或者 </font>`<font style="background-color:rgba(255, 255, 255, 0);">age</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 为 </font>`<font style="background-color:rgba(255, 255, 255, 0);">30</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 的用户的 </font>`<font style="background-color:rgba(255, 255, 255, 0);">name</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 和 </font>`<font style="background-color:rgba(255, 255, 255, 0);">age</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 字段，可以使用索引合并来避免回表查询。查询语句如下：</font>
+### 索引合并
++ **原理**：索引合并是指MySQL在处理查询时，会同时使用多个索引，然后将结果合并起来。如果多个索引能够覆盖查询所需的列，就可以避免回表查询。
++ **示例**：假设 `users` 表上有 `name` 索引和 `age` 索引，要查询 `name` 为 `'John'` 或者 `age` 为 `30` 的用户的 `name` 和 `age` 字段，可以使用索引合并来避免回表查询。查询语句如下：
 
 ```sql
 SELECT name, age FROM users WHERE name = 'John' OR age = 30;
 ```
 
-### <font style="background-color:rgba(255, 255, 255, 0);">优化查询语句</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">原理</font>**<font style="background-color:rgba(255, 255, 255, 0);">：通过分析查询语句，确保只查询必要的列，避免不必要的 </font>`<font style="background-color:rgba(255, 255, 255, 0);">JOIN</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 操作和子查询，以减少回表查询的可能性。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">示例</font>**<font style="background-color:rgba(255, 255, 255, 0);">：如果只需要查询 </font>`<font style="background-color:rgba(255, 255, 255, 0);">users</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 表中 </font>`<font style="background-color:rgba(255, 255, 255, 0);">name</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 为 </font>`<font style="background-color:rgba(255, 255, 255, 0);">'John'</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 的用户的 </font>`<font style="background-color:rgba(255, 255, 255, 0);">age</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 字段，那么查询语句应该写成 </font>`<font style="background-color:rgba(255, 255, 255, 0);">SELECT age FROM users WHERE name = 'John'</font>`<font style="background-color:rgba(255, 255, 255, 0);">，而不是 </font>`<font style="background-color:rgba(255, 255, 255, 0);">SELECT * FROM users WHERE name = 'John'</font>`<font style="background-color:rgba(255, 255, 255, 0);">，这样可以减少不必要的数据查询，有可能避免回表查询。</font>
+### 优化查询语句
++ **原理**：通过分析查询语句，确保只查询必要的列，避免不必要的 `JOIN` 操作和子查询，以减少回表查询的可能性。
++ **示例**：如果只需要查询 `users` 表中 `name` 为 `'John'` 的用户的 `age` 字段，那么查询语句应该写成 `SELECT age FROM users WHERE name = 'John'`，而不是 `SELECT * FROM users WHERE name = 'John'`，这样可以减少不必要的数据查询，有可能避免回表查询。
 
-### <font style="background-color:rgba(255, 255, 255, 0);">数据类型优化</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">原理</font>**<font style="background-color:rgba(255, 255, 255, 0);">：在设计表结构时，选择合适的数据类型可以减少索引的大小和查询的复杂度，从而提高查询效率，减少回表查询的概率。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">示例</font>**<font style="background-color:rgba(255, 255, 255, 0);">：对于固定长度的字符串字段，如性别字段，可以使用 </font>`<font style="background-color:rgba(255, 255, 255, 0);">ENUM</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 类型而不是 </font>`<font style="background-color:rgba(255, 255, 255, 0);">VARCHAR</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 类型，这样可以减少存储空间，提高索引的效率。</font>
+### 数据类型优化
++ **原理**：在设计表结构时，选择合适的数据类型可以减少索引的大小和查询的复杂度，从而提高查询效率，减少回表查询的概率。
++ **示例**：对于固定长度的字符串字段，如性别字段，可以使用 `ENUM` 类型而不是 `VARCHAR` 类型，这样可以减少存储空间，提高索引的效率。
 
-<font style="background-color:rgba(255, 255, 255, 0);">要避免回表查询，需要根据具体的业务需求和数据特点，合理设计索引和查询语句，充分利用索引的覆盖能力，以提高查询效率。</font>
+要避免回表查询，需要根据具体的业务需求和数据特点，合理设计索引和查询语句，充分利用索引的覆盖能力，以提高查询效率。
 
 ## MySQL 三层 B+ 树能存多少数据
 ### 什么是页
 要计算每层的数据量，首先需要引入**页**的概念。
 
-<font style="background-color:rgba(255, 255, 255, 0);">在数据库系统（如 MySQL 的 InnoDB 存储引擎）中，页（Page）是</font>**<font style="background-color:rgba(255, 255, 255, 0);">磁盘和内存之间进行数据交换的基本单位</font>**<font style="background-color:rgba(255, 255, 255, 0);">。数据库将数据存储在磁盘上，为了提高读写效率，会将数据划分为固定大小的页（InnoDB 中默认为 16KB，可修改）。页可以存储不同类型的数据，例如数据页用于存储表中的记录，索引页用于存储索引信息。数据库在进行数据读写操作时，会以页为单位将数据从磁盘加载到内存中进行处理，或者将内存中的数据写回到磁盘的页中。</font>
+在数据库系统（如 MySQL 的 InnoDB 存储引擎）中，页（Page）是**磁盘和内存之间进行数据交换的基本单位**。数据库将数据存储在磁盘上，为了提高读写效率，会将数据划分为固定大小的页（InnoDB 中默认为 16KB，可修改）。页可以存储不同类型的数据，例如数据页用于存储表中的记录，索引页用于存储索引信息。数据库在进行数据读写操作时，会以页为单位将数据从磁盘加载到内存中进行处理，或者将内存中的数据写回到磁盘的页中。
 
-### <font style="background-color:rgba(255, 255, 255, 0);">数据计算</font>
-**<font style="background-color:rgba(255, 255, 255, 0);">相关参数</font>**<font style="background-color:rgba(255, 255, 255, 0);">：</font>
+### 数据计算
+**相关参数**：
 
 + 每个节点页的大小为 **16KB**，即 **16384 Byte**。
 + 假设每个数据记录的主键和数据大小为 **1KB**。
@@ -1028,31 +1028,31 @@ SELECT name, age FROM users WHERE name = 'John' OR age = 30;
 ### 总结公式
 假设非叶子节点里指向其他内存页的指针数量为 X，叶子节点里能容纳的行数据量为 Y，树的层高为 Z，那么这个 B+ 树能存放的数据总量为 $ X^{Z-1} * Y $。
 
-## <font style="background-color:rgba(255, 255, 255, 0);">什么是页？为什么主键不自增会引起页分裂？B+树中关于页的内容？</font>
-> <font style="background-color:rgba(255, 255, 255, 0);">数据库主键要保证自增(UUID不适合做主键), 且插入的数据主键也要交保证自增插入, 否则会引起页分裂</font>
+## 什么是页？为什么主键不自增会引起页分裂？B+树中关于页的内容？
+> 数据库主键要保证自增(UUID不适合做主键), 且插入的数据主键也要交保证自增插入, 否则会引起页分裂
 >
 
-### <font style="background-color:rgba(255, 255, 255, 0);">什么是页</font>
-<font style="background-color:rgba(255, 255, 255, 0);">在数据库系统（如 MySQL 的 InnoDB 存储引擎）中，页（Page）是磁盘和内存之间进行数据交换的基本单位。数据库将数据存储在磁盘上，为了提高读写效率，会将数据划分为固定大小的页（通常 InnoDB 中页的大小为 16KB）。页可以存储不同类型的数据，例如数据页用于存储表中的记录，索引页用于存储索引信息。数据库在进行数据读写操作时，会以页为单位将数据从磁盘加载到内存中进行处理，或者将内存中的数据写回到磁盘的页中。</font>
+### 什么是页
+在数据库系统（如 MySQL 的 InnoDB 存储引擎）中，页（Page）是磁盘和内存之间进行数据交换的基本单位。数据库将数据存储在磁盘上，为了提高读写效率，会将数据划分为固定大小的页（通常 InnoDB 中页的大小为 16KB）。页可以存储不同类型的数据，例如数据页用于存储表中的记录，索引页用于存储索引信息。数据库在进行数据读写操作时，会以页为单位将数据从磁盘加载到内存中进行处理，或者将内存中的数据写回到磁盘的页中。
 
-### <font style="background-color:rgba(255, 255, 255, 0);">为什么主键非自增插入会引起页分裂</font>
-<font style="background-color:rgba(255, 255, 255, 0);">在使用自增主键时，新插入的记录主键值会比已有的主键值大，通常会顺序地添加到当前页的末尾。当当前页还有足够的空间时，不会产生额外的开销。</font>
+### 为什么主键非自增插入会引起页分裂
+在使用自增主键时，新插入的记录主键值会比已有的主键值大，通常会顺序地添加到当前页的末尾。当当前页还有足够的空间时，不会产生额外的开销。
 
-<font style="background-color:rgba(255, 255, 255, 0);">但如果主键不是自增的，比如使用 UUID 作为主键，插入的记录主键值是随机分布的。当插入的记录需要存储到某个页中，但该页已经没有足够的空间时，就会触发页分裂操作。具体过程如下：</font>
+但如果主键不是自增的，比如使用 UUID 作为主键，插入的记录主键值是随机分布的。当插入的记录需要存储到某个页中，但该页已经没有足够的空间时，就会触发页分裂操作。具体过程如下：
 
-+ <font style="background-color:rgba(255, 255, 255, 0);">数据库需要创建一个新的页来存储新插入的记录。</font>
-+ <font style="background-color:rgba(255, 255, 255, 0);">要将原页中的部分记录移动到新页中，以保证页内记录的有序性（对于 B+ 树索引，页内记录按主键值有序排列）。</font>
-+ <font style="background-color:rgba(255, 255, 255, 0);">页分裂会导致数据的重新组织，增加了磁盘 I/O 操作和维护索引的开销，降低了数据库的性能。同时，页分裂还可能导致页的空间利用率降低，产生更多的碎片。</font>
++ 数据库需要创建一个新的页来存储新插入的记录。
++ 要将原页中的部分记录移动到新页中，以保证页内记录的有序性（对于 B+ 树索引，页内记录按主键值有序排列）。
++ 页分裂会导致数据的重新组织，增加了磁盘 I/O 操作和维护索引的开销，降低了数据库的性能。同时，页分裂还可能导致页的空间利用率降低，产生更多的碎片。
 
-### <font style="background-color:rgba(255, 255, 255, 0);">B+ 树关于页的内容</font>
-<font style="background-color:rgba(255, 255, 255, 0);">B+ 树是一种广泛应用于数据库索引的数据结构，在 B+ 树中，页扮演着重要的角色，具体如下：</font>
+### B+ 树关于页的内容
+B+ 树是一种广泛应用于数据库索引的数据结构，在 B+ 树中，页扮演着重要的角色，具体如下：
 
-+ **<font style="background-color:rgba(255, 255, 255, 0);">节点以页为单位存储</font>**<font style="background-color:rgba(255, 255, 255, 0);">：B+ 树的每个节点（包括根节点、内部节点和叶子节点）都对应一个页。根节点页存储了指向子节点页的指针，内部节点页存储了索引键和指向子节点页的指针，叶子节点页存储了实际的数据记录或者指向数据记录的指针。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">页内记录有序</font>**<font style="background-color:rgba(255, 255, 255, 0);">：在每个页内，记录按照主键值的大小有序排列。这样可以提高查询效率，例如在进行范围查询时，可以快速定位到满足条件的记录。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">页之间通过指针相连</font>**<font style="background-color:rgba(255, 255, 255, 0);">：叶子节点页之间通过双向指针相连，形成一个有序链表。这使得范围查询可以沿着链表顺序遍历，提高了范围查询的效率。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">页的分裂与合并</font>**<font style="background-color:rgba(255, 255, 255, 0);">：当向 B+ 树中插入新记录时，如果某个页已满，就会触发页分裂操作；当删除记录导致某个页的空间利用率过低时，可能会触发页合并操作，将相邻的页合并成一个页，以提高空间利用率。</font>
++ **节点以页为单位存储**：B+ 树的每个节点（包括根节点、内部节点和叶子节点）都对应一个页。根节点页存储了指向子节点页的指针，内部节点页存储了索引键和指向子节点页的指针，叶子节点页存储了实际的数据记录或者指向数据记录的指针。
++ **页内记录有序**：在每个页内，记录按照主键值的大小有序排列。这样可以提高查询效率，例如在进行范围查询时，可以快速定位到满足条件的记录。
++ **页之间通过指针相连**：叶子节点页之间通过双向指针相连，形成一个有序链表。这使得范围查询可以沿着链表顺序遍历，提高了范围查询的效率。
++ **页的分裂与合并**：当向 B+ 树中插入新记录时，如果某个页已满，就会触发页分裂操作；当删除记录导致某个页的空间利用率过低时，可能会触发页合并操作，将相邻的页合并成一个页，以提高空间利用率。
 
-<font style="background-color:rgba(255, 255, 255, 0);">综上所述，使用自增主键可以避免随机插入导致的页分裂问题，提高数据库的性能和空间利用率。</font>
+综上所述，使用自增主键可以避免随机插入导致的页分裂问题，提高数据库的性能和空间利用率。
 
 ## 尽量避免在 where 子句中使用 != 或 <> 运算符，否则将引擎放弃使用索引而进行全表扫描。那应该怎么改？
 当需要进行类似 `!=` 或 `<>` 这种范围查询，但又想避免全表扫描以提升查询效率时，可以采用以下几种方法：

@@ -1,53 +1,53 @@
-## <font style="background-color:rgba(255, 255, 255, 0);">Integer 和 int 区别</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">类型</font>**<font style="background-color:rgba(255, 255, 255, 0);">：</font>`<font style="background-color:rgba(255, 255, 255, 0);">int</font>`<font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">是基本数据类型，</font>`<font style="background-color:rgba(255, 255, 255, 0);">Integer</font>`<font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">是</font><font style="background-color:rgba(255, 255, 255, 0);"> </font>`<font style="background-color:rgba(255, 255, 255, 0);">int</font>`<font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">对应的包装类，属于引用类型。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">默认值</font>**<font style="background-color:rgba(255, 255, 255, 0);">：</font>`<font style="background-color:rgba(255, 255, 255, 0);">int</font>`<font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">默认值是 0，</font>`<font style="background-color:rgba(255, 255, 255, 0);">Integer</font>`<font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">默认值是</font><font style="background-color:rgba(255, 255, 255, 0);"> </font>`<font style="background-color:rgba(255, 255, 255, 0);">null</font>`<font style="background-color:rgba(255, 255, 255, 0);">。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">内存存储</font>**<font style="background-color:rgba(255, 255, 255, 0);">：</font>`<font style="background-color:rgba(255, 255, 255, 0);">int</font>`<font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">直接存储数值，</font>`<font style="background-color:rgba(255, 255, 255, 0);">Integer</font>`<font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">对象存储在堆中，需要通过引用访问。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">使用场景</font>**<font style="background-color:rgba(255, 255, 255, 0);">：</font>`<font style="background-color:rgba(255, 255, 255, 0);">int</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 用于普通数值计算，</font>`<font style="background-color:rgba(255, 255, 255, 0);">Integer</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 用于泛型、集合等场景。</font>
+## Integer 和 int 区别
++ **类型**：`int` 是基本数据类型，`Integer` 是 `int` 对应的包装类，属于引用类型。
++ **默认值**：`int` 默认值是 0，`Integer` 默认值是 `null`。
++ **内存存储**：`int` 直接存储数值，`Integer` 对象存储在堆中，需要通过引用访问。
++ **使用场景**：`int` 用于普通数值计算，`Integer` 用于泛型、集合等场景。
 
-## <font style="background-color:rgba(255, 255, 255, 0);">封装继承多态</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">封装</font>**<font style="background-color:rgba(255, 255, 255, 0);">：将数据和操作数据的方法绑定在一起，隐藏对象的内部实现细节，只对外提供必要的接口。例如，类中的私有属性通过公共的 getter 和 setter 方法访问。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">继承</font>**<font style="background-color:rgba(255, 255, 255, 0);">：一个类可以继承另一个类的属性和方法，被继承的类称为父类（超类），继承的类称为子类。子类可以扩展父类的功能，也可以重写父类的方法。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">多态</font>**<font style="background-color:rgba(255, 255, 255, 0);">：同一操作作用于不同的对象，可以有不同的表现形式。多态通过继承、接口实现和方法重写来实现，主要分为编译时多态（方法重载）和运行时多态（方法重写）。</font>
+## 封装继承多态
++ **封装**：将数据和操作数据的方法绑定在一起，隐藏对象的内部实现细节，只对外提供必要的接口。例如，类中的私有属性通过公共的 getter 和 setter 方法访问。
++ **继承**：一个类可以继承另一个类的属性和方法，被继承的类称为父类（超类），继承的类称为子类。子类可以扩展父类的功能，也可以重写父类的方法。
++ **多态**：同一操作作用于不同的对象，可以有不同的表现形式。多态通过继承、接口实现和方法重写来实现，主要分为编译时多态（方法重载）和运行时多态（方法重写）。
 
-## <font style="background-color:rgba(255, 255, 255, 0);">jdk 和 jre 的区别，运行一个 jar 包只安装 jre 是否可以</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">区别</font>**<font style="background-color:rgba(255, 255, 255, 0);">：JDK（Java Development Kit）是 Java </font>**<font style="background-color:rgba(255, 255, 255, 0);">开发工具包</font>**<font style="background-color:rgba(255, 255, 255, 0);">，包含了 JRE 和一系列开发工具，如编译器 </font>`<font style="background-color:rgba(255, 255, 255, 0);">javac</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 等。JRE（Java Runtime Environment）是 Java </font>**<font style="background-color:rgba(255, 255, 255, 0);">运行时环境</font>**<font style="background-color:rgba(255, 255, 255, 0);">，提供了运行 Java 程序所需的所有组件，包括 Java 虚拟机（JVM）、Java 核心类库等。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">运行 jar 包</font>**<font style="background-color:rgba(255, 255, 255, 0);">：只安装 JRE 通常可以运行一个已经编译好的 </font>`<font style="background-color:rgba(255, 255, 255, 0);">jar</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 包，因为 </font>`<font style="background-color:rgba(255, 255, 255, 0);">jar</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 包是已经编译好的 Java 程序，只需要 JRE 提供的运行环境即可。</font>
+## jdk 和 jre 的区别，运行一个 jar 包只安装 jre 是否可以
++ **区别**：JDK（Java Development Kit）是 Java **开发工具包**，包含了 JRE 和一系列开发工具，如编译器 `javac` 等。JRE（Java Runtime Environment）是 Java **运行时环境**，提供了运行 Java 程序所需的所有组件，包括 Java 虚拟机（JVM）、Java 核心类库等。
++ **运行 jar 包**：只安装 JRE 通常可以运行一个已经编译好的 `jar` 包，因为 `jar` 包是已经编译好的 Java 程序，只需要 JRE 提供的运行环境即可。
 
-## <font style="background-color:rgba(255, 255, 255, 0);">== 和 equals 的区别</font>
-<font style="background-color:rgba(255, 255, 255, 0);">== 比较地址（引用类型）或值（基本数据类型），equals 比较值。</font>
+## == 和 equals 的区别
+== 比较地址（引用类型）或值（基本数据类型），equals 比较值。
 
-<font style="background-color:rgba(255, 255, 255, 0);">可以重写 equals 方法。</font>
+可以重写 equals 方法。
 
-+ `**<font style="background-color:rgba(255, 255, 255, 0);">==</font>**`**<font style="background-color:rgba(255, 255, 255, 0);">为</font>**`**<font style="background-color:rgba(255, 255, 255, 0);">true</font>**`**<font style="background-color:rgba(255, 255, 255, 0);">时，</font>**`**<font style="background-color:rgba(255, 255, 255, 0);">equals</font>**`**<font style="background-color:rgba(255, 255, 255, 0);">一定为</font>**`**<font style="background-color:rgba(255, 255, 255, 0);">true</font>**`<font style="background-color:rgba(255, 255, 255, 0);">：当使用</font><font style="background-color:rgba(255, 255, 255, 0);"> </font>`<font style="background-color:rgba(255, 255, 255, 0);">==</font>`<font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">比较两个对象时，如果结果为</font><font style="background-color:rgba(255, 255, 255, 0);"> </font>`<font style="background-color:rgba(255, 255, 255, 0);">true</font>`<font style="background-color:rgba(255, 255, 255, 0);">，表示这两个对象引用指向的是同一个内存地址，即它们是同一个对象。在这种情况下，调用</font><font style="background-color:rgba(255, 255, 255, 0);"> </font>`<font style="background-color:rgba(255, 255, 255, 0);">equals</font>`<font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">方法比较这两个对象，由于它们是同一个对象，</font>`<font style="background-color:rgba(255, 255, 255, 0);">equals</font>`<font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">方法通常（默认实现或未被重写时）也会返回</font><font style="background-color:rgba(255, 255, 255, 0);"> </font>`<font style="background-color:rgba(255, 255, 255, 0);">true</font>`<font style="background-color:rgba(255, 255, 255, 0);">。因为默认的</font><font style="background-color:rgba(255, 255, 255, 0);"> </font>`<font style="background-color:rgba(255, 255, 255, 0);">equals</font>`<font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">方法就是基于对象的内存地址进行比较的，与</font><font style="background-color:rgba(255, 255, 255, 0);"> </font>`<font style="background-color:rgba(255, 255, 255, 0);">==</font>`<font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">的比较结果一致。</font>
-+ `**<font style="background-color:rgba(255, 255, 255, 0);">equals</font>**`**<font style="background-color:rgba(255, 255, 255, 0);">为</font>**`**<font style="background-color:rgba(255, 255, 255, 0);">true</font>**`**<font style="background-color:rgba(255, 255, 255, 0);">时，</font>**`**<font style="background-color:rgba(255, 255, 255, 0);">==</font>**`**<font style="background-color:rgba(255, 255, 255, 0);">不一定为</font>**`**<font style="background-color:rgba(255, 255, 255, 0);">true</font>**`<font style="background-color:rgba(255, 255, 255, 0);">：当 </font>`<font style="background-color:rgba(255, 255, 255, 0);">equals</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 方法被重写后，它的比较逻辑可能不再基于对象的内存地址，而是基于对象的某些属性值。例如，在 </font>`<font style="background-color:rgba(255, 255, 255, 0);">String</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 类中，</font>`<font style="background-color:rgba(255, 255, 255, 0);">equals</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 方法被重写为比较字符串的内容是否相等。所以，即使两个 </font>`<font style="background-color:rgba(255, 255, 255, 0);">String</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 对象的引用不同（即 </font>`<font style="background-color:rgba(255, 255, 255, 0);">==</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 比较为 </font>`<font style="background-color:rgba(255, 255, 255, 0);">false</font>`<font style="background-color:rgba(255, 255, 255, 0);">），但如果它们的内容相同，</font>`<font style="background-color:rgba(255, 255, 255, 0);">equals</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 方法也会返回 </font>`<font style="background-color:rgba(255, 255, 255, 0);">true</font>`<font style="background-color:rgba(255, 255, 255, 0);">。</font>
++ `**==**`**为**`**true**`**时，**`**equals**`**一定为**`**true**`：当使用 `==` 比较两个对象时，如果结果为 `true`，表示这两个对象引用指向的是同一个内存地址，即它们是同一个对象。在这种情况下，调用 `equals` 方法比较这两个对象，由于它们是同一个对象，`equals` 方法通常（默认实现或未被重写时）也会返回 `true`。因为默认的 `equals` 方法就是基于对象的内存地址进行比较的，与 `==` 的比较结果一致。
++ `**equals**`**为**`**true**`**时，**`**==**`**不一定为**`**true**`：当 `equals` 方法被重写后，它的比较逻辑可能不再基于对象的内存地址，而是基于对象的某些属性值。例如，在 `String` 类中，`equals` 方法被重写为比较字符串的内容是否相等。所以，即使两个 `String` 对象的引用不同（即 `==` 比较为 `false`），但如果它们的内容相同，`equals` 方法也会返回 `true`。
 
-## <font style="background-color:rgba(255, 255, 255, 0);">final 的作用</font>
-+ <font style="background-color:rgba(255, 255, 255, 0);">final 修饰的方法不能被重写</font>
-+ <font style="background-color:rgba(255, 255, 255, 0);">final 修饰的类不能被继承</font>
-+ <font style="background-color:rgba(255, 255, 255, 0);">final 修饰的变量不能被改变</font>
+## final 的作用
++ final 修饰的方法不能被重写
++ final 修饰的类不能被继承
++ final 修饰的变量不能被改变
 
-## <font style="background-color:rgba(255, 255, 255, 0);">String 类的常用方法</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">长度获取</font>**<font style="background-color:rgba(255, 255, 255, 0);">：</font>`<font style="background-color:rgba(255, 255, 255, 0);">length()</font>`<font style="background-color:rgba(255, 255, 255, 0);">，返回字符串的长度。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">拼接</font>**<font style="background-color:rgba(255, 255, 255, 0);">：</font>`<font style="background-color:rgba(255, 255, 255, 0);">concat()</font>`<font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">或</font><font style="background-color:rgba(255, 255, 255, 0);"> </font>`<font style="background-color:rgba(255, 255, 255, 0);">+</font>`<font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">运算符，用于拼接字符串。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">查找</font>**<font style="background-color:rgba(255, 255, 255, 0);">：</font>`<font style="background-color:rgba(255, 255, 255, 0);">indexOf()</font>`<font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">查找字符或子字符串第一次出现的位置，</font>`<font style="background-color:rgba(255, 255, 255, 0);">lastIndexOf()</font>`<font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">查找最后一次出现的位置。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">截取</font>**<font style="background-color:rgba(255, 255, 255, 0);">：</font>`<font style="background-color:rgba(255, 255, 255, 0);">substring()</font>`<font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">截取子字符串。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">替换</font>**<font style="background-color:rgba(255, 255, 255, 0);">：</font>`<font style="background-color:rgba(255, 255, 255, 0);">replace()</font>`<font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">替换字符串中的字符或子字符串。</font>
-    - <font style="background-color:rgba(255, 255, 255, 0);">replace()：替换所有匹配的内容，不支持正则表达式。</font>
-    - <font style="background-color:rgba(255, 255, 255, 0);">replaceAll()：替换所有，支持正则表达式。</font>
-    - <font style="background-color:rgba(255, 255, 255, 0);">replaceFirst()：只替换第一个匹配的内容。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">比较</font>**<font style="background-color:rgba(255, 255, 255, 0);">：</font>`<font style="background-color:rgba(255, 255, 255, 0);">equals()</font>`<font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">比较字符串内容是否相等，</font>`<font style="background-color:rgba(255, 255, 255, 0);">compareTo()</font>`<font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">按字典顺序比较字符串。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">大小写转换</font>**<font style="background-color:rgba(255, 255, 255, 0);">：</font>`<font style="background-color:rgba(255, 255, 255, 0);">toUpperCase()</font>`<font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">转换为大写，</font>`<font style="background-color:rgba(255, 255, 255, 0);">toLowerCase()</font>`<font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">转换为小写。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">去除首尾空格</font>**<font style="background-color:rgba(255, 255, 255, 0);">：</font>`<font style="background-color:rgba(255, 255, 255, 0);">trim()</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 去除字符串首尾的空格。</font>
+## String 类的常用方法
++ **长度获取**：`length()`，返回字符串的长度。
++ **拼接**：`concat()` 或 `+` 运算符，用于拼接字符串。
++ **查找**：`indexOf()` 查找字符或子字符串第一次出现的位置，`lastIndexOf()` 查找最后一次出现的位置。
++ **截取**：`substring()` 截取子字符串。
++ **替换**：`replace()` 替换字符串中的字符或子字符串。
+    - replace()：替换所有匹配的内容，不支持正则表达式。
+    - replaceAll()：替换所有，支持正则表达式。
+    - replaceFirst()：只替换第一个匹配的内容。
++ **比较**：`equals()` 比较字符串内容是否相等，`compareTo()` 按字典顺序比较字符串。
++ **大小写转换**：`toUpperCase()` 转换为大写，`toLowerCase()` 转换为小写。
++ **去除首尾空格**：`trim()` 去除字符串首尾的空格。
 
-## <font style="background-color:rgba(255, 255, 255, 0);">抽象类和普通类的区别</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">抽象方法</font>**<font style="background-color:rgba(255, 255, 255, 0);">：抽象类可以包含抽象方法（只有方法声明，没有方法体），普通类不能包含抽象方法。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">实例化</font>**<font style="background-color:rgba(255, 255, 255, 0);">：抽象类不能被实例化，只能被继承；普通类可以直接实例化。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">设计目的</font>**<font style="background-color:rgba(255, 255, 255, 0);">：抽象类用于定义一组相关类的公共行为和属性，作为子类的基类；普通类用于实现具体的功能。</font>
+## 抽象类和普通类的区别
++ **抽象方法**：抽象类可以包含抽象方法（只有方法声明，没有方法体），普通类不能包含抽象方法。
++ **实例化**：抽象类不能被实例化，只能被继承；普通类可以直接实例化。
++ **设计目的**：抽象类用于定义一组相关类的公共行为和属性，作为子类的基类；普通类用于实现具体的功能。
 
-## <font style="background-color:rgba(255, 255, 255, 0);">一个类继承抽象类，必须重写所有方法吗</font>
-<font style="background-color:rgba(255, 255, 255, 0);">不一定。如果子类是</font>**<font style="background-color:rgba(255, 255, 255, 0);">抽象类</font>**<font style="background-color:rgba(255, 255, 255, 0);">，那么</font>**<font style="background-color:rgba(255, 255, 255, 0);">可以不</font>**<font style="background-color:rgba(255, 255, 255, 0);">重写父类的抽象方法；如果子类是</font>**<font style="background-color:rgba(255, 255, 255, 0);">普通类</font>**<font style="background-color:rgba(255, 255, 255, 0);">，则</font>**<font style="background-color:rgba(255, 255, 255, 0);">必须</font>**<font style="background-color:rgba(255, 255, 255, 0);">重写抽象父类的</font>**<font style="background-color:rgba(255, 255, 255, 0);">所有</font>**<font style="background-color:rgba(255, 255, 255, 0);">抽象方法，否则会编译报错。</font>
+## 一个类继承抽象类，必须重写所有方法吗
+不一定。如果子类是**抽象类**，那么**可以不**重写父类的抽象方法；如果子类是**普通类**，则**必须**重写抽象父类的**所有**抽象方法，否则会编译报错。
 
-## <font style="background-color:rgba(255, 255, 255, 0);">抽象类和接口的区别</font>
+## 抽象类和接口的区别
 ### 设计理念差异
 + **抽象类**：体现**模板式设计**，用于定义**一组相关类的公共模板**（如“动物”抽象类）。  
     - 强调“**is-a**”关系（子类是抽象类的一种具体实现）。  
@@ -86,13 +86,13 @@
 + **避免滥用继承**：优先用接口定义能力，通过组合（如`类持有接口实例`）实现功能，减少继承层级带来的耦合。  
 + **本质区别**：抽象类是“**模板的具象化**”，接口是“**契约的标准化**”，根据设计目标选择合适的抽象机制。
 
-## <font style="background-color:rgba(255, 255, 255, 0);">重载和重写的区别</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">定义位置</font>**<font style="background-color:rgba(255, 255, 255, 0);">：重载发生在同一个类中，重写发生在子类和父类之间。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">方法签名</font>**<font style="background-color:rgba(255, 255, 255, 0);">：重载要求方法名相同，但参数列表不同（参数个数、类型或顺序不同），与返回值类型无关；重写要求方法名、参数列表和返回值类型都相同（子类方法返回值可以是父类方法返回值的子类）。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">访问修饰符</font>**<font style="background-color:rgba(255, 255, 255, 0);">：重载对访问修饰符没有要求；重写时子类方法的访问修饰符不能比父类方法更严格。</font>
-+ **<font style="background-color:rgba(255, 255, 255, 0);">异常处理</font>**<font style="background-color:rgba(255, 255, 255, 0);">：重载与异常无关；重写时子类方法抛出的异常不能比父类方法抛出的异常更宽泛。</font>
+## 重载和重写的区别
++ **定义位置**：重载发生在同一个类中，重写发生在子类和父类之间。
++ **方法签名**：重载要求方法名相同，但参数列表不同（参数个数、类型或顺序不同），与返回值类型无关；重写要求方法名、参数列表和返回值类型都相同（子类方法返回值可以是父类方法返回值的子类）。
++ **访问修饰符**：重载对访问修饰符没有要求；重写时子类方法的访问修饰符不能比父类方法更严格。
++ **异常处理**：重载与异常无关；重写时子类方法抛出的异常不能比父类方法抛出的异常更宽泛。
 
-## <font style="background-color:rgba(255, 255, 255, 0);">关于静态变量、静态代码块、构造函数的执行顺序</font>
+## 关于静态变量、静态代码块、构造函数的执行顺序
 ```java
 class A {
     public static int a = 1;
@@ -116,30 +116,30 @@ public class Example {
 }
 ```
 
-<font style="background-color:rgba(255, 255, 255, 0);">这种说法基本正确，下面为你详细解释类</font><font style="background-color:rgba(255, 255, 255, 0);"> </font>`<font style="background-color:rgba(255, 255, 255, 0);">A</font>`<font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">中各部分的执行顺序：</font>
+这种说法基本正确，下面为你详细解释类 `A` 中各部分的执行顺序：
 
-1. **<font style="background-color:rgba(255, 255, 255, 0);">静态变量的分配空间与默认初始化</font>**
+1. **静态变量的分配空间与默认初始化**
 
-<font style="background-color:rgba(255, 255, 255, 0);">在 Java 里，当一个类被加载时，首先会为类的静态变量分配内存空间，并赋予默认的初始值。对于</font><font style="background-color:rgba(255, 255, 255, 0);"> </font>`<font style="background-color:rgba(255, 255, 255, 0);">class A</font>`<font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">而言，</font>`<font style="background-color:rgba(255, 255, 255, 0);">public static int a = 1;</font>`<font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">这行代码，会先为静态变量</font><font style="background-color:rgba(255, 255, 255, 0);"> </font>`<font style="background-color:rgba(255, 255, 255, 0);">a</font>`<font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">分配内存空间，然后将其默认初始化为</font><font style="background-color:rgba(255, 255, 255, 0);"> </font>`<font style="background-color:rgba(255, 255, 255, 0);">0</font>`<font style="background-color:rgba(255, 255, 255, 0);">（</font>`<font style="background-color:rgba(255, 255, 255, 0);">int</font>`<font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">类型的默认值）。</font>
+在 Java 里，当一个类被加载时，首先会为类的静态变量分配内存空间，并赋予默认的初始值。对于 `class A` 而言，`public static int a = 1;` 这行代码，会先为静态变量 `a` 分配内存空间，然后将其默认初始化为 `0`（`int` 类型的默认值）。
 
-2. **<font style="background-color:rgba(255, 255, 255, 0);">静态代码块与静态变量显式初始化</font>**
+2. **静态代码块与静态变量显式初始化**
 
-<font style="background-color:rgba(255, 255, 255, 0);">静态代码块和静态变量的显式初始化是按照它们在类中出现的顺序依次执行的。在</font><font style="background-color:rgba(255, 255, 255, 0);"> </font>`<font style="background-color:rgba(255, 255, 255, 0);">class A</font>`<font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">中，</font>`<font style="background-color:rgba(255, 255, 255, 0);">public static int a = 1;</font>`<font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">会将</font><font style="background-color:rgba(255, 255, 255, 0);"> </font>`<font style="background-color:rgba(255, 255, 255, 0);">a</font>`<font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">的值显式初始化为</font><font style="background-color:rgba(255, 255, 255, 0);"> </font>`<font style="background-color:rgba(255, 255, 255, 0);">1</font>`<font style="background-color:rgba(255, 255, 255, 0);">，接着执行静态代码块</font><font style="background-color:rgba(255, 255, 255, 0);"> </font>`<font style="background-color:rgba(255, 255, 255, 0);">static { a = 2; }</font>`<font style="background-color:rgba(255, 255, 255, 0);">，把</font><font style="background-color:rgba(255, 255, 255, 0);"> </font>`<font style="background-color:rgba(255, 255, 255, 0);">a</font>`<font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">的值更新为</font><font style="background-color:rgba(255, 255, 255, 0);"> </font>`<font style="background-color:rgba(255, 255, 255, 0);">2</font>`<font style="background-color:rgba(255, 255, 255, 0);">。所以，在类加载完成后，静态变量</font><font style="background-color:rgba(255, 255, 255, 0);"> </font>`<font style="background-color:rgba(255, 255, 255, 0);">a</font>`<font style="background-color:rgba(255, 255, 255, 0);"> </font><font style="background-color:rgba(255, 255, 255, 0);">的值为</font><font style="background-color:rgba(255, 255, 255, 0);"> </font>`<font style="background-color:rgba(255, 255, 255, 0);">2</font>`<font style="background-color:rgba(255, 255, 255, 0);">。</font>
+静态代码块和静态变量的显式初始化是按照它们在类中出现的顺序依次执行的。在 `class A` 中，`public static int a = 1;` 会将 `a` 的值显式初始化为 `1`，接着执行静态代码块 `static { a = 2; }`，把 `a` 的值更新为 `2`。所以，在类加载完成后，静态变量 `a` 的值为 `2`。
 
-3. **<font style="background-color:rgba(255, 255, 255, 0);">构造函数的执行</font>**
+3. **构造函数的执行**
 
-<font style="background-color:rgba(255, 255, 255, 0);">只有在创建类的实例时，构造函数才会被调用。在 </font>`<font style="background-color:rgba(255, 255, 255, 0);">class A</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 中，有两个构造函数：一个是带参数的构造函数 </font>`<font style="background-color:rgba(255, 255, 255, 0);">public A(int a) { A.a = a; }</font>`<font style="background-color:rgba(255, 255, 255, 0);">，另一个是无参构造函数 </font>`<font style="background-color:rgba(255, 255, 255, 0);">public A() { }</font>`<font style="background-color:rgba(255, 255, 255, 0);">。当使用 </font>`<font style="background-color:rgba(255, 255, 255, 0);">new</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 关键字创建 </font>`<font style="background-color:rgba(255, 255, 255, 0);">A</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 类的对象时，对应的构造函数会被执行。例如，若执行 </font>`<font style="background-color:rgba(255, 255, 255, 0);">A obj = new A(3);</font>`<font style="background-color:rgba(255, 255, 255, 0);">，则会调用带参数的构造函数，将静态变量 </font>`<font style="background-color:rgba(255, 255, 255, 0);">a</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 的值更新为 </font>`<font style="background-color:rgba(255, 255, 255, 0);">3</font>`<font style="background-color:rgba(255, 255, 255, 0);">。</font><font style="background-color:rgba(255, 255, 255, 0);"></font>
+只有在创建类的实例时，构造函数才会被调用。在 `class A` 中，有两个构造函数：一个是带参数的构造函数 `public A(int a) { A.a = a; }`，另一个是无参构造函数 `public A() { }`。当使用 `new` 关键字创建 `A` 类的对象时，对应的构造函数会被执行。例如，若执行 `A obj = new A(3);`，则会调用带参数的构造函数，将静态变量 `a` 的值更新为 `3`。
 
-<font style="background-color:rgba(255, 255, 255, 0);">综上所述，对于类 </font>`<font style="background-color:rgba(255, 255, 255, 0);">A</font>`<font style="background-color:rgba(255, 255, 255, 0);"> 来说，执行顺序确实是静态变量分配空间与默认初始化 -> 静态变量显式初始化和静态代码块（按出现顺序执行） -> 构造函数（创建实例时执行）。你提到的 “</font>`<font style="background-color:rgba(255, 255, 255, 0);">static int -> static{} -> 构造函数</font>`<font style="background-color:rgba(255, 255, 255, 0);">” 大致符合执行顺序，但要注意静态变量还有默认初始化这一步骤。</font>
+综上所述，对于类 `A` 来说，执行顺序确实是静态变量分配空间与默认初始化 -> 静态变量显式初始化和静态代码块（按出现顺序执行） -> 构造函数（创建实例时执行）。你提到的 “`static int -> static{} -> 构造函数`” 大致符合执行顺序，但要注意静态变量还有默认初始化这一步骤。
 
-## <font style="background-color:rgba(255, 255, 255, 0);">getDeclaredMethods 方法有什么作用</font>
-+ `<font style="background-color:rgba(255, 255, 255, 0);">getDeclaredMethods</font>`<font style="background-color:rgba(255, 255, 255, 0);">是</font>`<font style="background-color:rgba(255, 255, 255, 0);">java.lang.Class</font>`<font style="background-color:rgba(255, 255, 255, 0);">类的方法。</font>
-+ <font style="background-color:rgba(255, 255, 255, 0);">该方法用于获取该类或接口声明的所有方法，包括公共、保护、默认（包）访问和私有方法，但不包括从超类或接口继承的方法。它返回一个</font>`<font style="background-color:rgba(255, 255, 255, 0);">Method</font>`<font style="background-color:rgba(255, 255, 255, 0);">数组，数组中的每个元素代表一个声明的方法。通过这个方法，开发者可以在运行时动态地获取类中定义的方法信息，进而可以通过反射机制来调用这些方法，实现一些灵活的编程需求，例如在框架开发中，可能需要根据配置信息动态调用某个类的特定方法，就可以使用</font>`<font style="background-color:rgba(255, 255, 255, 0);">getDeclaredMethods</font>`<font style="background-color:rgba(255, 255, 255, 0);">来获取方法并进行调用。</font>
+## getDeclaredMethods 方法有什么作用
++ `getDeclaredMethods`是`java.lang.Class`类的方法。
++ 该方法用于获取该类或接口声明的所有方法，包括公共、保护、默认（包）访问和私有方法，但不包括从超类或接口继承的方法。它返回一个`Method`数组，数组中的每个元素代表一个声明的方法。通过这个方法，开发者可以在运行时动态地获取类中定义的方法信息，进而可以通过反射机制来调用这些方法，实现一些灵活的编程需求，例如在框架开发中，可能需要根据配置信息动态调用某个类的特定方法，就可以使用`getDeclaredMethods`来获取方法并进行调用。
 
-## <font style="background-color:rgba(255, 255, 255, 0);">jdk8 和 jdk17 的新特性</font>
-[<font style="background-color:rgba(255, 255, 255, 0);">https://javaguide.cn/java/new-features/java8-common-new-features.html</font>](https://javaguide.cn/java/new-features/java8-common-new-features.html)
+## jdk8 和 jdk17 的新特性
+[https://javaguide.cn/java/new-features/java8-common-new-features.html](https://javaguide.cn/java/new-features/java8-common-new-features.html)
 
-[<font style="background-color:rgba(255, 255, 255, 0);">https://javaguide.cn/java/new-features/java17.html</font>](https://javaguide.cn/java/new-features/java17.html)
+[https://javaguide.cn/java/new-features/java17.html](https://javaguide.cn/java/new-features/java17.html)
 
 ## float 和 double 的区别
 在Java中，`float`和`double`都是用于表示浮点数的数据类型，但它们存在一些重要区别：
@@ -843,7 +843,7 @@ public class Test {
 
 理解此顺序有助于避免初始化逻辑的冲突，尤其是在复杂继承关系中确保代码执行的正确性。
 
-## <font style="color:rgba(0, 0, 0, 0.85);">String、StringBuilder、StringBuffer 的区别</font>
+## <font style="color:rgba(0, 0, 0, 0.85);">String、StringBuilder、StringBuffer 的区别
 ### **1. 可变性（Mutability）**
 + `String`：**不可变**。一旦创建，其值不能被修改。任何对`String`的修改操作（如`concat`、`substring`）都会返回一个新的`String`对象。
 + `StringBuilder` 和 `StringBuffer`：**可变**。它们内部维护一个可变的字符数组，对字符串的修改操作（如`append`、`delete`）不会创建新对象，而是直接在原对象上修改。
