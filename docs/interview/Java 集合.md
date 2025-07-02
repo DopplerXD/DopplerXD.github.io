@@ -148,7 +148,8 @@ public static void main(String[] args) {
 ## 对 ConcurrentHashMap 的了解
 `ConcurrentHashMap` 是 Java 中用于在多线程环境下高效操作的哈希表实现，位于 `java.util.concurrent` 包中。
 
-#### 原理
+### 原理
+
 + JDK 7 及以前
     - 在 JDK 7 及以前，`ConcurrentHashMap` 采用分段锁（Segment）机制实现并发控制。其核心结构如下：
     - **Segment 数组**：`ConcurrentHashMap` 内部维护了一个 `Segment` 数组，每个 `Segment` 类似于一个小的 `HashMap`，它继承自 `ReentrantLock`，可以独立加锁。默认情况下，数组长度为 16，也就是最多支持 16 个线程并发操作。
@@ -159,7 +160,8 @@ public static void main(String[] args) {
     - **Node 数组**：`ConcurrentHashMap` 内部维护了一个 `Node` 数组，每个 `Node` 存储一个键值对。当发生哈希冲突时，首先采用链表法解决，当链表长度达到一定阈值（默认为 8）时，链表会转换为红黑树，以提高查找效率。
     - **CAS 和 synchronized**：在进行写操作时，首先通过 CAS 尝试更新节点，如果 CAS 失败，则使用 `synchronized` 对当前节点加锁，然后进行插入或更新操作。读操作时，通过 `volatile` 关键字保证数据的可见性，通常不需要加锁。
 
-#### 特点
+### 特点
+
 + 线程安全
     - `ConcurrentHashMap` 是线程安全的，它允许多个线程同时进行读写操作，而不需要额外的同步机制。在多线程环境下，使用 `ConcurrentHashMap` 可以避免数据不一致的问题。
 + 高效的并发性能
