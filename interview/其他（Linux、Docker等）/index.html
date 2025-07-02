@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
     
     
       
@@ -1649,9 +1649,9 @@
 <p>可以使用 <code>df</code> 命令查看磁盘容量。例如，要查看所有挂载磁盘的使用情况，可执行 <code>df -h</code> 命令，其中 <code>-h</code> 选项会以人类可读的格式（如 KB、MB、GB）显示磁盘容量信息。若要查看特定挂载点的磁盘使用情况，可在命令后加上挂载点路径，如 <code>df -h /mnt/data</code>。</p>
 <h3 id="linux_2">如何查看 Linux 中的某个端口号<a class="headerlink" href="#linux_2" title="Permanent link">&para;</a></h3>
 <ul>
-<li><code>**netstat**</code><strong> </strong><strong>命令</strong>：可用于查看网络连接和端口监听情况。例如，要查看所有监听的 TCP 端口，可执行 <code>netstat -tulnp | grep :端口号</code>，其中 <code>-t</code> 表示 TCP 协议，<code>-u</code> 表示 UDP 协议，<code>-l</code> 表示只显示监听状态的连接，<code>-n</code> 表示以数字形式显示地址和端口号，<code>-p</code> 表示显示进程信息。</li>
-<li><code>**ss**</code><strong> </strong><strong>命令</strong>：这是一个更高效的网络工具，能替代 <code>netstat</code>。例如，查看监听的 TCP 端口，可执行 <code>ss -tulnp | grep :端口号</code>。</li>
-<li><code>**lsof**</code><strong> 命令</strong>：用于列出当前系统打开的文件，也能查看端口占用情况。例如，查看占用 8080 端口的进程，可执行 <code>lsof -i :8080</code>。</li>
+<li><strong><code>netstat</code> 命令</strong>：可用于查看网络连接和端口监听情况。例如，要查看所有监听的 TCP 端口，可执行 <code>netstat -tulnp | grep :端口号</code>，其中 <code>-t</code> 表示 TCP 协议，<code>-u</code> 表示 UDP 协议，<code>-l</code> 表示只显示监听状态的连接，<code>-n</code> 表示以数字形式显示地址和端口号，<code>-p</code> 表示显示进程信息。</li>
+<li><strong><code>ss</code> 命令</strong>：这是一个更高效的网络工具，能替代 <code>netstat</code>。例如，查看监听的 TCP 端口，可执行 <code>ss -tulnp | grep :端口号</code>。</li>
+<li><strong><code>lsof</code> 命令</strong>：用于列出当前系统打开的文件，也能查看端口占用情况。例如，查看占用 8080 端口的进程，可执行 <code>lsof -i :8080</code>。</li>
 </ul>
 <h2 id="docker">Docker 相关<a class="headerlink" href="#docker" title="Permanent link">&para;</a></h2>
 <p>Docker 是用于开发、部署和运行应用程序的开源平台，以下是一些常用操作：</p>
@@ -1662,14 +1662,14 @@
 </ul>
 <h2 id="linux-topchowndf">Linux top、chown、df 等命令<a class="headerlink" href="#linux-topchowndf" title="Permanent link">&para;</a></h2>
 <ul>
-<li><code>**top**</code><strong> </strong><strong>命令</strong>：实时显示系统中各个进程的资源占用情况，能帮助用户监控系统性能。启动 <code>top</code> 命令后，会显示一个动态的界面，包含 CPU、内存、进程等信息。按 <code>q</code> 键可退出该界面。</li>
-<li><code>**chown**</code><strong> </strong><strong>命令</strong>：用于修改文件或目录的所有者和所属组。语法为 <code>chown [所有者][:所属组] 文件或目录</code>，例如 <code>chown user1:group1 test.txt</code> 会将 <code>test.txt</code> 文件的所有者改为 <code>user1</code>，所属组改为 <code>group1</code>。</li>
-<li><code>**df**</code><strong> 命令</strong>：用于显示磁盘使用情况，如前面所述，<code>df -h</code> 可查看所有挂载磁盘的使用情况，以人类可读的格式输出。</li>
+<li><strong><code>top</code> 命令</strong>：实时显示系统中各个进程的资源占用情况，能帮助用户监控系统性能。启动 <code>top</code> 命令后，会显示一个动态的界面，包含 CPU、内存、进程等信息。按 <code>q</code> 键可退出该界面。</li>
+<li><strong><code>chown</code> 命令</strong>：用于修改文件或目录的所有者和所属组。语法为 <code>chown [所有者][:所属组] 文件或目录</code>，例如 <code>chown user1:group1 test.txt</code> 会将 <code>test.txt</code> 文件的所有者改为 <code>user1</code>，所属组改为 <code>group1</code>。</li>
+<li><strong><code>df</code> 命令</strong>：用于显示磁盘使用情况，如前面所述，<code>df -h</code> 可查看所有挂载磁盘的使用情况，以人类可读的格式输出。</li>
 </ul>
 <h2 id="linux_3">Linux 用什么命令修改配置文件<a class="headerlink" href="#linux_3" title="Permanent link">&para;</a></h2>
 <ul>
-<li><code>**vi**</code><strong> </strong><strong>或</strong><strong> </strong><code>**vim**</code><strong> </strong><strong>编辑器</strong>：这是 Linux 中最常用的文本编辑器，功能强大。例如，要编辑 <code>/etc/nginx/nginx.conf</code> 文件，可执行 <code>vim /etc/nginx/nginx.conf</code> 命令，进入编辑器后进行修改，按 <code>i</code> 键进入插入模式，修改完成后按 <code>Esc</code> 键退出插入模式，输入 <code>:wq</code> 保存并退出。</li>
-<li><code>**nano**</code><strong> 编辑器</strong>：操作相对简单，适合初学者。例如，<code>nano /etc/hosts</code> 可打开 <code>/etc/hosts</code> 文件进行编辑，编辑完成后按 <code>Ctrl + X</code> 键，再按 <code>Y</code> 键确认保存，最后按 <code>Enter</code> 键退出。</li>
+<li><strong><code>vi</code></strong> 或 <strong><code>vim</code> 编辑器</strong>：这是 Linux 中最常用的文本编辑器，功能强大。例如，要编辑 <code>/etc/nginx/nginx.conf</code> 文件，可执行 <code>vim /etc/nginx/nginx.conf</code> 命令，进入编辑器后进行修改，按 <code>i</code> 键进入插入模式，修改完成后按 <code>Esc</code> 键退出插入模式，输入 <code>:wq</code> 保存并退出。</li>
+<li><strong><code>nano</code> 编辑器</strong>：操作相对简单，适合初学者。例如，<code>nano /etc/hosts</code> 可打开 <code>/etc/hosts</code> 文件进行编辑，编辑完成后按 <code>Ctrl + X</code> 键，再按 <code>Y</code> 键确认保存，最后按 <code>Enter</code> 键退出。</li>
 </ul>
 <h2 id="_1">异步任务超时的容错机制<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ul>
@@ -1681,10 +1681,10 @@
 <p>字节码是一种中间表示形式，介于高级编程语言和机器语言之间。在 Java、Python（如 CPython 中的 <code>.pyc</code> 文件）等编程语言中，源代码首先会被编译成字节码。以 Java 为例，Java 源代码（<code>.java</code> 文件）经过 <code>javac</code> 编译器编译后会生成字节码文件（<code>.class</code> 文件）。字节码不是直接在硬件上运行的机器码，而是在虚拟机（如 Java 虚拟机 JVM）上运行。虚拟机负责将字节码解释或编译成机器码并执行，这样做的好处是实现了平台无关性，即同一份字节码可以在不同的操作系统和硬件平台上运行，只要安装了相应的虚拟机。</p>
 <h2 id="cpu">CPU 飙高的排查过程<a class="headerlink" href="#cpu" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>使用</strong><strong> </strong><code>**top**</code><strong> </strong><strong>命令</strong>：查看系统中占用 CPU 资源较高的进程，记录下进程的 PID（进程 ID）。</li>
-<li><strong>使用</strong><strong> </strong><code>**ps**</code><strong> </strong><strong>命令</strong>：结合 PID 查看进程的详细信息，如 <code>ps -ef | grep PID</code>，可了解进程的启动时间、所属用户等。</li>
-<li><strong>使用</strong><strong> </strong><code>**strace**</code><strong> </strong><strong>命令</strong>：对进程进行系统调用跟踪，如 <code>strace -p PID</code>，可查看进程正在执行的系统调用，分析是否存在异常的系统调用导致 CPU 占用过高。</li>
-<li><strong>使用</strong><strong> </strong><code>**gdb**</code><strong> </strong><strong>调试器</strong>：若进程是可调试的，可使用 <code>gdb</code> 对其进行调试，查看进程的堆栈信息，找出可能导致 CPU 飙高的代码位置。</li>
+<li><strong>使用 <code>top</code> 命令</strong>：查看系统中占用 CPU 资源较高的进程，记录下进程的 PID（进程 ID）。</li>
+<li><strong>使用 <code>ps</code> 命令</strong>：结合 PID 查看进程的详细信息，如 <code>ps -ef | grep PID</code>，可了解进程的启动时间、所属用户等。</li>
+<li><strong>使用 <code>strace</code> 命令</strong>：对进程进行系统调用跟踪，如 <code>strace -p PID</code>，可查看进程正在执行的系统调用，分析是否存在异常的系统调用导致 CPU 占用过高。</li>
+<li><strong>使用 <code>gdb</code> 调试器</strong>：若进程是可调试的，可使用 <code>gdb</code> 对其进行调试，查看进程的堆栈信息，找出可能导致 CPU 飙高的代码位置。</li>
 <li><strong>检查程序代码</strong>：查看相关程序的代码，分析是否存在死循环、高计算复杂度的算法等问题。</li>
 </ul>
 <h2 id="bug">遇到 bug 怎么解决<a class="headerlink" href="#bug" title="Permanent link">&para;</a></h2>
@@ -1724,7 +1724,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年6月30日 14:41:46 UTC">2025年6月30日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年7月2日 06:07:33 UTC">2025年7月2日</span>
   </span>
 
     
@@ -1896,7 +1896,7 @@
       <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "toc.follow", "navigation.path", "navigation.top", "navigation.tabs", "navigation.prune", "navigation.footer", "navigation.sections", "content.code.copy", "search.share", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
       
         <script src="../../javascripts/extra.js"></script>
       
