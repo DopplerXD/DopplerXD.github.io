@@ -4145,13 +4145,13 @@
 </ul>
 </li>
 <li><strong>取值范围</strong><ul>
-<li><code>float</code>的取值范围约为$ ±3.40282347E + 38 $，这意味着它能表示非常大或非常小的数值，但精度有限。</li>
-<li><code>double</code>的取值范围约为$ ±1.79769313486231570E + 308 $，取值范围比<code>float</code>大得多。</li>
+<li><code>float</code> 的取值范围约为 <span class="arithmatex">\(±3.40282347E + 38\)</span>，这意味着它能表示非常大或非常小的数值，但精度有限。</li>
+<li><code>double</code> 的取值范围约为 <span class="arithmatex">\(±1.79769313486231570E + 308\)</span>，取值范围比 <code>float</code> 大得多。</li>
 </ul>
 </li>
 </ol>
 <h2 id="floatdouble">金融计算不使用<code>float</code>和<code>double</code>的原因<a class="headerlink" href="#floatdouble" title="Permanent link">&para;</a></h2>
-<p>实际上，在金融相关计算中<strong>不推荐使用</strong><code>float</code><strong>和</strong><code>double</code>，而通常使用<code>BigDecimal</code>。原因如下：</p>
+<p>实际上，在金融相关计算中<strong>不推荐使用 <code>float</code> 和 <code>double</code></strong>，而通常使用 <strong><code>BigDecimal</code></strong>。原因如下：</p>
 <ol>
 <li><strong>精度问题</strong>：金融计算对精度要求极高，<code>float</code>和<code>double</code>都是以二进制形式存储小数，许多十进制小数无法精确地用二进制表示。例如，<code>0.1</code>在十进制中是一个简单的小数，但在二进制中是一个无限循环小数。这就导致在使用<code>float</code>或<code>double</code>进行金融计算时，可能会出现舍入误差，随着计算的累积，这些误差可能会导致严重的错误。例如，多次计算利息、汇率转换等操作时，误差可能会使最终结果与预期相差较大。</li>
 <li><strong>商业合规性</strong>：金融领域有严格的法规和合规要求，需要保证计算结果的精确性和一致性。使用<code>float</code>和<code>double</code>可能导致的精度问题无法满足这些要求，而<code>BigDecimal</code>提供了精确的小数运算，通过指定舍入模式，可以满足不同金融场景下对精度的严格要求，确保计算结果的准确性和可重复性。</li>
@@ -5070,7 +5070,7 @@
 <li><strong>继承链初始化</strong>：子类实例化必须先完成父类初始化，确保父类成员可被正确访问，符合 OOP 的“父类优先”原则。</li>
 </ul>
 <p>理解此顺序有助于避免初始化逻辑的冲突，尤其是在复杂继承关系中确保代码执行的正确性。</p>
-<h2 id="stringstringbuilderstringbuffer"><font style="color:rgba(0, 0, 0, 0.85);">String、StringBuilder、StringBuffer 的区别<a class="headerlink" href="#stringstringbuilderstringbuffer" title="Permanent link">&para;</a></h2>
+<h2 id="stringstringbuilderstringbuffer">String、StringBuilder、StringBuffer 的区别<a class="headerlink" href="#stringstringbuilderstringbuffer" title="Permanent link">&para;</a></h2>
 <h3 id="1-mutability"><strong>1. 可变性（Mutability）</strong><a class="headerlink" href="#1-mutability" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>String</code>：<strong>不可变</strong>。一旦创建，其值不能被修改。任何对<code>String</code>的修改操作（如<code>concat</code>、<code>substring</code>）都会返回一个新的<code>String</code>对象。</li>
@@ -5635,7 +5635,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年6月30日 14:41:46 UTC">2025年6月30日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年7月3日 07:54:20 UTC">2025年7月3日</span>
   </span>
 
     
