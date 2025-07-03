@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "interview/其他（Linux、Docker等）.md",
-                "mode": "preview",
+                "file": "interview/README.md",
+                "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "其他（Linux、Docker等）"
+              "title": "README"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "interview/其他（Linux、Docker等）.md",
+                "file": "interview/README.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "其他（Linux、Docker等） 的大纲"
+              "title": "README 的大纲"
             }
           },
           {
@@ -181,32 +181,32 @@
   },
   "active": "504c4e9474e76cb2",
   "lastOpenFiles": [
-    "interview/操作系统.md",
-    "interview/Java 基础.md",
-    "interview/Java 集合.md",
-    "interview/Redis.md",
     "interview/MySQL.md",
+    "interview/Redis.md",
+    "interview/README.md",
+    "interview/Spring.md",
+    "interview/消息队列.md",
+    "interview/系统架构（DDD等）.md",
+    "interview/微服务.md",
     "interview/设计模式.md",
+    "interview/其他（Linux、Docker等）.md",
+    "interview/计算机网络.md",
+    "interview/场景题.md",
+    "interview/操作系统.md",
+    "interview/Java 集合.md",
+    "interview/Java 基础.md",
+    "interview/JUC.md",
+    "interview/Mybatis.md",
+    "interview/JVM.md",
+    "interview/软件测试.md",
+    "develop/项目/拼团营销服务 group-buy-market/2-2~2-3 规则树设计模式模板.md",
+    "develop/项目/拼团营销服务 group-buy-market/2-5 人群标签数据采集.md",
     "develop/项目/拼团营销服务 group-buy-market/2-12 拼团组队结算统计.md",
     "develop/项目/拼团营销服务 group-buy-market/2-13 交易结算责任链过滤.md",
     "develop/项目/拼团营销服务 group-buy-market/2-14 拼团回调通知任务.md",
     "develop/项目/拼团营销服务 group-buy-market/README.md",
     "develop/项目/拼团营销服务 group-buy-market/2-11 交易规则责任链过滤.md",
     "develop/项目/拼团营销服务 group-buy-market/2-10 责任链抽象模板设计.md",
-    "develop/项目/拼团营销服务 group-buy-market/2-9 拼团交易锁单逻辑.md",
-    "develop/项目/拼团营销服务 group-buy-market/2-8 基于Redis的动态配置开关.md",
-    "develop/项目/拼团营销服务 group-buy-market/2-5 人群标签数据采集.md",
-    "develop/项目/拼团营销服务 group-buy-market/2-2~2-3 规则树设计模式模板.md",
-    "interview/系统架构（DDD等）.md",
-    "interview/JUC.md",
-    "interview/消息队列.md",
-    "interview/Spring.md",
-    "interview/场景题.md",
-    "interview/计算机网络.md",
-    "interview/其他（Linux、Docker等）.md",
-    "interview/认证授权.md",
-    "interview/软件测试.md",
-    "interview/微服务.md",
     "other",
     "develop/项目/拼团营销服务 group-buy-market/assets/2-11流程图-xfg.png",
     "develop/项目/拼团营销服务 group-buy-market/assets/2-10流程图-xfg.png",

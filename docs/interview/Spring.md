@@ -189,7 +189,7 @@ public class ApiController {
 + **注入方式不同**：`@Autowired` 默认按照类型进行注入，`@Resource` 默认按照名称进行注入。
 + **处理多个 Bean 时的行为不同**：当存在多个相同类型的 Bean 时，`@Autowired` 需要结合 `@Qualifier` 注解指定 Bean 名称，`@Resource` 可以直接通过名称匹配。
 
-## <font style="color:rgb(24, 25, 28);">@Component 和 @Bean 有什么区别？
+## @Component 和 @Bean 有什么区别？
 都用于将对象交给 Spring 容器管理，但在使用场景、使用方式和作用目标等方面存在区别：
 
 ### 使用场景

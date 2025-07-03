@@ -14,7 +14,7 @@
     - 数据量大，利用磁盘**临时文件**进行**外部排序**，一般用归并排序。
 
 ## varchar 和 char 有什么区别、varchar 支持的最大长度
-**主要区别：**`**varchar**`**长度可变，**`**char**`**长度固定。**
+**主要区别：`varchar` 长度可变，`char` 长度固定。**
 
 ### varchar
 + 可变长度的字符串。**存储的字符串长度与实际数据长度相等。**即 varchar(100) 和 varchar(10)存储相同字符串时占用空间一致。
@@ -694,7 +694,7 @@ ReadView 是 InnoDB 为每个事务创建的一份“**可见性视图**”，�
 + **唯一索引**：索引列的值必须唯一，但允许有多个空值。
 + **复合索引（联合索引）**：多列值组成一个索引，专门用于组合搜索，其效率大于索引合并。联合索引中的列是按照指定顺序排列的（查询时列的顺序不同可能会导致索引失效）。
 + **聚簇索引（聚集索引、主键索引）**：并不是一种单独的索引类型，而是一种数据存储方式。每个表只能有一个主键索引，且主键值不能是 NULL。InnoDB 的聚簇索引其实就是在同一个结构中保存了 B+Tree 索引和数据行 ，叶子节点存的是数据。
-+ **空间索引**：<font style="color:rgb(31, 35, 40);">用于空间数据（如地图上的经纬度坐标等）查询。通常使用 **<font style="color:rgb(31, 35, 40);">R-树**<font style="color:rgb(31, 35, 40);"> 结构，适合多维数据的查询，如区域查询和最近距离查询，主要用于 MyISAM 和 InnoDB 存储引擎中的地理信息数据。
++ **空间索引**：用于空间数据（如地图上的经纬度坐标等）查询。通常使用 **R-树** 结构，适合多维数据的查询，如区域查询和最近距离查询，主要用于 MyISAM 和 InnoDB 存储引擎中的地理信息数据。
 + **全文索引**：用于全文搜索，支持对长文本字段进行关键字查找，支持自然语言处理、模糊匹配等操作。适用于需要对文本内容进行复杂搜索的场景。
 
 **从存储结构**：
@@ -873,11 +873,11 @@ binlog 属于 Server 层，与存储引擎无关，无法直接操作物理数�
 
 binlog 会记录整个 SQL 或行变化；redo log 是为了恢复“已提交但未刷盘”的数据，undo log 是为了撤销未提交的事务。
 
-| **<font style="color:rgb(0, 0, 0) !important;">日志类型** | **<font style="color:rgb(0, 0, 0) !important;">所属引擎** | **<font style="color:rgb(0, 0, 0) !important;">记录内容** | **<font style="color:rgb(0, 0, 0) !important;">用途** | **<font style="color:rgb(0, 0, 0) !important;">写入时机** |
+| **日志类型** | **所属引擎** | **记录内容** | **用途** | **写入时机** |
 | :--- | :--- | :--- | :--- | :--- |
-| **<font style="color:rgb(0, 0, 0) !important;">Undo Log** | <font style="color:rgba(0, 0, 0, 0.85) !important;">InnoDB | <font style="color:rgba(0, 0, 0, 0.85) !important;">数据修改前的状态 | <font style="color:rgba(0, 0, 0, 0.85) !important;">事务回滚、MVCC | <font style="color:rgba(0, 0, 0, 0.85) !important;">事务执行过程中 |
-| **<font style="color:rgb(0, 0, 0) !important;">Redo Log** | <font style="color:rgba(0, 0, 0, 0.85) !important;">InnoDB | <font style="color:rgba(0, 0, 0, 0.85) !important;">数据页的物理修改 | <font style="color:rgba(0, 0, 0, 0.85) !important;">崩溃恢复、持久性 | <font style="color:rgba(0, 0, 0, 0.85) !important;">事务执行过程中，提交前 |
-| **<font style="color:rgb(0, 0, 0) !important;">Binlog** | <font style="color:rgba(0, 0, 0, 0.85) !important;">所有引擎 | <font style="color:rgba(0, 0, 0, 0.85) !important;">逻辑变更（SQL 或行变更） | <font style="color:rgba(0, 0, 0, 0.85) !important;">主从复制、时间点恢复 | <font style="color:rgba(0, 0, 0, 0.85) !important;">事务提交后 |
+| **Undo Log** | InnoDB | 数据修改前的状态 | 事务回滚、MVCC | 事务执行过程中 |
+| **Redo Log** | InnoDB | 数据页的物理修改 | 崩溃恢复、持久性 | 事务执行过程中，提交前 |
+| **Binlog** | 所有引擎 | 逻辑变更（SQL 或行变更） | 主从复制、时间点恢复 | 事务提交后 |
 
 
 **示例说明**
@@ -1023,10 +1023,10 @@ SELECT name, age FROM users WHERE name = 'John' OR age = 30;
 1. B+ 树共三层，那么第三层为叶子节点，每个叶子节点能存储 **16KB / 1KB = 16 条数据记录**。
 2. 假设每个指针占用 6 Byte、索引（如 bigint） 占用 8 Byte，那么每个中间节点页可以指向 **16KB / 14Byte = 1170 个叶子节点**。
 3. 同理，仅有的一个根节点可以指向 **1170 个中间层节点**。
-4. 综上，三层 B+ 树大致能存储的数据量为 $ 1170 * 1170 * 16 = 21902400 $条记录，**约为 2000 万条**。
+4. 综上，三层 B+ 树大致能存储的数据量为 $1170 * 1170 * 16 = 21902400$ 条记录，**约为 2000 万条**。
 
 ### 总结公式
-假设非叶子节点里指向其他内存页的指针数量为 X，叶子节点里能容纳的行数据量为 Y，树的层高为 Z，那么这个 B+ 树能存放的数据总量为 $ X^{Z-1} * Y $。
+假设非叶子节点里指向其他内存页的指针数量为 X，叶子节点里能容纳的行数据量为 Y，树的层高为 Z，那么这个 B+ 树能存放的数据总量为 $X^{Z-1} * Y$。
 
 ## 什么是页？为什么主键不自增会引起页分裂？B+树中关于页的内容？
 > 数据库主键要保证自增(UUID不适合做主键), 且插入的数据主键也要交保证自增插入, 否则会引起页分裂

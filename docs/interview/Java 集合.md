@@ -181,7 +181,7 @@ public static void main(String[] args) {
 
 + **线程安全**：通过写时复制机制，保证在多线程环境下的线程安全，读操作和写操作可以并发进行。
 + **读操作无锁**：读操作不需要加锁，性能较高，适合读多写少的场景。
-+ **写操作开销大**：**每次写**操作都需要**复制**数组，会消耗较多的内存和时间，因此不适合写操作频繁的场景。并且**写时需要用**`**ReentrantLock**`**加锁**。
++ **写操作开销大**：**每次写**操作都需要**复制**数组，会消耗较多的内存和时间，因此不适合写操作频繁的场景。并且**写时需要用 `ReentrantLock` 加锁**。
 + **数据一致性问题**：由于读操作和写操作是分离的，读操作**可能读到旧**数据，不保证强一致性，只能**保证最终一致性**。
 
 适用于**读远远多于写**的场景，如配置信息存储、事件监听器列表等，在这些场景中，数据的更新频率较低，而读取操作非常频繁。
@@ -227,7 +227,7 @@ public boolean add(E e) {
 1. 以无参构造 ArrayList 时，初始化赋值一个空数组，放入元素时才分配 10 的空间。（JDK 6 时无参构造直接分配 10 空间）
 2. 插入第 10 个元素，不扩容。
 3. 插入第 capacity + 1 个元素，触发扩容，新容量为 `newCapacity = oldCapacity + (oldCapacity >> 1)`，即 1.5 倍，向下取整。
-4. 使用`Arrays.copyOf(elementData, newCapacity)`方法复制原数组元素到新数组中。
+4. 使用 `Arrays.copyOf(elementData, newCapacity)` 方法复制原数组元素到新数组中。
 
 ### 源码分析
 ```java
@@ -253,28 +253,28 @@ private static int hugeCapacity(int minCapacity) {
 ```
 
 1. 渐进式扩容，通过指数级增长，减少扩容频率，避免频繁复制数组带来的性能开销。
-2. 处理最小容量需求，如使用`addAll()`方法批量添加元素时，通过`newCapacity = minCapacity;`保证最小需求。
+2. 处理最小容量需求，如使用 `addAll()` 方法批量添加元素时，通过 `newCapacity = minCapacity;` 保证最小需求。
 3. 处理最大容量限制。
-    1. `MAX_ARRAY_SIZE`：数组最大理论容量，通常为`Integer.MAX_VALUE - 8`，避免 JVM 实现的限制，如某些 JVM 会在数组头存储额外信息。
-    2. `hugeCapacity`方法：若`minCapacity > MAX_ARRAY_SIZE`，则返回`Integer.MAX_VALUE`（极端情况，可能触发 OOM）；否则返回`MAX_ARRAY_SIZE`。
-4. 数组复制与内存操作，通过`System.arraycopy()`进行高效的原生数组复制。这里也会产生 ArrayList 扩容的主要开销。
+    1. `MAX_ARRAY_SIZE`：数组最大理论容量，通常为 `Integer.MAX_VALUE - 8`，避免 JVM 实现的限制，如某些 JVM 会在数组头存储额外信息。
+    2. `hugeCapacity` 方法：若 `minCapacity > MAX_ARRAY_SIZE`，则返回 `Integer.MAX_VALUE`（极端情况，可能触发 OOM）；否则返回 `MAX_ARRAY_SIZE`。
+4. 数组复制与内存操作，通过 `System.arraycopy()` 进行高效的原生数组复制。这里也会产生 ArrayList 扩容的主要开销。
 
 ## ArrayList 是怎么序列化的？
-ArrayList 中，writeObject 方法被重写了，用于自定义序列化逻辑：只序列化有效数据，因为 elementData 数组的容量一般大于实际的元素数量，声明时也加了`transient`关键字。
+ArrayList 中，writeObject 方法被重写了，用于自定义序列化逻辑：只序列化有效数据，因为 elementData 数组的容量一般大于实际的元素数量，声明时也加了 `transient` 关键字。
 
 ## 快速失败 fail-fast 与安全失败 fail-safe
 ### 快速失败
 这是 Java 集合的一种错误检测机制。
 
-在使用迭代器遍历集合对象时，会检查`modCount`的值。如果在迭代过程中，`ArrayList` 的结构被修改（如增删元素等操作），`modCount` 的值会发生变化。迭代器使用`hashNext()/next()`遍历下一个元素前，会检测`modCount`是否为`expectedmodCount`，如果不一致，就会抛出 `ConcurrentModificationException` 异常。
+在使用迭代器遍历集合对象时，会检查 `modCount` 的值。如果在迭代过程中，`ArrayList` 的结构被修改（如增删元素等操作），`modCount` 的值会发生变化。迭代器使用 `hashNext()/next()` 遍历下一个元素前，会检测 `modCount` 是否为 `expectedmodCount`，如果不一致，就会抛出 `ConcurrentModificationException` 异常。
 
-但是会出现`modCount++`然后`modCount--`，导致迭代器检测的时候认为`modCount`没有变化，未能抛出异常。因此，不能依赖该异常是否抛出而进行并发修改操作，只建议用来检测并发修改的 bug。
+但是会出现 `modCount++` 然后 `modCount--`，导致迭代器检测的时候认为 `modCount` 没有变化，未能抛出异常。因此，不能依赖该异常是否抛出而进行并发修改操作，只建议用来检测并发修改的 bug。
 
 ### 安全失败
 采用安全失败机制的集合容器，遍历时都是通过复制原集合内容进行遍历，避免并发修改问题，也看不到修改后的内容。如 CopyOnWriteArrayList 类。
 
 ## ArrayList 中的 modCount
-之前在看源码时，注意到一个叫`modCount`的变量：
+之前在看源码时，注意到一个叫 `modCount` 的变量：
 
 ```java
 public boolean add(E e) {
@@ -307,30 +307,30 @@ public boolean add(E e) {
 底层都是用 Object[] 实现，但 Vector 线程安全（通过对 add、get、remove 等方法加 synchronized 同步锁）。
 
 ## 实现 ArrayList 线程安全的方法
-1. 使用`Collections.synchronizedList()`方法，返回一个线程安全的 List。
+1. 使用 `Collections.synchronizedList()` 方法，返回一个线程安全的 List。
 
 ```java
 SynchronizedList list = Collections.synchronizedList(new ArrayList());
 ```
 
-2. 使用`CopyOnWriteArrayList`。
+2. 使用 `CopyOnWriteArrayList`。
 
 ## ArrayList 扩容过程中复制操作用的什么方法，为什么
 ### `Arrays.copyOf()` 和 `System.arraycopy()` 的区别
 1. 所属类与方法签名
 
-+ `**Arrays.copyOf()**`：它是 `java.util.Arrays` 类中的静态方法。其方法签名形式多样，例如 `public static <T> T[] copyOf(T[] original, int newLength)`，该方法会创建一个新数组，其长度为 `newLength`，并将原数组 `original` 的元素复制到新数组中。
-+ `**System.arraycopy()**`：这是 `java.lang.System` 类中的一个静态本地方法。方法签名为 `public static native void arraycopy(Object src, int srcPos, Object dest, int destPos, int length)`，此方法需要传入源数组、源数组起始位置、目标数组、目标数组起始位置以及要复制的元素数量。
++ **`Arrays.copyOf()`**：它是 `java.util.Arrays` 类中的静态方法。其方法签名形式多样，例如 `public static <T> T[] copyOf(T[] original, int newLength)`，该方法会创建一个新数组，其长度为 `newLength`，并将原数组 `original` 的元素复制到新数组中。
++ **`System.arraycopy()`**：这是 `java.lang.System` 类中的一个静态本地方法。方法签名为 `public static native void arraycopy(Object src, int srcPos, Object dest, int destPos, int length)`，此方法需要传入源数组、源数组起始位置、目标数组、目标数组起始位置以及要复制的元素数量。
 
 1. 功能实现细节
 
-+ `**Arrays.copyOf()**`：内部会先创建一个新数组，数组长度为指定的 `newLength`，然后调用 `System.arraycopy()` 方法将原数组元素复制到新数组中。若 `newLength` 大于原数组长度，新数组剩余部分会用默认值填充（对于引用类型是 `null`，对于基本数据类型是对应基本类型的默认值）；若 `newLength` 小于原数组长度，则只复制前 `newLength` 个元素。
-+ `**System.arraycopy()**`：直接在源数组和目标数组之间进行元素复制，不会创建新数组，需要手动创建目标数组。它只负责元素复制，对数组边界的检查和处理需要开发者自己把控，若参数设置不当，可能会抛出 `ArrayIndexOutOfBoundsException` 或 `ArrayStoreException` 异常。
++ **`Arrays.copyOf()`**：内部会先创建一个新数组，数组长度为指定的 `newLength`，然后调用 `System.arraycopy()` 方法将原数组元素复制到新数组中。若 `newLength` 大于原数组长度，新数组剩余部分会用默认值填充（对于引用类型是 `null`，对于基本数据类型是对应基本类型的默认值）；若 `newLength` 小于原数组长度，则只复制前 `newLength` 个元素。
++ **`System.arraycopy()`**：直接在源数组和目标数组之间进行元素复制，不会创建新数组，需要手动创建目标数组。它只负责元素复制，对数组边界的检查和处理需要开发者自己把控，若参数设置不当，可能会抛出 `ArrayIndexOutOfBoundsException` 或 `ArrayStoreException` 异常。
 
 1. 易用性
 
-+ `**Arrays.copyOf()**`：使用起来更简洁，只需提供原数组和新长度，方法会自动处理新数组的创建和元素复制，适合简单的数组复制场景。
-+ `**System.arraycopy()**`：使用时参数较多，需要明确指定源数组和目标数组的起始位置以及复制的元素数量，相对复杂，但灵活性更高，适合需要精确控制复制范围和位置的场景。
++ **`Arrays.copyOf()`**：使用起来更简洁，只需提供原数组和新长度，方法会自动处理新数组的创建和元素复制，适合简单的数组复制场景。
++ **`System.arraycopy()`**：使用时参数较多，需要明确指定源数组和目标数组的起始位置以及复制的元素数量，相对复杂，但灵活性更高，适合需要精确控制复制范围和位置的场景。
 
 ### `ArrayList` 扩容时选择 `Arrays.copyOf()` 的原因
 + **代码简洁性**：`ArrayList` 扩容的核心需求是创建一个更大的新数组，并将原数组元素复制过去。`Arrays.copyOf()` 方法正好满足这一需求，只需传入原数组和新容量，就能自动完成新数组的创建和元素复制，代码简洁易读，减少了 `ArrayList` 类中的代码量。
@@ -404,12 +404,12 @@ final V putVal(int hash, K key, V value, boolean onlyIfAbsent, boolean evict) {
 }
 ```
 
-1. 通过`hash()`方法计算 key 的哈希值，减少哈希冲突。
+1. 通过 `hash()` 方法计算 key 的哈希值，减少哈希冲突。
 2. 进行第一次的数组扩容。
-3. 通过取模，确定索引位置，使用`& (n - 1)`代替`% n`提高运算效率。
+3. 通过取模，确定索引位置，使用 `& (n - 1)` 代替 `% n` 提高运算效率。
 4. 如果当前位置为空则直接插入。
 5. 否则检查第一个节点的键是否匹配，匹配则覆盖。
-6. 不匹配，如果是树，调用`putTreeVal()`方法插到树中。
+6. 不匹配，如果是树，调用 `putTreeVal()` 方法插到树中。
 7. 如果是链表，遍历覆盖匹配项或插入到末尾。
 8. 链表长度达到阈值，转树。
 9. 检查是否需要扩容。
@@ -485,7 +485,7 @@ static final int hash(Object key) {
 }
 ```
 
-哈希表的索引是通过`h & (n - 1)`计算的，n 为数组容量。n-1 和 h 做`&`运算，相当于截取了最低的几位。如果数组的容量很小，只取 h 的低位很容易导致哈希冲突。
+哈希表的索引是通过 `h & (n - 1)` 计算的，n 为数组容量。n-1 和 h 做 `&` 运算，相当于截取了最低的几位。如果数组的容量很小，只取 h 的低位很容易导致哈希冲突。
 
 通过异或将 h 的高位引入低位，增加哈希值的随机性，减少哈希冲突。
 
@@ -506,23 +506,23 @@ static final int tableSizeFor(int cap) {
 }
 ```
 
-1. `n = cap - 1`处理已经是 2 的幂的情况。
-2. `n |= n >>> 1`使最高位及其后一位为 1，
+1. `n = cap - 1` 处理已经是 2 的幂的情况。
+2. `n |= n >>> 1` 使最高位及其后一位为 1，
 3. 同理，覆盖前 4 位。
 4. 同理，覆盖前 8 位。
 5. 同理，覆盖前 16 位。
 6. 同理，覆盖前 32 位。
 7. 将所有位为 1 的值加 1，得到结果。
-8. 处理边界，若 `cap <= 0`，返回 1；`cap >= MAXIMUM_CAPACITY`，返回`2^30`防止溢出。
+8. 处理边界，若 `cap <= 0`，返回 1；`cap >= MAXIMUM_CAPACITY`，返回 `2^30` 防止溢出。
 
 ## TODO HashMap 扩容机制
 扩容时，HashMap 会创建⼀个新的数组，其容量是原来的两倍。然后遍历旧哈希表中的元素，将其重新分配到新的哈希表中。
 
 如果当前桶中只有⼀个元素，那么直接通过键的哈希值与数组大小取模锁定新的索引位置：`e.hash & (newCap - 1)`。 
 
-如果当前桶是红黑树，那么会调用`split()`方法分裂树节点，以保证树的平衡。
+如果当前桶是红黑树，那么会调用 `split()` 方法分裂树节点，以保证树的平衡。
 
-如果当前桶是链表，会通过旧键的哈希值与旧的数组大小取模`(e.hash & oldCap) == 0`来作为判断条件，如果条件为真，元素保留在原索引的位置；否则元素移动到原索引 + 旧数组大小的位置。  
+如果当前桶是链表，会通过旧键的哈希值与旧的数组大小取模 `(e.hash & oldCap) == 0` 来作为判断条件，如果条件为真，元素保留在原索引的位置；否则元素移动到原索引 + 旧数组大小的位置。  
 
 ## TODO 手写 HashMap
 
@@ -547,7 +547,7 @@ static final int tableSizeFor(int cap) {
     - `HashMap`：默认初始容量为 16，扩容时新数组长度为原数组的 2 倍。可以通过构造函数指定初始容量和负载因子，更灵活地控制哈希表的性能。
     - `Hashtable`：默认初始容量为 11，扩容时新数组长度为原数组长度的 2 倍加 1。负载因子默认也是 0.75。
 + **对外提供的接口不同**
-    - `HashMap`比`Hashtable`多提供了 elements 和 contains 方法。
+    - `HashMap` 比 `Hashtable` 多提供了 elements 和 contains 方法。
         1. elements 返回 Hashtable 中 value 的枚举
         2. contains(V) 返回 Hashtable 中 value 是否包含 V
 + **迭代器的一致性**
@@ -576,20 +576,20 @@ static final int tableSizeFor(int cap) {
 + **为什么不用平衡二叉树？**
     - 平衡二叉树要求每个节点的左右子树高度最多差 1，能提供更平均的查找效率，但是增删元素时需要更频繁的旋转来维护树结构。
 + **为什么用红黑树？**
-    - 增、改、查的复杂度都是`O(logn)`，平衡了开销与效率。
+    - 增、改、查的复杂度都是 `O(logn)`，平衡了开销与效率。
 
 ## Dictionary 类和 AbstractMap 类的区别
 ### 1. 类层次结构和历史
-+ `**Dictionary**`** ****类**：它是一个抽象类，在 Java 1.0 中就已经存在，是早期 Java 集合框架的一部分。`Dictionary` 类是 `Hashtable` 类的父类。然而，随着 Java 集合框架的发展，`Dictionary` 类逐渐被弃用，因为它的设计存在一些局限性，并且新的集合框架提供了更强大和灵活的接口与类。
-+ `**AbstractMap**`** ****类**：它是 Java 集合框架（从 Java 1.2 开始引入）中的一部分，实现了 `Map` 接口的大部分通用功能。`AbstractMap` 为具体的 `Map` 实现类（如 `HashMap`、`TreeMap` 等）提供了一个便利的基础，使得这些类只需实现少量的抽象方法，就可以拥有完整的 `Map` 功能。
++ **`Dictionary` 类**：它是一个抽象类，在 Java 1.0 中就已经存在，是早期 Java 集合框架的一部分。`Dictionary` 类是 `Hashtable` 类的父类。然而，随着 Java 集合框架的发展，`Dictionary` 类逐渐被弃用，因为它的设计存在一些局限性，并且新的集合框架提供了更强大和灵活的接口与类。
++ **`AbstractMap` 类**：它是 Java 集合框架（从 Java 1.2 开始引入）中的一部分，实现了 `Map` 接口的大部分通用功能。`AbstractMap` 为具体的 `Map` 实现类（如 `HashMap`、`TreeMap` 等）提供了一个便利的基础，使得这些类只需实现少量的抽象方法，就可以拥有完整的 `Map` 功能。
 
 ### 2. 功能特性
-+ `**Dictionary**`** ****类**：它定义了一组基本的方法来操作键值对，如 `put`、`get`、`remove`、`isEmpty`、`size` 等。但 `Dictionary` 类缺乏一些现代集合框架中 `Map` 接口所具有的重要特性，例如它没有迭代器相关的方法，遍历键值对相对不便。此外，`Dictionary` 类没有明确区分 `null` 键和 `null` 值的处理方式，不像现代 `Map` 实现那样灵活。
-+ `**AbstractMap**`** ****类**：实现了 `Map` 接口，支持完整的键值对操作。它提供了迭代器相关的实现，方便遍历 `Map` 中的键、值或键值对。`AbstractMap` 类允许 `null` 键和 `null` 值（具体取决于具体的实现类，如 `HashMap` 允许 `null` 键和 `null` 值，而 `TreeMap` 不允许 `null` 键），并且在处理键值对的各种操作上更加灵活和全面。例如，`AbstractMap` 提供了 `entrySet`、`keySet` 和 `values` 方法，这些方法返回的集合对象支持迭代操作，极大地方便了对 `Map` 数据的遍历和处理。
++ **`Dictionary` 类**：它定义了一组基本的方法来操作键值对，如 `put`、`get`、`remove`、`isEmpty`、`size` 等。但 `Dictionary` 类缺乏一些现代集合框架中 `Map` 接口所具有的重要特性，例如它没有迭代器相关的方法，遍历键值对相对不便。此外，`Dictionary` 类没有明确区分 `null` 键和 `null` 值的处理方式，不像现代 `Map` 实现那样灵活。
++ **`AbstractMap` 类**：实现了 `Map` 接口，支持完整的键值对操作。它提供了迭代器相关的实现，方便遍历 `Map` 中的键、值或键值对。`AbstractMap` 类允许 `null` 键和 `null` 值（具体取决于具体的实现类，如 `HashMap` 允许 `null` 键和 `null` 值，而 `TreeMap` 不允许 `null` 键），并且在处理键值对的各种操作上更加灵活和全面。例如，`AbstractMap` 提供了 `entrySet`、`keySet` 和 `values` 方法，这些方法返回的集合对象支持迭代操作，极大地方便了对 `Map` 数据的遍历和处理。
 
 ### 3. 使用场景
-+ `**Dictionary**`** ****类**：由于其历史原因和功能局限性，在新的 Java 代码中很少直接使用 `Dictionary` 类。但在一些需要兼容旧代码的场景中，可能会遇到 `Dictionary` 类的子类（如 `Hashtable`）。
-+ `**AbstractMap**`** 类**：它是实现自定义 `Map` 类的常用基础类。当你想要创建一个新的 `Map` 实现时，可以继承 `AbstractMap` 类，然后根据需求实现抽象方法，从而快速实现一个功能完整的 `Map`。在实际开发中，Java 开发者更倾向于使用基于 `AbstractMap` 的具体实现类（如 `HashMap`、`TreeMap` 等）来处理键值对数据，因为这些类已经经过了充分的测试和优化，并且提供了丰富的功能。
++ **`Dictionary` 类**：由于其历史原因和功能局限性，在新的 Java 代码中很少直接使用 `Dictionary` 类。但在一些需要兼容旧代码的场景中，可能会遇到 `Dictionary` 类的子类（如 `Hashtable`）。
++ **`AbstractMap` 类**：它是实现自定义 `Map` 类的常用基础类。当你想要创建一个新的 `Map` 实现时，可以继承 `AbstractMap` 类，然后根据需求实现抽象方法，从而快速实现一个功能完整的 `Map`。在实际开发中，Java 开发者更倾向于使用基于 `AbstractMap` 的具体实现类（如 `HashMap`、`TreeMap` 等）来处理键值对数据，因为这些类已经经过了充分的测试和优化，并且提供了丰富的功能。
 
 ## 为什么 HashMap 树退化成链表的阈值是小于等于 6 而不是 7
 为了避免频繁的树化和链表化操作。将退化阈值设为 6，中间有一个差值，可以减少这种频繁转换的情况，提高性能。
@@ -600,9 +600,9 @@ static final int tableSizeFor(int cap) {
     - **数据覆盖问题**：多个线程同时执行 `put` 操作，若两个键的哈希值相同，可能会出现其中一个线程的数据被另一个线程覆盖的情况。
     - **数据丢失**：多线程进行 `put` 操作时，若同时触发扩容，可能会导致部分数据丢失。
 + **解决方法**
-    - **使用**** **`**Hashtable**`：它是线程安全的，但由于所有方法都加了 `synchronized` 锁，性能较低。
-    - **使用**** **`**Collections.synchronizedMap()**`：将 `HashMap` 包装成线程安全的 `Map`，但本质也是对所有操作加了同步锁，性能不高。
-    - **使用 **`**ConcurrentHashMap**`：在 JDK 7 中采用分段锁机制，JDK 8 中采用 CAS + `synchronized` 机制，性能较好。
+    - **使用 `Hashtable`**：它是线程安全的，但由于所有方法都加了 `synchronized` 锁，性能较低。
+    - **使用* `**Collections.synchronizedMap()`**：将 `HashMap` 包装成线程安全的 `Map`，但本质也是对所有操作加了同步锁，性能不高。
+    - **使用 `ConcurrentHashMap`**：在 JDK 7 中采用分段锁机制，JDK 8 中采用 CAS + `synchronized` 机制，性能较好。
 
 ## LinkedHashMap 怎么实现有序的？
 LinkedHashMap 维护了一个双向链表，通过 before 和 after 标识前置节点和后置节点，从而实现插入顺序或访问顺序。
@@ -614,17 +614,17 @@ LinkedHashMap 维护了一个双向链表，通过 before 和 after 标识前置
 ## 对 TreeMap 的了解
 + **底层结构**：`TreeMap`** 基于红黑树**（一种自平衡的二叉搜索树）实现，每个键值对作为一个节点存储在红黑树中。
 + **排序特性**：`TreeMap` 会根据键的自然顺序或者指定的比较器进行排序。如果键实现了 `Comparable` 接口，就按自然顺序排序；也可以在创建 `TreeMap` 时传入一个 `Comparator` 来指定排序规则。
-+ **性能特点**：插入、删除和查找操作的时间复杂度为 $ O(log n) $，因为红黑树能保证树的高度始终保持在 $ O(log n) $ 级别，通过旋转和染色保持平衡。查找的时候从根节点开始，利用二叉查找树的特点，向左或右子树递归查找，直到找到目标元素。
++ **性能特点**：插入、删除和查找操作的时间复杂度为 $O(log n)$，因为红黑树能保证树的高度始终保持在 $O(log n)$ 级别，通过旋转和染色保持平衡。查找的时候从根节点开始，利用二叉查找树的特点，向左或右子树递归查找，直到找到目标元素。
 + **使用场景**：适用于需要对键进行排序的场景，如按时间顺序存储数据、按字母顺序存储字符串等。
 
 ## 哪些 Map 是有序的
-+ `**LinkedHashMap**`：继承自 `HashMap`，通过维护一个双向链表来保证元素的插入顺序或者访问顺序。当 `accessOrder` 为 `false`（默认）时，按插入顺序；为 `true` 时，按访问顺序。
-+ `**TreeMap**`：基于红黑树实现，会根据键的自然顺序或指定的比较器进行排序。
++ **`LinkedHashMap`**：继承自 `HashMap`，通过维护一个双向链表来保证元素的插入顺序或者访问顺序。当 `accessOrder` 为 `false`（默认）时，按插入顺序；为 `true` 时，按访问顺序。
++ **`TreeMap`**：基于红黑树实现，会根据键的自然顺序或指定的比较器进行排序。
 
 ## 哪些集合底层用的是链表
-+ `**LinkedList**`：是一个双向链表实现的 `List` 集合，支持高效的插入和删除操作，尤其是在列表的头部和尾部。
-+ `**LinkedHashMap**`：继承自 `HashMap`，在 `HashMap` 的基础上维护了一个双向链表，用于记录元素的插入顺序或访问顺序。
-+ `**LinkedHashSet**`：继承自 `HashSet`，内部使用 `LinkedHashMap` 来存储元素，因此也基于链表结构，能保证元素的插入顺序。
++ **`**LinkedList`**：是一个双向链表实现的 `List` 集合，支持高效的插入和删除操作，尤其是在列表的头部和尾部。
++ **`LinkedHashMap`**：继承自 `HashMap`，在 `HashMap` 的基础上维护了一个双向链表，用于记录元素的插入顺序或访问顺序。
++ **`LinkedHashSet`**：继承自 `HashSet`，内部使用 `LinkedHashMap` 来存储元素，因此也基于链表结构，能保证元素的插入顺序。
 
 ## RandomAccess 接口
 在Java集合框架中，`RandomAccess`接口的设计初衷是为了**标识特定数据结构是否支持高效的随机访问**，从而允许算法根据这一特性选择最优的遍历策略。虽然数据结构本身的特性决定了能否随机访问，但通过接口显式声明这一能力可以带来以下优势：
@@ -649,7 +649,7 @@ int value = list.get(5); // 需要从头节点遍历5次
 ```
 
 ### **2. 接口的作用：为算法提供优化提示**
-`RandomAccess`是一个**标记接口**（Marker Interface），本身不包含任何方法，但它允许算法在运行时判断集合类型，从而选择最优的遍历策略。例如，`Collections`工具类中的`binarySearch`方法：
+`RandomAccess` 是一个**标记接口**（Marker Interface），本身不包含任何方法，但它允许算法在运行时判断集合类型，从而选择最优的遍历策略。例如，`Collections` 工具类中的 `binarySearch` 方法：
 
 ```java
 public static <T> int binarySearch(List<? extends Comparable<? super T>> list, T key) {
@@ -667,7 +667,7 @@ public static <T> int binarySearch(List<? extends Comparable<? super T>> list, T
 
 ### **3. 为什么不直接依赖数据结构类型？**
 + **灵活性与扩展性**：  
-通过接口而非具体类判断，允许未来新增的集合类（如自定义列表）通过实现`RandomAccess`来声明其随机访问能力，而无需修改算法代码。  
+通过接口而非具体类判断，允许未来新增的集合类（如自定义列表）通过实现 `RandomAccess` 来声明其随机访问能力，而无需修改算法代码。  
 例如，即使是自定义的列表类，只要支持高效随机访问，实现该接口后即可享受优化算法的福利。
 + **统一遍历逻辑**：  
 算法可以针对接口而非具体类编写，增强通用性。例如：  
@@ -690,7 +690,7 @@ public static void traverse(List<?> list) {
 
 ### **4. 典型应用场景**
 + **集合框架中的算法优化**：  
-如`Collections.sort()`、`binarySearch()`等方法会根据`RandomAccess`选择最优实现。
+如 `Collections.sort()`、`binarySearch()` 等方法会根据 `RandomAccess` 选择最优实现。
 + **自定义集合类的设计**：  
 当开发新的列表实现时，若支持高效随机访问，应实现该接口以提示算法使用更优的遍历策略。
 
@@ -705,7 +705,7 @@ public static void traverse(List<?> list) {
 
 
 ### **总结**
-设计`RandomAccess`接口的核心目的是：  
+设计 `RandomAccess` 接口的核心目的是：  
 **通过接口标记，让算法能够在运行时动态选择最优的遍历策略，从而充分发挥不同数据结构的性能优势**。  
 
 虽然数据结构本身的特性决定了能否随机访问，但接口的存在使得这种能力可以被标准化识别和利用，体现了Java集合框架设计的灵活性与前瞻性。
