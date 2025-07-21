@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "8225de9947e09c22",
+        "id": "cedf57a88f7d5d78",
         "type": "tabs",
         "children": [
           {
-            "id": "9c33d5c2378e1d34",
+            "id": "60746aa1a3a8167e",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -162,7 +162,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -179,10 +179,22 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "9c33d5c2378e1d34",
+  "active": "60746aa1a3a8167e",
   "lastOpenFiles": [
-    "技术学习/Redis.md",
+    "其他知识&杂谈/如何使用 LaTeX.md",
+    "其他知识&杂谈/assets/如何使用 LaTeX/e634e6e627b6b24bcb0f6a831c84b531.jpg",
+    "其他知识&杂谈/assets/如何使用 LaTeX",
+    "其他知识&杂谈/assets",
     "算法/算法学习/十大排序算法.md",
+    "算法/算法学习/assets/十大排序算法/e634e6e627b6b24bcb0f6a831c84b531.jpg",
+    "算法/算法学习/assets/十大排序算法",
+    "算法/算法学习/assets",
+    "技术学习/Redis.md",
+    "index.md",
+    "assets/Fqiev8kFGWaEu6NEcSm1qN7fIcSS.md",
+    "新建文件夹",
+    "未命名",
+    "e634e6e627b6b24bcb0f6a831c84b531.jpg",
     "算法/算法学习",
     "技术学习/设计模式.md",
     "开发经验/项目/拼团营销服务 group-buy-market/2-2~2-3 规则树设计模式模板.md",
@@ -205,9 +217,6 @@
     "开发经验/项目/拼团营销服务 group-buy-market/2-5 人群标签数据采集.md",
     "开发经验/项目/拼团营销服务 group-buy-market/2-12 拼团组队结算统计.md",
     "开发经验/项目/拼团营销服务 group-buy-market/2-13 交易结算责任链过滤.md",
-    "开发经验/项目/拼团营销服务 group-buy-market/2-14 拼团回调通知任务.md",
-    "开发经验/项目/拼团营销服务 group-buy-market/README.md",
-    "开发经验/项目/拼团营销服务 group-buy-market/2-11 交易规则责任链过滤.md",
     "其他知识&杂谈",
     "开发经验/项目/拼团营销服务 group-buy-market/assets/2-11流程图-xfg.png",
     "开发经验/项目/拼团营销服务 group-buy-market/assets/2-10流程图-xfg.png",
@@ -216,17 +225,8 @@
     "开发经验/项目/拼团营销服务 group-buy-market/assets/2-8流程图-知雨.png",
     "开发经验/项目/拼团营销服务 group-buy-market/assets/2-8流程图-xfg.png",
     "开发经验/项目/拼团营销服务 group-buy-market/assets/2-5流程图-知雨.png",
-    "开发经验/项目/拼团营销服务 group-buy-market/assets/2-14流程图-xfg.png",
-    "开发经验/项目/拼团营销服务 group-buy-market/assets/2-13流程图-星尘.png",
-    "开发经验/项目/拼团营销服务 group-buy-market/assets/2-13流程图-xfg.png",
     "assets",
     "develop/项目/拼团营销服务 group-buy-market/assets/Fqiev8kFGWaEu6NEcSm1qN7fIcSS",
-    "develop/项目/拼团营销服务 group-buy-market/assets/Fkzfk6YwCbO2n1oWSE1ZbxTeEzJ9",
-    "develop/项目/拼团营销服务 group-buy-market/assets/FkFd03VBKQ5MNZveAo5HQIeqDdrT",
-    "develop/项目/拼团营销服务 group-buy-market/assets/Fjlxe7EwmHCX-hjJrqWuHCOcMbjp",
-    "开发经验/项目/拼团营销服务 group-buy-market/assets",
-    "开发经验/项目/拼团营销服务 group-buy-market",
-    "开发经验/项目/小型支付商城 s-pay-mall",
     "未命名.canvas"
   ]
 }
