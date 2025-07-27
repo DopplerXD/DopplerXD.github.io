@@ -4,7 +4,7 @@ title: 面试知识整理
 
 - [Java 基础](Java%20基础.md)
 - [Java 集合](Java%20集合.md)
-- [JUC](JUC.md)
+- [并发编程](并发编程.md)
 - [JVM](JVM.md)
 - [MySQL](MySQL.md)
 - [Redis](Redis.md)
