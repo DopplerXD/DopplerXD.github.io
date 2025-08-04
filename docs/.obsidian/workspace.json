@@ -11,10 +11,14 @@
             "id": "7348ca8b121411fb",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "技术学习/并发编程.md",
+                "mode": "preview",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "并发编程"
             }
           }
         ]
@@ -138,12 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "技术学习/并发编程.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "大纲"
+              "title": "并发编程 的大纲"
             }
           },
           {
@@ -157,7 +162,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -174,7 +179,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "504c4e9474e76cb2",
+  "active": "7348ca8b121411fb",
   "lastOpenFiles": [
     "其他知识&杂谈/《Clean Code》精华总结.md",
     "技术学习/并发编程.md",
