@@ -1893,7 +1893,7 @@
 <p>并发的三大问题：原子性、可见性、有序性。</p>
 <h2 id="_2">线程和进程的区别<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>定义</strong>：进程是<strong>程序</strong>在操作系统中的<strong>一次执行过程</strong>，是系统进行资源分配和调度的<strong>基本单位</strong>；线程是进程中的一个执行单元，是 CPU 调度和分派的基本单位。</li>
+<li><strong>定义</strong>：进程是<strong>程序</strong>在操作系统中的<strong>一次执行过程</strong>，是系统进行资源分配和调度的<strong>基本单位</strong>；线程是进程中的一个执行单元，是 CPU 调度和分配的基本单位。</li>
 <li><strong>资源占用</strong>：<strong>进程</strong>拥有自己<strong>独立</strong>的内存空间和系统资源，而<strong>同一进程内的多个线程共享</strong>进程的资源，如内存、文件句柄等，但每个线程有独立的栈和寄存器数据。</li>
 <li><strong>调度开销</strong>：进程的创建、销毁和切换开销<strong>较大</strong>，线程的创建、销毁和切换开销相对<strong>较小</strong>。</li>
 <li><strong>并发能力</strong>：一个进程可以包含多个线程，多个线程可以并发执行，提高了程序的并发处理能力。</li>
@@ -2221,10 +2221,39 @@
 <h2 id="_5">线程有哪些常用的调度方法<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p><img alt="" src="../assets/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E7%BA%BF%E7%A8%8B%E5%B8%B8%E7%94%A8%E8%B0%83%E5%BA%A6%E6%96%B9%E6%B3%95.svg" /></p>
 <h3 id="wait-notify">wait 和 notify 方法<a class="headerlink" href="#wait-notify" title="Permanent link">&para;</a></h3>
+<p>线程 A 调用共享对象的 <code>wait()</code> 方法时，A 会被阻塞挂起，直到：</p>
+<ul>
+<li>线程 B 调用了该共享对象的 <code>notify()</code> 或 <code>notifyAll()</code> 方法；</li>
+<li>其他线程调用 A 的 <code>interrupt()</code> 方法，导致线程 A 抛出 <code>InterruptedException</code> 异常。</li>
+</ul>
+<p>线程 A 调用共享对象的 <code>wait(timeout)</code> 方法后，没有在指定的 timeout 时间内被其他线程唤醒，这个方法就会因为超时而返回。</p>
+<p>调用共享对象的 <code>notify()</code> 方法后，会唤醒一个在这个共享对象上调用 wait 系列方法被挂起的线程。若有多个，则随机唤醒一个。</p>
 <h3 id="sleep">sleep 方法<a class="headerlink" href="#sleep" title="Permanent link">&para;</a></h3>
+<p>A 调用了 <code>sleep()</code> 方法后，A 会暂时让出指定时间的执行权。</p>
+<p>过了指定的睡眠时间，该方法会正常返回，继续参与 CPU 调度，获取到 CPU 资源后继续执行。</p>
 <h3 id="yield">yield 方法<a class="headerlink" href="#yield" title="Permanent link">&para;</a></h3>
+<p><code>yield()</code> 方法的目的是让当前线程让出 CPU 使用权，回到就绪状态。但线程调度器可能会忽略。</p>
 <h3 id="interrupt">interrupt 方法<a class="headerlink" href="#interrupt" title="Permanent link">&para;</a></h3>
+<p><code>interrupt()</code> 方法用于通知线程停止，但不会直接终止线程，需要线程自行处理中断标志。</p>
+<p>常与 <code>isInterrupted()</code> 或 <code>Thread.interrupted()</code> 配合使用。</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span>
+<span class="normal"><a href="#__codelineno-5-4">4</a></span>
+<span class="normal"><a href="#__codelineno-5-5">5</a></span>
+<span class="normal"><a href="#__codelineno-5-6">6</a></span>
+<span class="normal"><a href="#__codelineno-5-7">7</a></span>
+<span class="normal"><a href="#__codelineno-5-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="n">Thread</span><span class="w"> </span><span class="n">thread</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">Thread</span><span class="p">.</span><span class="na">currentThread</span><span class="p">().</span><span class="na">isInterrupted</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Running&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Interrupted&quot;</span><span class="p">);</span><span class="w"> </span>
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="p">});</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="n">thread</span><span class="p">.</span><span class="na">start</span><span class="p">();</span><span class="w"> </span>
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="n">thread</span><span class="p">.</span><span class="na">interrupt</span><span class="p">();</span><span class="w"> </span><span class="c1">// 中断线程</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="stop">stop 方法<a class="headerlink" href="#stop" title="Permanent link">&para;</a></h3>
+<p><code>stop</code> 方法用来强制停止线程，目前已处于废弃状态，因为 stop 方法可能会在不一致的状态下释放锁，破坏对象的一致性。</p>
 <h2 id="_6">对并发编程的了解，有哪些锁？<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>并发编程</strong>：指在同一时间段内，多个任务可以同时执行的编程方式。Java 中通过多线程实现并发编程，以提高程序的性能和响应速度。</li>
@@ -2394,17 +2423,17 @@
 <p><code>Executors</code> 是一个工具类，提供了一些静态方法来创建不同类型的线程池。这些方法内部实际上是通过 <code>ThreadPoolExecutor</code> 来创建线程池的，只是根据不同的需求设置了不同的参数。例如，<code>newFixedThreadPool</code> 方法创建一个固定大小的线程池，核心线程数和最大线程数相等，任务队列使用 <code>LinkedBlockingQueue</code>。</p>
 <h2 id="java_1">Java 的线程怎么防止虚假唤醒<a class="headerlink" href="#java_1" title="Permanent link">&para;</a></h2>
 <p>在 Java 中，线程的虚假唤醒是指线程在<strong>没有收到明确的通知</strong>时就从等待状态中<strong>被唤醒</strong>。为了防止虚假唤醒，<strong>应该在 <code>while</code> 循环中调用 <code>wait()</code> 方法，而不是在 <code>if</code> 语句中</strong>。示例代码如下：</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
-<span class="normal"><a href="#__codelineno-5-2">2</a></span>
-<span class="normal"><a href="#__codelineno-5-3">3</a></span>
-<span class="normal"><a href="#__codelineno-5-4">4</a></span>
-<span class="normal"><a href="#__codelineno-5-5">5</a></span>
-<span class="normal"><a href="#__codelineno-5-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kd">synchronized</span><span class="w"> </span><span class="p">(</span><span class="n">lock</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">condition</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">        </span><span class="n">lock</span><span class="p">.</span><span class="na">wait</span><span class="p">();</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">    </span><span class="c1">// 执行相应的操作</span>
-<a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="p">}</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span>
+<span class="normal"><a href="#__codelineno-6-4">4</a></span>
+<span class="normal"><a href="#__codelineno-6-5">5</a></span>
+<span class="normal"><a href="#__codelineno-6-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kd">synchronized</span><span class="w"> </span><span class="p">(</span><span class="n">lock</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">condition</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">        </span><span class="n">lock</span><span class="p">.</span><span class="na">wait</span><span class="p">();</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="w">    </span><span class="c1">// 执行相应的操作</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>在上述代码中，<code>condition</code> 是一个布尔表达式，表示线程等待的条件。当线程被唤醒时，会再次检查 <code>condition</code> 的值，如果条件仍然不满足，线程会继续等待，从而避免了虚假唤醒的问题。</p>
 <p>[^1]: </p>
@@ -2430,7 +2459,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年7月27日 16:23:42 UTC">2025年7月27日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年8月4日 06:10:00 UTC">2025年8月4日</span>
   </span>
 
     
