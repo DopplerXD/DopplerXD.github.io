@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "dbbbdca220e1b191",
+        "id": "188fb717c69cdfb4",
         "type": "tabs",
         "children": [
           {
-            "id": "7348ca8b121411fb",
+            "id": "da19393e00ec70e9",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术学习/并发编程.md",
-                "mode": "preview",
+                "file": "开发经验/后端/日志记录 -- slf4j MDC 使用.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "并发编程"
+              "title": "日志记录 -- slf4j MDC 使用"
             }
           }
         ]
@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 231.5
+    "width": 262.5
   },
   "right": {
     "id": "79bdb176e23c7a86",
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术学习/并发编程.md",
+                "file": "开发经验/后端/日志记录 -- slf4j MDC 使用.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "并发编程 的大纲"
+              "title": "日志记录 -- slf4j MDC 使用 的大纲"
             }
           },
           {
@@ -176,18 +176,23 @@
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "custom-sort:Toggle custom sorting": false
     }
   },
-  "active": "7348ca8b121411fb",
+  "active": "da19393e00ec70e9",
   "lastOpenFiles": [
-    "其他知识&杂谈/《Clean Code》精华总结.md",
+    "开发经验/后端/常见数据库.md",
+    "开发经验/后端/日志记录 -- slf4j MDC 使用.md",
+    "技术学习/Java 基础.md",
+    "开发经验/后端/日志记录器的两种声明方式：LoggerFactory.getLogger(类名.class) 与 @Slf4j+log.info().md",
+    "开发经验/后端/Jpa 和 MyBatis 对比.md",
     "技术学习/并发编程.md",
+    "其他知识&杂谈/《Clean Code》精华总结.md",
     "技术学习/assets/并发编程/线程常用调度方法.svg",
     "技术学习/assets/并发编程/file-20250725171755643.png",
     "技术学习/assets/并发编程",
     "技术学习/assets",
-    "技术学习/Java 基础.md",
     "技术学习/MySQL.md",
     "技术学习/assets/JUC/file-20250722163845918.png",
     "技术学习/assets/JUC/image-20250722163815012.png",
@@ -220,10 +225,6 @@
     "技术学习/消息队列.md",
     "技术学习/系统架构（DDD等）.md",
     "技术学习/微服务.md",
-    "技术学习/Mybatis.md",
-    "技术学习/软件测试.md",
-    "开发经验/项目/拼团营销服务 group-buy-market/2-5 人群标签数据采集.md",
-    "开发经验/项目/拼团营销服务 group-buy-market/2-12 拼团组队结算统计.md",
     "开发经验/项目/拼团营销服务 group-buy-market/assets/2-11流程图-xfg.png",
     "开发经验/项目/拼团营销服务 group-buy-market/assets/2-10流程图-xfg.png",
     "开发经验/项目/拼团营销服务 group-buy-market/assets/2-9流程图-xfg.png",
