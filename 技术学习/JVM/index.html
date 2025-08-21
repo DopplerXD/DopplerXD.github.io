@@ -838,9 +838,36 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#jvm_1" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
-      JVM 垃圾回收
+      内存泄露和垃圾回收
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      常见垃圾回收算法
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      常见的垃圾回收器
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jdk-8-jdk-17-jvm-gc-cpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      JDK 8 和 JDK 17 中 JVM 默认 GC 的选择与操作系统、CPU 架构及堆内存大小相关，核心规则如下：
     </span>
   </a>
   
@@ -1478,9 +1505,36 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#jvm_1" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
-      JVM 垃圾回收
+      内存泄露和垃圾回收
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      常见垃圾回收算法
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      常见的垃圾回收器
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jdk-8-jdk-17-jvm-gc-cpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      JDK 8 和 JDK 17 中 JVM 默认 GC 的选择与操作系统、CPU 架构及堆内存大小相关，核心规则如下：
     </span>
   </a>
   
@@ -1585,18 +1639,71 @@
 </ul>
 </li>
 </ul>
-<h2 id="jvm_1">JVM 垃圾回收<a class="headerlink" href="#jvm_1" title="Permanent link">&para;</a></h2>
+<h2 id="_5">内存泄露和垃圾回收<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <ul>
+<li><strong>内存泄漏</strong>：程序中不再使用的对象因被错误引用而未释放，导致内存浪费。</li>
 <li><strong>垃圾回收的概念</strong>：JVM 会自动管理内存，通过垃圾回收机制来回收不再被使用的对象所占用的内存空间，以避免内存泄漏和内存溢出，提高内存的利用率。</li>
-<li><strong>垃圾回收算法</strong>：<ul>
-<li><strong>标记 - 清除算法</strong>：首先标记出所有需要回收的对象，在标记完成后，统一回收所有被标记的对象。缺点是会产生内存碎片。</li>
+<li><strong>垃圾回收的触发条件</strong>：当新生代或老年代的内存空间不足时，会触发垃圾回收。此外，也可以通过调用 <code>System.gc()</code> 方法来建议 JVM 进行垃圾回收，但这只是一个建议，JVM 不一定会立即执行。</li>
+</ul>
+<h2 id="_6">常见垃圾回收算法<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>标记 - 清除</strong>：首先标记出所有需要回收的对象，在标记完成后，统一回收所有被标记的对象。缺点是会产生内存碎片。</li>
+<li><strong>标记 - 整理</strong>：先标记出所有需要回收的对象，然后将存活的对象向一端移动，最后清理掉边界以外的内存。解决了标记 - 清除算法的内存碎片问题。</li>
 <li><strong>复制算法</strong>：将内存分为大小相等的两块，每次只使用其中一块，当这一块内存用完后，将存活的对象复制到另一块空的内存中，然后将原来的内存空间一次性清理掉。适用于新生代，因为新生代中对象存活率低。</li>
-<li><strong>标记 - 压缩算法</strong>：先标记出所有需要回收的对象，然后将存活的对象向一端移动，最后清理掉边界以外的内存。解决了标记 - 清除算法的内存碎片问题。</li>
-<li><strong>分代收集算法</strong>：根据对象的生命周期不同，将堆内存分为新生代和老年代，针对不同代采用不同的垃圾回收算法。新生代使用复制算法，老年代使用标记 - 压缩或标记 - 清除算法。</li>
+<li><strong>分代收集</strong>：根据对象的生命周期不同，将堆内存分为新生代和老年代，针对不同代采用不同的垃圾回收算法。新生代使用复制算法，老年代使用标记 - 压缩或标记 - 清除算法。</li>
+</ul>
+<h2 id="_7">常见的垃圾回收器<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<ul>
+<li>CMS（Concurrent Mark Sweep，并发标记清除）<ul>
+<li>特点：以低延迟为目标，大部分工作与用户线程并发执行，STW 时间短。</li>
+<li>原理：分 4 步：初始标记（STW）→并发标记→重新标记（STW）→并发清除，老年代采用标记 - 清除算法（会产生内存碎片）。</li>
+<li>适用场景：对响应时间敏感的服务（如 Web 应用），JVM 参数：-XX:+UseConcMarkSweepGC。</li>
+<li>缺点：CPU 消耗高（需多线程并发）、内存碎片多，JDK9 后逐步废弃。</li>
 </ul>
 </li>
-<li><strong>垃圾回收的触发条件</strong>：当新生代或老年代的内存空间不足时，会触发垃圾回收。此外，也可以通过调用<code>System.gc()</code>方法来建议 JVM 进行垃圾回收，但这只是一个建议，JVM 不一定会立即执行。</li>
+<li>G1（Garbage-First）<ul>
+<li>特点：兼顾吞吐量和延迟，面向大内存（堆内存≥4GB），将堆划分为多个大小相等的 Region（区域）。</li>
+<li>原理：基于 “标记 - 整理” 算法，优先回收垃圾最多的 Region（Garbage-First），通过 Remembered Set 跟踪跨 Region 引用，STW 时间可通过参数控制（-XX:MaxGCPauseMillis）。</li>
+<li>适用场景：大内存应用（如服务器），JDK9 后成为默认收集器，参数：-XX:+UseG1GC。</li>
 </ul>
+</li>
+<li>Serial GC（串行收集器）<ul>
+<li>特点：单线程执行 GC，收集时暂停所有用户线程（STW），简单高效但停顿时间长。</li>
+<li>原理：新生代用复制算法，老年代用标记 - 整理算法，均为单线程操作。</li>
+<li>适用场景：内存较小的客户端应用（如桌面程序），JVM 参数：-XX:+UseSerialGC。</li>
+</ul>
+</li>
+<li>Parallel GC（并行收集器）<ul>
+<li>特点：多线程执行 GC，注重吞吐量（用户代码运行时间 /(用户时间 + GC 时间)），仍有 STW。</li>
+<li>原理：新生代并行复制，老年代并行标记 - 整理，默认线程数与 CPU 核心数相关。</li>
+<li>适用场景：后台计算等对吞吐量敏感、可接受一定停顿的服务，JVM 参数：-XX:+UseParallelGC（默认新生代）、-XX:+UseParallelOldGC（老年代并行）。</li>
+</ul>
+</li>
+<li>ZGC（Z Garbage Collector）<ul>
+<li>特点：超低延迟（STW 时间≤10ms），支持 TB 级堆内存，并发执行几乎所有阶段。</li>
+<li>原理：基于 Region 划分，使用着色指针（Colored Pointers）和读屏障（Load Barrier）跟踪对象引用，避免传统的 Remembered Set，堆大小可动态调整。</li>
+<li>适用场景：超大内存、低延迟要求的服务（如金融交易），JDK11 引入，参数：-XX:+UseZGC。</li>
+</ul>
+</li>
+</ul>
+<p>低延迟优先：ZGC、Shenandoah、CMS（逐步淘汰）。
+吞吐量优先：Parallel GC。
+平衡兼顾：G1（默认推荐）。
+轻量客户端：Serial GC。</p>
+<h2 id="jdk-8-jdk-17-jvm-gc-cpu">JDK 8 和 JDK 17 中 JVM 默认 GC 的选择与操作系统、CPU 架构及堆内存大小相关，核心规则如下：<a class="headerlink" href="#jdk-8-jdk-17-jvm-gc-cpu" title="Permanent link">&para;</a></h2>
+<ol>
+<li>JDK 8 默认 GC<ul>
+<li><strong>服务器模式（多 CPU、大内存，默认模式）</strong>： 采用 <strong>Parallel GC</strong>（新生代 Parallel Scavenge + 老年代 Parallel Old），注重吞吐量，适合后台计算等对吞吐量敏感的场景。</li>
+<li><strong>客户端模式（单 CPU、小内存，如 32 位系统）</strong>： 采用 <strong>Serial GC</strong>，单线程回收，适合桌面应用等轻量场景。</li>
+</ul>
+</li>
+<li>JDK 17 默认 GC<ul>
+<li><strong>默认优先选择 G1 GC</strong>： 无论服务器还是客户端模式，G1 成为默认 GC（替代 JDK 8 的 Parallel GC），它兼顾吞吐量和延迟，支持大内存（≥4GB），通过动态调整回收区域优化停顿时间。</li>
+<li><strong>特殊场景降级</strong>： 若堆内存极小（如 ≤1792MB），可能自动切换为 <strong>Serial GC</strong>（资源受限场景下更高效）。</li>
+</ul>
+</li>
+</ol>
+<p><strong>总结</strong>：JDK 8 以 Parallel GC 为主，JDK 17 以 G1 为主，均会根据硬件环境动态适配，可通过 <code>-XX:+PrintCommandLineFlags</code> 命令查看当前 JVM 实际使用的 GC 类型。</p>
 
 
 
@@ -1619,7 +1726,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年7月21日 10:46:56 UTC">2025年7月21日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年8月21日 14:07:11 UTC">2025年8月21日</span>
   </span>
 
     
