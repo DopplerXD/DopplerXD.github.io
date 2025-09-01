@@ -892,3 +892,197 @@ while(scanf("%lf%lf%lf%lf%lf%lf%lf%lf",&a,&b,&c,&d,&e,&f,&g,&h)!=EOF) {
 }
 ```
 
+## 半平面交
+
+### # P4196 [CQOI2006] 凸多边形 /【模板】半平面交
+
+逆时针给出 $n$ 个凸多边形的顶点坐标，求它们交的面积。例如 $n=2$ 时，两个凸多边形如下图：
+
+![](https://cdn.luogu.com.cn/upload/image_hosting/7ieux7g3.png)
+
+则相交部分的面积为 $5.233$。
+
+**解法**
+
+https://zhuanlan.zhihu.com/p/666868712
+
+**代码**
+
+```cpp
+#include <bits/stdc++.h>
+#define ll long long
+using namespace std;
+const int N = 5e2 + 5;
+
+const double pi = acos(-1.0);
+const double eps = 1e-8;
+
+// 判断 x 的大小，<0 返回 -1，>0 返回 1，==0 返回 0
+int sgn(double x) {
+    if (fabs(x) < eps) return 0;
+    else return x < 0 ? -1 : 1;
+}
+
+// 比较两个浮点数
+int dcmp(double x, double y) {
+    if (fabs(x - y) < eps) return 0;
+    else return x < y ? -1 : 1;
+}
+
+struct Point {
+    double x, y;
+    double angle;
+    Point() {}
+    Point(double x, double y) : x(x), y(y) {}
+
+    Point operator + (const Point& B) const { return Point(x + B.x, y + B.y); }
+    Point operator - (const Point& B) const { return Point(x - B.x, y - B.y); }
+    Point operator * (double k) const { return Point(x * k, y * k); }
+    Point operator / (double k) const { return Point(x / k, y / k); }
+
+    bool operator == (const Point& B) const {
+        return sgn(x - B.x) == 0 && sgn(y - B.y) == 0;
+    }
+    // bool operator < (const Point& B) const {
+    //     return sgn(x - B.x) < 0 || sgn(x - B.x) == 0 && sgb(y - B.y) < 0;
+    // }
+    bool operator < (const Point& B) const {
+        return angle < B.angle;
+    }
+};
+
+typedef Point Vector;
+
+class Geometry {
+public:
+    static double Cross(const Vector& A, const Vector& B) {
+        return A.x * B.y - A.y * B.x;
+    }
+
+    static double Area2(const Point& A, const Point& B, const Point& C) {
+        return Cross(B - A, C - A);
+    }
+};
+
+class Line {
+public:
+    Point p1, p2;
+
+    Line() {}
+    Line(Point p1, Point p2) : p1(p1), p2(p2) {}
+    Line(Point p, double angle) {
+        p1 = p;
+        if (sgn(angle - pi / 2) == 0) {
+            p2 = p1 + Point(0, 1);
+        } else {
+            p2 = p1 + Point(1, tan(angle));
+        }
+    }
+    Line(double a, double b, double c) {
+        if (sgn(a) == 0) {
+            p1 = Point(0, -c / b);
+            p2 = Point(1, -c / b);
+        } else if (sgn(b) == 0) {
+            p1 = Point(-c / a, 0);
+            p2 = Point(-c / a, 1);
+        } else {
+            p1 = Point(0, -c / b);
+            p2 = Point(1, (-c - a) / b);
+        }
+    }
+
+    int PointLineRelation(const Point& p) const {
+        int c = sgn(Geometry::Cross(p2 - p1, p - p1));
+        if (c < 0) return 1; // p 在 v 的右侧
+        if (c > 0) return 2; // p 在 v 的左侧
+        return 0; // p 在 v 上
+    }
+
+    static Point CrossPoint(const Point& a, const Point& b, const Point& c, const Point& d) {
+        double s1 = Geometry::Cross(b - a, c - a);
+        double s2 = Geometry::Cross(b - a, d - a);
+        return Point(c.x * s2 - d.x * s1, c.y * s2 - d.y * s1) / (s2 - s1);
+    }
+
+    static Point CrossPoint(const Line& a, const Line& b) {
+        return Line::getLineIntersection(a.p1, a.p2 - a.p1, b.p1, b.p2 - b.p1);
+    }
+
+    static Point getLineIntersection(const Point& p, const Point& v, const Point& q, const Point& w) {
+        Point u = p - q;
+        double t = Geometry::Cross(w, u) / Geometry::Cross(v, w);
+        return {p.x + v.x * t, p.y + v.y * t};
+    }
+
+    static double getAngle(const Line& a) {
+        return atan2(a.p2.y - a.p1.y, a.p2.x - a.p1.x);
+    }
+
+    // b和c的交点是否在a的右侧
+    static bool onRight(const Line& a, const Line& b, const Line& c) {
+        return a.PointLineRelation(Line::CrossPoint(b, c)) <= 1;
+    }
+};
+
+int n;
+int cnt;
+int q[N];
+Point pg[N];
+Point res[N];
+Line line[N];
+
+void solve() {
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        int m;
+        cin >> m;
+        for (int j = 0; j < m; j++) {
+            cin >> pg[j].x >> pg[j].y;
+        }
+        for (int j = 0; j < m; j++) {
+            line[cnt++] = {pg[j], pg[(j + 1) % m]};
+        }
+    }
+
+    // 极角排序
+    sort(line, line + cnt, [&](const Line& a, const Line& b) {
+        double A = Line::getAngle(a), B = Line::getAngle(b);
+        if (!dcmp(A, B)) return Geometry::Area2(a.p1, a.p2, b.p2) < 0;
+        return A < B;
+        });
+
+    int hh = 0, tt = -1;
+    for (int i = 0; i < cnt; i++) {
+        // 角度相同的直线只考虑最靠左的一条,显然只有靠近左边的是有效的
+        if (i && !dcmp(Line::getAngle(line[i]), Line::getAngle(line[i - 1]))) continue;
+        // 删除队尾没有贡献的线段
+        while (hh + 1 <= tt && Line::onRight(line[i], line[q[tt - 1]], line[q[tt]])) tt--;
+        // 删除队头没有贡献的线段
+        while (hh + 1 <= tt && Line::onRight(line[i], line[q[hh]], line[q[hh + 1]])) hh++;
+        // 如果可以构成轮廓，将当前直线加入队列
+        q[++tt] = i;
+    }
+
+    // 队头、队尾相互更新，还要确保队尾和队头都是有效的
+    while (hh + 1 <= tt && Line::onRight(line[q[hh]], line[q[tt - 1]], line[q[tt]])) tt--;
+    while (hh + 1 <= tt && Line::onRight(line[q[tt]], line[q[hh]], line[q[hh + 1]])) hh++;
+    // 让轮廓闭合
+    q[++tt] = q[hh];
+    // 轮廓求出来后，求出轮廓的所有顶点
+    int k = 0;
+    for (int i = hh; i < tt; i++) res[k++] = Line::CrossPoint(line[q[i]], line[q[i + 1]]);
+    // 求凸包面积
+    double ans = 0;
+    for (int i = 1; i + 1 < k; i++) ans += Geometry::Area2(res[0], res[i], res[i + 1]);
+    cout << fixed << setprecision(3) << ans / 2 << '\n';
+}
+
+int main() {
+    ios::sync_with_stdio(false), cin.tie(0), cout.tie(0);
+    int _T = 1;
+    // cin >> _T;
+    while (_T--)
+        solve();
+    return 0;
+}
+```

@@ -33,6 +33,121 @@ Spring 中 Bean 的生命周期包含以下几个关键阶段：
 + **提高可维护性和可测试性**：由于依赖关系的管理集中在容器中，当依赖关系发生变化时，只需要修改容器的配置，而不需要修改大量的业务代码。同时，在进行单元测试时，可以方便地替换依赖对象。
 + **方便实现单例模式和对象的生命周期管理**：Spring 容器可以方便地实现单例模式，并且可以管理对象的生命周期，确保对象在合适的时间被创建和销毁。
 
+## AOP
+
+### 一、AOP（面向切面编程）的核心理解
+
+AOP（Aspect-Oriented Programming）是一种通过“横向抽取”思想解决代码复用问题的编程范式。  
+传统开发中，**业务逻辑**（如用户登录、订单提交）和**横切逻辑**（如日志记录、事务控制、权限校验）往往交织在一起（例如：每个接口方法都要写日志打印代码），导致代码冗余、耦合度高、维护困难。  
+
+AOP的解决思路是：  
+1. **分离关注点**：将横切逻辑从业务逻辑中抽离出来，封装成独立的“切面”（Aspect）；  
+2. **动态织入**：通过框架（如Spring AOP）在**不修改业务代码**的前提下，将切面逻辑“自动插入”到业务方法的执行过程中（如方法执行前、执行后、抛出异常时）。  
+
+核心概念：  
+- **切面（Aspect）**：封装横切逻辑的类（如日志切面、事务切面）；  
+- **切入点（Pointcut）**：定义“哪些方法需要被织入切面”（如所有Controller层的方法）；  
+- **通知（Advice）**：定义“切面逻辑在目标方法的什么时机执行”（如前置通知@Before、后置通知@AfterReturning、环绕通知@Around等）；  
+- **织入（Weaving）**：将切面逻辑插入到目标方法的过程（Spring AOP默认通过动态代理实现运行期织入）。  
+
+### 二、AOP日志记录代码示例（基于Spring Boot）
+以下示例实现“对所有Controller层的接口方法，自动记录请求参数、返回结果和执行时间”，体现AOP如何与业务逻辑解耦。  
+
+#### 1. 引入依赖（Maven）  
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-aop</artifactId>
+</dependency>
+```
+
+#### 2. 定义日志切面（核心AOP代码）  
+```java
+// import ...
+
+// 1. @Aspect 标记此类为切面
+@Aspect
+// 2. @Component 确保被Spring容器管理
+@Component
+public class LogAspect {
+
+    private static final Logger log = LoggerFactory.getLogger(LogAspect.class);
+
+    // 3. 定义切入点：匹配所有Controller层的方法（包路径根据实际项目调整）
+    @Pointcut("execution(* com.example.demo.controller..*(..))")
+    public void controllerPointcut() {}
+
+    // 4. 前置通知：在目标方法执行前执行（记录请求参数）
+    @Before("controllerPointcut()")
+    public void logBefore(JoinPoint joinPoint) {
+        // 获取请求信息
+        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        HttpServletRequest request = attributes.getRequest();
+
+        // 打印请求详情
+        log.info("【请求URL】：{}", request.getRequestURL());
+        log.info("【请求方法】：{}", request.getMethod());
+        log.info("【调用方法】：{}.{}", 
+                 joinPoint.getSignature().getDeclaringTypeName(),  // 类名
+                 joinPoint.getSignature().getName());             // 方法名
+        log.info("【请求参数】：{}", Arrays.toString(joinPoint.getArgs()));  // 参数列表
+    }
+
+    // 5. 环绕通知：包围目标方法执行（记录执行时间）
+    @Around("controllerPointcut()")
+    public Object logAround(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
+        long startTime = System.currentTimeMillis();
+        // 执行目标方法（业务逻辑）
+        Object result = proceedingJoinPoint.proceed();
+        long endTime = System.currentTimeMillis();
+
+        log.info("【执行时间】：{}ms", endTime - startTime);
+        return result;  // 返回目标方法的执行结果
+    }
+
+    // 6. 后置返回通知：在目标方法成功执行后执行（记录返回结果）
+    @AfterReturning(pointcut = "controllerPointcut()", returning = "result")
+    public void logAfterReturning(Object result) {
+        log.info("【返回结果】：{}", result);
+    }
+}
+```
+
+#### 3. 业务Controller（无需任何日志代码）  
+```java
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class UserController {
+
+    // 业务方法：查询用户（无任何日志相关代码）
+    @GetMapping("/user")
+    public String getUser(@RequestParam String username) {
+        return "查询到用户：" + username;
+    }
+}
+```
+
+#### 4. 执行效果  
+当访问 `http://localhost:8080/user?username=test` 时，控制台会自动打印日志：  
+```
+【请求URL】：http://localhost:8080/user
+【请求方法】：GET
+【调用方法】：com.example.demo.controller.UserController.getUser
+【请求参数】：[test]
+【执行时间】：5ms
+【返回结果】：查询到用户：test
+```
+
+### 三、核心价值体现  
+- **解耦**：业务代码（UserController）只关注核心逻辑，日志逻辑被抽离到LogAspect，后续修改日志格式只需改切面，无需改动所有业务类；  
+- **复用**：一套日志逻辑可通过切入点匹配多个类/方法，避免代码重复；  
+- **灵活**：通过调整切入点表达式，可随时控制哪些方法需要日志（如只给生产环境的接口加日志）。  
+
+这就是AOP的核心思想：**用“横向切面”解决“纵向重复代码”问题**，是Spring等框架中实现事务、权限、监控等功能的核心技术。
+
 ## SpringBoot 自动装配原理
 Spring Boot 自动装配基于以下几个核心机制：
 
