@@ -11,14 +11,14 @@
             "id": "e71bba0944e16636",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "split-diff-view",
               "state": {
-                "file": "算法/算法模板/Computational_geometry.md",
-                "mode": "source",
-                "source": false
+                "aFile": "docs/算法/算法模板/Computational_geometry.md",
+                "bFile": "docs/算法/算法模板/Computational_geometry.md",
+                "aRef": ""
               },
-              "icon": "lucide-file",
-              "title": "Computational_geometry"
+              "icon": "diff",
+              "title": "Diff: Computational_geometry"
             }
           }
         ]
@@ -142,13 +142,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "算法/算法模板/Computational_geometry.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Computational_geometry 的大纲"
+              "title": "大纲"
             }
           },
           {
@@ -181,8 +180,9 @@
       "custom-sort:Toggle custom sorting": false
     }
   },
-  "active": "504c4e9474e76cb2",
+  "active": "e71bba0944e16636",
   "lastOpenFiles": [
+    "算法/算法模板/Computational_geometry.md",
     "算法/算法模板/Combinatorics.md",
     "技术学习/场景题.md",
     "开发经验/后端/assets/order_time与update_time有误.png",
@@ -227,7 +227,6 @@
     "技术学习/操作系统.md",
     "技术学习/计算机网络.md",
     "技术学习/Java 集合.md",
-    "技术学习/README.md",
     "开发经验/项目/拼团营销服务 group-buy-market/assets/2-11流程图-xfg.png",
     "未命名.canvas"
   ]

@@ -30,7 +30,7 @@ struct Point {
         return sgn(x - B.x) == 0 && sgn(y - B.y) == 0; 
     }
     bool operator < (const Point& B) const {
-        return sgn(x - B.x) < 0 || sgn(x - B.x) == 0 && sgb(y - B.y) < 0;
+        return sgn(x - B.x) < 0 || sgn(x - B.x) == 0 && sgn(y - B.y) < 0;
     }
 };
 
@@ -116,7 +116,7 @@ public:
     }
 
     int PointLineRelation(const Point& p) const { 
-        int c = sgn(Geometry::Cross(p - p1, p2 - p1));
+        int c = sgn(Geometry::Cross(p2 - p1, p - p1));
         if (c < 0) return 1; // p 在 v 的右侧
         if (c > 0) return 2; // p 在 v 的左侧
         return 0; // p 在 v 上
@@ -384,6 +384,152 @@ Point Polygon_center(Point* p, int n) { // 求多边形重心
 ```
 
 ### 凸包
+
+#### 判断多边形是否为凸包
+
+
+
+```cpp
+#include <bits/stdc++.h>
+
+using namespace std;
+#define double long double
+
+const int N = 2e5 + 5;
+const double pi = acos(-1.0);
+const double eps = 1e-8;
+
+// 判断 x 的大小，<0 返回 -1，>0 返回 1，==0 返回 0
+int sgn(double x) {
+    if (fabs(x) < eps) return 0;
+    else return x < 0 ? -1 : 1;
+}
+
+// 比较两个浮点数
+int dcmp(double x, double y) {
+    if (fabs(x - y) < eps) return 0;
+    else return x < y ? -1 : 1;
+}
+
+struct Point {
+    double x, y;
+    Point() {}
+    Point(double x, double y) : x(x), y(y) {}
+
+    Point operator + (const Point& B) const { return Point(x + B.x, y + B.y); }
+    Point operator - (const Point& B) const { return Point(x - B.x, y - B.y); }
+    Point operator * (double k) const { return Point(x * k, y * k); }
+    Point operator / (double k) const { return Point(x / k, y / k); }
+
+    bool operator == (const Point& B) const {
+        return sgn(x - B.x) == 0 && sgn(y - B.y) == 0;
+    }
+    bool operator < (const Point& B) const {
+        return sgn(x - B.x) < 0 || sgn(x - B.x) == 0 && sgn(y - B.y) < 0;
+    }
+};
+
+typedef Point Vector;
+
+class Geometry {
+public:
+    static double Dot(const Vector& A, const Vector& B) {
+        return A.x * B.x + A.y * B.y;
+    }
+
+    static int AngleJudge(const Vector& A, const Vector& B) {
+        return sgn(Dot(A, B));
+    }
+
+    static double Len(const Vector& A) {
+        return sqrt(Dot(A, A));
+    }
+
+    static double Angle(const Vector& A, const Vector& B) {
+        return acos(Dot(A, B) / Len(A) / Len(B));
+    }
+
+    static double Cross(const Vector& A, const Vector& B) {
+        return A.x * B.y - A.y * B.x;
+    }
+};
+struct cmp {
+    bool operator ()(Point x, Point y) const {
+        if (x.x == y.x) {
+            return x.y < y.y;
+        } else return x.x < y.x;
+    }
+};
+
+int n;
+Point p[N];
+
+bool isConvexPolygon() {
+    if (n < 3) return false;
+
+    set<Point, cmp> st;
+    for (int i = 0; i < n; i++) {
+        st.insert(p[i]);
+    }
+    if (st.size() < n) {
+        return false;
+    }
+
+    bool f1 = 1, f2 = 1;
+    double sum = 0;
+    for (int i = 0; i < n; i++) {
+        int x = (i - 1 + n) % n;
+        int y = (i + 1 + n) % n;
+        Vector t = p[x] - p[i];
+        Vector g = p[y] - p[i];
+        double tt = -atan2(g.y, g.x) + atan2(t.y, t.x);
+        if (tt < 0) tt += 2 * pi;
+        if (Geometry::Cross(g, t) <= 0) {
+            f1 = 0;
+            break;
+        }
+        sum += tt;
+    }
+    if (sgn(sum - (n - 2) * pi) != 0) f1 = 0;
+
+    sum = 0;
+    for (int i = 0; i < n; i++) {
+        int x = (i - 1 + n) % n;
+        int y = (i + 1 + n) % n;
+        Vector t = p[x] - p[i];
+        Vector g = p[y] - p[i];
+        double tt = atan2(g.y, g.x) - atan2(t.y, t.x);
+        if (tt < 0) tt += 2 * pi;
+        if (Geometry::Cross(t, g) <= 0) {
+            f2 = 0;
+            break;
+        }
+        sum += tt;
+    }
+    if (sgn(sum - (n - 2) * pi) != 0) f2 = 0;
+
+    if (f1 || f2) return true;
+    return false;
+
+}
+
+
+int main() {
+    std::ios::sync_with_stdio(false), std::cin.tie(0), std::cout.tie(0);
+
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        cin >> p[i].x >> p[i].y;
+    }
+
+    cout << (isConvexPolygon() ? "Yes\n" : "No\n");
+
+}
+```
+
+方法 2：
+
+#### 求凸包周长
 
 例: [P2742 [USACO5.1] 圈奶牛Fencing the Cows /【模板】二维凸包](https://www.luogu.com.cn/problem/P2742)
 
