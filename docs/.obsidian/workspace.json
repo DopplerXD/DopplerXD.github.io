@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "index.md",
+                "file": "Leetcode/problems/516. 最长回文子系列.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "index"
+              "title": "516. 最长回文子系列"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "index.md",
+                "file": "Leetcode/problems/516. 最长回文子系列.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "index 的大纲"
+              "title": "516. 最长回文子系列 的大纲"
             }
           },
           {
@@ -183,6 +183,12 @@
   },
   "active": "504c4e9474e76cb2",
   "lastOpenFiles": [
+    "Leetcode/top-interview-150/array-string.md",
+    "Leetcode/top-100-liked/hash.md",
+    "Leetcode/problems/1361. 验证二叉树.md",
+    "Leetcode/problems/516. 最长回文子系列.md",
+    "技术学习/Java 集合.md",
+    "index.md",
     "技术学习/Java 基础.md",
     "技术学习/Spring.md",
     "技术学习/并发编程.md",
@@ -218,16 +224,10 @@
     "算法/算法学习/assets/十大排序算法",
     "算法/算法学习/assets",
     "技术学习/Redis.md",
-    "index.md",
     "assets/Fqiev8kFGWaEu6NEcSm1qN7fIcSS.md",
     "新建文件夹",
     "e634e6e627b6b24bcb0f6a831c84b531.jpg",
     "技术学习/设计模式.md",
-    "开发经验/项目/拼团营销服务 group-buy-market/2-2~2-3 规则树设计模式模板.md",
-    "技术学习/其他（Linux、Docker等）.md",
-    "技术学习/操作系统.md",
-    "技术学习/计算机网络.md",
-    "技术学习/Java 集合.md",
     "开发经验/项目/拼团营销服务 group-buy-market/assets/2-11流程图-xfg.png",
     "未命名.canvas"
   ]

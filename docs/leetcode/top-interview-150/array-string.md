@@ -1,7 +1,3 @@
----
-title:
-  - 数组/字符串
----
 ## 88 合并两个有序数组
 
 题目链接 [link](https://leetcode.cn/problems/merge-sorted-array/description/?envType=study-plan-v2&envId=top-interview-150)

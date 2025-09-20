@@ -735,6 +735,52 @@ public boolean add(E e) {
 
 HashSet 的 add 方法是通过调用 HashMap 的 put 实现的，所以还是 HashMap 的实现逻辑。
 
+## Set 范围操作相关方法，如 subSet ()
+
+### 一、`set.subSet(608, true, 611, true)` 
+
+方法解析 `TreeSet` 的 `subSet()` 方法用于**获取原集合中指定范围的子集**，返回一个**视图（View）**（而非新集合），对子集的修改会同步反映到原集合，反之亦然。 
+
+#### 方法参数说明： 
+
+`subSet(E fromElement, boolean fromInclusive, E toElement, boolean toInclusive)` 
+
+- `fromElement`：范围的起始元素（608）； 
+- `fromInclusive`：是否包含起始元素（`true` 表示包含608）； 
+- `toElement`：范围的结束元素（611）； 
+- `toInclusive`：是否包含结束元素（`true` 表示包含611）。 
+
+#### 案例执行结果： 
+
+原集合 `set` 中添加的元素是 **606、608、610、612**（606到612之间的偶数）。 调用 `subSet(608, true, 611, true)` 后，子集 `subSet` 包含的元素是 **608、610**，因为： 
+
+- 范围是 `[608, 611]`（包含两端）； 
+- 原集合中在此范围内的元素只有608和610（612 > 611，不在范围内）。 
+
+#### 注意事项： 
+
+1. **视图特性**：`subSet` 是原集合的视图，而非独立副本。例如： ```java subSet.add(610); // 原集合已有610，无变化 subSet.add(609); // 609是奇数，原集合中没有，添加后原集合也会包含609 ``` 
+2. **范围约束**：向子集添加元素时，必须在 `[fromElement, toElement]` 范围内，否则抛出 `IllegalArgumentException`。 
+3. **排序一致性**：子集的元素顺序与原 `TreeSet` 一致（默认自然排序，即整数升序）。
+
+### 二、`TreeSet` 中类似 `subSet()` 的范围相关方法 
+
+`TreeSet` 继承自 `NavigableSet` 接口，提供了一系列用于操作范围的方法，除 `subSet()` 外，常用的还有： 
+
+1. **`headSet(E toElement, boolean inclusive)`** 
+- 功能：获取原集合中“小于 `toElement`”的子集（若 `inclusive` 为 `true`，则包含 `toElement`）。 
+- 示例：`set.headSet(610, true)` 返回 **{606, 608, 610}**。 
+2. **`tailSet(E fromElement, boolean inclusive)`** 
+- 功能：获取原集合中“大于 `fromElement`”的子集（若 `inclusive` 为 `true`，则包含 `fromElement`）。 
+- 示例：`set.tailSet(608, false)` 返回 **{610, 612}**（不包含608）。 
+3. **`descendingSet()`** 
+- 功能：返回原集合的**逆序视图**（元素顺序与原集合相反）。 
+- 示例：原集合 `{606, 608, 610, 612}` 的逆序视图为 `{612, 610, 608, 606}`。 
+4. **`subSet()` 的重载方法（JDK 16+）** 
+- `subSet(E fromElement, E toElement)`：等价于 `subSet(fromElement, true, toElement, false)`，即包含起始元素、不包含结束元素。 
+
+这些方法的共同特点是**返回视图而非副本**，适用于需要操作集合中特定范围元素的场景（如分页查询、区间过滤），且能保持与原集合的同步更新。
+
 
 
 
