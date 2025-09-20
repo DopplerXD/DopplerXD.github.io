@@ -1513,6 +1513,72 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#set-subset" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set 范围操作相关方法，如 subSet ()
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Set 范围操作相关方法，如 subSet ()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setsubset608-true-611-true" class="md-nav__link">
+    <span class="md-ellipsis">
+      一、set.subSet(608, true, 611, true)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="一、set.subSet(608, true, 611, true)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      方法参数说明：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      案例执行结果：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      注意事项：
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#treeset-subset" class="md-nav__link">
+    <span class="md-ellipsis">
+      二、TreeSet 中类似 subSet() 的范围相关方法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2728,6 +2794,72 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#set-subset" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set 范围操作相关方法，如 subSet ()
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Set 范围操作相关方法，如 subSet ()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setsubset608-true-611-true" class="md-nav__link">
+    <span class="md-ellipsis">
+      一、set.subSet(608, true, 611, true)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="一、set.subSet(608, true, 611, true)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      方法参数说明：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      案例执行结果：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      注意事项：
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#treeset-subset" class="md-nav__link">
+    <span class="md-ellipsis">
+      二、TreeSet 中类似 subSet() 的范围相关方法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3782,6 +3914,45 @@
 <a id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>HashSet 的 add 方法是通过调用 HashMap 的 put 实现的，所以还是 HashMap 的实现逻辑。</p>
+<h2 id="set-subset">Set 范围操作相关方法，如 subSet ()<a class="headerlink" href="#set-subset" title="Permanent link">&para;</a></h2>
+<h3 id="setsubset608-true-611-true">一、<code>set.subSet(608, true, 611, true)</code><a class="headerlink" href="#setsubset608-true-611-true" title="Permanent link">&para;</a></h3>
+<p>方法解析 <code>TreeSet</code> 的 <code>subSet()</code> 方法用于<strong>获取原集合中指定范围的子集</strong>，返回一个<strong>视图（View）</strong>（而非新集合），对子集的修改会同步反映到原集合，反之亦然。 </p>
+<h4 id="_16">方法参数说明：<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h4>
+<p><code>subSet(E fromElement, boolean fromInclusive, E toElement, boolean toInclusive)</code> </p>
+<ul>
+<li><code>fromElement</code>：范围的起始元素（608）； </li>
+<li><code>fromInclusive</code>：是否包含起始元素（<code>true</code> 表示包含608）； </li>
+<li><code>toElement</code>：范围的结束元素（611）； </li>
+<li><code>toInclusive</code>：是否包含结束元素（<code>true</code> 表示包含611）。 </li>
+</ul>
+<h4 id="_17">案例执行结果：<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h4>
+<p>原集合 <code>set</code> 中添加的元素是 <strong>606、608、610、612</strong>（606到612之间的偶数）。 调用 <code>subSet(608, true, 611, true)</code> 后，子集 <code>subSet</code> 包含的元素是 <strong>608、610</strong>，因为： </p>
+<ul>
+<li>范围是 <code>[608, 611]</code>（包含两端）； </li>
+<li>原集合中在此范围内的元素只有608和610（612 &gt; 611，不在范围内）。 </li>
+</ul>
+<h4 id="_18">注意事项：<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h4>
+<ol>
+<li><strong>视图特性</strong>：<code>subSet</code> 是原集合的视图，而非独立副本。例如： <code>java subSet.add(610); // 原集合已有610，无变化 subSet.add(609); // 609是奇数，原集合中没有，添加后原集合也会包含609</code> </li>
+<li><strong>范围约束</strong>：向子集添加元素时，必须在 <code>[fromElement, toElement]</code> 范围内，否则抛出 <code>IllegalArgumentException</code>。 </li>
+<li><strong>排序一致性</strong>：子集的元素顺序与原 <code>TreeSet</code> 一致（默认自然排序，即整数升序）。</li>
+</ol>
+<h3 id="treeset-subset">二、<code>TreeSet</code> 中类似 <code>subSet()</code> 的范围相关方法<a class="headerlink" href="#treeset-subset" title="Permanent link">&para;</a></h3>
+<p><code>TreeSet</code> 继承自 <code>NavigableSet</code> 接口，提供了一系列用于操作范围的方法，除 <code>subSet()</code> 外，常用的还有： </p>
+<ol>
+<li><strong><code>headSet(E toElement, boolean inclusive)</code></strong> </li>
+<li>功能：获取原集合中“小于 <code>toElement</code>”的子集（若 <code>inclusive</code> 为 <code>true</code>，则包含 <code>toElement</code>）。 </li>
+<li>示例：<code>set.headSet(610, true)</code> 返回 <strong>{606, 608, 610}</strong>。 </li>
+<li><strong><code>tailSet(E fromElement, boolean inclusive)</code></strong> </li>
+<li>功能：获取原集合中“大于 <code>fromElement</code>”的子集（若 <code>inclusive</code> 为 <code>true</code>，则包含 <code>fromElement</code>）。 </li>
+<li>示例：<code>set.tailSet(608, false)</code> 返回 <strong>{610, 612}</strong>（不包含608）。 </li>
+<li><strong><code>descendingSet()</code></strong> </li>
+<li>功能：返回原集合的<strong>逆序视图</strong>（元素顺序与原集合相反）。 </li>
+<li>示例：原集合 <code>{606, 608, 610, 612}</code> 的逆序视图为 <code>{612, 610, 608, 606}</code>。 </li>
+<li><strong><code>subSet()</code> 的重载方法（JDK 16+）</strong> </li>
+<li><code>subSet(E fromElement, E toElement)</code>：等价于 <code>subSet(fromElement, true, toElement, false)</code>，即包含起始元素、不包含结束元素。 </li>
+</ol>
+<p>这些方法的共同特点是<strong>返回视图而非副本</strong>，适用于需要操作集合中特定范围元素的场景（如分页查询、区间过滤），且能保持与原集合的同步更新。</p>
 
 
 
@@ -3804,7 +3975,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年7月21日 10:46:56 UTC">2025年7月21日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年9月20日 06:19:00 UTC">2025年9月20日</span>
   </span>
 
     
