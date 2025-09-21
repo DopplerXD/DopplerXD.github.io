@@ -4,3 +4,4 @@ docs/node_modules
 docs/.vuepress/.cache
 docs/.vuepress/.temp
 docs/.obsidian/workspace.json
+**/.DS_Store
