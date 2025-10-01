@@ -1,3 +1,98 @@
+## 什么是 Spring
+
+
+
+## Spring 有哪些模块
+
+
+
+## Spring 中注入的常见注解，有什么区别
+
+![](assets/Spring/Spring常用注解.png)
+
++ **@Autowired**：Spring 框架提供的注解，默认按照类型进行注入。如果存在多个相同类型的 Bean，会根据属性名进行匹配，如果匹配不上会抛出异常。可以通过 `@Qualifier` 注解指定具体的 Bean 名称。
++ **@Resource**：Java 提供的注解，默认按照名称进行注入，如果找不到对应的名称，则按照类型进行注入。
++ **@Inject**：JSR - 330 规范提供的注解，功能和 `@Autowired` 类似，默认按照类型进行注入。
++ `@Configuration`：标识配置类。
++ `@Bean`：用来定义 Bean。
++ `@Value`：用来注入配置文件中的属性值。
++ `@RestController` = `@Controller` + `@ResquestBody`
++ `@RequestMapping` 及其变体 `@GetMapping`、`@PostMapping`、`@PutMapping`、`@DeleteMapping` 用来映射 HTTP 请求。`@PathVariable` 获取路径参数，`@RequestParam` 获取请求参数，`@RequestBody` 接收 JSON 数据。
++ AOP 相关：`@Aspect` 定义切面，`@Pointcut` 定义切点，`@Before`、`@After`、`@Around` 这些定义通知类型
++ `@Transactional`：用在 Service 层需要保证事务原子性的方法上。
++ 生命周期相关：`@PostConstruct` 在 Bean 初始化后执行，`@PreDestroy` 在 Bean 销毁前执行。
++ `@SpringBootTest`：测试时经常用到。
++ `@SpringBootApplication`：启动类注解。
+
+## @Controller 和 @RestController 的区别
+
+1. 功能侧重点
+    + `@Controller`：主要用于处理 Web 请求，并将请求映射到相应的处理方法。它通常用于传统的 MVC（Model - View - Controller）架构中，侧重于返回一个视图（View），例如 JSP、Thymeleaf 模板等。处理方法可以通过 `Model` 对象将数据传递给视图进行展示。
+    + `@RestController`：是一个专门用于创建 RESTful Web 服务的控制器。它侧重于返回数据，通常以 JSON、XML 等格式直接返回给客户端，而不是返回一个视图。这在前后端分离的开发模式中非常常用，前端通过 HTTP 请求获取后端返回的数据来渲染页面。
+2. 注解本质
+    + `@Controller`：是一个常规的 Spring 组件注解，用于标识该类为一个控制器。它本身并不包含处理 HTTP 请求返回数据格式的特定逻辑。
+    + `@RestController`：实际上是一个组合注解，它结合了 `@Controller` 和 `@ResponseBody` 注解的功能。`@ResponseBody` 注解的作用是将控制器方法的返回值直接写入 HTTP 响应体中，而不会经过视图解析器进行视图解析。
+3. 返回值处理
+    + `@Controller`：处理方法的返回值通常被视为视图名。Spring 会通过视图解析器将视图名解析为实际的视图资源，然后将模型数据填充到视图中进行渲染，最终返回给客户端。例如，如果返回值是 `"home"`，视图解析器会查找名为 `home` 的视图资源（如 `home.jsp` 或 `home.html`，取决于具体的视图解析器配置）。
+    + `@RestController`：处理方法的返回值会直接作为 HTTP 响应体返回给客户端，并且会根据 `HttpMessageConverter` 机制将返回对象转换为合适的格式（如 JSON、XML 等）。例如，返回一个 Java 对象，Spring 会自动将其转换为 JSON 格式并返回给客户端，无需额外配置视图解析。
+
+总结来说，如果开发的是传统的 MVC 应用，需要返回视图，使用 `@Controller`；如果开发的是 RESTful Web 服务，主要返回数据给前端，使用 `@RestController` 更为合适。
+
+## @Resource 和 @Autowired 区别
++ **来源不同**：`@Autowired` 是 Spring 框架提供的注解，`@Resource` 是 Java 提供的注解（JSR - 250 规范）。
++ **注入方式不同**：`@Autowired` 默认按照类型进行注入，`@Resource` 默认按照名称进行注入。
++ **处理多个 Bean 时的行为不同**：当存在多个相同类型的 Bean 时，`@Autowired` 需要结合 `@Qualifier` 注解指定 Bean 名称，`@Resource` 可以直接通过名称匹配。
+
+## @Component 和 @Bean 有什么区别？
+都用于将对象交给 Spring 容器管理，但在使用场景、使用方式和作用目标等方面存在区别：
+
+1. 使用场景
+    + `@Component`：一般用于类层面，适用于那些比较常规的组件，比如服务层、数据访问层等。Spring 会自动扫描带有 `@Component` 注解及其派生注解（像 `@Service`、`@Repository`、`@Controller`）的类，并将它们注册到 Spring 容器中。这种方式适合处理那些可以通过组件扫描机制自动发现并注册的类。
+    + `@Bean`：通常用于方法层面，适合手动创建和配置 Bean。当需要对 Bean 的创建过程进行更多的控制，或者要集成第三方库的类时，就可以使用 `@Bean` 注解。例如，当使用外部库提供的类，且需要对其进行自定义配置时，就可以在配置类里使用 `@Bean` 方法来创建和配置这个类的实例。
+2. 使用方式
+    + `@Component`：只需将 `@Component` 注解添加到类的定义上即可。Spring 会在启动时自动扫描指定包下带有该注解的类，并将其作为 Bean 注册到容器中。
+    - `@Bean`：需要在配置类（带有 `@Configuration` 注解的类）里定义一个方法，在方法上添加 `@Bean` 注解，该方法的返回值就是要注册到 Spring 容器中的 Bean。示例如下：
+
+```java
+@Configuration
+public class MyConfig {
+    @Bean
+    public MyBean myBean() {
+        return new MyBean();
+    }
+}
+
+class MyBean {
+}
+```
+
+3. 作用目标
+    + `@Component`：作用于类，将**整个类作为一个 Bean** 注册到 Spring 容器中。Spring 会使用默认的构造函数来创建该类的实例，并进行依赖注入。
+    + `@Bean`：作用于方法，**方法的返回值会被注册为 Bean**。可以在方法内部编写复杂的逻辑来创建和配置 Bean，例如设置 Bean 的属性、调用初始化方法等。
+4. 自动装配和命名
+    + `@Component`：默认情况下，Bean 的名称是类名的首字母小写。不过可以通过 `@Component` 注解的参数来指定 Bean 的名称。例如：`@Component("myCustomComponent")`。
+    + `@Bean`：默认情况下，Bean 的名称是方法名。也可以通过 `@Bean` 注解的参数来指定 Bean 的名称。例如：`@Bean("myCustomBean")`。
+
+综上所述，`@Component` 适合自动扫描和注册常规组件，而 `@Bean` 更适合手动创建和配置 Bean，尤其是在需要对 Bean 的创建过程进行精细控制时。
+
+如需要引入第三方包的一个类，我们不能通过修改源码使用 @Component，这时就可以用 @Bean 来进行注入。
+
+## Spring 中的设计模式
+
++ **单例模式**：Spring 容器中的 Bean 默认是单例的，通过单例模式确保一个 Bean 在整个应用中只有一个实例，减少了资源的消耗。可通过 `@Scope("prototype")` 设置为每次获取都创建新实例。
++ **工厂模式**：Spring 的 `BeanFactory` 和 `ApplicationContext` 就是工厂模式的体现，负责创建和管理 Bean 对象。
++ **代理模式**：Spring AOP 是基于代理模式实现的，通过代理对象对目标对象进行增强，实现了日志记录、事务管理等功能。实现了接口的类用 JDK 动态代理，没有实现接口的类用 CGLIB 代理。
++ **模板方法模式**：如 JdbcTemplate，定义了数据库操作的基本流程：获取连接、执行 SQL、处理结果、关闭连接。
++ **观察者模式**：Spring 中的事件机制就是观察者模式的应用，可通过 `ApplicationEvent` 和 `ApplicationListener` 来实现事件的发布与监听。当一个事件发生时，会通知所有注册的监听器进行相应的处理。
+
+## Spring 如何实现 Bean 的单例模式
+
+Spring 的单例是容器级别的，同一个 Bean 在整个 Spring 容器中只会有一个实例。Spring 在启动的时候会把所有的 Bean 定义信息加载进来，然后在 DefaultSingletonBeanRegistry 这个类里面维护了一个叫 singletonObjects 的 **ConcurrentHashMap**，这个 Map 就是用来存储单例 Bean 的。key 是 Bean 的名称，value 就是 Bean 的实例对象。
+
+第一次获取某个 Bean 的时候，Spring 会先检查 singletonObjects 这个 Map 里面有没有这个 Bean，如果没有就会创建一个新的实例，然后放到 Map 里面。后面再获取同一个 Bean 的时候，直接从 Map 里面取就行了，这样就保证了单例。
+
+**如何解决循环依赖：使用三级缓存。**除了 singletonObjects 这个一级缓存，还有 earlySingletonObjects 二级缓存和 singletonFactories 三级缓存。这样即使有循环依赖，Spring 也能正确处理。
+
 ## Spring 框架中的单例 Bean 是线程安全的吗？
 结论：不是线程安全的。
 
@@ -27,11 +122,26 @@ Spring 中 Bean 的生命周期包含以下几个关键阶段：
 + **AOP（Aspect - Oriented Programming，面向切面编程）**：是对面向对象编程的一种补充。它将与业务逻辑无关但被多个模块共同使用的功能（如日志记录、事务管理等）提取出来，形成一个切面，然后将这些切面动态地织入到目标对象的方法执行过程中。比如在多个业务方法执行前后添加日志记录，使用 AOP 可以避免在每个方法中重复编写日志代码。
 
 ## 为什么要 IOC，自己管理 Bean 不行吗
+
 可以自己管理 Bean，但使用 IOC 有以下优势：
 
 + **降低耦合度**：对象之间的依赖关系由容器管理，对象只需要关注自身的业务逻辑，不需要关心依赖对象的创建和管理，降低了代码的耦合度。
 + **提高可维护性和可测试性**：由于依赖关系的管理集中在容器中，当依赖关系发生变化时，只需要修改容器的配置，而不需要修改大量的业务代码。同时，在进行单元测试时，可以方便地替换依赖对象。
 + **方便实现单例模式和对象的生命周期管理**：Spring 容器可以方便地实现单例模式，并且可以管理对象的生命周期，确保对象在合适的时间被创建和销毁。
+
+## IoC 和 DI 的关系
+
+- **IOC 是“核心思想”**：它描述的是 Spring 解决“对象依赖耦合”的**设计理念**——即“将对象的创建、依赖关系的维护等‘控制权’，从业务代码本身反转到 Spring 容器”。
+    - 举个例子：传统开发中，Service 需要调用 Dao 时，要自己 `new DaoImpl()` 来创建 Dao 对象（控制权在 Service）；而 IOC 思想下，Service 不再关心 Dao 的创建，而是由 Spring 容器直接“给”它需要的 Dao 对象（控制权反转到容器）。IOC 的核心是“反转控制权”这个“目标”。
+- **DI 是“实现手段”**：它是 Spring 实现 IOC 思想的**具体技术方式**——即“Spring 容器通过构造器注入、setter 注入、注解注入等方式，将对象依赖的组件‘主动注入’到对象中”。
+    - 延续上面的例子：Spring 容器如何让 Service 拿到 Dao？本质就是通过 `@Autowired`（注解注入）或 XML 配置（setter 注入），把 Dao 实例“注入”到 Service 的成员变量中。DI 的核心是“如何把依赖给过去”这个“动作”。 
+
+## IoC 的实现机制
+
+1. 加载 Bean 的定义信息：Spring 扫描配置的包路径，找到标注了 `@Component`、`Service`、`Repository` 等注解的类，将这些类的元信息封装成 BeanDefinition 对象。
+2. Bean 工厂的准备：Spring 创建一个 DefaultListableBeanFactory 作为 Bean 工厂来负责 Bean 的创建和管理。
+3. Bean 的实例化和初始化：Spring 根据 BeanDefinition 来创建 Bean 实例。
+    1. 对于单例 Bean，先检查缓存中是否已存在，不存在就通过反射调用构造方法来创建新实例。
 
 ## AOP
 
@@ -200,67 +310,6 @@ Spring 支持的事务隔离级别与数据库的事务隔离级别相对应，�
 + **@Configuration**：用于定义配置类，相当于 Spring 的 XML 配置文件。
 + **@ComponentScan**：用于指定 Spring 扫描组件的包路径。
 
-## Spring 中注入的常见注解，有什么区别
-+ **@Autowired**：Spring 框架提供的注解，默认按照类型进行注入。如果存在多个相同类型的 Bean，会根据属性名进行匹配，如果匹配不上会抛出异常。可以通过 `@Qualifier` 注解指定具体的 Bean 名称。
-+ **@Resource**：Java 提供的注解，默认按照名称进行注入，如果找不到对应的名称，则按照类型进行注入。
-+ **@Inject**：JSR - 330 规范提供的注解，功能和 `@Autowired` 类似，默认按照类型进行注入。
-
-## @Controller 和 @RestController 的区别
-@Controller 和 @RestController 在Spring框架中，`@Controller` 和 `@RestController` 都用于标识一个类作为控制器，但它们之间存在一些关键区别：
-
-### 1. 功能侧重点
-+ `@Controller`：主要用于处理Web请求，并将请求映射到相应的处理方法。它通常用于传统的MVC（Model - View - Controller）架构中，侧重于返回一个视图（View），例如JSP、Thymeleaf模板等。处理方法可以通过 `Model` 对象将数据传递给视图进行展示。
-+ `@RestController`：是一个专门用于创建RESTful Web服务的控制器。它侧重于返回数据，通常以JSON、XML等格式直接返回给客户端，而不是返回一个视图。这在前后端分离的开发模式中非常常用，前端通过HTTP请求获取后端返回的数据来渲染页面。
-
-### 2. 注解本质
-+ `@Controller`：是一个常规的Spring组件注解，用于标识该类为一个控制器。它本身并不包含处理HTTP请求返回数据格式的特定逻辑。
-+ `@RestController`：实际上是一个组合注解，它结合了 `@Controller` 和 `@ResponseBody` 注解的功能。`@ResponseBody` 注解的作用是将控制器方法的返回值直接写入HTTP响应体中，而不会经过视图解析器进行视图解析。
-
-### 3. 返回值处理
-+ `@Controller`：处理方法的返回值通常被视为视图名。Spring会通过视图解析器将视图名解析为实际的视图资源，然后将模型数据填充到视图中进行渲染，最终返回给客户端。例如，如果返回值是 `"home"`，视图解析器会查找名为 `home` 的视图资源（如 `home.jsp` 或 `home.html`，取决于具体的视图解析器配置）。
-+ `@RestController`：处理方法的返回值会直接作为HTTP响应体返回给客户端，并且会根据 `HttpMessageConverter` 机制将返回对象转换为合适的格式（如JSON、XML等）。例如，返回一个Java对象，Spring会自动将其转换为JSON格式并返回给客户端，无需额外配置视图解析。
-
-### 4. 示例代码
-使用 `@Controller`
-
-```java
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-
-@Controller
-public class HomeController {
-
-    @GetMapping("/home")
-    public String home(Model model) {
-        model.addAttribute("message", "Welcome to the home page!");
-        return "home";
-    }
-}
-```
-
-在上述代码中，`home` 方法返回视图名 `"home"`，Spring会通过视图解析器查找并渲染对应的视图，同时将 `message` 数据传递给视图。
-
-使用 `@RestController`
-
-```java
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-@RestController
-public class ApiController {
-
-    @GetMapping("/api/data")
-    public String getData() {
-        return "{\"message\":\"This is JSON data from RESTful API\"}";
-    }
-}
-```
-
-这里 `getData` 方法直接返回一个字符串，Spring会将其作为响应体返回给客户端，并且由于 `@RestController` 的作用，会按照 `HttpMessageConverter` 机制处理返回值格式，默认会将字符串作为JSON格式数据返回（如果客户端期望的是JSON格式）。
-
-总结来说，如果开发的是传统的MVC应用，需要返回视图，使用 `@Controller`；如果开发的是RESTful Web服务，主要返回数据给前端，使用 `@RestController` 更为合适。
-
 ## SpringMVC 工作流程
 + 用户发送请求到前端控制器 `DispatcherServlet`。
 + `DispatcherServlet` 接收请求后，调用 `HandlerMapping` 查找处理该请求的 `Handler`（控制器方法）。
@@ -298,60 +347,6 @@ public class ApiController {
     - **权限验证**：在方法执行前验证用户的权限。
     - **事务管理**：使用 `@Transactional` 注解结合 AOP 实现事务的管理。
     - **性能监控**：记录方法的执行时间。
-
-## @Resource 和 @Autowired 区别
-+ **来源不同**：`@Autowired` 是 Spring 框架提供的注解，`@Resource` 是 Java 提供的注解（JSR - 250 规范）。
-+ **注入方式不同**：`@Autowired` 默认按照类型进行注入，`@Resource` 默认按照名称进行注入。
-+ **处理多个 Bean 时的行为不同**：当存在多个相同类型的 Bean 时，`@Autowired` 需要结合 `@Qualifier` 注解指定 Bean 名称，`@Resource` 可以直接通过名称匹配。
-
-## @Component 和 @Bean 有什么区别？
-都用于将对象交给 Spring 容器管理，但在使用场景、使用方式和作用目标等方面存在区别：
-
-### 使用场景
-+ `@Component`：一般用于类层面，适用于那些比较常规的组件，比如服务层、数据访问层等。Spring 会自动扫描带有 `@Component` 注解及其派生注解（像 `@Service`、`@Repository`、`@Controller`）的类，并将它们注册到 Spring 容器中。这种方式适合处理那些可以通过组件扫描机制自动发现并注册的类。
-+ `@Bean`：通常用于方法层面，适合手动创建和配置 Bean。当需要对 Bean 的创建过程进行更多的控制，或者要集成第三方库的类时，就可以使用 `@Bean` 注解。例如，当使用外部库提供的类，且需要对其进行自定义配置时，就可以在配置类里使用 `@Bean` 方法来创建和配置这个类的实例。
-
-### 使用方式
-+ `@Component`：只需将 `@Component` 注解添加到类的定义上即可。Spring 会在启动时自动扫描指定包下带有该注解的类，并将其作为 Bean 注册到容器中。示例如下：
-
-```java
-@Component
-public class MyComponent {
-}
-```
-
-+ `@Bean`：需要在配置类（带有 `@Configuration` 注解的类）里定义一个方法，在方法上添加 `@Bean` 注解，该方法的返回值就是要注册到 Spring 容器中的 Bean。示例如下：
-
-```java
-@Configuration
-public class MyConfig {
-    @Bean
-    public MyBean myBean() {
-        return new MyBean();
-    }
-}
-
-class MyBean {
-}
-```
-
-### 作用目标
-+ `@Component`：作用于类，将**整个类作为一个 Bean** 注册到 Spring 容器中。Spring 会使用默认的构造函数来创建该类的实例，并进行依赖注入。
-+ `@Bean`：作用于方法，**方法的返回值会被注册为 Bean**。可以在方法内部编写复杂的逻辑来创建和配置 Bean，例如设置 Bean 的属性、调用初始化方法等。
-
-### 自动装配和命名
-+ `@Component`：默认情况下，Bean 的名称是类名的首字母小写。不过可以通过 `@Component` 注解的参数来指定 Bean 的名称。例如：`@Component("myCustomComponent")`。
-+ `@Bean`：默认情况下，Bean 的名称是方法名。也可以通过 `@Bean` 注解的参数来指定 Bean 的名称。例如：`@Bean("myCustomBean")`。
-
-综上所述，`@Component` 适合自动扫描和注册常规组件，而 `@Bean` 更适合手动创建和配置 Bean，尤其是在需要对 Bean 的创建过程进行精细控制时。
-
-如需要引入第三方包的一个类，我们不能通过修改源码使用 @Component，这时就可以用 @Bean 来进行注入。
-
-## Spring 中你认为比较重要的设计模式
-+ **单例模式**：Spring 容器中的 Bean 默认是单例的，通过单例模式确保一个 Bean 在整个应用中只有一个实例，减少了资源的消耗。
-+ **工厂模式**：Spring 的 `BeanFactory` 和 `ApplicationContext` 就是工厂模式的体现，负责创建和管理 Bean 对象。
-+ **代理模式**：Spring AOP 是基于代理模式实现的，通过代理对象对目标对象进行增强，实现了日志记录、事务管理等功能。
-+ **观察者模式**：Spring 中的事件机制就是观察者模式的应用，当一个事件发生时，会通知所有注册的监听器进行相应的处理。
 
 ## Spring 的事务 @Transactional 如果不抛出异常，如何回滚
 可以在方法内部手动调用 `TransactionAspectSupport.currentTransactionStatus().setRollbackOnly()` 方法来设置事务回滚。例如：
@@ -443,17 +438,4 @@ Spring AOP 会根据目标对象是否实现接口来自动选择使用 JDK 动�
 
 综上所述，Spring 通过 `BeanDefinition`、`BeanFactory` 等组件实现了 IoC，通过 JDK 动态代理和 CGLIB 代理等技术实现了 AOP，为开发者提供了强大而灵活的开发框架。
 
-## IoC 和 DI 的关系
 
-### 第一步：先明确IOC与DI的核心区别
-
-IOC（Inversion of Control，控制反转）和DI（Dependency Injection，依赖注入）是**“思想”与“实现手段”的关系**，二者并非同一概念的不同表述，而是存在明确的逻辑层级：
-
-- **IOC是“核心思想”**：它描述的是Spring解决“对象依赖耦合”的**设计理念**——即“将对象的创建、依赖关系的维护等‘控制权’，从业务代码本身反转到Spring容器”。
-    - 举个例子：传统开发中，Service需要调用Dao时，要自己 `new DaoImpl()` 来创建Dao对象（控制权在Service）；而IOC思想下，Service不再关心Dao的创建，而是由Spring容器直接“给”它需要的Dao对象（控制权反转到容器）。IOC的核心是“反转控制权”这个“目标”。
-- **DI是“实现手段”**：它是Spring实现IOC思想的**具体技术方式**——即“Spring容器通过构造器注入、setter注入、注解注入等方式，将对象依赖的组件‘主动注入’到对象中”。
-    - 延续上面的例子：Spring容器如何让Service拿到Dao？本质就是通过 `@Autowired`（注解注入）或XML配置（setter注入），把Dao实例“注入”到Service的成员变量中。DI的核心是“如何把依赖给过去”这个“动作”。 
-
-### 第二步：为什么Spring核心是“IOC+AOP”？ 
-
-从Spring的设计逻辑来看，IOC和AOP是两个**并行的、支撑框架核心能力的“顶层设计”**： 1. **IOC解决“对象依赖耦合”问题**：作为Spring的“容器基石”，IOC思想通过DI手段，实现了对象的解耦、统一管理（生命周期、单例/多例等），是Spring整合所有功能（如Service、Dao、Controller）的基础——没有IOC，Spring就失去了“管理对象”的核心能力。 2. **AOP解决“横切关注点重复”问题**：作为Spring的“功能增强工具”，AOP（面向切面编程）思想通过“切面”将日志、事务、权限校验等“横切逻辑”从业务代码中剥离，实现了“业务逻辑与非业务逻辑的解耦”——比如用`@Transactional`声明事务，本质就是AOP在背后动态代理实现的。 二者分别从“对象管理”和“功能增强”两个维度，支撑了Spring作为企业级框架的核心价值；而DI只是IOC思想的“实现细节”，并非与IOC、AOP并列的“顶层核心概念”——就像“用锤子（DI）盖房子（IOC）”，我们不会说“核心是锤子和设计图纸（AOP）”，而是“核心是房子的设计理念（IOC）和图纸（AOP）”。 ### 总结 - 逻辑关系：**IOC（思想）→ 靠DI（手段）实现**，DI是IOC的“子集”，而非与IOC同级的概念； - 核心表述：Spring的核心是**IOC（控制反转思想，解决对象依赖）和AOP（面向切面编程，解决横切逻辑）**，这是行业内的标准说法，也符合Spring框架的设计初衷。
