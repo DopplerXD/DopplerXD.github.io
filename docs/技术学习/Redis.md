@@ -46,9 +46,56 @@ Redis 中的 SDS 是对 C语言字符串的封装，提供了以下功能：
 
 ## Redis 为什么快
 
-1. Redis 的所有数据都放在内存中，内存访问速度比磁盘快的多。
-2. 采用了基于 IO 多路复用技术的单线程事件驱动模型来处理客户端请求和执行 Redis 命令，避免了多线程上下文切换和竞争条件，提高了并发处理效率。
-3. 对底层数据结构进行优化，能够快速完成各种操作。如 String 的底层数据结构动态字符串支持动态扩容、预分配冗余空间，能够减少内存碎片和内存分配的开销。
+### 1. Redis 是基于内存的
+
+Redis 的所有数据都放在内存中，而内存的读写速度本身就比磁盘快几个数量级。
+
+### 2. Redis 采用基于 IO 多路复用技术的事件驱动模型来处理客户端请求和执行 Redis 命令。
+
+其中的 IO 多路复用技术可以在只有一个线程的情况下，同时监听成千上万个客户端连接，解决传统 IO 模型中每个连接都需要一个独立线程带来的性能开销。
+
+IO 多路复用会持续监听请求，然后把准备好的请求压入到一个队列当中，并将其有序地传递给文件事件分派器，最后由事件处理器来执行对应的 accept、read 和 write 请求。
+
+![](assets/Redis/开发者内功修炼：Redis%20事件驱动机制.png)
+
+Redis 会根据操作系统选择最优的 IO 多路复用技术，比如 Linux 下使用 epoll，macOS 下使用 kqueue 等。
+
+```c
+// epoll 的创建和使用
+int epfd = epoll_create(1024); // 创建 epoll 实例
+struct epoll_event ev, events[MAX_EVENTS];
+
+// 添加监听事件
+ev.events = EPOLLIN;
+ev.data.fd = listen_sock;
+epoll_ctl(epfd, EPOLL_CTL_ADD, listen_sock, &ev);
+
+// 等待事件发生
+while (1) {
+    int nfds = epoll_wait(epfd, events, MAX_EVENTS, -1);
+    for (int i = 0; i < nfds; i++) {
+        // 处理就绪的文件描述符
+    }
+}
+```
+
+在 Redis 6.0 之前，包括连接建立、请求读取、响应发送，以及命令执行都是在主线程中顺序执行的，这样可以避免多线程环境下的锁竞争和上下文切换，因为 Redis 的绝大部分操作都是在内存中进行的，性能瓶颈主要是内存操作和网络通信，而不是 CPU。
+
+为了进一步解决网络 IO 的性能瓶颈，Redis 6.0 引入了多线程机制，把网络 IO 和命令执行分开，网络 IO 交给线程池来处理，而命令执行仍然在主线程中进行，这样就可以充分利用多核 CPU 的性能。
+
+![](assets/Redis/小眼睛聊技术：Redis6.0%20引入了多线程.png)
+
+主线程专注于命令执行，网络IO 由其他线程分担，在多核 CPU 环境下，Redis 的性能可以得到显著提升。
+
+![](assets/Redis/lxkka：Redis%20io%20线程和主线程的关系.png)
+
+### 3. 对底层数据结构进行优化，能够快速完成各种操作。如 String 的底层数据结构动态字符串支持动态扩容、预分配冗余空间，能够减少内存碎片和内存分配的开销。
+
+![](assets/Redis/古明地盆：Redis%20的数据类型和底层数据结构.png)
+
+### 总结
+
+![](assets/Redis/Backend%20Scaling%20Playbook：Redis%20为什么这么快.png)
 
 ## Redis 单线程模型
 
