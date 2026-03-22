@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "6e8a06a504e40156",
+        "id": "719fc7c0937e6b78",
         "type": "tabs",
         "children": [
           {
-            "id": "fe604af15dd087c2",
+            "id": "4b6da9c8275bf1c5",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "开发经验/其他/Opencode 对话共享与收藏.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "Opencode 对话共享与收藏"
             }
           }
         ]
@@ -74,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 262.5,
-    "collapsed": true
+    "width": 262.5
   },
   "right": {
     "id": "79bdb176e23c7a86",
@@ -167,7 +170,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "bases:创建新数据库": false,
+      "bases:新建数据库": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
       "canvas:新建白板": false,
@@ -178,9 +181,15 @@
       "custom-sort:Toggle custom sorting": false
     }
   },
-  "active": "fe604af15dd087c2",
+  "active": "4b6da9c8275bf1c5",
   "lastOpenFiles": [
-    "开发经验/后端/Git 查看未推送的提交.md",
+    "开发经验/后端/常见数据库.md",
+    "开发经验/其他/Opencode 对话共享与收藏.md",
+    "开发经验/后端/日志记录 -- slf4j MDC 使用.md",
+    "开发经验/其他/Git 查看未推送的提交.md",
+    "开发经验/其他/git 导出差异 diff 文件.md",
+    "开发经验/其他/tree 命令生成项目目录结构.md",
+    "开发经验/其他",
     "项目学习 - MYDB/MyDB 概述.md",
     "leetcode/problems/1622. 奇妙序列.md",
     "leetcode/problems/166. 分数到小数.md",
@@ -217,15 +226,9 @@
     "Leetcode/top-100-liked/hash.md",
     "Leetcode/problems/1361. 验证二叉树.md",
     "Leetcode/problems/516. 最长回文子系列.md",
-    "技术学习/Java 基础.md",
-    "算法/算法模板/Computational_geometry.md",
-    "算法/算法模板/Combinatorics.md",
-    "技术学习/场景题.md",
-    "技术学习/软件测试.md",
     "未命名.base",
     "未命名 1.base",
     "技术学习/assets/并发编程",
-    "技术学习/assets",
     "未命名.canvas"
   ]
 }
