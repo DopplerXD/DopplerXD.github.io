@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "7e2fc67ea36aec8d",
+        "id": "537392b4728c27bf",
         "type": "tabs",
         "children": [
           {
-            "id": "c3828eb191ca271f",
+            "id": "49dbc8456da82ea7",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AI/百度飞桨 PaddleOCR-VL 与PP-OCR 系列的区别.md",
+                "file": "算法/算法学习/ACM 模式 C++、Java、Python 数据输入 & 输出.md",
                 "mode": "source",
-                "source": false
+                "source": true
               },
               "icon": "lucide-file",
-              "title": "百度飞桨 PaddleOCR-VL 与PP-OCR 系列的区别"
+              "title": "ACM 模式 C++、Java、Python 数据输入 & 输出"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "AI/百度飞桨 PaddleOCR-VL 与PP-OCR 系列的区别.md",
+                "file": "算法/算法学习/ACM 模式 C++、Java、Python 数据输入 & 输出.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "百度飞桨 PaddleOCR-VL 与PP-OCR 系列的区别 的大纲"
+              "title": "ACM 模式 C++、Java、Python 数据输入 & 输出 的大纲"
             }
           },
           {
@@ -181,15 +181,17 @@
       "custom-sort:Toggle custom sorting": false
     }
   },
-  "active": "c3828eb191ca271f",
+  "active": "49dbc8456da82ea7",
   "lastOpenFiles": [
+    "算法/算法学习/十大排序算法.md",
+    "算法/算法学习/ACM 模式 C++、Java、Python 数据输入 & 输出.md",
+    "AI/百度飞桨 PaddleOCR-VL 与PP-OCR 系列的区别.md",
     "AI/assets/百度飞桨 PaddleOCR-VL 与PP-OCR 系列的区别/PP-OCRv6 效果图1.png",
     "AI/assets/百度飞桨 PaddleOCR-VL 与PP-OCR 系列的区别/PP-OCRv6 效果图2.png",
     "AI/assets/百度飞桨 PaddleOCR-VL 与PP-OCR 系列的区别/PaddleOCR-VL 效果图2.png",
     "AI/assets/百度飞桨 PaddleOCR-VL 与PP-OCR 系列的区别/PaddleOCR-VL 效果图1.png",
     "AI/assets/百度飞桨 PaddleOCR-VL 与PP-OCR 系列的区别",
     "资源分享/good-web.md",
-    "AI/百度飞桨 PaddleOCR-VL 与PP-OCR 系列的区别.md",
     "AI/Opencode 对话共享与收藏.md",
     "AI/AI 工具使用技巧.md",
     "AI/如何用TRAE等工具开发完整产品.md",
@@ -219,12 +221,10 @@
     "技术学习/并发编程.md",
     "技术学习/未命名 1.base",
     "技术学习/未命名.base",
-    "算法/算法学习/十大排序算法.md",
     "技术学习/assets/MySQL/阿里：MySQL 两阶段提交.png",
     "技术学习/assets/MySQL/greatsql 社区：Redo Log的刷盘策略.png",
     "技术学习/assets/MySQL/三分恶面渣逆袭：update 执行.png",
     "技术学习/assets/MySQL",
-    "技术学习/assets/Redis/lxkka：Redis io 线程和主线程的关系.png",
     "技术学习/assets/Redis",
     "leetcode/problems/516. 最长回文子系列.md",
     "技术学习/计算机网络.md",
