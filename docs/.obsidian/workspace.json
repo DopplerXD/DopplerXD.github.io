@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "算法/算法学习/ACM 模式 C++、Java、Python 数据输入 & 输出.md",
+                "file": "index.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "ACM 模式 C++、Java、Python 数据输入 & 输出"
+              "title": "index"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "算法/算法学习/ACM 模式 C++、Java、Python 数据输入 & 输出.md",
+                "file": "index.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "ACM 模式 C++、Java、Python 数据输入 & 输出 的大纲"
+              "title": "index 的大纲"
             }
           },
           {
@@ -183,8 +183,8 @@
   },
   "active": "49dbc8456da82ea7",
   "lastOpenFiles": [
-    "算法/算法学习/十大排序算法.md",
     "算法/算法学习/ACM 模式 C++、Java、Python 数据输入 & 输出.md",
+    "算法/算法学习/十大排序算法.md",
     "AI/百度飞桨 PaddleOCR-VL 与PP-OCR 系列的区别.md",
     "AI/assets/百度飞桨 PaddleOCR-VL 与PP-OCR 系列的区别/PP-OCRv6 效果图1.png",
     "AI/assets/百度飞桨 PaddleOCR-VL 与PP-OCR 系列的区别/PP-OCRv6 效果图2.png",
