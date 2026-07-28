@@ -1,0 +1,3200 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="the notes record by DopplerXD">
+      
+      
+        <meta name="author" content="DopplerXD">
+      
+      
+        <link rel="canonical" href="https://dopplerxd.top/%E5%BC%80%E5%8F%91%E7%BB%8F%E9%AA%8C/%E5%90%8E%E7%AB%AF/DDD%20%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B/">
+      
+      
+        <link rel="prev" href="../DDD%20%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BD%E5%90%91%E4%B8%8A%E4%BE%9D%E8%B5%96%E9%A2%86%E5%9F%9F%E5%AF%BC%E8%87%B4%E4%BE%9D%E8%B5%96%E5%80%92%E7%BD%AE%E4%B8%8E%E5%BE%AA%E7%8E%AF%E5%BC%95%E7%94%A8%E9%97%AE%E9%A2%98/">
+      
+      
+        <link rel="next" href="../Date%20%E7%B1%BB%E5%9E%8B%E8%A7%A3%E6%9E%90%E9%94%99%E8%AF%AF/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>DDD 简明教程：从概念到 ai-mcp-gateway 工程落地 - DopplerXD Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ddd-ai-mcp-gateway" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="DopplerXD Docs" class="md-header__button md-logo" aria-label="DopplerXD Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DopplerXD Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              DDD 简明教程：从概念到 ai-mcp-gateway 工程落地
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="日间模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="日间模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="夜间模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="夜间模式" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="跟随系统"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="跟随系统" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5M7 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/DopplerXD/DopplerXD.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    DopplerXD.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Welcome to Doppler's Notes
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../AI/AI%20%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" class="md-tabs__link">
+          
+  
+  
+  AI
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../leetcode/problems/1361.%20%E9%AA%8C%E8%AF%81%E4%BA%8C%E5%8F%89%E6%A0%91/" class="md-tabs__link">
+          
+  
+  
+  Leetcode
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E5%85%B6%E4%BB%96%E7%9F%A5%E8%AF%86%26%E6%9D%82%E8%B0%88/%E3%80%8AClean%20Code%E3%80%8B%E7%B2%BE%E5%8D%8E%E6%80%BB%E7%BB%93/" class="md-tabs__link">
+          
+  
+  
+  其他知识&杂谈
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+  开发经验
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/" class="md-tabs__link">
+          
+  
+  
+  技术学习
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/ACM%20%E6%A8%A1%E5%BC%8F%20C%2B%2B%E3%80%81Java%E3%80%81Python%20%E6%95%B0%E6%8D%AE%E8%BE%93%E5%85%A5%20%26%20%E8%BE%93%E5%87%BA/" class="md-tabs__link">
+          
+  
+  
+  算法
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB/good-web/" class="md-tabs__link">
+          
+  
+  
+  资源分享
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="DopplerXD Docs" class="md-nav__button md-logo" aria-label="DopplerXD Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    DopplerXD Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/DopplerXD/DopplerXD.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    DopplerXD.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome to Doppler's Notes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../AI/AI%20%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    
+  
+  
+  
+    <a href="../../../leetcode/problems/1361.%20%E9%AA%8C%E8%AF%81%E4%BA%8C%E5%8F%89%E6%A0%91/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Leetcode
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../%E5%85%B6%E4%BB%96%E7%9F%A5%E8%AF%86%26%E6%9D%82%E8%B0%88/%E3%80%8AClean%20Code%E3%80%8B%E7%B2%BE%E5%8D%8E%E6%80%BB%E7%BB%93/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    其他知识&杂谈
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    开发经验
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    开发经验
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    开发经验总结
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    其他
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    其他
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%B6%E4%BB%96/Git%20%E6%9F%A5%E7%9C%8B%E6%9C%AA%E6%8E%A8%E9%80%81%E7%9A%84%E6%8F%90%E4%BA%A4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git 查看未推送的提交
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%B6%E4%BB%96/IDEA%20%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IDEA 快捷键
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%B6%E4%BB%96/git%20%E5%AF%BC%E5%87%BA%E5%B7%AE%E5%BC%82%20diff%20%E6%96%87%E4%BB%B6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git 导出差异 diff 文件
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%B6%E4%BB%96/tree%20%E5%91%BD%E4%BB%A4%E7%94%9F%E6%88%90%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tree 命令生成项目目录结构
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    后端
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    后端
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DDD%20%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BD%E5%90%91%E4%B8%8A%E4%BE%9D%E8%B5%96%E9%A2%86%E5%9F%9F%E5%AF%BC%E8%87%B4%E4%BE%9D%E8%B5%96%E5%80%92%E7%BD%AE%E4%B8%8E%E5%BE%AA%E7%8E%AF%E5%BC%95%E7%94%A8%E9%97%AE%E9%A2%98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DDD 基础设施向上依赖领域导致依赖倒置与循环引用问题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DDD 简明教程：从概念到 ai-mcp-gateway 工程落地
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DDD 简明教程：从概念到 ai-mcp-gateway 工程落地
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-ddd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 什么时候值得使用 DDD
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 先理解几个核心概念
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 先理解几个核心概念">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 领域与限界上下文
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 实体、值对象与聚合
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 领域服务
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 仓储与端口
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-ai-mcp-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. ai-mcp-gateway 脚手架的六个模块
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 为什么基础设施模块反而依赖领域模块
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-mcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 一个最小业务闭环：注册 MCP 服务
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 一个最小业务闭环：注册 MCP 服务">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 API：定义输入输出契约
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-domain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Domain：建模并定义所需能力
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-infrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Infrastructure：实现仓储和外部调用
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-trigger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 Trigger：接收请求并触发用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-dto-po" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. DTO、领域对象与 PO 不要混用
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 事务、异常与领域事件
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. 事务、异常与领域事件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 事务边界
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 异常
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 领域事件
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 常见误区
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. 常见误区">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ddd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        误区一：目录分层就是 DDD
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        误区二：一个数据表对应一个聚合
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daoredis-http-sdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        误区三：领域层直接使用 DAO、Redis 或 HTTP SDK
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#repository-po" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        误区四：Repository 返回 PO
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        误区五：所有逻辑都必须塞进聚合
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        误区六：为了“纯粹”制造大量空接口
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. 推荐的开发顺序
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. 一句话记住这套架构
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参考
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Date%20%E7%B1%BB%E5%9E%8B%E8%A7%A3%E6%9E%90%E9%94%99%E8%AF%AF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Date 类型解析错误
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IDEA%20Spring%20initialer%20%E6%96%B0%E5%BB%BA%E6%A8%A1%E5%9D%97%E4%B8%8D%E8%83%BD%E9%80%89Java%208/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IDEA Spring initialer 新建模块不能选Java 8
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IDEA%20mvn%20clean%20%E5%90%8E%20Annotation%20processors%20%E8%87%AA%E5%8A%A8%E5%A4%B1%E6%95%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IDEA mvn clean 后 Annotation processors 自动失效
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Jpa%20%E5%92%8C%20MyBatis%20%E5%AF%B9%E6%AF%94/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Jpa 和 MyBatis 对比
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mybatis-Plus%20%E5%85%B3%E9%97%AD%E9%A9%BC%E5%B3%B0%E5%BC%8F%E5%91%BD%E5%90%8D%E8%BD%AC%E6%8D%A2%E4%B8%BA%E4%B8%8B%E5%88%92%E7%BA%BF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mybatis Plus 关闭驼峰式命名转换为下划线
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SpringBoot%20Test%20%E6%97%B6%E6%8A%A5%E9%94%99%20Failed%20to%20load%20ApplicationContext/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SpringBoot Test 时报错 Failed to load ApplicationContext
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SpringBoot%20%E9%A1%B9%E7%9B%AE%E8%AE%BE%E7%BD%AE%E5%85%A8%E5%B1%80%E8%B7%AF%E5%BE%84/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SpringBoot 项目设置全局路径
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SpringBoot3.x%20%E6%95%B4%E5%90%88%20Swagger-UI%20%2B%20Knife4j%20%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SpringBoot3.x 整合 Swagger UI + Knife4j 接口文档
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%B8%B8%E8%A7%81%E6%95%B0%E6%8D%AE%E5%BA%93/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    常见数据库
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%B8%B8%E8%A7%81%E6%9C%AF%E8%AF%AD%EF%BC%9A%E4%BB%80%E4%B9%88%E6%98%AF%20DTO%20%26%20VO%20%26%20PO%20%26%20DO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    常见术语：什么是 DTO & VO & PO & DO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%8A%A5%E9%94%99%20Expression%201%20of%20SELECT%20list%20is%20not%20in%20GROUP%20BY%20clause%20and%20contains%20nonaggregated%20column/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    报错 Expression 1 of SELECT list is not in GROUP BY clause and contains nonaggregated column
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%8E%E5%90%8E%E7%AB%AF%E6%97%B6%E5%8C%BA%E4%B8%8D%E4%B8%80%E8%87%B4%E5%AF%BC%E8%87%B4%20SQL%20%E8%AF%AD%E5%8F%A5%E8%BF%94%E5%9B%9E%E6%9C%89%E8%AF%AF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数据库与后端时区不一致导致 SQL 语句返回有误
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%8E%E5%90%8E%E7%AB%AF%E6%9F%A5%E8%AF%A2%E8%BF%94%E5%9B%9E%E7%BB%93%E6%9E%9C%E7%9A%84%E5%80%BC%E4%B8%8D%E4%B8%80%E8%87%B4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数据库与后端查询返回结果的值不一致
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%97%A5%E5%BF%97%E8%AE%B0%E5%BD%95%20--%20slf4j%20MDC%20%E4%BD%BF%E7%94%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    日志记录    slf4j MDC 使用
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%97%A5%E5%BF%97%E8%AE%B0%E5%BD%95%E5%99%A8%E7%9A%84%E4%B8%A4%E7%A7%8D%E5%A3%B0%E6%98%8E%E6%96%B9%E5%BC%8F%EF%BC%9ALoggerFactory.getLogger%28%E7%B1%BB%E5%90%8D.class%29%20%E4%B8%8E%20%40Slf4j%2Blog.info%28%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    日志记录器的两种声明方式：LoggerFactory.getLogger(类名.class) 与 @Slf4j+log.info()
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    技术学习
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    
+  
+  
+  
+    <a href="../../../%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/ACM%20%E6%A8%A1%E5%BC%8F%20C%2B%2B%E3%80%81Java%E3%80%81Python%20%E6%95%B0%E6%8D%AE%E8%BE%93%E5%85%A5%20%26%20%E8%BE%93%E5%87%BA/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    算法
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB/good-web/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    资源分享
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-ddd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 什么时候值得使用 DDD
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 先理解几个核心概念
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 先理解几个核心概念">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 领域与限界上下文
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 实体、值对象与聚合
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 领域服务
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 仓储与端口
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-ai-mcp-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. ai-mcp-gateway 脚手架的六个模块
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 为什么基础设施模块反而依赖领域模块
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-mcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 一个最小业务闭环：注册 MCP 服务
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 一个最小业务闭环：注册 MCP 服务">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 API：定义输入输出契约
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-domain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Domain：建模并定义所需能力
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-infrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Infrastructure：实现仓储和外部调用
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-trigger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 Trigger：接收请求并触发用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-dto-po" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. DTO、领域对象与 PO 不要混用
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 事务、异常与领域事件
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. 事务、异常与领域事件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 事务边界
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 异常
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 领域事件
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 常见误区
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. 常见误区">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ddd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        误区一：目录分层就是 DDD
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        误区二：一个数据表对应一个聚合
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daoredis-http-sdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        误区三：领域层直接使用 DAO、Redis 或 HTTP SDK
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#repository-po" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        误区四：Repository 返回 PO
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        误区五：所有逻辑都必须塞进聚合
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        误区六：为了“纯粹”制造大量空接口
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. 推荐的开发顺序
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. 一句话记住这套架构
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参考
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="导航栏" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Welcome to Doppler's Notes
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    开发经验
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../DDD%20%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BD%E5%90%91%E4%B8%8A%E4%BE%9D%E8%B5%96%E9%A2%86%E5%9F%9F%E5%AF%BC%E8%87%B4%E4%BE%9D%E8%B5%96%E5%80%92%E7%BD%AE%E4%B8%8E%E5%BE%AA%E7%8E%AF%E5%BC%95%E7%94%A8%E9%97%AE%E9%A2%98/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    后端
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="ddd-ai-mcp-gateway">DDD 简明教程：从概念到 <code>ai-mcp-gateway</code> 工程落地<a class="headerlink" href="#ddd-ai-mcp-gateway" title="Permanent link">&para;</a></h1>
+<p>DDD（Domain-Driven Design，领域驱动设计）不是一种固定的目录模板，也不是把 <code>Controller</code>、<code>Service</code>、<code>Mapper</code> 换一组名字。它的核心是：<strong>围绕业务概念建模，并通过清晰的边界保护业务规则，使技术细节可以被替换。</strong></p>
+<p>本文结合 <code>ai-mcp-gateway</code> 中的 DDD 脚手架，介绍一套适用于 Spring Boot 项目的简明落地方法。</p>
+<h2 id="1-ddd">1. 什么时候值得使用 DDD<a class="headerlink" href="#1-ddd" title="Permanent link">&para;</a></h2>
+<p>DDD 更适合以下场景：</p>
+<ul>
+<li>业务规则多，而且会持续变化；</li>
+<li>同一个概念在不同业务中含义不同；</li>
+<li>需要接入数据库、缓存、第三方 API、消息队列等多种技术设施；</li>
+<li>项目需要长期维护，希望核心业务不被框架和中间件绑死。</li>
+</ul>
+<p>如果项目只是简单的单表增删改查，传统 MVC 往往更直接。DDD 的价值不在于文件更多，而在于复杂业务发生变化时，修改范围仍然可控。</p>
+<h2 id="2">2. 先理解几个核心概念<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<h3 id="21">2.1 领域与限界上下文<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<p><strong>领域（Domain）</strong>是软件要解决的业务问题。例如 MCP 网关可能包含服务注册、路由、鉴权、调用统计等领域。</p>
+<p><strong>限界上下文（Bounded Context）</strong>是一个模型能够保持含义一致的边界。同一个“服务”在注册上下文中可能表示可管理的 MCP 服务节点，在调用上下文中则可能表示一次可路由的目标。不要强迫整个系统共享一个万能模型。</p>
+<p>在脚手架中，<code>domain/xxx</code> 和 <code>domain/yyy</code> 表达的就是按业务上下文组织代码的意图。实际开发时应替换成有业务含义的名称，例如：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>domain/
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>├── registry/       # MCP 服务注册上下文
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>├── routing/        # 路由上下文
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>└── authorization/  # 鉴权上下文
+</code></pre></div></td></tr></table></div>
+<h3 id="22">2.2 实体、值对象与聚合<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
+<p><strong>实体（Entity）</strong>由身份标识区分。即使属性发生变化，只要标识相同，它仍是同一个对象。例如一个 <code>McpServer</code> 可以通过 <code>serverId</code> 标识。</p>
+<p><strong>值对象（Value Object）</strong>由属性值描述，没有独立身份，通常应设计为不可变对象。例如服务地址：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span>
+<span class="normal"><a href="#__codelineno-1-4">4</a></span>
+<span class="normal"><a href="#__codelineno-1-5">5</a></span>
+<span class="normal"><a href="#__codelineno-1-6">6</a></span>
+<span class="normal"><a href="#__codelineno-1-7">7</a></span>
+<span class="normal"><a href="#__codelineno-1-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">record</span> <span class="nc">ServerEndpoint</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">ServerEndpoint</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">value</span><span class="p">.</span><span class="na">startsWith</span><span class="p">(</span><span class="s">&quot;http://&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">                </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">value</span><span class="p">.</span><span class="na">startsWith</span><span class="p">(</span><span class="s">&quot;https://&quot;</span><span class="p">)))</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">&quot;服务地址必须使用 HTTP 或 HTTPS&quot;</span><span class="p">);</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>校验规则放进值对象后，系统中便不会出现一个“已经创建但地址非法”的 <code>ServerEndpoint</code>。</p>
+<p><strong>聚合（Aggregate）</strong>是一组需要共同维护业务一致性的对象，<strong>聚合根</strong>是外部访问这组对象的唯一入口。一次事务通常只修改一个聚合。</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-2-10">10</a></span>
+<span class="normal"><a href="#__codelineno-2-11">11</a></span>
+<span class="normal"><a href="#__codelineno-2-12">12</a></span>
+<span class="normal"><a href="#__codelineno-2-13">13</a></span>
+<span class="normal"><a href="#__codelineno-2-14">14</a></span>
+<span class="normal"><a href="#__codelineno-2-15">15</a></span>
+<span class="normal"><a href="#__codelineno-2-16">16</a></span>
+<span class="normal"><a href="#__codelineno-2-17">17</a></span>
+<span class="normal"><a href="#__codelineno-2-18">18</a></span>
+<span class="normal"><a href="#__codelineno-2-19">19</a></span>
+<span class="normal"><a href="#__codelineno-2-20">20</a></span>
+<span class="normal"><a href="#__codelineno-2-21">21</a></span>
+<span class="normal"><a href="#__codelineno-2-22">22</a></span>
+<span class="normal"><a href="#__codelineno-2-23">23</a></span>
+<span class="normal"><a href="#__codelineno-2-24">24</a></span>
+<span class="normal"><a href="#__codelineno-2-25">25</a></span>
+<span class="normal"><a href="#__codelineno-2-26">26</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">McpServerAggregate</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">serverId</span><span class="p">;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">ServerEndpoint</span><span class="w"> </span><span class="n">endpoint</span><span class="p">;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">ServerStatus</span><span class="w"> </span><span class="n">status</span><span class="p">;</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">McpServerAggregate</span><span class="p">(</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">            </span><span class="n">String</span><span class="w"> </span><span class="n">serverId</span><span class="p">,</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">            </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="w">            </span><span class="n">ServerEndpoint</span><span class="w"> </span><span class="n">endpoint</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">name</span><span class="p">.</span><span class="na">isBlank</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">&quot;服务名称不能为空&quot;</span><span class="p">);</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">serverId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">serverId</span><span class="p">;</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">endpoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">endpoint</span><span class="p">;</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ServerStatus</span><span class="p">.</span><span class="na">DISABLED</span><span class="p">;</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19"></a>
+<a id="__codelineno-2-20" name="__codelineno-2-20"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">enable</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">endpoint</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22"></a><span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalStateException</span><span class="p">(</span><span class="s">&quot;缺少服务地址，不能启用&quot;</span><span class="p">);</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-2-24" name="__codelineno-2-24"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ServerStatus</span><span class="p">.</span><span class="na">ENABLED</span><span class="p">;</span>
+<a id="__codelineno-2-25" name="__codelineno-2-25"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-26" name="__codelineno-2-26"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>好的领域对象不仅保存数据，还会保护自身状态并表达业务行为。相较于 <code>setStatus(1)</code>，<code>enable()</code> 更接近业务语言，也更不容易制造非法状态。</p>
+<h3 id="23">2.3 领域服务<a class="headerlink" href="#23" title="Permanent link">&para;</a></h3>
+<p>当一项业务规则无法自然归属于某个实体或值对象时，可以使用<strong>领域服务（Domain Service）</strong>。例如路由策略需要比较多个服务节点，它不属于任何一个单独节点。</p>
+<p>领域服务应表达业务能力，而不是成为所有逻辑的收纳箱。如果某个方法只是编排查询、保存和通知，它更接近应用服务或用例编排。</p>
+<h3 id="24">2.4 仓储与端口<a class="headerlink" href="#24" title="Permanent link">&para;</a></h3>
+<p><strong>仓储（Repository）</strong>为聚合提供类似集合的访问方式，接口由领域层定义：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span>
+<span class="normal"><a href="#__codelineno-3-4">4</a></span>
+<span class="normal"><a href="#__codelineno-3-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">IMcpServerRepository</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">    </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">existsByName</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">);</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="n">McpServerAggregate</span><span class="w"> </span><span class="n">server</span><span class="p">);</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">    </span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">McpServerAggregate</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">findById</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">serverId</span><span class="p">);</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>端口（Port）</strong>描述领域层需要的外部能力，例如检查远程 MCP 服务是否可用：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">IMcpServerHealthPort</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">    </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isReachable</span><span class="p">(</span><span class="n">ServerEndpoint</span><span class="w"> </span><span class="n">endpoint</span><span class="p">);</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>接口名称应该描述业务需要的能力，而不是暴露 <code>RedisTemplate</code>、<code>OkHttpClient</code> 等技术细节。</p>
+<h2 id="3-ai-mcp-gateway">3. <code>ai-mcp-gateway</code> 脚手架的六个模块<a class="headerlink" href="#3-ai-mcp-gateway" title="Permanent link">&para;</a></h2>
+<p>脚手架使用 Maven 聚合工程，包含六个模块：</p>
+<table>
+<thead>
+<tr>
+<th>模块</th>
+<th>主要职责</th>
+<th>典型内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ai-mcp-gateway-api</code></td>
+<td>对外契约</td>
+<td>接口定义、Request/Response DTO</td>
+</tr>
+<tr>
+<td><code>ai-mcp-gateway-domain</code></td>
+<td>核心业务</td>
+<td>聚合、实体、值对象、领域服务、仓储和端口接口</td>
+</tr>
+<tr>
+<td><code>ai-mcp-gateway-infrastructure</code></td>
+<td>技术实现</td>
+<td>Repository/Port 实现、DAO、PO、MyBatis、Redis、外部网关</td>
+</tr>
+<tr>
+<td><code>ai-mcp-gateway-trigger</code></td>
+<td>触发业务用例</td>
+<td>HTTP、定时任务、消息监听器</td>
+</tr>
+<tr>
+<td><code>ai-mcp-gateway-app</code></td>
+<td>启动与装配</td>
+<td><code>Application</code>、Spring 配置、资源文件、最终打包</td>
+</tr>
+<tr>
+<td><code>ai-mcp-gateway-types</code></td>
+<td>通用类型</td>
+<td>异常、响应码、常量等跨模块基础类型</td>
+</tr>
+</tbody>
+</table>
+<p>仓库中的实际 Maven 依赖关系可以简化为：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span>
+<span class="normal"><a href="#__codelineno-5-4">4</a></span>
+<span class="normal"><a href="#__codelineno-5-5">5</a></span>
+<span class="normal"><a href="#__codelineno-5-6">6</a></span>
+<span class="normal"><a href="#__codelineno-5-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>api                 types
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a>                      ↑
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a>                    domain
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a>                   ↗      ↖
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a>             trigger      infrastructure
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a>                 ↑            ↑
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a>                 └──── app ────┘
+</code></pre></div></td></tr></table></div>
+<p>更准确地说：</p>
+<ul>
+<li><code>domain</code> 依赖 <code>types</code>；</li>
+<li><code>infrastructure</code> 依赖 <code>domain</code>，以实现领域层定义的接口；</li>
+<li><code>trigger</code> 依赖 <code>api</code>、<code>domain</code> 和 <code>types</code>；</li>
+<li><code>app</code> 依赖 <code>trigger</code> 和 <code>infrastructure</code>，并负责把它们装配到同一个 Spring 容器；</li>
+<li><code>api</code> 不依赖具体业务实现。</li>
+</ul>
+<p><code>app</code> 中的 <code>Application</code> 位于 <code>site.doppler</code> 根包，能够扫描其他模块中的 <code>site.doppler.*</code> Bean，这是多模块项目能够完成运行时装配的关键。</p>
+<h2 id="4">4. 为什么基础设施模块反而依赖领域模块<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<p>很多人第一次看到下面的依赖时会感到疑惑：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>infrastructure ──编译依赖──&gt; domain
+</code></pre></div></td></tr></table></div>
+<p>这是依赖倒置的正常结果。以仓储为例：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a>domain                        infrastructure
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a>IMcpServerRepository  &lt;|--  McpServerRepository
+</code></pre></div></td></tr></table></div>
+<p>领域层拥有接口，基础设施层实现接口。因此：</p>
+<ul>
+<li><strong>源代码依赖方向</strong>：<code>infrastructure → domain</code>；</li>
+<li><strong>运行时调用方向</strong>：领域服务通过接口调用由 Spring 注入的基础设施实现；</li>
+<li><strong>业务控制权</strong>：仍在领域层，因为接口由领域层按照业务需要定义。</li>
+</ul>
+<p>领域层不能反向引入 <code>infrastructure</code>。否则会形成 Maven 循环依赖，也会让业务模型直接绑定 MyBatis、Redis 或第三方 SDK。</p>
+<p>例如，领域逻辑需要缓存登录状态时，不应直接注入 <code>RedissonCacheManager</code>，而应在领域层定义 <code>ILoginStateRepository</code> 或 <code>ILoginStatePort</code>，再由基础设施层使用 Redisson 实现。</p>
+<h2 id="5-mcp">5. 一个最小业务闭环：注册 MCP 服务<a class="headerlink" href="#5-mcp" title="Permanent link">&para;</a></h2>
+<p>下面用“注册 MCP 服务”串起各层。代码重在展示职责，省略了 Getter、注解和异常细节。</p>
+<h3 id="51-api">5.1 API：定义输入输出契约<a class="headerlink" href="#51-api" title="Permanent link">&para;</a></h3>
+<p>放在 <code>ai-mcp-gateway-api</code>：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
+<span class="normal"><a href="#__codelineno-8-2">2</a></span>
+<span class="normal"><a href="#__codelineno-8-3">3</a></span>
+<span class="normal"><a href="#__codelineno-8-4">4</a></span>
+<span class="normal"><a href="#__codelineno-8-5">5</a></span>
+<span class="normal"><a href="#__codelineno-8-6">6</a></span>
+<span class="normal"><a href="#__codelineno-8-7">7</a></span>
+<span class="normal"><a href="#__codelineno-8-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">record</span> <span class="nc">RegisterMcpServerRequestDTO</span><span class="p">(</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">endpoint</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="p">}</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a>
+<a id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="kd">public</span><span class="w"> </span><span class="kd">record</span> <span class="nc">RegisterMcpServerResponseDTO</span><span class="p">(</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">serverId</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>DTO 只负责跨边界传输数据，不承载领域规则，也不要直接复用数据库 PO。</p>
+<h3 id="52-domain">5.2 Domain：建模并定义所需能力<a class="headerlink" href="#52-domain" title="Permanent link">&para;</a></h3>
+<p>目录可以这样组织：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
+<span class="normal"><a href="#__codelineno-9-2">2</a></span>
+<span class="normal"><a href="#__codelineno-9-3">3</a></span>
+<span class="normal"><a href="#__codelineno-9-4">4</a></span>
+<span class="normal"><a href="#__codelineno-9-5">5</a></span>
+<span class="normal"><a href="#__codelineno-9-6">6</a></span>
+<span class="normal"><a href="#__codelineno-9-7">7</a></span>
+<span class="normal"><a href="#__codelineno-9-8">8</a></span>
+<span class="normal"><a href="#__codelineno-9-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a>ai-mcp-gateway-domain/
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a>└── .../domain/registry/
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a>    ├── model/
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a>    │   ├── aggregate/McpServerAggregate.java
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a>    │   └── valobj/ServerEndpoint.java
+<a id="__codelineno-9-6" name="__codelineno-9-6"></a>    ├── adapter/
+<a id="__codelineno-9-7" name="__codelineno-9-7"></a>    │   ├── repository/IMcpServerRepository.java
+<a id="__codelineno-9-8" name="__codelineno-9-8"></a>    │   └── port/IMcpServerHealthPort.java
+<a id="__codelineno-9-9" name="__codelineno-9-9"></a>    └── service/McpServerRegistryService.java
+</code></pre></div></td></tr></table></div>
+<p>领域服务负责业务规则：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-10-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-10-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-10-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-10-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-10-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-10-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-10-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-10-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-10-10">10</a></span>
+<span class="normal"><a href="#__codelineno-10-11">11</a></span>
+<span class="normal"><a href="#__codelineno-10-12">12</a></span>
+<span class="normal"><a href="#__codelineno-10-13">13</a></span>
+<span class="normal"><a href="#__codelineno-10-14">14</a></span>
+<span class="normal"><a href="#__codelineno-10-15">15</a></span>
+<span class="normal"><a href="#__codelineno-10-16">16</a></span>
+<span class="normal"><a href="#__codelineno-10-17">17</a></span>
+<span class="normal"><a href="#__codelineno-10-18">18</a></span>
+<span class="normal"><a href="#__codelineno-10-19">19</a></span>
+<span class="normal"><a href="#__codelineno-10-20">20</a></span>
+<span class="normal"><a href="#__codelineno-10-21">21</a></span>
+<span class="normal"><a href="#__codelineno-10-22">22</a></span>
+<span class="normal"><a href="#__codelineno-10-23">23</a></span>
+<span class="normal"><a href="#__codelineno-10-24">24</a></span>
+<span class="normal"><a href="#__codelineno-10-25">25</a></span>
+<span class="normal"><a href="#__codelineno-10-26">26</a></span>
+<span class="normal"><a href="#__codelineno-10-27">27</a></span>
+<span class="normal"><a href="#__codelineno-10-28">28</a></span>
+<span class="normal"><a href="#__codelineno-10-29">29</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="nd">@Service</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">McpServerRegistryService</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">IMcpServerRepository</span><span class="w"> </span><span class="n">repository</span><span class="p">;</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">IMcpServerHealthPort</span><span class="w"> </span><span class="n">healthPort</span><span class="p">;</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5"></a>
+<a id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">McpServerRegistryService</span><span class="p">(</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="w">            </span><span class="n">IMcpServerRepository</span><span class="w"> </span><span class="n">repository</span><span class="p">,</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="w">            </span><span class="n">IMcpServerHealthPort</span><span class="w"> </span><span class="n">healthPort</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">repository</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">repository</span><span class="p">;</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">healthPort</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">healthPort</span><span class="p">;</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12"></a>
+<a id="__codelineno-10-13" name="__codelineno-10-13"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">register</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">endpointValue</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-14" name="__codelineno-10-14"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">repository</span><span class="p">.</span><span class="na">existsByName</span><span class="p">(</span><span class="n">name</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-15" name="__codelineno-10-15"></a><span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalStateException</span><span class="p">(</span><span class="s">&quot;服务名称已存在&quot;</span><span class="p">);</span>
+<a id="__codelineno-10-16" name="__codelineno-10-16"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-10-17" name="__codelineno-10-17"></a>
+<a id="__codelineno-10-18" name="__codelineno-10-18"></a><span class="w">        </span><span class="n">ServerEndpoint</span><span class="w"> </span><span class="n">endpoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ServerEndpoint</span><span class="p">(</span><span class="n">endpointValue</span><span class="p">);</span>
+<a id="__codelineno-10-19" name="__codelineno-10-19"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">healthPort</span><span class="p">.</span><span class="na">isReachable</span><span class="p">(</span><span class="n">endpoint</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-20" name="__codelineno-10-20"></a><span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalStateException</span><span class="p">(</span><span class="s">&quot;MCP 服务不可访问&quot;</span><span class="p">);</span>
+<a id="__codelineno-10-21" name="__codelineno-10-21"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-10-22" name="__codelineno-10-22"></a>
+<a id="__codelineno-10-23" name="__codelineno-10-23"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">serverId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">UUID</span><span class="p">.</span><span class="na">randomUUID</span><span class="p">().</span><span class="na">toString</span><span class="p">();</span>
+<a id="__codelineno-10-24" name="__codelineno-10-24"></a><span class="w">        </span><span class="n">McpServerAggregate</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="o">=</span>
+<a id="__codelineno-10-25" name="__codelineno-10-25"></a><span class="w">                </span><span class="k">new</span><span class="w"> </span><span class="n">McpServerAggregate</span><span class="p">(</span><span class="n">serverId</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">endpoint</span><span class="p">);</span>
+<a id="__codelineno-10-26" name="__codelineno-10-26"></a><span class="w">        </span><span class="n">repository</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="n">server</span><span class="p">);</span>
+<a id="__codelineno-10-27" name="__codelineno-10-27"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">serverId</span><span class="p">;</span>
+<a id="__codelineno-10-28" name="__codelineno-10-28"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-10-29" name="__codelineno-10-29"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>这里的领域层只知道“保存服务”和“检测可用性”，不知道数据存进 MySQL 还是 MongoDB，也不知道健康检查使用 JDK HTTP Client 还是 Retrofit。</p>
+<h3 id="53-infrastructure">5.3 Infrastructure：实现仓储和外部调用<a class="headerlink" href="#53-infrastructure" title="Permanent link">&para;</a></h3>
+<p>放在 <code>ai-mcp-gateway-infrastructure</code>：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-11-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-11-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-11-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-11-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-11-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-11-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-11-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-11-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-11-10">10</a></span>
+<span class="normal"><a href="#__codelineno-11-11">11</a></span>
+<span class="normal"><a href="#__codelineno-11-12">12</a></span>
+<span class="normal"><a href="#__codelineno-11-13">13</a></span>
+<span class="normal"><a href="#__codelineno-11-14">14</a></span>
+<span class="normal"><a href="#__codelineno-11-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="nd">@Repository</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">McpServerRepository</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">IMcpServerRepository</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">IMcpServerDao</span><span class="w"> </span><span class="n">dao</span><span class="p">;</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4"></a>
+<a id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="w">    </span><span class="nd">@Override</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="n">McpServerAggregate</span><span class="w"> </span><span class="n">server</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7"></a><span class="w">        </span><span class="n">McpServerPO</span><span class="w"> </span><span class="n">po</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">McpServerAssembler</span><span class="p">.</span><span class="na">toPO</span><span class="p">(</span><span class="n">server</span><span class="p">);</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8"></a><span class="w">        </span><span class="n">dao</span><span class="p">.</span><span class="na">insert</span><span class="p">(</span><span class="n">po</span><span class="p">);</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10"></a>
+<a id="__codelineno-11-11" name="__codelineno-11-11"></a><span class="w">    </span><span class="nd">@Override</span>
+<a id="__codelineno-11-12" name="__codelineno-11-12"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">existsByName</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-11-13" name="__codelineno-11-13"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">dao</span><span class="p">.</span><span class="na">countByName</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-11-14" name="__codelineno-11-14"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-11-15" name="__codelineno-11-15"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>外部调用同样在基础设施层实现：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span>
+<span class="normal"><a href="#__codelineno-12-2">2</a></span>
+<span class="normal"><a href="#__codelineno-12-3">3</a></span>
+<span class="normal"><a href="#__codelineno-12-4">4</a></span>
+<span class="normal"><a href="#__codelineno-12-5">5</a></span>
+<span class="normal"><a href="#__codelineno-12-6">6</a></span>
+<span class="normal"><a href="#__codelineno-12-7">7</a></span>
+<span class="normal"><a href="#__codelineno-12-8">8</a></span>
+<span class="normal"><a href="#__codelineno-12-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="nd">@Component</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">McpServerHealthPort</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">IMcpServerHealthPort</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">McpServerGateway</span><span class="w"> </span><span class="n">gateway</span><span class="p">;</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4"></a>
+<a id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="w">    </span><span class="nd">@Override</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isReachable</span><span class="p">(</span><span class="n">ServerEndpoint</span><span class="w"> </span><span class="n">endpoint</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">gateway</span><span class="p">.</span><span class="na">ping</span><span class="p">(</span><span class="n">endpoint</span><span class="p">.</span><span class="na">value</span><span class="p">());</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>基础设施层内部还可继续细分：</p>
+<ul>
+<li><code>dao</code>：MyBatis Mapper 接口；</li>
+<li><code>dao/po</code>：与表结构映射的持久化对象；</li>
+<li><code>gateway</code>：HTTP/RPC 客户端；</li>
+<li><code>gateway/dto</code>：第三方接口的传输对象；</li>
+<li><code>adapter/repository</code>：领域仓储实现；</li>
+<li><code>adapter/port</code>：领域端口实现；</li>
+<li><code>redis</code>：Redis 客户端与配置。</li>
+</ul>
+<h3 id="54-trigger">5.4 Trigger：接收请求并触发用例<a class="headerlink" href="#54-trigger" title="Permanent link">&para;</a></h3>
+<p>放在 <code>ai-mcp-gateway-trigger</code>：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-13-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-13-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-13-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-13-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-13-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-13-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-13-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-13-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-13-10">10</a></span>
+<span class="normal"><a href="#__codelineno-13-11">11</a></span>
+<span class="normal"><a href="#__codelineno-13-12">12</a></span>
+<span class="normal"><a href="#__codelineno-13-13">13</a></span>
+<span class="normal"><a href="#__codelineno-13-14">14</a></span>
+<span class="normal"><a href="#__codelineno-13-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="nd">@RestController</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="nd">@RequestMapping</span><span class="p">(</span><span class="s">&quot;/api/v1/mcp/servers&quot;</span><span class="p">)</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">McpServerController</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">McpServerRegistryService</span><span class="w"> </span><span class="n">registryService</span><span class="p">;</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5"></a>
+<a id="__codelineno-13-6" name="__codelineno-13-6"></a><span class="w">    </span><span class="nd">@PostMapping</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Response</span><span class="o">&lt;</span><span class="n">RegisterMcpServerResponseDTO</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">register</span><span class="p">(</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8"></a><span class="w">            </span><span class="nd">@Valid</span><span class="w"> </span><span class="nd">@RequestBody</span><span class="w"> </span><span class="n">RegisterMcpServerRequestDTO</span><span class="w"> </span><span class="n">request</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-13-9" name="__codelineno-13-9"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">serverId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">registryService</span><span class="p">.</span><span class="na">register</span><span class="p">(</span>
+<a id="__codelineno-13-10" name="__codelineno-13-10"></a><span class="w">                </span><span class="n">request</span><span class="p">.</span><span class="na">name</span><span class="p">(),</span>
+<a id="__codelineno-13-11" name="__codelineno-13-11"></a><span class="w">                </span><span class="n">request</span><span class="p">.</span><span class="na">endpoint</span><span class="p">());</span>
+<a id="__codelineno-13-12" name="__codelineno-13-12"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Response</span><span class="p">.</span><span class="na">success</span><span class="p">(</span>
+<a id="__codelineno-13-13" name="__codelineno-13-13"></a><span class="w">                </span><span class="k">new</span><span class="w"> </span><span class="n">RegisterMcpServerResponseDTO</span><span class="p">(</span><span class="n">serverId</span><span class="p">));</span>
+<a id="__codelineno-13-14" name="__codelineno-13-14"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-13-15" name="__codelineno-13-15"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p><code>trigger</code> 负责协议适配、参数校验和 DTO 转换，不应包含“服务名不能重复”等业务规则。除了 HTTP，同一领域能力还可以被 <code>job</code> 或 <code>listener</code> 触发。</p>
+<p>完整调用链为：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span>
+<span class="normal"><a href="#__codelineno-14-2">2</a></span>
+<span class="normal"><a href="#__codelineno-14-3">3</a></span>
+<span class="normal"><a href="#__codelineno-14-4">4</a></span>
+<span class="normal"><a href="#__codelineno-14-5">5</a></span>
+<span class="normal"><a href="#__codelineno-14-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a>HTTP Request
+<a id="__codelineno-14-2" name="__codelineno-14-2"></a>  → Trigger / Controller
+<a id="__codelineno-14-3" name="__codelineno-14-3"></a>  → Domain Service
+<a id="__codelineno-14-4" name="__codelineno-14-4"></a>  → Domain Repository/Port 接口
+<a id="__codelineno-14-5" name="__codelineno-14-5"></a>  → Infrastructure 实现
+<a id="__codelineno-14-6" name="__codelineno-14-6"></a>  → MySQL / Redis / Remote MCP Server
+</code></pre></div></td></tr></table></div>
+<h2 id="6-dto-po">6. DTO、领域对象与 PO 不要混用<a class="headerlink" href="#6-dto-po" title="Permanent link">&para;</a></h2>
+<p>一次请求通常会经过三种模型：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span>
+<span class="normal"><a href="#__codelineno-15-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a>Request DTO → Domain Model → PO
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a>Response DTO ← Domain Model ← PO
+</code></pre></div></td></tr></table></div>
+<table>
+<thead>
+<tr>
+<th>对象</th>
+<th>所属边界</th>
+<th>关注点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DTO</td>
+<td>API/Trigger</td>
+<td>接口传输与参数格式</td>
+</tr>
+<tr>
+<td>Entity、Value Object、Aggregate</td>
+<td>Domain</td>
+<td>业务规则与业务行为</td>
+</tr>
+<tr>
+<td>PO</td>
+<td>Infrastructure</td>
+<td>数据表字段与持久化框架</td>
+</tr>
+</tbody>
+</table>
+<p>三者看起来可能字段相似，但变化原因不同：</p>
+<ul>
+<li>API 升级会改变 DTO；</li>
+<li>业务规则变化会改变领域对象；</li>
+<li>表结构调整会改变 PO。</li>
+</ul>
+<p>小项目可以手写转换；转换较多时可以使用独立 Assembler 或 MapStruct。不要为了省一次转换，让数据库字段或接口格式侵入领域模型。</p>
+<h2 id="7">7. 事务、异常与领域事件<a class="headerlink" href="#7" title="Permanent link">&para;</a></h2>
+<h3 id="71">7.1 事务边界<a class="headerlink" href="#71" title="Permanent link">&para;</a></h3>
+<p>事务通常放在用例编排的入口，并尽量只覆盖一个聚合的修改。不要在聚合内部开启事务，也不要让一个数据库事务包住耗时的远程调用。</p>
+<p>当前脚手架没有单独的 <code>application</code> 模块。简单场景可以由 <code>domain/service</code> 完成业务编排；当用例编排逐渐复杂时，建议新增 <code>application</code> 模块或 <code>application/service</code> 包：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a>Trigger → Application Service → Domain → Infrastructure
+</code></pre></div></td></tr></table></div>
+<p>应用服务负责事务、权限、幂等和流程编排，领域层继续负责业务规则。</p>
+<h3 id="72">7.2 异常<a class="headerlink" href="#72" title="Permanent link">&para;</a></h3>
+<p>领域层抛出表达业务语义的异常，例如 <code>ServerNameAlreadyExistsException</code>。在 <code>trigger</code> 层统一转换为 HTTP 状态码和 <code>Response</code>，不要在领域层返回 HTTP 响应对象。</p>
+<h3 id="73">7.3 领域事件<a class="headerlink" href="#73" title="Permanent link">&para;</a></h3>
+<p>如果“注册服务成功”后还要刷新路由、发送通知和记录审计，可以发布 <code>McpServerRegisteredEvent</code>，由监听器处理后续动作。事件适合解耦“已经发生的事实”，但需要明确一致性要求；要求强一致的规则仍应在聚合事务内完成。</p>
+<h2 id="8">8. 常见误区<a class="headerlink" href="#8" title="Permanent link">&para;</a></h2>
+<h3 id="ddd">误区一：目录分层就是 DDD<a class="headerlink" href="#ddd" title="Permanent link">&para;</a></h3>
+<p>把贫血对象放进 <code>domain/model</code>，再把所有逻辑堆进一个大 Service，只是换了目录。领域模型应表达业务行为并保护不变量。</p>
+<h3 id="_1">误区二：一个数据表对应一个聚合<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>聚合边界由业务一致性决定，不由表关系决定。一个聚合可能映射多张表，多张表也可能分别属于不同聚合。</p>
+<h3 id="daoredis-http-sdk">误区三：领域层直接使用 DAO、Redis 或 HTTP SDK<a class="headerlink" href="#daoredis-http-sdk" title="Permanent link">&para;</a></h3>
+<p>这会让技术细节侵入核心业务。领域层定义 Repository/Port，基础设施层负责实现。</p>
+<h3 id="repository-po">误区四：Repository 返回 PO<a class="headerlink" href="#repository-po" title="Permanent link">&para;</a></h3>
+<p>PO 属于基础设施层。Repository 接口应接收和返回聚合或领域对象，转换在基础设施实现中完成。</p>
+<h3 id="_2">误区五：所有逻辑都必须塞进聚合<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>聚合适合维护自身一致性；跨聚合规则可放领域服务，事务和流程编排可放应用服务。</p>
+<h3 id="_3">误区六：为了“纯粹”制造大量空接口<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>抽象应服务于稳定边界和替换需求。没有业务含义、只有一次机械转发的接口，会增加理解成本。先识别变化点，再建立恰当抽象。</p>
+<h2 id="9">9. 推荐的开发顺序<a class="headerlink" href="#9" title="Permanent link">&para;</a></h2>
+<p>开发一个新功能时，可以按以下顺序推进：</p>
+<ol>
+<li>用业务语言描述用例、规则和异常情况；</li>
+<li>判断它属于哪个限界上下文；</li>
+<li>找出实体、值对象、聚合根及其不变量；</li>
+<li>在领域层定义业务行为；</li>
+<li>为持久化和外部能力定义 Repository/Port；</li>
+<li>在基础设施层实现接口，并完成 PO/DTO 转换；</li>
+<li>在 Trigger 层接入 HTTP、任务或消息；</li>
+<li>在 App 层完成配置和运行时装配；</li>
+<li>优先测试领域规则，再做仓储集成测试和接口测试。</li>
+</ol>
+<p>领域测试通常不需要启动 Spring：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span>
+<span class="normal"><a href="#__codelineno-17-2">2</a></span>
+<span class="normal"><a href="#__codelineno-17-3">3</a></span>
+<span class="normal"><a href="#__codelineno-17-4">4</a></span>
+<span class="normal"><a href="#__codelineno-17-5">5</a></span>
+<span class="normal"><a href="#__codelineno-17-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="nd">@Test</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">should_reject_invalid_endpoint</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="w">    </span><span class="n">assertThrows</span><span class="p">(</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="w">            </span><span class="n">IllegalArgumentException</span><span class="p">.</span><span class="na">class</span><span class="p">,</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="w">            </span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ServerEndpoint</span><span class="p">(</span><span class="s">&quot;ftp://example.com&quot;</span><span class="p">));</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>这正是隔离技术细节带来的直接收益：核心规则更容易测试，也更容易演进。</p>
+<h2 id="10">10. 一句话记住这套架构<a class="headerlink" href="#10" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>API 定契约，Trigger 接请求，Domain 管业务，Infrastructure 做实现，App 负责装配，Types 放通用类型。</p>
+</blockquote>
+<p>判断代码应该放在哪里时，可以问自己：</p>
+<ul>
+<li>这是业务规则吗？放 <code>domain</code>；</li>
+<li>这是 HTTP、定时任务或消息入口吗？放 <code>trigger</code>；</li>
+<li>这是数据库、缓存或第三方调用吗？放 <code>infrastructure</code>；</li>
+<li>这是对外公开的数据契约吗？放 <code>api</code>；</li>
+<li>这是启动配置和模块装配吗？放 <code>app</code>。</li>
+</ul>
+<p>DDD 的目标不是得到最复杂的工程结构，而是让最重要的业务代码位于最稳定、最容易理解和测试的位置。</p>
+<h2 id="_4">参考<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>ai-mcp-gateway/README.md</code></li>
+<li><code>ai-mcp-gateway/pom.xml</code> 及各子模块 <code>pom.xml</code></li>
+<li>各模块 <code>package-info.java</code> 中的职责说明</li>
+<li>Eric Evans，《领域驱动设计：软件核心复杂性应对之道》</li>
+<li>Vaughn Vernon，《实现领域驱动设计》</li>
+</ul>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="最后更新">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年7月28日 08:10:06 UTC">2026年7月28日</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="创建日期">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年7月28日 08:10:06 UTC">2026年7月28日</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../DDD%20%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BD%E5%90%91%E4%B8%8A%E4%BE%9D%E8%B5%96%E9%A2%86%E5%9F%9F%E5%AF%BC%E8%87%B4%E4%BE%9D%E8%B5%96%E5%80%92%E7%BD%AE%E4%B8%8E%E5%BE%AA%E7%8E%AF%E5%BC%95%E7%94%A8%E9%97%AE%E9%A2%98/" class="md-footer__link md-footer__link--prev" aria-label="上一页: DDD 基础设施向上依赖领域导致依赖倒置与循环引用问题">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                DDD 基础设施向上依赖领域导致依赖倒置与循环引用问题
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../Date%20%E7%B1%BB%E5%9E%8B%E8%A7%A3%E6%9E%90%E9%94%99%E8%AF%AF/" class="md-footer__link md-footer__link--next" aria-label="下一页: Date 类型解析错误">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                Date 类型解析错误
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 DopplerXD
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/DopplerXD/" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://space.bilibili.com/32152704/" target="_blank" rel="noopener" title="space.bilibili.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M488.6 104.1c16.7 18.1 24.4 39.7 23.3 65.7v202.4c-.4 26.4-9.2 48.1-26.5 65.1-17.2 17-39.1 25.9-65.5 26.7H92c-26.4-.8-48.2-9.8-65.3-27.2S.7 396.5 0 368.2V169.8c.8-26 9.7-47.6 26.7-65.7C43.8 87.8 65.5 78.8 92 78h29.4L96 52.2c-5.7-5.7-8.6-13-8.6-21.8S90.3 14.3 96 8.6 109 0 117.9 0s16.1 2.9 21.9 8.6L213.1 78h88l74.5-69.4C381.7 2.9 389.2 0 398 0s16.1 2.9 21.9 8.6c5.7 5.7 8.6 13 8.6 21.8s-2.9 16.1-8.6 21.8L394.6 78h29.3c26.4.8 48 9.8 64.7 26.1m-38.8 69.7c-.4-9.6-3.7-17.4-10.7-23.5-5.2-6.1-14-9.4-22.7-9.8H96c-9.6.4-17.4 3.7-23.6 9.8-6.1 6.1-9.4 13.9-9.8 23.5v194.4c0 9.2 3.3 17 9.8 23.5s14.4 9.8 23.6 9.8h320.4c9.2 0 17-3.3 23.3-9.8s9.7-14.3 10.1-23.5zm-264.3 42.7c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2-6.2 6.3-14 9.5-23.6 9.5s-17.5-3.2-23.6-9.5-9.4-14-9.8-23.2v-33.3c.4-9.1 3.8-16.9 10.1-23.2s13.2-9.6 23.3-10c9.2.4 17 3.7 23.3 10m191.5 0c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2s-14 9.5-23.6 9.5-17.4-3.2-23.6-9.5c-7-6.3-9.4-14-9.7-23.2v-33.3c.3-9.1 3.7-16.9 10-23.2s14.1-9.6 23.3-10c9.2.4 17 3.7 23.3 10"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:<1509209607@qq.com>" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m20 8-8 5-8-5V6l8 5 8-5m0-2H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:<doppleryxc@gmail.com>" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 18h-2V9.25L12 13 6 9.25V18H4V6h1.2l6.8 4.25L18.8 6H20m0-2H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.zhihu.com/people/DopplerXD/" target="_blank" rel="noopener" title="www.zhihu.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M170.5 148.1v217.5h23.4l7.7 26.4 42-26.4h49.5V148.1H170.4zM268.3 342h-27.9l-27.9 17.5-5.1-17.5h-11.9V171.7h72.8zm-118.5-94.3H97.5c1.7-27.1 2.2-51.6 2.2-73.5h51.2s2-22.6-8.6-22.3H53.8c3.5-13.1 7.9-26.7 13.1-40.7 0 0-24.1 0-32.3 21.6-3.4 8.9-13.2 43.1-30.7 78.1 5.9-.6 25.4-1.2 36.8-22.2 2.1-5.9 2.5-6.7 5.1-14.5h28.9c0 10.5-1.2 66.9-1.7 73.4H20.7c-11.7 0-15.6 23.6-15.6 23.6h65.6c-4.4 49.9-28 91.9-70.8 125.1 20.5 5.9 40.9-.9 51-9.9 0 0 23-20.9 35.6-69.3l54 64.9s7.9-26.9-1.2-40c-7.6-8.9-28.1-33.1-36.8-41.8L87.9 312c4.4-14 7-27.6 7.9-40.7h61.6s-.1-23.6-7.6-23.6m412-1.6c20.8-25.6 45-58.6 45-58.6s-18.6-14.8-27.4-4.1c-6 8.2-36.8 48.2-36.8 48.2l19.2 14.4zm-150-59.1c-9-8.2-25.9 2.1-25.9 2.1s39.5 55 41.1 57.4l19.5-13.7s-25.7-37.6-34.7-45.9zM640 258.4c-19.8 0-130.9.9-131.1.9v-101q7.2 0 22.8-1.2c40.9-2.4 70.1-4 87.8-4.8 0 0 12.2-27.2-.6-33.4-3.1-1.2-23.2 4.6-23.2 4.6s-165.2 16.5-232.4 18c1.6 8.8 7.6 17.1 15.8 19.6 13.3 3.5 22.7 1.7 49.2.9 24.8-1.6 43.7-2.4 56.5-2.4v99.8H351.3s2.8 22.3 25.5 22.9h107.9v70.9c0 14-11.2 22-24.5 21.1-14.1.1-26.1-1.1-41.7-1.8 2 4 6.3 14.4 19.3 21.8 9.9 4.8 16.2 6.6 26 6.6 29.6 0 45.7-17.3 44.9-45.3v-73.3h122.4c9.7 0 8.7-23.8 8.7-23.8z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://www.dopplerxd.site/" target="_blank" rel="noopener" title="DopplerXD&#39;s Blog" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tracking", "toc.follow", "navigation.path", "navigation.top", "navigation.tabs", "navigation.prune", "navigation.footer", "navigation.sections", "content.code.copy", "search.share", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../../javascripts/extra.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
