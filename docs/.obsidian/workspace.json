@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "index.md",
+                "file": "开发经验/后端/DDD 简明教程.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "index"
+              "title": "DDD 简明教程"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "index.md",
+                "file": "开发经验/后端/DDD 简明教程.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "index 的大纲"
+              "title": "DDD 简明教程 的大纲"
             }
           },
           {
@@ -183,6 +183,9 @@
   },
   "active": "49dbc8456da82ea7",
   "lastOpenFiles": [
+    "开发经验/后端/DDD 基础设施向上依赖领域导致依赖倒置与循环引用问题.md",
+    "开发经验/后端/DDD 简明教程.md",
+    "index.md",
     "算法/算法学习/ACM 模式 C++、Java、Python 数据输入 & 输出.md",
     "算法/算法学习/十大排序算法.md",
     "AI/百度飞桨 PaddleOCR-VL 与PP-OCR 系列的区别.md",
@@ -226,9 +229,6 @@
     "技术学习/assets/MySQL/三分恶面渣逆袭：update 执行.png",
     "技术学习/assets/MySQL",
     "技术学习/assets/Redis",
-    "leetcode/problems/516. 最长回文子系列.md",
-    "技术学习/计算机网络.md",
-    "技术学习/操作系统.md",
     "未命名.canvas"
   ]
 }
