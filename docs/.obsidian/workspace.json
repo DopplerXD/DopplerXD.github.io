@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "开发经验/后端/DDD 简明教程.md",
+                "file": "index.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "DDD 简明教程"
+              "title": "index"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "开发经验/后端/DDD 简明教程.md",
+                "file": "index.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "DDD 简明教程 的大纲"
+              "title": "index 的大纲"
             }
           },
           {
@@ -183,8 +183,8 @@
   },
   "active": "49dbc8456da82ea7",
   "lastOpenFiles": [
-    "开发经验/后端/DDD 基础设施向上依赖领域导致依赖倒置与循环引用问题.md",
     "开发经验/后端/DDD 简明教程.md",
+    "开发经验/后端/DDD 基础设施向上依赖领域导致依赖倒置与循环引用问题.md",
     "index.md",
     "算法/算法学习/ACM 模式 C++、Java、Python 数据输入 & 输出.md",
     "算法/算法学习/十大排序算法.md",
