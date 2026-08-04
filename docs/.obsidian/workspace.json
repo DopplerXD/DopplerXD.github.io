@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "index.md",
+                "file": "开发经验/后端/SpringBoot 加载 .env 配置文件实现脱敏处理.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "index"
+              "title": "SpringBoot 加载 .env 配置文件实现脱敏处理"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "index.md",
+                "file": "开发经验/后端/SpringBoot 加载 .env 配置文件实现脱敏处理.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "index 的大纲"
+              "title": "SpringBoot 加载 .env 配置文件实现脱敏处理 的大纲"
             }
           },
           {
@@ -162,7 +162,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -181,11 +181,12 @@
       "custom-sort:Toggle custom sorting": false
     }
   },
-  "active": "49dbc8456da82ea7",
+  "active": "504c4e9474e76cb2",
   "lastOpenFiles": [
+    "index.md",
+    "开发经验/后端/SpringBoot 加载 .env 配置文件实现脱敏处理.md",
     "开发经验/后端/DDD 简明教程.md",
     "开发经验/后端/DDD 基础设施向上依赖领域导致依赖倒置与循环引用问题.md",
-    "index.md",
     "算法/算法学习/ACM 模式 C++、Java、Python 数据输入 & 输出.md",
     "算法/算法学习/十大排序算法.md",
     "AI/百度飞桨 PaddleOCR-VL 与PP-OCR 系列的区别.md",
@@ -221,7 +222,6 @@
     "技术学习/Java 集合.md",
     "技术学习/Spring.md",
     "技术学习/其他（Linux、Docker等）.md",
-    "技术学习/并发编程.md",
     "技术学习/未命名 1.base",
     "技术学习/未命名.base",
     "技术学习/assets/MySQL/阿里：MySQL 两阶段提交.png",
