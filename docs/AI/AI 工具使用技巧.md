@@ -1,3 +1,5 @@
+![AI 工具使用技巧 cover](assets/AI-工具使用技巧-cover.png)
+
 > 本文部分内容节选自 2026/05/10 TRAE on Campus@中国地质大学（北京） AI coding Meetup
 
 ## 基础
