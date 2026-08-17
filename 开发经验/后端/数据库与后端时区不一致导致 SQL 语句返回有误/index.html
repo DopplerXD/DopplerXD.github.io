@@ -1930,7 +1930,7 @@
 <span class="normal"><a href="#__codelineno-0-4">4</a></span>
 <span class="normal"><a href="#__codelineno-0-5">5</a></span>
 <span class="normal"><a href="#__codelineno-0-6">6</a></span>
-<span class="normal"><a href="#__codelineno-0-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SHOW</span><span class="w"> </span><span class="n">VARIABLES</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;%time_zone%&#39;</span><span class="p">;</span><span class="w"> </span>
+<span class="normal"><a href="#__codelineno-0-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SHOW</span><span class="w"> </span><span class="n">VARIABLES</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">'%time_zone%'</span><span class="p">;</span><span class="w"> </span>
 <a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="o">+</span><span class="c1">------------------+--------+</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="o">|</span><span class="w"> </span><span class="n">Variable_name</span><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="n">Value</span><span class="w">  </span><span class="o">|</span>
 <a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="o">+</span><span class="c1">------------------+--------+</span>
@@ -1962,14 +1962,14 @@
 <span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
 <span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
 <span class="normal"><a href="#__codelineno-2-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="cm">&lt;!-- 更新订单支付状态和时间 --&gt;</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="nt">&lt;update</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;changeOrderPaySuccess&quot;</span><span class="w"> </span><span class="na">parameterType=</span><span class="s">&quot;site.dopplerxd.domain.po.PayOrder&quot;</span><span class="nt">&gt;</span><span class="w">  </span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="nt">&lt;update</span><span class="w"> </span><span class="na">id=</span><span class="s">"changeOrderPaySuccess"</span><span class="w"> </span><span class="na">parameterType=</span><span class="s">"site.dopplerxd.domain.po.PayOrder"</span><span class="nt">&gt;</span><span class="w">  </span>
 <a id="__codelineno-2-3" name="__codelineno-2-3"></a>update<span class="w"> </span>pay_order<span class="w">  </span>
 <a id="__codelineno-2-4" name="__codelineno-2-4"></a>set<span class="w"> </span>status<span class="w"> </span>=<span class="w"> </span>#{status},<span class="w"> </span>pay_time<span class="w"> </span>=<span class="w"> </span>now(),<span class="w"> </span>update_time<span class="w"> </span>=<span class="w"> </span>now()<span class="w">  </span>
 <a id="__codelineno-2-5" name="__codelineno-2-5"></a>where<span class="w"> </span>order_id<span class="w"> </span>=<span class="w"> </span>#{orderId}<span class="w">  </span>
 <a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="nt">&lt;/update&gt;</span>
 <a id="__codelineno-2-7" name="__codelineno-2-7"></a>
 <a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="cm">&lt;!-- 查询超时未支付订单 --&gt;</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="nt">&lt;select</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;queryTimeoutCloseOrderList&quot;</span><span class="w"> </span><span class="na">parameterType=</span><span class="s">&quot;java.lang.String&quot;</span><span class="w"> </span><span class="na">resultType=</span><span class="s">&quot;java.lang.String&quot;</span><span class="nt">&gt;</span><span class="w"> </span>select<span class="w"> </span>order_id<span class="w"> </span>as<span class="w"> </span>orderId<span class="w"> </span>from<span class="w"> </span>pay_order<span class="w"> </span>where<span class="w"> </span>status<span class="w"> </span>=<span class="w"> </span>&#39;PAY_WAIT&#39;<span class="w"> </span>and<span class="w"> </span>now()<span class="w"> </span>+<span class="w"> </span>interval<span class="w"> </span>8<span class="w"> </span>hour<span class="w"> </span>&gt;=<span class="w"> </span>order_time<span class="w"> </span>+<span class="w"> </span>interval<span class="w"> </span>30<span class="w"> </span>minute<span class="w"> </span>order<span class="w"> </span>by<span class="w"> </span>order_id<span class="w"> </span>asc<span class="w"> </span>limit<span class="w"> </span>50
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="nt">&lt;select</span><span class="w"> </span><span class="na">id=</span><span class="s">"queryTimeoutCloseOrderList"</span><span class="w"> </span><span class="na">parameterType=</span><span class="s">"java.lang.String"</span><span class="w"> </span><span class="na">resultType=</span><span class="s">"java.lang.String"</span><span class="nt">&gt;</span><span class="w"> </span>select<span class="w"> </span>order_id<span class="w"> </span>as<span class="w"> </span>orderId<span class="w"> </span>from<span class="w"> </span>pay_order<span class="w"> </span>where<span class="w"> </span>status<span class="w"> </span>=<span class="w"> </span>'PAY_WAIT'<span class="w"> </span>and<span class="w"> </span>now()<span class="w"> </span>+<span class="w"> </span>interval<span class="w"> </span>8<span class="w"> </span>hour<span class="w"> </span>&gt;=<span class="w"> </span>order_time<span class="w"> </span>+<span class="w"> </span>interval<span class="w"> </span>30<span class="w"> </span>minute<span class="w"> </span>order<span class="w"> </span>by<span class="w"> </span>order_id<span class="w"> </span>asc<span class="w"> </span>limit<span class="w"> </span>50
 <a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="nt">&lt;/select&gt;</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="_2">解决<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
@@ -1979,7 +1979,7 @@
 <p>在 my. cnf 中添加：</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">INI</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
 <span class="normal"><a href="#__codelineno-3-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="k">[mysqld]</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="na">default-time-zone</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;+08:00&#39;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="na">default-time-zone</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'+08:00'</span>
 </code></pre></div></td></tr></table></div>
 <p>然后重启 MySQL 容器，再次查看发现时区已正确修改为 UTC+8：</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">SQL</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
@@ -1989,7 +1989,7 @@
 <span class="normal"><a href="#__codelineno-4-5">5</a></span>
 <span class="normal"><a href="#__codelineno-4-6">6</a></span>
 <span class="normal"><a href="#__codelineno-4-7">7</a></span>
-<span class="normal"><a href="#__codelineno-4-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SHOW</span><span class="w"> </span><span class="n">VARIABLES</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;%time_zone%&#39;</span><span class="p">;</span>
+<span class="normal"><a href="#__codelineno-4-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SHOW</span><span class="w"> </span><span class="n">VARIABLES</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">'%time_zone%'</span><span class="p">;</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="o">+</span><span class="c1">------------------+--------+</span>
 <a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="o">|</span><span class="w"> </span><span class="n">Variable_name</span><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="n">Value</span><span class="w">  </span><span class="o">|</span>
 <a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="o">+</span><span class="c1">------------------+--------+</span>
@@ -2014,14 +2014,14 @@
 <span class="normal"><a href="#__codelineno-5-12">12</a></span>
 <span class="normal"><a href="#__codelineno-5-13">13</a></span>
 <span class="normal"><a href="#__codelineno-5-14">14</a></span>
-<span class="normal"><a href="#__codelineno-5-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3.8&#39;</span>
+<span class="normal"><a href="#__codelineno-5-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">'3.8'</span>
 <a id="__codelineno-5-2" name="__codelineno-5-2"></a>
 <a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="nt">services</span><span class="p">:</span>
 <a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">  </span><span class="nt">mysql</span><span class="p">:</span>
 <a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mysql:5.7</span>
 <a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-mysql</span>
 <a id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
-<a id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;3306:3306&quot;</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"3306:3306"</span>
 <a id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
 <a id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="w">      </span><span class="nt">MYSQL_ROOT_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">your_password</span>
 <a id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="w">      </span><span class="nt">TZ</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Asia/Shanghai</span>

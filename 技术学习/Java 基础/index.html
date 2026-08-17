@@ -1144,6 +1144,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#java-789" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        可含变量与方法对比（Java 7/8/9）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3386,6 +3397,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#java-789" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        可含变量与方法对比（Java 7/8/9）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -5128,6 +5150,103 @@
 </ul>
 </li>
 </ul>
+<h3 id="java-789">可含变量与方法对比（Java 7/8/9）<a class="headerlink" href="#java-789" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Java 版本</th>
+<th>抽象类 Abstract Class</th>
+<th>接口 Interface</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Java 7</strong></td>
+<td><strong>变量</strong>：成员变量、静态变量、常量均可；<strong>方法</strong>：抽象方法 + 普通实例方法 + 静态方法</td>
+<td><strong>变量</strong>：只能是 <code>public static final</code> 常量；<strong>方法</strong>：只能是 <code>public abstract</code> 抽象方法</td>
+</tr>
+<tr>
+<td><strong>Java 8</strong></td>
+<td>同 Java 7</td>
+<td><strong>变量</strong>：仍只能是 <code>public static final</code>；<strong>方法</strong>：抽象方法 + <code>default</code> 默认方法 + <code>static</code> 静态方法</td>
+</tr>
+<tr>
+<td><strong>Java 9+</strong></td>
+<td>基本不变</td>
+<td>Java 8 基础上增加 <strong><code>private</code> 实例方法和 <code>private static</code> 方法</strong></td>
+</tr>
+</tbody>
+</table>
+<p>再具体看修饰符：</p>
+<table>
+<thead>
+<tr>
+<th>能力</th>
+<th style="text-align: center;">抽象类</th>
+<th style="text-align: center;">Java 7 接口</th>
+<th style="text-align: center;">Java 8 接口</th>
+<th style="text-align: center;">Java 9+ 接口</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>普通成员变量</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td><code>static</code> 变量</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">仅常量</td>
+<td style="text-align: center;">仅常量</td>
+<td style="text-align: center;">仅常量</td>
+</tr>
+<tr>
+<td><code>public static final</code> 常量</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>抽象方法</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>普通实例方法</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;"><code>default</code> ✅</td>
+<td style="text-align: center;"><code>default</code> ✅</td>
+</tr>
+<tr>
+<td><code>static</code> 方法</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><code>private</code> 方法</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>构造方法</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+</tr>
+</tbody>
+</table>
 <h3 id="_9">语法规则对比<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -5196,6 +5315,11 @@
 <li><strong>避免滥用继承</strong>：优先用接口定义能力，通过组合（如<code>类持有接口实例</code>）实现功能，减少继承层级带来的耦合。  </li>
 <li><strong>本质区别</strong>：抽象类是“<strong>模板的具象化</strong>”，接口是“<strong>契约的标准化</strong>”，根据设计目标选择合适的抽象机制。</li>
 </ul>
+<p><strong>面试记忆：</strong></p>
+<blockquote>
+<p><strong>Java 7：接口只有常量 + 抽象方法；Java 8：增加 default + static 方法；Java 9：增加 private 方法。</strong><br />
+抽象类则更接近普通类，可以有各种成员变量、构造器和具体方法。</p>
+</blockquote>
 <h2 id="_13">重载和重写的区别<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>定义位置</strong>：重载发生在同一个类中，重写发生在子类和父类之间。</li>
@@ -5300,10 +5424,10 @@
 <a id="__codelineno-3-2" name="__codelineno-3-2"></a>
 <a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">FinancialCalculation</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">        </span><span class="n">BigDecimal</span><span class="w"> </span><span class="n">amount1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BigDecimal</span><span class="p">(</span><span class="s">&quot;10.50&quot;</span><span class="p">);</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">        </span><span class="n">BigDecimal</span><span class="w"> </span><span class="n">amount2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BigDecimal</span><span class="p">(</span><span class="s">&quot;5.25&quot;</span><span class="p">);</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">        </span><span class="n">BigDecimal</span><span class="w"> </span><span class="n">amount1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BigDecimal</span><span class="p">(</span><span class="s">"10.50"</span><span class="p">);</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">        </span><span class="n">BigDecimal</span><span class="w"> </span><span class="n">amount2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BigDecimal</span><span class="p">(</span><span class="s">"5.25"</span><span class="p">);</span>
 <a id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="w">        </span><span class="n">BigDecimal</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">amount1</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">amount2</span><span class="p">);</span>
-<a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Sum: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">result</span><span class="p">);</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Sum: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">result</span><span class="p">);</span>
 <a id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
@@ -5327,7 +5451,7 @@
 <a id="__codelineno-4-5" name="__codelineno-4-5"></a>
 <a id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="w">        </span><span class="n">Consumer</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">consumer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Main</span><span class="p">::</span><span class="n">print</span><span class="p">;</span>
-<a id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="w">        </span><span class="n">consumer</span><span class="p">.</span><span class="na">accept</span><span class="p">(</span><span class="s">&quot;Hello World&quot;</span><span class="p">);</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="w">        </span><span class="n">consumer</span><span class="p">.</span><span class="na">accept</span><span class="p">(</span><span class="s">"Hello World"</span><span class="p">);</span>
 <a id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
@@ -5350,7 +5474,7 @@
 <a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="w">        </span><span class="n">Main</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Main</span><span class="p">();</span>
 <a id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="w">        </span><span class="n">Consumer</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">consumer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="p">::</span><span class="n">print</span><span class="p">;</span>
-<a id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="w">        </span><span class="n">consumer</span><span class="p">.</span><span class="na">accept</span><span class="p">(</span><span class="s">&quot;Hello World&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="w">        </span><span class="n">consumer</span><span class="p">.</span><span class="na">accept</span><span class="p">(</span><span class="s">"Hello World"</span><span class="p">);</span>
 <a id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
@@ -5376,7 +5500,7 @@
 <a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">str</span><span class="p">;</span>
 <a id="__codelineno-6-3" name="__codelineno-6-3"></a>
 <a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Example</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Default Value&quot;</span><span class="p">;</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Default Value"</span><span class="p">;</span>
 <a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-6-7" name="__codelineno-6-7"></a>
 <a id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Example</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">str</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -5481,10 +5605,10 @@
 <a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">readFile</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">filePath</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">FileNotFoundException</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">        </span><span class="n">java</span><span class="p">.</span><span class="na">io</span><span class="p">.</span><span class="na">File</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">io</span><span class="p">.</span><span class="na">File</span><span class="p">(</span><span class="n">filePath</span><span class="p">);</span>
 <a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">file</span><span class="p">.</span><span class="na">exists</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FileNotFoundException</span><span class="p">(</span><span class="s">&quot;File not found: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">filePath</span><span class="p">);</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FileNotFoundException</span><span class="p">(</span><span class="s">"File not found: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">filePath</span><span class="p">);</span>
 <a id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="w">        </span><span class="p">}</span>
 <a id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="w">        </span><span class="c1">// 其他文件读取逻辑</span>
-<a id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">;</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">""</span><span class="p">;</span>
 <a id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-7-10" name="__codelineno-7-10"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
@@ -5516,7 +5640,7 @@
 <a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">        </span><span class="c1">// 假设这里有检查用户名是否存在的逻辑</span>
 <a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="w">        </span><span class="kt">boolean</span><span class="w"> </span><span class="n">exists</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">checkUsernameExists</span><span class="p">(</span><span class="n">username</span><span class="p">);</span>
 <a id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">exists</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">UsernameExistsException</span><span class="p">(</span><span class="s">&quot;Username already exists: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">username</span><span class="p">);</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">UsernameExistsException</span><span class="p">(</span><span class="s">"Username already exists: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">username</span><span class="p">);</span>
 <a id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="w">        </span><span class="p">}</span>
 <a id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="w">        </span><span class="c1">// 其他注册逻辑</span>
 <a id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="w">    </span><span class="p">}</span>
@@ -5579,7 +5703,7 @@
 <a id="__codelineno-9-8" name="__codelineno-9-8"></a><span class="w">            </span><span class="n">socket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Socket</span><span class="p">(</span><span class="n">serverAddress</span><span class="p">,</span><span class="w"> </span><span class="n">port</span><span class="p">);</span>
 <a id="__codelineno-9-9" name="__codelineno-9-9"></a><span class="w">            </span><span class="c1">// 发送请求的逻辑</span>
 <a id="__codelineno-9-10" name="__codelineno-9-10"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">IOException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-9-11" name="__codelineno-9-11"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Network error, retrying...&quot;</span><span class="p">);</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Network error, retrying..."</span><span class="p">);</span>
 <a id="__codelineno-9-12" name="__codelineno-9-12"></a><span class="w">            </span><span class="c1">// 尝试重新连接的逻辑</span>
 <a id="__codelineno-9-13" name="__codelineno-9-13"></a><span class="w">            </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-9-14" name="__codelineno-9-14"></a><span class="w">                </span><span class="n">Thread</span><span class="p">.</span><span class="na">sleep</span><span class="p">(</span><span class="mi">2000</span><span class="p">);</span>
@@ -5666,14 +5790,14 @@
 <li><strong>若存在</strong>：直接返回常量池中该字符串对象的引用，不会再重新创建新的对象。例如：</li>
 </ul>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span>
-<span class="normal"><a href="#__codelineno-11-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="n">String</span><span class="w"> </span><span class="n">str1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;hello&quot;</span><span class="p">;</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="n">String</span><span class="w"> </span><span class="n">str2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;hello&quot;</span><span class="p">;</span>
+<span class="normal"><a href="#__codelineno-11-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="n">String</span><span class="w"> </span><span class="n">str1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"hello"</span><span class="p">;</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="n">String</span><span class="w"> </span><span class="n">str2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"hello"</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <p>这里 <code>str1</code> 和 <code>str2</code> 引用的是字符串常量池中同一个 <code>"hello"</code> 对象，只占用一份内存空间。</p>
 <ul>
 <li><strong>若不存在</strong>：才会在常量池中创建新的字符串对象。比如：</li>
 </ul>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="n">String</span><span class="w"> </span><span class="n">str3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;world&quot;</span><span class="p">;</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="n">String</span><span class="w"> </span><span class="n">str3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"world"</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <p>此时会在常量池中创建 <code>"world"</code> 这个新的字符串对象。</p>
 <h3 id="_28">减少内存占用<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h3>
@@ -5701,12 +5825,12 @@
 <span class="normal"><a href="#__codelineno-13-17">17</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">StringPoolMemoryExample</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="w">        </span><span class="c1">// 使用字符串常量池</span>
-<a id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">str1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;apple&quot;</span><span class="p">;</span>
-<a id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">str2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;apple&quot;</span><span class="p">;</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">str1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"apple"</span><span class="p">;</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">str2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"apple"</span><span class="p">;</span>
 <a id="__codelineno-13-6" name="__codelineno-13-6"></a>
 <a id="__codelineno-13-7" name="__codelineno-13-7"></a><span class="w">        </span><span class="c1">// 不使用字符串常量池</span>
-<a id="__codelineno-13-8" name="__codelineno-13-8"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">str3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;banana&quot;</span><span class="p">);</span>
-<a id="__codelineno-13-9" name="__codelineno-13-9"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">str4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;banana&quot;</span><span class="p">);</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">str3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">"banana"</span><span class="p">);</span>
+<a id="__codelineno-13-9" name="__codelineno-13-9"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">str4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">"banana"</span><span class="p">);</span>
 <a id="__codelineno-13-10" name="__codelineno-13-10"></a>
 <a id="__codelineno-13-11" name="__codelineno-13-11"></a><span class="w">        </span><span class="c1">// str1 和 str2 引用同一个对象，只占用一份内存</span>
 <a id="__codelineno-13-12" name="__codelineno-13-12"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">str1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">str2</span><span class="p">);</span><span class="w"> </span><span class="c1">// 输出: true</span>
@@ -5996,13 +6120,13 @@
 <span class="normal"><a href="#__codelineno-16-4">4</a></span>
 <span class="normal"><a href="#__codelineno-16-5">5</a></span>
 <span class="normal"><a href="#__codelineno-16-6">6</a></span>
-<span class="normal"><a href="#__codelineno-16-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="n">Person</span><span class="w"> </span><span class="n">p1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Person</span><span class="p">(</span><span class="s">&quot;Alice&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">25</span><span class="p">);</span><span class="w">  </span>
-<a id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="n">Person</span><span class="w"> </span><span class="n">p2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Person</span><span class="p">(</span><span class="s">&quot;Alice&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">25</span><span class="p">);</span><span class="w">  </span>
+<span class="normal"><a href="#__codelineno-16-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="n">Person</span><span class="w"> </span><span class="n">p1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Person</span><span class="p">(</span><span class="s">"Alice"</span><span class="p">,</span><span class="w"> </span><span class="mi">25</span><span class="p">);</span><span class="w">  </span>
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="n">Person</span><span class="w"> </span><span class="n">p2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Person</span><span class="p">(</span><span class="s">"Alice"</span><span class="p">,</span><span class="w"> </span><span class="mi">25</span><span class="p">);</span><span class="w">  </span>
 <a id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">p1</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">p2</span><span class="p">));</span><span class="w"> </span><span class="c1">// 输出true（逻辑相等）  </span>
 <a id="__codelineno-16-4" name="__codelineno-16-4"></a>
 <a id="__codelineno-16-5" name="__codelineno-16-5"></a><span class="n">HashMap</span><span class="o">&lt;</span><span class="n">Person</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w">  </span>
-<a id="__codelineno-16-6" name="__codelineno-16-6"></a><span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;data&quot;</span><span class="p">);</span><span class="w">  </span>
-<a id="__codelineno-16-7" name="__codelineno-16-7"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">map</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">p2</span><span class="p">));</span><span class="w"> </span><span class="c1">// 预期输出&quot;data&quot;，实际输出null  </span>
+<a id="__codelineno-16-6" name="__codelineno-16-6"></a><span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span><span class="w"> </span><span class="s">"data"</span><span class="p">);</span><span class="w">  </span>
+<a id="__codelineno-16-7" name="__codelineno-16-7"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">map</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">p2</span><span class="p">));</span><span class="w"> </span><span class="c1">// 预期输出"data"，实际输出null  </span>
 </code></pre></div></td></tr></table></div>
 <p><strong>原因分析</strong>：  </p>
 <ul>
@@ -6049,8 +6173,8 @@
 </code></pre></div></td></tr></table></div>
 <p><strong>验证修正后逻辑</strong>：  </p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span>
-<span class="normal"><a href="#__codelineno-18-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;data&quot;</span><span class="p">);</span><span class="w">  </span>
-<a id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">map</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">p2</span><span class="p">));</span><span class="w"> </span><span class="c1">// 输出&quot;data&quot;（p1和p2的hashCode相等，且equals相等）  </span>
+<span class="normal"><a href="#__codelineno-18-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span><span class="w"> </span><span class="s">"data"</span><span class="p">);</span><span class="w">  </span>
+<a id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">map</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">p2</span><span class="p">));</span><span class="w"> </span><span class="c1">// 输出"data"（p1和p2的hashCode相等，且equals相等）  </span>
 </code></pre></div></td></tr></table></div>
 <h3 id="_51">四、例外情况：无需哈希表的场景<a class="headerlink" href="#_51" title="Permanent link">&para;</a></h3>
 <p>若类的实例<strong>永远不会作为哈希表的键</strong>（如仅用于值对象或普通数据传输），理论上可以不重写<code>hashCode</code>。但实际开发中：  </p>
@@ -6070,7 +6194,7 @@
 <li>反射机制：允许在运行时创建对象，并且可以访问类的私有成员。</li>
 </ol>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span>
-<span class="normal"><a href="#__codelineno-19-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="n">Class</span><span class="w"> </span><span class="n">clazz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Class</span><span class="p">.</span><span class="na">forName</span><span class="p">(</span><span class="s">&quot;Person&quot;</span><span class="p">);</span>
+<span class="normal"><a href="#__codelineno-19-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="n">Class</span><span class="w"> </span><span class="n">clazz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Class</span><span class="p">.</span><span class="na">forName</span><span class="p">(</span><span class="s">"Person"</span><span class="p">);</span>
 <a id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="n">Person</span><span class="w"> </span><span class="n">person</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Person</span><span class="p">)</span><span class="w"> </span><span class="n">clazz</span><span class="p">.</span><span class="na">newInstance</span><span class="p">();</span>
 </code></pre></div></td></tr></table></div>
 <ol>
@@ -6082,9 +6206,9 @@
 <span class="normal"><a href="#__codelineno-20-3">3</a></span>
 <span class="normal"><a href="#__codelineno-20-4">4</a></span>
 <span class="normal"><a href="#__codelineno-20-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="n">Person</span><span class="w"> </span><span class="n">person</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Person</span><span class="p">();</span>
-<a id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="n">ObjectOutputStream</span><span class="w"> </span><span class="n">oos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ObjectOutputStream</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">FileOutputStream</span><span class="p">(</span><span class="s">&quot;Person.txt&quot;</span><span class="p">));</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="n">ObjectOutputStream</span><span class="w"> </span><span class="n">oos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ObjectOutputStream</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">FileOutputStream</span><span class="p">(</span><span class="s">"Person.txt"</span><span class="p">));</span>
 <a id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="n">oos</span><span class="p">.</span><span class="na">writeObject</span><span class="p">(</span><span class="n">person</span><span class="p">);</span>
-<a id="__codelineno-20-4" name="__codelineno-20-4"></a><span class="n">ObjectInputStream</span><span class="w"> </span><span class="n">ois</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ObjectInputStream</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">FileInputStream</span><span class="p">(</span><span class="s">&quot;Person.txt&quot;</span><span class="p">));</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4"></a><span class="n">ObjectInputStream</span><span class="w"> </span><span class="n">ois</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ObjectInputStream</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">FileInputStream</span><span class="p">(</span><span class="s">"Person.txt"</span><span class="p">));</span>
 <a id="__codelineno-20-5" name="__codelineno-20-5"></a><span class="n">Person</span><span class="w"> </span><span class="n">person2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Person</span><span class="p">)</span><span class="w"> </span><span class="n">ois</span><span class="p">.</span><span class="na">readObject</span><span class="p">();</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="new">new 子类时，子类和父类静态代码块、构造方法的执行顺序<a class="headerlink" href="#new" title="Permanent link">&para;</a></h2>
@@ -6149,29 +6273,29 @@
 <span class="normal"><a href="#__codelineno-21-32">32</a></span>
 <span class="normal"><a href="#__codelineno-21-33">33</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="kd">class</span> <span class="nc">Parent</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;父类静态代码块&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// 第 1 步执行</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"父类静态代码块"</span><span class="p">);</span><span class="w"> </span><span class="c1">// 第 1 步执行</span>
 <a id="__codelineno-21-4" name="__codelineno-21-4"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-21-5" name="__codelineno-21-5"></a>
 <a id="__codelineno-21-6" name="__codelineno-21-6"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-21-7" name="__codelineno-21-7"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;父类普通代码块&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// 第 3 步执行（在构造方法前）</span>
+<a id="__codelineno-21-7" name="__codelineno-21-7"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"父类普通代码块"</span><span class="p">);</span><span class="w"> </span><span class="c1">// 第 3 步执行（在构造方法前）</span>
 <a id="__codelineno-21-8" name="__codelineno-21-8"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-21-9" name="__codelineno-21-9"></a>
 <a id="__codelineno-21-10" name="__codelineno-21-10"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Parent</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-21-11" name="__codelineno-21-11"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;父类构造方法&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// 第 3 步执行（在普通代码块后）</span>
+<a id="__codelineno-21-11" name="__codelineno-21-11"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"父类构造方法"</span><span class="p">);</span><span class="w"> </span><span class="c1">// 第 3 步执行（在普通代码块后）</span>
 <a id="__codelineno-21-12" name="__codelineno-21-12"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-21-13" name="__codelineno-21-13"></a><span class="p">}</span>
 <a id="__codelineno-21-14" name="__codelineno-21-14"></a>
 <a id="__codelineno-21-15" name="__codelineno-21-15"></a><span class="kd">class</span> <span class="nc">Child</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Parent</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-21-16" name="__codelineno-21-16"></a><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-21-17" name="__codelineno-21-17"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;子类静态代码块&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// 第 2 步执行</span>
+<a id="__codelineno-21-17" name="__codelineno-21-17"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"子类静态代码块"</span><span class="p">);</span><span class="w"> </span><span class="c1">// 第 2 步执行</span>
 <a id="__codelineno-21-18" name="__codelineno-21-18"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-21-19" name="__codelineno-21-19"></a>
 <a id="__codelineno-21-20" name="__codelineno-21-20"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-21-21" name="__codelineno-21-21"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;子类普通代码块&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// 第 4 步执行（在构造方法前）</span>
+<a id="__codelineno-21-21" name="__codelineno-21-21"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"子类普通代码块"</span><span class="p">);</span><span class="w"> </span><span class="c1">// 第 4 步执行（在构造方法前）</span>
 <a id="__codelineno-21-22" name="__codelineno-21-22"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-21-23" name="__codelineno-21-23"></a>
 <a id="__codelineno-21-24" name="__codelineno-21-24"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Child</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-21-25" name="__codelineno-21-25"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;子类构造方法&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// 第 4 步执行（在普通代码块后）</span>
+<a id="__codelineno-21-25" name="__codelineno-21-25"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"子类构造方法"</span><span class="p">);</span><span class="w"> </span><span class="c1">// 第 4 步执行（在普通代码块后）</span>
 <a id="__codelineno-21-26" name="__codelineno-21-26"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-21-27" name="__codelineno-21-27"></a><span class="p">}</span>
 <a id="__codelineno-21-28" name="__codelineno-21-28"></a>
@@ -6288,9 +6412,9 @@
 <span class="normal"><a href="#__codelineno-24-3">3</a></span>
 <span class="normal"><a href="#__codelineno-24-4">4</a></span>
 <span class="normal"><a href="#__codelineno-24-5">5</a></span>
-<span class="normal"><a href="#__codelineno-24-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;hello&quot;</span><span class="p">;</span><span class="w">           </span><span class="c1">// 直接使用字面量，&quot;hello&quot; 会被放入常量池</span>
-<a id="__codelineno-24-2" name="__codelineno-24-2"></a><span class="n">String</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// 创建新对象，但内容与常量池中的 &quot;hello&quot; 相同</span>
-<a id="__codelineno-24-3" name="__codelineno-24-3"></a><span class="n">String</span><span class="w"> </span><span class="n">s3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s2</span><span class="p">.</span><span class="na">intern</span><span class="p">();</span><span class="w">       </span><span class="c1">// 返回常量池中的 &quot;hello&quot; 引用</span>
+<span class="normal"><a href="#__codelineno-24-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"hello"</span><span class="p">;</span><span class="w">           </span><span class="c1">// 直接使用字面量，"hello" 会被放入常量池</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2"></a><span class="n">String</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">"hello"</span><span class="p">);</span><span class="w"> </span><span class="c1">// 创建新对象，但内容与常量池中的 "hello" 相同</span>
+<a id="__codelineno-24-3" name="__codelineno-24-3"></a><span class="n">String</span><span class="w"> </span><span class="n">s3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s2</span><span class="p">.</span><span class="na">intern</span><span class="p">();</span><span class="w">       </span><span class="c1">// 返回常量池中的 "hello" 引用</span>
 <a id="__codelineno-24-4" name="__codelineno-24-4"></a>
 <a id="__codelineno-24-5" name="__codelineno-24-5"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">s3</span><span class="p">);</span><span class="w">  </span><span class="c1">// true，s1 和 s3 指向常量池中的同一对象</span>
 <a id="__codelineno-24-6" name="__codelineno-24-6"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">s2</span><span class="p">);</span><span class="w">  </span><span class="c1">// false，s2 是堆中的新对象</span>
@@ -6308,9 +6432,9 @@
 <span class="normal"><a href="#__codelineno-25-3">3</a></span>
 <span class="normal"><a href="#__codelineno-25-4">4</a></span>
 <span class="normal"><a href="#__codelineno-25-5">5</a></span>
-<span class="normal"><a href="#__codelineno-25-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;java&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;script&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// 堆中创建 &quot;javascript&quot;</span>
+<span class="normal"><a href="#__codelineno-25-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">"java"</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">"script"</span><span class="p">);</span><span class="w"> </span><span class="c1">// 堆中创建 "javascript"</span>
 <a id="__codelineno-25-2" name="__codelineno-25-2"></a><span class="n">String</span><span class="w"> </span><span class="n">interned</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">intern</span><span class="p">();</span><span class="w">                          </span><span class="c1">// 将 s 的引用添加到常量池</span>
-<a id="__codelineno-25-3" name="__codelineno-25-3"></a><span class="n">String</span><span class="w"> </span><span class="n">literal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;javascript&quot;</span><span class="p">;</span><span class="w">                         </span><span class="c1">// 直接使用常量池中的引用</span>
+<a id="__codelineno-25-3" name="__codelineno-25-3"></a><span class="n">String</span><span class="w"> </span><span class="n">literal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"javascript"</span><span class="p">;</span><span class="w">                         </span><span class="c1">// 直接使用常量池中的引用</span>
 <a id="__codelineno-25-4" name="__codelineno-25-4"></a>
 <a id="__codelineno-25-5" name="__codelineno-25-5"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">interned</span><span class="p">);</span><span class="w">  </span><span class="c1">// true，s 的引用被添加到常量池</span>
 <a id="__codelineno-25-6" name="__codelineno-25-6"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">literal</span><span class="p">);</span><span class="w">   </span><span class="c1">// true，literal 直接使用池中的引用</span>
@@ -6321,8 +6445,8 @@
 当需要处理大量重复字符串时（如解析文本、数据库查询结果），使用 <code>intern()</code> 可以减少内存占用。</li>
 </ul>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-26-1">1</a></span>
-<span class="normal"><a href="#__codelineno-26-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1"></a><span class="c1">// 假设从文件读取100万次 &quot;apple&quot;</span>
-<a id="__codelineno-26-2" name="__codelineno-26-2"></a><span class="n">String</span><span class="w"> </span><span class="n">fruit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">readFromFile</span><span class="p">().</span><span class="na">intern</span><span class="p">();</span><span class="w"> </span><span class="c1">// 只在常量池存储一份 &quot;apple&quot;</span>
+<span class="normal"><a href="#__codelineno-26-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1"></a><span class="c1">// 假设从文件读取100万次 "apple"</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2"></a><span class="n">String</span><span class="w"> </span><span class="n">fruit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">readFromFile</span><span class="p">().</span><span class="na">intern</span><span class="p">();</span><span class="w"> </span><span class="c1">// 只在常量池存储一份 "apple"</span>
 </code></pre></div></td></tr></table></div>
 <ul>
 <li><strong>字符串比较优化</strong>：<br />
@@ -6360,11 +6484,11 @@
 <span class="normal"><a href="#__codelineno-28-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Example</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-28-2" name="__codelineno-28-2"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-28-3" name="__codelineno-28-3"></a><span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-28-4" name="__codelineno-28-4"></a><span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Exception</span><span class="p">(</span><span class="s">&quot;Exception in try&quot;</span><span class="p">);</span>
+<a id="__codelineno-28-4" name="__codelineno-28-4"></a><span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Exception</span><span class="p">(</span><span class="s">"Exception in try"</span><span class="p">);</span>
 <a id="__codelineno-28-5" name="__codelineno-28-5"></a><span class="w">         </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-28-6" name="__codelineno-28-6"></a><span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RuntimeException</span><span class="p">(</span><span class="s">&quot;Exception in catch&quot;</span><span class="p">);</span>
+<a id="__codelineno-28-6" name="__codelineno-28-6"></a><span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RuntimeException</span><span class="p">(</span><span class="s">"Exception in catch"</span><span class="p">);</span>
 <a id="__codelineno-28-7" name="__codelineno-28-7"></a><span class="w">         </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-28-8" name="__codelineno-28-8"></a><span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">&quot;Exception in finally&quot;</span><span class="p">);</span>
+<a id="__codelineno-28-8" name="__codelineno-28-8"></a><span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">"Exception in finally"</span><span class="p">);</span>
 <a id="__codelineno-28-9" name="__codelineno-28-9"></a><span class="w">         </span><span class="p">}</span>
 <a id="__codelineno-28-10" name="__codelineno-28-10"></a><span class="w">     </span><span class="p">}</span>
 <a id="__codelineno-28-11" name="__codelineno-28-11"></a><span class="p">}</span>
@@ -6395,19 +6519,19 @@
 <a id="__codelineno-29-2" name="__codelineno-29-2"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-29-3" name="__codelineno-29-3"></a><span class="w">        </span><span class="n">Exception</span><span class="w"> </span><span class="n">catchException</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
 <a id="__codelineno-29-4" name="__codelineno-29-4"></a><span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-29-5" name="__codelineno-29-5"></a><span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Exception</span><span class="p">(</span><span class="s">&quot;Exception in try&quot;</span><span class="p">);</span>
+<a id="__codelineno-29-5" name="__codelineno-29-5"></a><span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Exception</span><span class="p">(</span><span class="s">"Exception in try"</span><span class="p">);</span>
 <a id="__codelineno-29-6" name="__codelineno-29-6"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-29-7" name="__codelineno-29-7"></a><span class="w">            </span><span class="n">catchException</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="p">;</span>
-<a id="__codelineno-29-8" name="__codelineno-29-8"></a><span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RuntimeException</span><span class="p">(</span><span class="s">&quot;Exception in catch&quot;</span><span class="p">);</span>
+<a id="__codelineno-29-8" name="__codelineno-29-8"></a><span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RuntimeException</span><span class="p">(</span><span class="s">"Exception in catch"</span><span class="p">);</span>
 <a id="__codelineno-29-9" name="__codelineno-29-9"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-29-10" name="__codelineno-29-10"></a><span class="w">            </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-29-11" name="__codelineno-29-11"></a><span class="w">                </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">&quot;Exception in finally&quot;</span><span class="p">);</span>
+<a id="__codelineno-29-11" name="__codelineno-29-11"></a><span class="w">                </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">"Exception in finally"</span><span class="p">);</span>
 <a id="__codelineno-29-12" name="__codelineno-29-12"></a><span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">IllegalArgumentException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-29-13" name="__codelineno-29-13"></a><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">catchException</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-29-14" name="__codelineno-29-14"></a><span class="w">                    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Catch exception: &quot;</span><span class="w"> </span><span class="o">+</span>
+<a id="__codelineno-29-14" name="__codelineno-29-14"></a><span class="w">                    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Catch exception: "</span><span class="w"> </span><span class="o">+</span>
 <a id="__codelineno-29-15" name="__codelineno-29-15"></a><span class="w">                            </span><span class="n">catchException</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
 <a id="__codelineno-29-16" name="__codelineno-29-16"></a><span class="w">                </span><span class="p">}</span>
-<a id="__codelineno-29-17" name="__codelineno-29-17"></a><span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Finally exception: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
+<a id="__codelineno-29-17" name="__codelineno-29-17"></a><span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Finally exception: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
 <a id="__codelineno-29-18" name="__codelineno-29-18"></a><span class="w">            </span><span class="p">}</span>
 <a id="__codelineno-29-19" name="__codelineno-29-19"></a><span class="w">        </span><span class="p">}</span>
 <a id="__codelineno-29-20" name="__codelineno-29-20"></a><span class="w">    </span><span class="p">}</span>
@@ -6440,7 +6564,7 @@
 <a id="__codelineno-30-8" name="__codelineno-30-8"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-30-9" name="__codelineno-30-9"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 <a id="__codelineno-30-10" name="__codelineno-30-10"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-30-11" name="__codelineno-30-11"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;3&quot;</span><span class="p">);</span>
+<a id="__codelineno-30-11" name="__codelineno-30-11"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">"3"</span><span class="p">);</span>
 <a id="__codelineno-30-12" name="__codelineno-30-12"></a><span class="w">        </span><span class="p">}</span>
 <a id="__codelineno-30-13" name="__codelineno-30-13"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-30-14" name="__codelineno-30-14"></a><span class="p">}</span>
@@ -6572,14 +6696,14 @@
 <a id="__codelineno-33-11" name="__codelineno-33-11"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">buffer</span><span class="p">.</span><span class="na">remaining</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">receivedData</span><span class="p">.</span><span class="na">length</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-33-12" name="__codelineno-33-12"></a><span class="w">            </span><span class="n">buffer</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">receivedData</span><span class="p">);</span>
 <a id="__codelineno-33-13" name="__codelineno-33-13"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-33-14" name="__codelineno-33-14"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Not enough space in buffer to write data.&quot;</span><span class="p">);</span>
+<a id="__codelineno-33-14" name="__codelineno-33-14"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Not enough space in buffer to write data."</span><span class="p">);</span>
 <a id="__codelineno-33-15" name="__codelineno-33-15"></a><span class="w">        </span><span class="p">}</span>
 <a id="__codelineno-33-16" name="__codelineno-33-16"></a><span class="c1">// 准备读取数据：将limit设置为当前位置，position设回0</span>
 <a id="__codelineno-33-17" name="__codelineno-33-17"></a><span class="w">        </span><span class="n">buffer</span><span class="p">.</span><span class="na">flip</span><span class="p">();</span>
 <a id="__codelineno-33-18" name="__codelineno-33-18"></a><span class="c1">// 读取数据</span>
 <a id="__codelineno-33-19" name="__codelineno-33-19"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">buffer</span><span class="p">.</span><span class="na">hasRemaining</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-33-20" name="__codelineno-33-20"></a><span class="w">            </span><span class="kt">byte</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">buffer</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
-<a id="__codelineno-33-21" name="__codelineno-33-21"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Read data: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">data</span><span class="p">);</span>
+<a id="__codelineno-33-21" name="__codelineno-33-21"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Read data: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">data</span><span class="p">);</span>
 <a id="__codelineno-33-22" name="__codelineno-33-22"></a><span class="w">        </span><span class="p">}</span>
 <a id="__codelineno-33-23" name="__codelineno-33-23"></a><span class="c1">// 清空缓冲区以便再次使⽤</span>
 <a id="__codelineno-33-24" name="__codelineno-33-24"></a><span class="w">        </span><span class="n">buffer</span><span class="p">.</span><span class="na">clear</span><span class="p">();</span>
@@ -6611,7 +6735,7 @@
 <span class="normal"><a href="#__codelineno-34-4">4</a></span>
 <span class="normal"><a href="#__codelineno-34-5">5</a></span>
 <span class="normal"><a href="#__codelineno-34-6">6</a></span>
-<span class="normal"><a href="#__codelineno-34-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1"></a><span class="n">AsynchronousFileChannel</span><span class="w"> </span><span class="n">fileChannel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AsynchronousFileChannel</span><span class="p">.</span><span class="na">open</span><span class="p">(</span><span class="n">Paths</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;test.txt&quot;</span><span class="p">),</span>
+<span class="normal"><a href="#__codelineno-34-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1"></a><span class="n">AsynchronousFileChannel</span><span class="w"> </span><span class="n">fileChannel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AsynchronousFileChannel</span><span class="p">.</span><span class="na">open</span><span class="p">(</span><span class="n">Paths</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">"test.txt"</span><span class="p">),</span>
 <a id="__codelineno-34-2" name="__codelineno-34-2"></a><span class="w">        </span><span class="n">StandardOpenOption</span><span class="p">.</span><span class="na">READ</span><span class="p">);</span>
 <a id="__codelineno-34-3" name="__codelineno-34-3"></a><span class="n">ByteBuffer</span><span class="w"> </span><span class="n">buffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ByteBuffer</span><span class="p">.</span><span class="na">allocate</span><span class="p">(</span><span class="mi">1024</span><span class="p">);</span>
 <a id="__codelineno-34-4" name="__codelineno-34-4"></a><span class="n">Future</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fileChannel</span><span class="p">.</span><span class="na">read</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
@@ -6765,7 +6889,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年3月22日 14:21:10 UTC">2026年3月22日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月17日 12:58:52 UTC">2026年8月17日</span>
   </span>
 
     

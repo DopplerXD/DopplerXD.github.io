@@ -1937,7 +1937,7 @@
 <a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="nt">&lt;/dependency&gt;</span>
 </code></pre></div></td></tr></table></div></p>
 <h2 id="_2">二、设置配置文件<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">YAML</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
 <span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
@@ -1968,38 +1968,38 @@
 <span class="normal"><a href="#__codelineno-1-29">29</a></span>
 <span class="normal"><a href="#__codelineno-1-30">30</a></span>
 <span class="normal"><a href="#__codelineno-1-31">31</a></span>
-<span class="normal"><a href="#__codelineno-1-32">32</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a># springdoc-openapi项目配置
-<a id="__codelineno-1-2" name="__codelineno-1-2"></a>springdoc:
-<a id="__codelineno-1-3" name="__codelineno-1-3"></a>  swagger-ui:
-<a id="__codelineno-1-4" name="__codelineno-1-4"></a>    path: /swagger-ui.html
-<a id="__codelineno-1-5" name="__codelineno-1-5"></a>    tags-sorter: alpha
-<a id="__codelineno-1-6" name="__codelineno-1-6"></a>    operations-sorter: alpha
-<a id="__codelineno-1-7" name="__codelineno-1-7"></a>    enabled: true
-<a id="__codelineno-1-8" name="__codelineno-1-8"></a>  api-docs:
-<a id="__codelineno-1-9" name="__codelineno-1-9"></a>    path: /v3/api-docs
-<a id="__codelineno-1-10" name="__codelineno-1-10"></a>    enabled: true
-<a id="__codelineno-1-11" name="__codelineno-1-11"></a>  group-configs:
-<a id="__codelineno-1-12" name="__codelineno-1-12"></a>    - group: &#39;default&#39;
-<a id="__codelineno-1-13" name="__codelineno-1-13"></a>      paths-to-match: &#39;/**&#39;
-<a id="__codelineno-1-14" name="__codelineno-1-14"></a>      #生成文档所需的扫包路径，一般为启动类目录
-<a id="__codelineno-1-15" name="__codelineno-1-15"></a>      packages-to-scan: site.dopplerxd.backend
-<a id="__codelineno-1-16" name="__codelineno-1-16"></a># knife4j的增强配置，不需要增强可以不配
-<a id="__codelineno-1-17" name="__codelineno-1-17"></a>#knife4j配置
-<a id="__codelineno-1-18" name="__codelineno-1-18"></a>knife4j:
-<a id="__codelineno-1-19" name="__codelineno-1-19"></a>  #是否启用增强设置
-<a id="__codelineno-1-20" name="__codelineno-1-20"></a>  enable: true
-<a id="__codelineno-1-21" name="__codelineno-1-21"></a>  #开启生产环境屏蔽
-<a id="__codelineno-1-22" name="__codelineno-1-22"></a>  production: false
-<a id="__codelineno-1-23" name="__codelineno-1-23"></a>  #是否启用登录认证
-<a id="__codelineno-1-24" name="__codelineno-1-24"></a>  basic:
-<a id="__codelineno-1-25" name="__codelineno-1-25"></a>    enable: true
-<a id="__codelineno-1-26" name="__codelineno-1-26"></a>    username: admin
-<a id="__codelineno-1-27" name="__codelineno-1-27"></a>    password: 123456
-<a id="__codelineno-1-28" name="__codelineno-1-28"></a>  setting:
-<a id="__codelineno-1-29" name="__codelineno-1-29"></a>    language: zh_cn
-<a id="__codelineno-1-30" name="__codelineno-1-30"></a>    enable-version: true
-<a id="__codelineno-1-31" name="__codelineno-1-31"></a>    enable-swagger-models: true
-<a id="__codelineno-1-32" name="__codelineno-1-32"></a>    swagger-model-name: 用户模块
+<span class="normal"><a href="#__codelineno-1-32">32</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># springdoc-openapi项目配置</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="nt">springdoc</span><span class="p">:</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">  </span><span class="nt">swagger-ui</span><span class="p">:</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/swagger-ui.html</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">    </span><span class="nt">tags-sorter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">alpha</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">    </span><span class="nt">operations-sorter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">alpha</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">    </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">  </span><span class="nt">api-docs</span><span class="p">:</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/v3/api-docs</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="w">    </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">  </span><span class="nt">group-configs</span><span class="p">:</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">group</span><span class="p">:</span><span class="w"> </span><span class="s">'default'</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="w">      </span><span class="nt">paths-to-match</span><span class="p">:</span><span class="w"> </span><span class="s">'/**'</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="w">      </span><span class="c1">#生成文档所需的扫包路径，一般为启动类目录</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="w">      </span><span class="nt">packages-to-scan</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">site.dopplerxd.backend</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="c1"># knife4j的增强配置，不需要增强可以不配</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="c1">#knife4j配置</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="nt">knife4j</span><span class="p">:</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19"></a><span class="w">  </span><span class="c1">#是否启用增强设置</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20"></a><span class="w">  </span><span class="nt">enable</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21"></a><span class="w">  </span><span class="c1">#开启生产环境屏蔽</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22"></a><span class="w">  </span><span class="nt">production</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23"></a><span class="w">  </span><span class="c1">#是否启用登录认证</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24"></a><span class="w">  </span><span class="nt">basic</span><span class="p">:</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25"></a><span class="w">    </span><span class="nt">enable</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-1-26" name="__codelineno-1-26"></a><span class="w">    </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">admin</span>
+<a id="__codelineno-1-27" name="__codelineno-1-27"></a><span class="w">    </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">123456</span>
+<a id="__codelineno-1-28" name="__codelineno-1-28"></a><span class="w">  </span><span class="nt">setting</span><span class="p">:</span>
+<a id="__codelineno-1-29" name="__codelineno-1-29"></a><span class="w">    </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">zh_cn</span>
+<a id="__codelineno-1-30" name="__codelineno-1-30"></a><span class="w">    </span><span class="nt">enable-version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-1-31" name="__codelineno-1-31"></a><span class="w">    </span><span class="nt">enable-swagger-models</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-1-32" name="__codelineno-1-32"></a><span class="w">    </span><span class="nt">swagger-model-name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">用户模块</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="_3">三、添加配置类<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>设置 SwaggerConfig.java：
@@ -2035,11 +2035,11 @@
 <a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w">    </span><span class="nd">@Bean</span>
 <a id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">OpenAPI</span><span class="w"> </span><span class="nf">swaggerOpenApi</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">OpenAPI</span><span class="p">()</span>
-<a id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="w">                </span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Info</span><span class="p">().</span><span class="na">title</span><span class="p">(</span><span class="s">&quot;doppler&#39;s demo&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="w">                        </span><span class="p">.</span><span class="na">description</span><span class="p">(</span><span class="s">&quot;基于 Knife4j OpenApi3 的测试接口文档&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="w">                        </span><span class="p">.</span><span class="na">version</span><span class="p">(</span><span class="s">&quot;v1.0.0&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="w">                        </span><span class="p">.</span><span class="na">contact</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Contact</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;DopplerXD&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-18" name="__codelineno-2-18"></a><span class="w">                                </span><span class="p">.</span><span class="na">email</span><span class="p">(</span><span class="s">&quot;1509209607@qq.com&quot;</span><span class="p">)));</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="w">                </span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Info</span><span class="p">().</span><span class="na">title</span><span class="p">(</span><span class="s">"doppler's demo"</span><span class="p">)</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="w">                        </span><span class="p">.</span><span class="na">description</span><span class="p">(</span><span class="s">"基于 Knife4j OpenApi3 的测试接口文档"</span><span class="p">)</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="w">                        </span><span class="p">.</span><span class="na">version</span><span class="p">(</span><span class="s">"v1.0.0"</span><span class="p">)</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="w">                        </span><span class="p">.</span><span class="na">contact</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Contact</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">"DopplerXD"</span><span class="p">)</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18"></a><span class="w">                                </span><span class="p">.</span><span class="na">email</span><span class="p">(</span><span class="s">"1509209607@qq.com"</span><span class="p">)));</span>
 <a id="__codelineno-2-19" name="__codelineno-2-19"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-2-20" name="__codelineno-2-20"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div></p>
@@ -2083,20 +2083,20 @@
 <a id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="cm"> * @author doppleryxc</span>
 <a id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="cm"> */</span>
 <a id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="nd">@RestController</span>
-<a id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="nd">@Tag</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;用户接口&quot;</span><span class="p">)</span>
-<a id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="nd">@RequestMapping</span><span class="p">(</span><span class="s">&quot;/user&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="nd">@Tag</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"用户接口"</span><span class="p">)</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="nd">@RequestMapping</span><span class="p">(</span><span class="s">"/user"</span><span class="p">)</span>
 <a id="__codelineno-3-15" name="__codelineno-3-15"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">TestController</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-3-16" name="__codelineno-3-16"></a>
-<a id="__codelineno-3-17" name="__codelineno-3-17"></a><span class="w">    </span><span class="nd">@Operation</span><span class="p">(</span><span class="n">summary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;用户信息&quot;</span><span class="p">)</span>
-<a id="__codelineno-3-18" name="__codelineno-3-18"></a><span class="w">    </span><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/info&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17"></a><span class="w">    </span><span class="nd">@Operation</span><span class="p">(</span><span class="n">summary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"用户信息"</span><span class="p">)</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18"></a><span class="w">    </span><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">"/info"</span><span class="p">)</span>
 <a id="__codelineno-3-19" name="__codelineno-3-19"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">test</span><span class="p">(){</span>
-<a id="__codelineno-3-20" name="__codelineno-3-20"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;User Info&quot;</span><span class="p">;</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">"User Info"</span><span class="p">;</span>
 <a id="__codelineno-3-21" name="__codelineno-3-21"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-3-22" name="__codelineno-3-22"></a>
-<a id="__codelineno-3-23" name="__codelineno-3-23"></a><span class="w">    </span><span class="nd">@Operation</span><span class="p">(</span><span class="n">summary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;你好&quot;</span><span class="p">)</span>
-<a id="__codelineno-3-24" name="__codelineno-3-24"></a><span class="w">    </span><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/hello&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-23" name="__codelineno-3-23"></a><span class="w">    </span><span class="nd">@Operation</span><span class="p">(</span><span class="n">summary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"你好"</span><span class="p">)</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24"></a><span class="w">    </span><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">"/hello"</span><span class="p">)</span>
 <a id="__codelineno-3-25" name="__codelineno-3-25"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="nf">test2</span><span class="p">(){</span>
-<a id="__codelineno-3-26" name="__codelineno-3-26"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;hello&quot;</span><span class="p">;</span>
+<a id="__codelineno-3-26" name="__codelineno-3-26"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">"hello"</span><span class="p">;</span>
 <a id="__codelineno-3-27" name="__codelineno-3-27"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-3-28" name="__codelineno-3-28"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
