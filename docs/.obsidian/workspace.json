@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术学习/Java 集合.md",
+                "file": "index.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Java 集合"
+              "title": "index"
             }
           }
         ]
@@ -144,7 +144,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术学习/Java 集合.md",
+                "file": "index.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -185,6 +185,7 @@
   },
   "active": "c9fd8a37d95840af",
   "lastOpenFiles": [
+    "技术学习/Java 集合.md",
     "技术学习/Java 基础.md",
     "开发经验/后端/SpringBoot 加载 .env 配置文件实现脱敏处理.md",
     "index.md",
@@ -222,7 +223,6 @@
     "项目学习 - MYDB/MyDB 学习 - Java 仿写 MySQL.md",
     "项目学习 - MYDB/未命名.md",
     "项目学习 - MYDB",
-    "技术学习/Java 集合.md",
     "技术学习/Spring.md",
     "技术学习/未命名 1.base",
     "技术学习/未命名.base",

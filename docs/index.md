@@ -6,9 +6,9 @@
 
 我的博客，基于 WordPress 部署 [Doppler's Blog](https://www.dopplerxd.site)。
 
-audio2text - 智能音视频转写整理工具 https://github.com/DopplerXD/audio2text
+[audio2text](https://github.com/DopplerXD/audio2text) - 智能音视频转写整理工具。
 
-Markdown Blog Cover Publisher - 为 Markdown 文章生成头图（Skill 与 Python 脚本） https://github.com/DopplerXD/markdown-blog-cover-publisher
+[Markdown Blog Cover Publisher](https://github.com/DopplerXD/markdown-blog-cover-publisher) - 为 Markdown 文章生成头图（Skill 与 Python 脚本）。
 
 ---
 
