@@ -8,10 +8,14 @@
 
 audio2text - 智能音视频转写整理工具 https://github.com/DopplerXD/audio2text
 
+Markdown Blog Cover Publisher - 为 Markdown 文章生成头图（Skill 与 Python 脚本） https://github.com/DopplerXD/markdown-blog-cover-publisher
+
 ---
 
 ## 更新日志
 
+- **2026-08-19**：新增 [AI Coding 技巧：将项目约束沉淀为可复用上下文](AI/AI%20Coding%20技巧%20-%20将项目约束沉淀为可复用上下文.md)，介绍通过仓库级约束和分层上下文降低老旧项目 AI Coding 的理解成本。
+- **2026-08-19**：新增 [Markdown Blog Cover Publisher：为 Markdown 文章生成头图](AI/Markdown%20Blog%20Cover%20Publisher：为%20Markdown%20文章生成%20头图.md)，介绍 Markdown 文章封面生成、人工审批、资产安装与校验流程，并配套头图。
 - **2026-08-17**：补充 [Java 基础](技术学习/Java%20基础.md)，新增 Java 7/8/9+ 抽象类与接口的变量、方法能力对比及面试记忆要点。
 - **2026-08-13**：为 [AI 工具使用技巧](AI/AI%20工具使用技巧.md) 添加文章封面。
 - **2026-08-04**：新增 [SpringBoot 加载 `.env` 配置文件实现脱敏处理](开发经验/后端/SpringBoot%20加载%20.env%20配置文件实现脱敏处理.md)。
