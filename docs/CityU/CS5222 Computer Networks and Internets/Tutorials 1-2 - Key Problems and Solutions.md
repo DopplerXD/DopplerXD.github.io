@@ -20,6 +20,9 @@
 
 一个长度为 $L$ 的分组依次经过速率为 $R_1$、$R_2$ 的两条链路。忽略 propagation、queueing 与 processing delay。
 
+<details>
+<summary>查看 Solution</summary>
+
 路由器必须收完整个分组后才能向第二条链路发送，因此
 
 $$
@@ -38,9 +41,14 @@ $$
 
 理解流水线：第一个分组需要 $2L/R$ 到达；之后每隔 $L/R$ 到达一个分组，所以总时间为 $2L/R+(P-1)L/R$。
 
+</details>
+
 ### Q2 Circuit-Switched Network 容量
 
 四个交换机组成一个环，每条链路有 4 个 circuits。
+
+<details>
+<summary>查看 Solution</summary>
 
 #### a. 全网最大同时连接数
 
@@ -62,6 +70,8 @@ $$
 
 **答案：B**
 
+</details>
+
 #### c. 同时建立 4 条 A-C 与 4 条 B-D 连接
 
 可以。把每组连接各拆成两条走顺时针、两条走逆时针，使任意链路恰好承载 4 条连接，不超过容量。
@@ -70,7 +80,12 @@ $$
 
 ### Q3 FDM Circuit Switching
 
-总速率为 1.536 Mbps，共 12 个等带宽 frequency bands。每条 circuit 的速率为
+总速率为 1.536 Mbps，共 12 个等带宽 frequency bands。发送 160,000 bit 文件前需要 0.6 s 建立 circuit，求总耗时。
+
+<details>
+<summary>查看 Solution</summary>
+
+每条 circuit 的速率为
 
 $$
 R=\frac{1.536\text{ Mbps}}{12}=128\text{ kbps}
@@ -90,9 +105,14 @@ $$
 
 **答案：A**
 
+</details>
+
 ### Q4 Statistical Multiplexing
 
 链路速率 3 Mbps，每个活跃用户需要 150 kbps。
+
+<details>
+<summary>查看 Solution</summary>
 
 #### a. Circuit switching
 
@@ -118,11 +138,16 @@ $$
 
 这是 packet switching 能通过 statistical multiplexing 支持更多突发用户的数学基础，但活跃用户过多时仍会排队与丢包。
 
+</details>
+
 ## Tutorial 2
 
 ### Q1 VoIP End-to-End Delay
 
 语音源速率为 128 kbps，每个 packet 为 64 byte；链路速率 4 Mbps，propagation delay 为 8 ms。
+
+<details>
+<summary>查看 Solution</summary>
 
 1. Packetization：$64\times8=512$ bit
 
@@ -146,7 +171,14 @@ $$
 
 > 关键：题目从“bit 被创建”开始计时，因此必须等待整个 64-byte packet 收集完成，不能漏掉 packetization delay。
 
+</details>
+
 ### Q2 三条 Store-and-Forward 链路
+
+一个 1500-byte packet 经过三条链路和两个 packet switches。求通用端到端时延公式，并代入题目参数计算结果。
+
+<details>
+<summary>查看 Solution</summary>
 
 #### a. 通用公式
 
@@ -184,7 +216,14 @@ $$
 
 **答案：B**
 
+</details>
+
 ### Q3 Cut-Through Switching
+
+沿用 Q2 的等速率链路与距离，令 processing delay 为 0，并让 switches 收到 bit 后立即转发。求端到端时延。
+
+<details>
+<summary>查看 Solution</summary>
 
 三条链路速率相同，switch 收到一个 bit 后立即转发，无 processing delay。各链路可对同一 bit 流形成流水线，因此只计算一次完整分组 transmission delay：
 
@@ -196,9 +235,14 @@ $$
 
 > 对比：store-and-forward 需要 $3L/R$；等速率 cut-through 只需要 $L/R$。Propagation delay 在两种模式下都存在。
 
+</details>
+
 ### Q4 Queueing Delay
 
 每个 packet 为 1500 byte $=12{,}000$ bit。当前正在发送的 packet 已完成一半，还剩 6000 bit；队列中另有 4 个完整 packets。
+
+<details>
+<summary>查看 Solution</summary>
 
 新到分组需要等待的总 bit 数为
 
@@ -220,7 +264,14 @@ $$
 
 注意新到分组自身的 transmission delay 不属于它的 queueing delay。
 
+</details>
+
 ### Q5 Traceroute
+
+解释 traceroute 输出的各列、`*` 的含义，以及后一跳 RTT 可能更小的原因。
+
+<details>
+<summary>查看 Solution</summary>
 
 #### a. 每列含义
 
@@ -235,6 +286,8 @@ $$
 #### c. 为什么 Router N 的 RTT 可能大于 Router N+1
 
 两行 RTT 来自不同 packets。瞬时 queueing delay、router processing、return path 和 ICMP reply scheduling 都会变化。因此后一跳的单次测量可能反而更快。
+
+</details>
 
 ## 解题决策表
 

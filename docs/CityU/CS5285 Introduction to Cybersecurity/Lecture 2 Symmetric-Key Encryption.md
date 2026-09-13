@@ -186,13 +186,13 @@ DES 的主要现实问题是 56 位密钥过短。3DES 与 DESX 扩大了穷举�
 
 ### 5.1 必背参数
 
-| 项目 | AES 参数 |
-| --- | --- |
-| 分组长度 | 固定 128 bit，即 16 byte |
-| 密钥长度 | 128、192、256 bit |
-| 轮数 | 10、12、14 轮 |
-| 结构 | Substitution-Permutation Network，SPN |
-| 状态排列 | 16 字节按列填入 $4\times4$ 矩阵 |
+| 项目   | AES 参数                               |
+| ---- | ------------------------------------ |
+| 分组长度 | 固定 128 bit，即 16 byte                 |
+| 密钥长度 | 128、192、256 bit                      |
+| 轮数   | 10、12、14 轮                           |
+| 结构   | Substitution-Permutation Network，SPN |
+| 状态排列 | 16 字节按列填入 $4\times4$ 矩阵              |
 
 AES 先执行一次 AddRoundKey。普通轮包含四种变换，最后一轮省略 MixColumn。
 
