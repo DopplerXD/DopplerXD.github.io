@@ -12,13 +12,13 @@
         <meta name="author" content="DopplerXD">
       
       
-        <link rel="canonical" href="https://dopplerxd.top/CityU/CS5285%20Introduction%20to%20Cybersecurity/Lecture%201%20Introductory%20Security%20Concepts/">
+        <link rel="canonical" href="https://dopplerxd.top/CityU/CS5285%20Introduction%20to%20Cybersecurity/Lecture%202%20Symmetric-Key%20Encryption/">
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../Lecture%201%20Introductory%20Security%20Concepts/">
       
       
-        <link rel="next" href="../Lecture%202%20Symmetric-Key%20Encryption/">
+        <link rel="next" href="../../CS5351%20Software%20Engineering/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>Lecture 1 Introductory Security Concepts - DopplerXD Docs</title>
+        <title>Lecture 2：对称密钥加密 - DopplerXD Docs</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#lecture-2" class="md-skip">
           跳转至
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Lecture 1 Introductory Security Concepts
+              Lecture 2：对称密钥加密
             
           </span>
         </div>
@@ -931,6 +931,34 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lecture%201%20Introductory%20Security%20Concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lecture 1 Introductory Security Concepts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -940,6 +968,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
@@ -948,7 +978,7 @@
   <span class="md-ellipsis">
     
   
-    Lecture 1 Introductory Security Concepts
+    Lecture 2：对称密钥加密
   
 
     
@@ -966,7 +996,7 @@
   <span class="md-ellipsis">
     
   
-    Lecture 1 Introductory Security Concepts
+    Lecture 2：对称密钥加密
   
 
     
@@ -984,6 +1014,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -995,18 +1027,7 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        信息安全的基本问题
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cia" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        CIA 三元组
+        学习目标
       
     </span>
   </a>
@@ -1017,7 +1038,373 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        威胁、漏洞与攻击
+        先记住这张路线图
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 对称加密的基本模型
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 对称加密的基本模型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kerckhoffs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kerckhoffs 原则
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 古典替换密码
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 古典替换密码">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-caesar-cipher" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Caesar Cipher
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 简单替换密码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 频率分析
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-vigenere-cipher" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Vigenère Cipher
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-enigma" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 Enigma 的启示
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 一次一密与流密码
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 一次一密与流密码">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-one-time-pad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 One-Time Pad
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 流密码
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-des" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 分组密码与 DES
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 分组密码与 DES">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-feistel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Feistel 结构
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 好的分组密码应具备的性质
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 穷举攻击与密钥空间
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-aes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. AES
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. AES">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 必背参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 四种轮变换
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 有限域运算
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-key-expansion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 Key Expansion
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 分组密码工作模式
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 分组密码工作模式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-ecb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 ECB
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-cbc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 CBC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-ctr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 CTR
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-cfb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 CFB
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5 模式对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 传输错误与错误传播
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 实际选择密码方案
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. 易错点速查
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. 自测题
       
     </span>
   </a>
@@ -1028,85 +1415,7 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        对手模型
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        安全服务与安全机制
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="安全服务与安全机制">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        常见安全服务
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        算法示例
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        安全标准
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="安全标准">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        主要标准组织
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        小结
+        一页背诵清单
       
     </span>
   </a>
@@ -1117,34 +1426,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Lecture%202%20Symmetric-Key%20Encryption/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Lecture 2：对称密钥加密
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -1784,6 +2065,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1795,18 +2078,7 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        信息安全的基本问题
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cia" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        CIA 三元组
+        学习目标
       
     </span>
   </a>
@@ -1817,7 +2089,373 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        威胁、漏洞与攻击
+        先记住这张路线图
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 对称加密的基本模型
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 对称加密的基本模型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kerckhoffs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kerckhoffs 原则
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 古典替换密码
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 古典替换密码">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-caesar-cipher" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Caesar Cipher
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 简单替换密码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 频率分析
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-vigenere-cipher" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Vigenère Cipher
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-enigma" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 Enigma 的启示
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 一次一密与流密码
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 一次一密与流密码">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-one-time-pad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 One-Time Pad
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 流密码
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-des" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 分组密码与 DES
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 分组密码与 DES">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-feistel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Feistel 结构
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 好的分组密码应具备的性质
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 穷举攻击与密钥空间
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-aes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. AES
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. AES">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 必背参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 四种轮变换
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 有限域运算
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-key-expansion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 Key Expansion
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 分组密码工作模式
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 分组密码工作模式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-ecb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 ECB
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-cbc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 CBC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-ctr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 CTR
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-cfb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 CFB
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5 模式对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 传输错误与错误传播
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 实际选择密码方案
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. 易错点速查
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. 自测题
       
     </span>
   </a>
@@ -1828,85 +2466,7 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        对手模型
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        安全服务与安全机制
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="安全服务与安全机制">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        常见安全服务
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        算法示例
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        安全标准
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="安全标准">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        主要标准组织
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        小结
+        一页背诵清单
       
     </span>
   </a>
@@ -2007,68 +2567,442 @@
   
 
 
-  <h1>Lecture 1 Introductory Security Concepts</h1>
-
-<h2 id="_1">信息安全的基本问题<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>一个系统、应用或协议的“安全性”总是相对于两项内容而言：希望实现的一组安全属性，以及攻击者具备的能力。因此，评价安全措施时需要同时考虑适用性、强度和成本，并区分无条件安全与计算安全。</p>
-<p>安全的对象是资产。信息安全保护信息资产，保护措施可以分为：</p>
+<h1 id="lecture-2">Lecture 2：对称密钥加密<a class="headerlink" href="#lecture-2" title="Permanent link">&para;</a></h1>
+<h2 id="_1">学习目标<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>完成本讲后，应当能够：</p>
 <ul>
-<li><strong>预防（prevention）</strong>：避免资产受损；</li>
-<li><strong>检测（detection）</strong>：发现资产何时、由谁以及如何受损；</li>
-<li><strong>反应与恢复（reaction/recovery）</strong>：恢复资产或从损害中恢复。</li>
+<li>解释对称加密的基本模型与 Kerckhoffs 原则；</li>
+<li>比较 Caesar、简单替换、Vigenère 与一次一密的安全性；</li>
+<li>区分流密码与分组密码；</li>
+<li>说明 DES 的 Feistel 结构、AES 的四种轮变换；</li>
+<li>比较 ECB、CBC、CTR、CFB 的工作方式、随机访问能力和错误传播特性；</li>
+<li>根据密钥长度、公开分析、标准化程度和工作模式判断密码方案是否可靠。</li>
 </ul>
-<h2 id="cia">CIA 三元组<a class="headerlink" href="#cia" title="Permanent link">&para;</a></h2>
-<p>信息保护最常用的三个目标是 CIA：</p>
+<h2 id="_2">先记住这张路线图<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>层次</th>
+<th>核心问题</th>
+<th>本讲内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>密码目标</td>
+<td>如何让窃听者看不懂消息</td>
+<td>机密性</td>
+</tr>
+<tr>
+<td>密码原语</td>
+<td>如何把明文变成密文</td>
+<td>Caesar、替换密码、Vigenère、OTP、RC4、DES、AES</td>
+</tr>
+<tr>
+<td>安全分析</td>
+<td>攻击者如何破解</td>
+<td>穷举、频率分析、已知明文、差分与线性密码分析</td>
+</tr>
+<tr>
+<td>多分组处理</td>
+<td>如何加密长消息</td>
+<td>ECB、CBC、CTR、CFB</td>
+</tr>
+<tr>
+<td>工程选择</td>
+<td>什么方案值得使用</td>
+<td>足够的密钥长度、公开算法、标准方案、正确模式</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">五分钟复习顺序</p>
+<p>先背 AES 参数和四种变换，再比较四种工作模式，最后回顾古典密码如何被频率分析与 Kasiski 检验攻破。</p>
+</div>
+<h2 id="1">1. 对称加密的基本模型<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p>对称密钥密码系统使用同一把秘密密钥完成加密和解密：</p>
+<div class="arithmatex">\[
+C = E_K(P), \qquad P = D_K(C)
+\]</div>
 <ul>
-<li><strong>机密性（confidentiality）</strong>：防止未经授权的信息披露；</li>
-<li><strong>完整性（integrity）</strong>：防止未经授权的数据修改；</li>
-<li><strong>可用性（availability）</strong>：防止在需要时未经授权地阻止访问信息或资源。</li>
+<li><span class="arithmatex">\(P\)</span>：明文（plaintext）</li>
+<li><span class="arithmatex">\(C\)</span>：密文（ciphertext）</li>
+<li><span class="arithmatex">\(K\)</span>：通信双方共享的秘密密钥</li>
+<li><span class="arithmatex">\(E\)</span>、<span class="arithmatex">\(D\)</span>：加密与解密算法</li>
 </ul>
-<p>对应的典型威胁分别是数据暴露、数据篡改和拒绝服务。</p>
-<h2 id="_2">威胁、漏洞与攻击<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>对称加密主要提供<strong>机密性</strong>。算法可以公开，真正需要保密的是密钥。</p>
+<h3 id="kerckhoffs">Kerckhoffs 原则<a class="headerlink" href="#kerckhoffs" title="Permanent link">&para;</a></h3>
+<p>分析安全性时，应假设攻击者完全知道密码系统的设计，只不知道密钥。可靠方案不能依赖“别人不知道算法”来维持安全。</p>
+<p>攻击者通常有两个目标：</p>
+<ol>
+<li>找到加密密钥；</li>
+<li>不找密钥，直接从密文恢复明文。</li>
+</ol>
+<h2 id="2">2. 古典替换密码<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<h3 id="21-caesar-cipher">2.1 Caesar Cipher<a class="headerlink" href="#21-caesar-cipher" title="Permanent link">&para;</a></h3>
+<p>Caesar 密码把每个字母向后平移固定位置。若字母用 <span class="arithmatex">\(0\)</span> 到 <span class="arithmatex">\(25\)</span> 表示：</p>
+<div class="arithmatex">\[
+E_k(x) = (x+k) \bmod 26
+\]</div>
+<div class="arithmatex">\[
+D_k(y) = (y-k) \bmod 26
+\]</div>
+<p>它只有 25 个有效密钥，逐一尝试即可破解。</p>
+<h3 id="22">2.2 简单替换密码<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
+<p>简单替换密码为 26 个字母选择一个排列，因此密钥空间为：</p>
+<div class="arithmatex">\[
+26! \approx 2^{88}
+\]</div>
+<p>密钥空间很大，但不代表安全。每个明文字母总映射到同一个密文字母，语言的统计特征仍然保留。</p>
+<h3 id="23">2.3 频率分析<a class="headerlink" href="#23" title="Permanent link">&para;</a></h3>
+<p>频率分析利用自然语言的统计规律：</p>
 <ul>
-<li><strong>安全策略</strong>规定系统希望满足的保护目标；</li>
-<li><strong>威胁（threat）</strong>是可能违反安全策略的方式；</li>
-<li><strong>对策（countermeasure）</strong>是用于抵御威胁的控制措施；</li>
-<li><strong>漏洞（vulnerability）</strong>是系统或其对策中的弱点；</li>
-<li><strong>攻击（attack）</strong>是威胁利用漏洞后的实际发生。</li>
+<li>英文中 <code>e</code>、<code>t</code> 比 <code>z</code>、<code>q</code> 常见；</li>
+<li>单字母单词通常是 <code>a</code> 或 <code>I</code>；</li>
+<li>常见三字母单词包括 <code>the</code>、<code>and</code>；</li>
+<li>双字母、字母前后关系和可猜测短语也会泄露信息。</li>
 </ul>
-<p>威胁可以是蓄意的，例如黑客入侵，也可以是意外的，例如把敏感文件发给错误的收件人。社会工程说明攻击不一定依赖技术手段，用户教育也是安全控制的一部分。</p>
-<h2 id="_3">对手模型<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>对手（adversary）试图绕过系统安全。被动对手只尝试获取未经授权的信息，主动对手则可能修改、删除或伪造信息，未经授权传输信息，或阻止合法用户访问信息。设计系统时需要估计对手的动机、背景和能力，常见类别包括随意窥探、内部人员窥探、牟利型犯罪、商业或军事间谍活动，以及动机和技能不稳定的黑客行动者。</p>
-<h2 id="_4">安全服务与安全机制<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p>安全服务是应对威胁、实现安全目标的措施；安全机制是提供安全服务的具体手段。例如，加密可以提供机密性，数字签名可以支持完整性、来源认证和不可否认性。</p>
-<h3 id="_5">常见安全服务<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p><strong>Crib</strong> 指攻击者猜测明文中可能出现的词或短语，例如固定问候语、天气报告或消息结尾。</p>
+<div class="admonition note">
+<p class="admonition-title">关键结论</p>
+<p>简单替换密码的弱点不在密钥数量，而在它保留了明文的统计结构。</p>
+</div>
+<h3 id="24-vigenere-cipher">2.4 Vigenère Cipher<a class="headerlink" href="#24-vigenere-cipher" title="Permanent link">&para;</a></h3>
+<p>Vigenère 使用多个 Caesar 字母表。密钥循环使用：</p>
+<div class="arithmatex">\[
+C_i = (P_i + K_{i \bmod m}) \bmod 26
+\]</div>
+<p>同一个明文字母在不同位置可能变成不同密文字母，因此单一字母频率被打散。</p>
+<p>它的主要弱点来自<strong>周期性密钥</strong>。Kasiski 检验寻找重复密文片段，计算它们之间的距离，并取多个距离的公因数来推测密钥长度。知道密钥长度后，可以把密文拆成若干个 Caesar 密码分别分析。</p>
+<h3 id="25-enigma">2.5 Enigma 的启示<a class="headerlink" href="#25-enigma" title="Permanent link">&para;</a></h3>
+<p>Enigma 使用插线板与转子实现多表替换，初始状态决定加密过程。它拥有庞大的状态空间，但仍被以下信息削弱：</p>
 <ul>
-<li><strong>数据机密性</strong>：保护数据不被未经授权披露；</li>
-<li><strong>数据完整性</strong>：保护数据不被未经授权修改；</li>
-<li><strong>实体认证</strong>：在某一时刻验证通信实体声称的身份，通常用于连接建立阶段；</li>
-<li><strong>来源认证</strong>：验证数据来源，但本身不能防止重放或延迟；</li>
-<li><strong>访问控制</strong>：防止未经授权使用通信、信息或处理资源；</li>
-<li><strong>不可否认性</strong>：防止发送者否认发送过数据，或接收者否认收到数据。</li>
+<li>字母不会被加密成自身；</li>
+<li>军事消息存在固定格式和常见短语，可形成 crib；</li>
+<li>搜索设备可以快速排除不可能状态。</li>
 </ul>
-<p>安全机制可以分为特定机制和普遍机制。特定机制直接对应某类服务，例如数字签名；普遍机制服务于多个安全目标，例如事件检测和安全标记。</p>
-<h3 id="_6">算法示例<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>结论仍然相同：大密钥空间必须配合没有结构性弱点的算法。</p>
+<h2 id="3">3. 一次一密与流密码<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<h3 id="31-one-time-pad">3.1 One-Time Pad<a class="headerlink" href="#31-one-time-pad" title="Permanent link">&para;</a></h3>
+<p>一次一密使用按位异或：</p>
+<div class="arithmatex">\[
+C = P \oplus K, \qquad P = C \oplus K
+\]</div>
+<p>达到理论安全需要同时满足：</p>
+<ol>
+<li>密钥真正随机；</li>
+<li>密钥长度与消息相同；</li>
+<li>每段密钥只使用一次；</li>
+<li>密钥安全分发并销毁。</li>
+</ol>
+<p>在这些条件下，同一段密文可以对应任意可能的明文，攻击者无法仅凭密文判断真正的消息。缺点是密钥生成、分发和保存成本过高。</p>
+<h3 id="32">3.2 流密码<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
+<p>流密码用较短的秘密密钥初始化确定性的<strong>密钥流生成器</strong>，产生较长的 keystream：</p>
+<div class="arithmatex">\[
+C_i = P_i \oplus Z_i
+\]</div>
+<p>其中 <span class="arithmatex">\(Z_i\)</span> 是密钥流。一个安全生成器应保证：即使攻击者观察到较长的密钥流，也不能反推出秘密密钥或预测后续密钥流。</p>
+<p>RC4 在课件中用于说明流密码的初始化与密钥流生成过程。其内部状态是 <span class="arithmatex">\(0\)</span> 到 <span class="arithmatex">\(255\)</span> 的一个排列，每生成一个字节便更新状态并选择一个输出字节。应把 RC4 当作结构与历史案例学习，不要把它当作现代系统的新方案。</p>
+<div class="admonition warning">
+<p class="admonition-title">密钥流复用</p>
+<p>若同一密钥流加密两条消息，则 <span class="arithmatex">\(C_1 \oplus C_2 = P_1 \oplus P_2\)</span>。攻击者可以消去密钥流，因此 nonce、IV 或计数器的复用通常是严重错误。</p>
+</div>
+<h2 id="4-des">4. 分组密码与 DES<a class="headerlink" href="#4-des" title="Permanent link">&para;</a></h2>
+<p>分组密码一次处理固定长度的数据块，并在多个数据块上复用同一把密钥。</p>
+<table>
+<thead>
+<tr>
+<th>算法</th>
+<th style="text-align: right;">分组长度</th>
+<th style="text-align: right;">密钥长度</th>
+<th>结构</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DES</td>
+<td style="text-align: right;">64 bit</td>
+<td style="text-align: right;">56 bit</td>
+<td>16 轮 Feistel</td>
+</tr>
+<tr>
+<td>AES</td>
+<td style="text-align: right;">128 bit</td>
+<td style="text-align: right;">128、192、256 bit</td>
+<td>代换-置换网络</td>
+</tr>
+</tbody>
+</table>
+<h3 id="41-feistel">4.1 Feistel 结构<a class="headerlink" href="#41-feistel" title="Permanent link">&para;</a></h3>
+<p>每一轮把数据分成左右两半：</p>
+<div class="arithmatex">\[
+L_i = R_{i-1}
+\]</div>
+<div class="arithmatex">\[
+R_i = L_{i-1} \oplus F(R_{i-1}, K_i)
+\]</div>
+<p>Feistel 的重要特点是轮函数 <span class="arithmatex">\(F\)</span> 本身不必可逆，整体结构仍可解密。解密时按相反顺序使用轮密钥。</p>
+<h3 id="42">4.2 好的分组密码应具备的性质<a class="headerlink" href="#42" title="Permanent link">&para;</a></h3>
 <ul>
-<li>加密：DES、3DES、AES，或 RSA、ECC；</li>
-<li>消息认证码：CBC-MAC、HMAC；</li>
-<li>数字签名：RSA、DSA、ECC；</li>
-<li>哈希：SHA-3；</li>
-<li>随机数：真随机数或伪随机数。</li>
+<li><strong>混淆（confusion）</strong>：隐藏密钥与密文之间的关系；</li>
+<li><strong>扩散（diffusion）</strong>：明文的一处小变化应影响大量密文位；</li>
+<li><strong>完整依赖（completion）</strong>：每个密文位最终都应受到各个密钥位影响；</li>
+<li><strong>雪崩效应</strong>：明文或密钥改变一位，理想情况下约一半输出位改变。</li>
 </ul>
-<p>可以把关系概括为：安全目标描述需要保护什么，安全服务描述如何应对威胁，安全机制提供实现服务的手段，而算法是构建机制的基础组件。</p>
-<h2 id="_7">安全标准<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
-<p>标准是由认可机构通过共识批准的文件，用于为重复性活动提供规则、指导或特征。标准的价值包括提高成本和时间效率、增强商业可信度与安全性。常见使用方式有第三方认证、组织自行声明符合，以及将标准作为新系统设计的参考。</p>
-<p>标准也有局限：共识通常意味着妥协，文档可能被不一致地实现，商业压力可能造成部分实现，公司对标准的扩展也可能削弱互操作性。</p>
-<h3 id="_8">主要标准组织<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<h3 id="43">4.3 穷举攻击与密钥空间<a class="headerlink" href="#43" title="Permanent link">&para;</a></h3>
+<p><span class="arithmatex">\(n\)</span> 位密钥共有 <span class="arithmatex">\(2^n\)</span> 种可能，平均尝试 <span class="arithmatex">\(2^{n-1}\)</span> 次才能找到正确密钥。</p>
+<p>已知明文攻击中，攻击者拥有一组明文 <span class="arithmatex">\(x\)</span> 与对应密文 <span class="arithmatex">\(y\)</span>，依次测试密钥，直到找到满足 <span class="arithmatex">\(E_K(x)=y\)</span> 的候选密钥。</p>
+<p>DES 的主要现实问题是 56 位密钥过短。3DES 与 DESX 扩大了穷举成本，但现代系统通常采用 AES。</p>
+<h2 id="5-aes">5. AES<a class="headerlink" href="#5-aes" title="Permanent link">&para;</a></h2>
+<h3 id="51">5.1 必背参数<a class="headerlink" href="#51" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>AES 参数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>分组长度</td>
+<td>固定 128 bit，即 16 byte</td>
+</tr>
+<tr>
+<td>密钥长度</td>
+<td>128、192、256 bit</td>
+</tr>
+<tr>
+<td>轮数</td>
+<td>10、12、14 轮</td>
+</tr>
+<tr>
+<td>结构</td>
+<td>Substitution-Permutation Network，SPN</td>
+</tr>
+<tr>
+<td>状态排列</td>
+<td>16 字节按列填入 <span class="arithmatex">\(4\times4\)</span> 矩阵</td>
+</tr>
+</tbody>
+</table>
+<p>AES 先执行一次 AddRoundKey。普通轮包含四种变换，最后一轮省略 MixColumn。</p>
+<h3 id="52">5.2 四种轮变换<a class="headerlink" href="#52" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>ByteSub / SubBytes</strong>：每个字节通过 S-box 独立替换。解密使用 inverse S-box。</li>
+<li><strong>ShiftRow / ShiftRows</strong>：第 0 行不移动，第 1、2、3 行分别循环左移 1、2、3 个字节。</li>
+<li><strong>MixColumn / MixColumns</strong>：每一列在 <span class="arithmatex">\(GF(2^8)\)</span> 上做矩阵乘法，让一列中的四个字节互相影响。</li>
+<li><strong>AddRoundKey</strong>：状态矩阵与当前轮密钥逐位异或。</li>
+</ol>
+<p>记忆逻辑：<code>字节替换 -&gt; 行移动 -&gt; 列混合 -&gt; 加轮密钥</code>。</p>
+<h3 id="53">5.3 有限域运算<a class="headerlink" href="#53" title="Permanent link">&para;</a></h3>
+<p>AES 在有限域 <span class="arithmatex">\(GF(2^8)\)</span> 中计算，每个字节可以看作次数不超过 7 的二进制系数多项式。</p>
 <ul>
-<li>国际层面：ISO、IEC、ITU；</li>
-<li>北美相关组织：IEEE、NIST、ANSI；</li>
-<li>Internet 标准：主要由 IETF 制定，并以 RFC 形式发布；</li>
-<li>公司或行业标准：例如 PKCS、SECG 和 PCI DSS。</li>
+<li>加法就是按位 XOR；</li>
+<li>乘法先做多项式乘法，再对不可约多项式取模；</li>
+<li>AES 使用：</li>
 </ul>
-<h2 id="_9">小结<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
-<p>本讲建立了信息安全的基本词汇。分析安全问题时，应先明确需要保护的资产和安全目标，再描述对手能力、威胁与漏洞，最后选择合适的服务、机制、算法和标准。安全设计还需要覆盖预防、检测以及恢复过程。</p>
+<div class="arithmatex">\[
+m(x)=x^8+x^4+x^3+x+1
+\]</div>
+<p>MixColumn 之所以能同时实现扩散与可逆性，依赖的正是这种有限域矩阵运算。</p>
+<h3 id="54-key-expansion">5.4 Key Expansion<a class="headerlink" href="#54-key-expansion" title="Permanent link">&para;</a></h3>
+<p>AES-128 的 16 字节主密钥扩展为 11 个轮密钥，共 44 个 32-bit word：</p>
+<ul>
+<li>初始轮使用 <span class="arithmatex">\(w_0\)</span> 到 <span class="arithmatex">\(w_3\)</span>；</li>
+<li>第 1 轮使用 <span class="arithmatex">\(w_4\)</span> 到 <span class="arithmatex">\(w_7\)</span>；</li>
+<li>第 10 轮使用 <span class="arithmatex">\(w_{40}\)</span> 到 <span class="arithmatex">\(w_{43}\)</span>。</li>
+</ul>
+<p>通常 <span class="arithmatex">\(w_i\)</span> 依赖 <span class="arithmatex">\(w_{i-1}\)</span> 与 <span class="arithmatex">\(w_{i-4}\)</span>。当 <span class="arithmatex">\(i\)</span> 是 4 的倍数时，会额外经过包含字节循环、S-box 和轮常数的函数 <span class="arithmatex">\(g\)</span>。</p>
+<h2 id="6">6. 分组密码工作模式<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<p>单个分组密码只能处理一个固定长度的数据块。工作模式规定长消息中的多个分组如何组合。</p>
+<h3 id="61-ecb">6.1 ECB<a class="headerlink" href="#61-ecb" title="Permanent link">&para;</a></h3>
+<div class="arithmatex">\[
+C_i = E_K(P_i)
+\]</div>
+<p>各分组独立加密。相同明文块产生相同密文块，因此会泄露重复模式，还允许攻击者重新排列或剪切粘贴密文块。</p>
+<p>结论：ECB 适合教学，不适合普通长消息或图像加密。</p>
+<h3 id="62-cbc">6.2 CBC<a class="headerlink" href="#62-cbc" title="Permanent link">&para;</a></h3>
+<div class="arithmatex">\[
+C_0 = E_K(P_0 \oplus IV)
+\]</div>
+<div class="arithmatex">\[
+C_i = E_K(P_i \oplus C_{i-1})
+\]</div>
+<p>解密为：</p>
+<div class="arithmatex">\[
+P_i = D_K(C_i) \oplus C_{i-1}
+\]</div>
+<p>CBC 使用随机 IV 初始化链。IV 不需要保密。相同明文块处于不同上下文时通常产生不同密文。</p>
+<h3 id="63-ctr">6.3 CTR<a class="headerlink" href="#63-ctr" title="Permanent link">&para;</a></h3>
+<div class="arithmatex">\[
+C_i = P_i \oplus E_K(IV+i)
+\]</div>
+<p>CTR 把分组密码变成密钥流生成器。加密与解密都只调用加密函数，并具有以下特点：</p>
+<ul>
+<li>分组可以并行处理；</li>
+<li>支持随机读取与随机写入；</li>
+<li>不需要填充完整分组；</li>
+<li>同一密钥下不能重复使用计数器序列。</li>
+</ul>
+<h3 id="64-cfb">6.4 CFB<a class="headerlink" href="#64-cfb" title="Permanent link">&para;</a></h3>
+<div class="arithmatex">\[
+C_0 = P_0 \oplus E_K(IV)
+\]</div>
+<div class="arithmatex">\[
+C_i = P_i \oplus E_K(C_{i-1})
+\]</div>
+<p>CFB 也把分组密码用于流式处理，但下一分组依赖上一密文分组，因此不能像 CTR 那样独立并行。</p>
+<h3 id="65">6.5 模式对比<a class="headerlink" href="#65" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>是否链式依赖</th>
+<th>重复明文是否暴露模式</th>
+<th>随机访问</th>
+<th>填充</th>
+<th>主要风险</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ECB</td>
+<td>否</td>
+<td>是</td>
+<td>读写均可</td>
+<td>通常需要</td>
+<td>模式泄露、剪切粘贴</td>
+</tr>
+<tr>
+<td>CBC</td>
+<td>是</td>
+<td>否</td>
+<td>可随机读，不便随机写</td>
+<td>需要</td>
+<td>IV 使用错误、错误传播</td>
+</tr>
+<tr>
+<td>CTR</td>
+<td>计数器独立</td>
+<td>否</td>
+<td>读写均可</td>
+<td>不需要</td>
+<td>nonce/计数器复用</td>
+</tr>
+<tr>
+<td>CFB</td>
+<td>依赖前一密文</td>
+<td>否</td>
+<td>不便</td>
+<td>不需要</td>
+<td>错误影响当前与下一分组</td>
+</tr>
+</tbody>
+</table>
+<h2 id="7">7. 传输错误与错误传播<a class="headerlink" href="#7" title="Permanent link">&para;</a></h2>
+<p><strong>传输错误</strong>指某一位发生翻转；<strong>传输丢失</strong>指某些位没有到达。若密文的一位错误导致多个明文位错误，就发生了错误传播。</p>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th><span class="arithmatex">\(C_i\)</span> 中一位出错后的影响</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ECB</td>
+<td><span class="arithmatex">\(P_i\)</span> 整个分组不可预测，之后恢复正常</td>
+</tr>
+<tr>
+<td>CBC</td>
+<td><span class="arithmatex">\(P_i\)</span> 整块不可预测，<span class="arithmatex">\(P_{i+1}\)</span> 对应位翻转，之后恢复正常</td>
+</tr>
+<tr>
+<td>CTR</td>
+<td><span class="arithmatex">\(P_i\)</span> 的对应位翻转，不扩散到其他位或分组</td>
+</tr>
+<tr>
+<td>CFB</td>
+<td><span class="arithmatex">\(P_i\)</span> 对应位翻转，<span class="arithmatex">\(P_{i+1}\)</span> 整块受影响，之后恢复正常</td>
+</tr>
+</tbody>
+</table>
+<h2 id="8">8. 实际选择密码方案<a class="headerlink" href="#8" title="Permanent link">&para;</a></h2>
+<p>判断一个对称密码方案时，依次检查：</p>
+<ol>
+<li><strong>密钥长度</strong>：新系统通常至少使用 128-bit 对称密钥；</li>
+<li><strong>算法公开</strong>：安全性应来自密钥，而不是算法保密；</li>
+<li><strong>公开分析</strong>：优先选择经长期公开密码分析的算法；</li>
+<li><strong>标准化</strong>：优先选择成熟标准及其经过审查的实现；</li>
+<li><strong>工作模式</strong>：安全的分组密码配错模式仍会泄露数据；</li>
+<li><strong>IV/nonce 管理</strong>：满足所选模式对随机性或唯一性的要求。</li>
+</ol>
+<p>Mifare Classic 使用保密的 Crypto1 算法和 48-bit 密钥。研究人员通过芯片逆向工程重建算法，随后发现更多弱点。这个案例直接说明了“依靠算法保密”无法替代公开分析。</p>
+<h2 id="9">9. 易错点速查<a class="headerlink" href="#9" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>块长度不等于密钥长度</strong>：AES 的块长度始终是 128 bit。</li>
+<li><strong>大密钥空间不自动等于安全</strong>：简单替换有约 <span class="arithmatex">\(2^{88}\)</span> 个密钥，仍可被频率分析攻破。</li>
+<li><strong>OTP 的条件缺一不可</strong>：随机、等长、只用一次、安全分发。</li>
+<li><strong>CBC 的 IV 不保密</strong>：但必须按协议正确生成与传输。</li>
+<li><strong>CTR 的计数器不能复用</strong>：复用会导致密钥流复用。</li>
+<li><strong>AES 最后一轮没有 MixColumn</strong>。</li>
+<li><strong>Feistel 每轮只处理一半数据，AES 每轮处理整个状态矩阵</strong>。</li>
+<li><strong>ECB 不隐藏结构</strong>：加密后的图像仍可能显现轮廓。</li>
+</ul>
+<h2 id="10">10. 自测题<a class="headerlink" href="#10" title="Permanent link">&para;</a></h2>
+<details class="question">
+<summary>1. 为什么简单替换密码拥有巨大密钥空间，却仍然不安全？</summary>
+<p>因为它保留了明文语言的字母频率、常见词长和字母组合等统计特征。攻击者不需要穷举全部密钥。</p>
+</details>
+<details class="question">
+<summary>2. Kasiski 检验先恢复什么信息？</summary>
+<p>先通过重复密文片段之间的距离推测 Vigenère 密钥长度，再分别破解各个 Caesar 子密码。</p>
+</details>
+<details class="question">
+<summary>3. 一次一密为什么理论安全，却很少直接用于普通网络通信？</summary>
+<p>它要求密钥真正随机、与消息等长、只使用一次，并通过安全渠道分发，密钥管理成本过高。</p>
+</details>
+<details class="question">
+<summary>4. AES-128 的块长度、轮数和轮密钥数量分别是多少？</summary>
+<p>块长度 128 bit，10 轮，主密钥扩展出 11 个轮密钥，其中包含初始 AddRoundKey 使用的轮密钥。</p>
+</details>
+<details class="question">
+<summary>5. 为什么 ECB 会泄露图像轮廓？</summary>
+<p>相同明文块使用同一密钥独立加密后产生相同密文块，重复结构没有被隐藏。</p>
+</details>
+<details class="question">
+<summary>6. CBC 与 CTR 的随机访问能力有什么区别？</summary>
+<p>CBC 可利用前一密文块随机读取目标块，但修改目标明文会影响链式关系，不便随机写。CTR 可以直接计算目标分组的计数器值，因此支持随机读写。</p>
+</details>
+<details class="question">
+<summary>7. CBC 中 <span class="arithmatex">\(C_i\)</span> 的一位翻转会影响哪些明文？</summary>
+<p><span class="arithmatex">\(P_i\)</span> 整块不可预测，<span class="arithmatex">\(P_{i+1}\)</span> 的对应位翻转，从 <span class="arithmatex">\(P_{i+2}\)</span> 开始恢复正常。</p>
+</details>
+<h2 id="_3">一页背诵清单<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>对称加密：同一把密钥加密与解密
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>Kerckhoffs：算法公开，只有密钥保密
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>简单替换：26! 很大，但频率分析可破
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>Vigenère：多表替换，Kasiski 推测密钥周期
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>OTP：随机、等长、一次使用，P XOR K = C
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a>DES：64-bit block，56-bit key，16 轮 Feistel
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a>AES：128-bit block，128/192/256-bit key，10/12/14 轮
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a>AES 普通轮：SubBytes、ShiftRows、MixColumns、AddRoundKey
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a>ECB：相同明文块产生相同密文块
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a>CBC：与上一密文块链接，需要 IV
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a>CTR：加密计数器后 XOR，支持并行和随机读写
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a>CFB：反馈上一密文块，错误影响当前和下一块
+</code></pre></div></td></tr></table></div>
 
 
 
@@ -2101,7 +3035,7 @@
     <span class="md-icon" title="创建日期">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年9月6日 16:13:02 UTC">2026年9月6日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年9月13日 09:59:35 UTC">2026年9月13日</span>
   </span>
 
     
@@ -2136,7 +3070,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="上一页: CS5285 Introduction to Cybersecurity">
+          <a href="../Lecture%201%20Introductory%20Security%20Concepts/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Lecture 1 Introductory Security Concepts">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -2146,20 +3080,20 @@
                 上一页
               </span>
               <div class="md-ellipsis">
-                CS5285 Introduction to Cybersecurity
+                Lecture 1 Introductory Security Concepts
               </div>
             </div>
           </a>
         
         
           
-          <a href="../Lecture%202%20Symmetric-Key%20Encryption/" class="md-footer__link md-footer__link--next" aria-label="下一页: Lecture 2：对称密钥加密">
+          <a href="../../CS5351%20Software%20Engineering/" class="md-footer__link md-footer__link--next" aria-label="下一页: CS5351 Software Engineering">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                Lecture 2：对称密钥加密
+                CS5351 Software Engineering
               </div>
             </div>
             <div class="md-footer__button md-icon">
