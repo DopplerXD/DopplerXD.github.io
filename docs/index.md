@@ -14,6 +14,10 @@
 
 ## 更新日志
 
+- **2026-09-19**：更新 [CityU 课程笔记](CityU/index.md)，补充 CS5222 的 HTTP、Email 与 DNS，CS5351 的需求工程，CS6382 的近似算法与在线算法，并新增 [CS5285 Exercise 1](CityU/CS5285%20Introduction%20to%20Cybersecurity/Exercise%201.md)。
+- **2026-09-13**：建立 CityU 课程索引，补充 CS5222 Chapter 1/2 与 Tutorial 1–2、CS5285 对称密钥加密、CS5351 VHIS Code Lab 与 Assignment Phase 1。
+- **2026-09-07**：新增 CS5222、CS5285、CS6382 三门 CityU 课程的首批笔记与课程索引。
+- **2026-08-31**：更新 [good-web](资源分享/good-web.md) 资源分享。
 - **2026-08-19**：新增 [AI Coding 技巧：将项目约束沉淀为可复用上下文](AI/AI%20Coding%20技巧%20-%20将项目约束沉淀为可复用上下文.md)，介绍通过仓库级约束和分层上下文降低老旧项目 AI Coding 的理解成本。
 - **2026-08-19**：新增 [Markdown Blog Cover Publisher：为 Markdown 文章生成头图](AI/Markdown%20Blog%20Cover%20Publisher：为%20Markdown%20文章生成头图.md)，介绍 Markdown 文章封面生成、人工审批、资产安装与校验流程，并配套头图。
 - **2026-08-17**：补充 [Java 基础](技术学习/Java%20基础.md)，新增 Java 7/8/9+ 抽象类与接口的变量、方法能力对比及面试记忆要点。
