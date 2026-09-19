@@ -30,5 +30,6 @@
 ### CS6382 Algorithm Analysis and Game Theory
 
 - [课程索引](CS6382%20Algorithm%20Analysis%20and%20Game%20Theory/index.md)
-- [Review of Classic Algorithms](CS6382%20Algorithm%20Analysis%20and%20Game%20Theory/Review%20of%20Classic%20Algorithms.md)
-- [Approximation Algorithms](CS6382%20Algorithm%20Analysis%20and%20Game%20Theory/Approximation%20Algorithms.md)
+- [1 Review of Classic Algorithms](CS6382%20Algorithm%20Analysis%20and%20Game%20Theory/1%20Review%20of%20Classic%20Algorithms.md)
+- [2 Approximation Algorithms](CS6382%20Algorithm%20Analysis%20and%20Game%20Theory/2%20Approximation%20Algorithms.md)
+- [3 Online Algorithms](CS6382%20Algorithm%20Analysis%20and%20Game%20Theory/3%20Online%20Algorithms.md)

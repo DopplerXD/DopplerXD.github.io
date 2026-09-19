@@ -3,6 +3,8 @@
 ## 课程内容
 
 - [Week 2: VHIS Code Lab](Week%202%20VHIS%20Code%20Lab.md)
+- [Week 3–5: Requirements Engineering](Week%203-5%20Requirements%20Engineering.md)
+- [Week 3–5: Requirements Engineering Exercise](Week%203-5%20Requirements%20Engineering%20Exercise.md)
 
 ## Weekly Schedule
 

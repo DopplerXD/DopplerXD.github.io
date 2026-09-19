@@ -19,7 +19,7 @@ $O(n)$: 只检查相邻点。如对于 $X_{A}<X_{B}<X_{C},Y_{A}<Y_{C}$，存在�
 - $Y_{A}<Y_{B}<Y_{C}$，则 AB 或 BC 优于 AC；
 - $Y_{A}>Y_{B}<Y_{C}$，则 BC 优于 AC。
 
-![](assets/Review%20of%20Classic%20Algorithms/file-20260905163840555.png)
+![](assets/1%20Review%20of%20Classic%20Algorithms/file-20260905163840555.png)
 
 因此只需要 check 响铃点对，并更新答案。
 
@@ -52,7 +52,7 @@ CEOI 2000 https://tioj.ck.tp.edu.tw/problems/1404
 
 如果区间已经求出，贪心部分通常是 $O (M\log M)$；若利用题目本身的有序性质，可以进一步线性扫描。
 
-![](assets/Review%20of%20Classic%20Algorithms/file-20260905164911521.png)
+![](assets/1%20Review%20of%20Classic%20Algorithms/file-20260905164911521.png)
 
 
 
@@ -66,7 +66,7 @@ CEOI 2000 https://tioj.ck.tp.edu.tw/problems/1404
 
 ### Example1: LCS (Longest Common Substring)
 
-![](assets/Review%20of%20Classic%20Algorithms/file-20260905170645561.png)
+![](assets/1%20Review%20of%20Classic%20Algorithms/file-20260905170645561.png)
 
 ### Example2: Dance Dance Revolution
 
