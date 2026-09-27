@@ -35,3 +35,4 @@
 - [1 Review of Classic Algorithms](CS6382%20Algorithm%20Analysis%20and%20Game%20Theory/1%20Review%20of%20Classic%20Algorithms.md)
 - [2 Approximation Algorithms](CS6382%20Algorithm%20Analysis%20and%20Game%20Theory/2%20Approximation%20Algorithms.md)
 - [3 Online Algorithms](CS6382%20Algorithm%20Analysis%20and%20Game%20Theory/3%20Online%20Algorithms.md)
+- [4 Randomized and Others](CS6382%20Algorithm%20Analysis%20and%20Game%20Theory/4%20Randomized%20and%20Others.md)

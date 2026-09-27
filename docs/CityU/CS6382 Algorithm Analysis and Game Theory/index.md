@@ -1,3 +1,4 @@
 - [1 Review of Classic Algorithms](1%20Review%20of%20Classic%20Algorithms.md)
 - [2 Approximation Algorithms](2%20Approximation%20Algorithms.md)
 - [3 Online Algorithms](3%20Online%20Algorithms.md)
+- [4 Randomized and Others](4%20Randomized%20and%20Others.md)
