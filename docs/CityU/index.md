@@ -25,7 +25,9 @@
 
 ### CS5481 Data Engineering
 
-- 课程笔记待整理
+- [课程索引](CS5481%20Data%20Engineering/index.md)
+- [Lecture 4: Data Visualization](CS5481%20Data%20Engineering/Lecture%204%20Data%20Visualization.md)
+- [Tutorial 4: Data Visualization](CS5481%20Data%20Engineering/Tutorial%204%20Data%20Visualization.md)
 
 ### CS6382 Algorithm Analysis and Game Theory
 
