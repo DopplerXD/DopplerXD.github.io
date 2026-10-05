@@ -2,3 +2,4 @@
 - [2 Approximation Algorithms](2%20Approximation%20Algorithms.md)
 - [3 Online Algorithms](3%20Online%20Algorithms.md)
 - [4 Randomized and Others](4%20Randomized%20and%20Others.md)
+- [5 Game Theory Basics](5%20Game%20Theory%20Basics.md)

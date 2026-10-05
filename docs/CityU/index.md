@@ -36,3 +36,4 @@
 - [2 Approximation Algorithms](CS6382%20Algorithm%20Analysis%20and%20Game%20Theory/2%20Approximation%20Algorithms.md)
 - [3 Online Algorithms](CS6382%20Algorithm%20Analysis%20and%20Game%20Theory/3%20Online%20Algorithms.md)
 - [4 Randomized and Others](CS6382%20Algorithm%20Analysis%20and%20Game%20Theory/4%20Randomized%20and%20Others.md)
+- [5 Game Theory Basics](CS6382%20Algorithm%20Analysis%20and%20Game%20Theory/5%20Game%20Theory%20Basics.md)
