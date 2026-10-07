@@ -3,3 +3,5 @@
 - [3 Online Algorithms](3%20Online%20Algorithms.md)
 - [4 Randomized and Others](4%20Randomized%20and%20Others.md)
 - [5 Game Theory Basics](5%20Game%20Theory%20Basics.md)
+- [5.3 Network Defending Games](5.3%20Network%20Defending%20Games.md)
+- [6–7 Cooperative Games](6-7%20Cooperative%20Games.md)
