@@ -12,13 +12,13 @@
         <meta name="author" content="DopplerXD">
       
       
-        <link rel="canonical" href="https://dopplerxd.top/CityU/CS5481%20Data%20Engineering/Tutorial%203%20Data%20Preprocessing%20and%20Regular%20Expressions/">
+        <link rel="canonical" href="https://dopplerxd.top/CityU/CS5481%20Data%20Engineering/Tutorial%206%20Text-to-SQL%20and%20Query%20Processing/">
       
       
-        <link rel="prev" href="../Tutorial%202%20Introduction%20to%20Web%20Scraping/">
+        <link rel="prev" href="../Tutorial%204%20Data%20Visualization/">
       
       
-        <link rel="next" href="../Tutorial%204%20Data%20Visualization/">
+        <link rel="next" href="../../CS6382%20Algorithm%20Analysis%20and%20Game%20Theory/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>Tutorial 3：数据预处理与正则表达式 - DopplerXD Docs</title>
+        <title>Tutorial 6：Text-to-SQL 与查询处理 - DopplerXD Docs</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#tutorial-3" class="md-skip">
+        <a href="#tutorial-6text-to-sql" class="md-skip">
           跳转至
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Tutorial 3：数据预处理与正则表达式
+              Tutorial 6：Text-to-SQL 与查询处理
             
           </span>
         </div>
@@ -1525,37 +1525,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Tutorial 3：数据预处理与正则表达式
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../Tutorial%203%20Data%20Preprocessing%20and%20Regular%20Expressions/" class="md-nav__link">
         
   
   
@@ -1571,211 +1544,6 @@
   
 
       </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        准备环境
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#1-pandas" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Pandas 基本操作
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. 数据清洗
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. 数据清洗">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        缺失值
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        合理性与重复记录
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        字段类型、列名与保存
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. 数据集成
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. 数据变换
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4. 数据变换">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        文本与单位
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        规范化与标准化
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        分箱
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. 正则表达式
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-practice" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6. Practice
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="6. Practice">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#61" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6.1 对二维数据做规范化与标准化
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#62" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6.2 抽取多种分隔符的日期
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1813,10 +1581,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../Tutorial%206%20Text-to-SQL%20and%20Query%20Processing/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorial 6：Text-to-SQL 与查询处理
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1832,6 +1627,155 @@
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 环境与 API 密钥
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-sqlite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 准备 SQLite 数据库
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-sql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 请求模型生成 SQL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 检查並执行只读查询
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-text-to-sql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Text-to-SQL 示例
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Text-to-SQL 示例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 条件筛选
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 分组聚合
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 表连接
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 查询改写与语义等价
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 练习：按课程计算平均成绩
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 小结
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2500,10 +2444,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#1-api" class="md-nav__link">
     <span class="md-ellipsis">
       
-        准备环境
+        1. 环境与 API 密钥
       
     </span>
   </a>
@@ -2511,10 +2455,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#1-pandas" class="md-nav__link">
+  <a href="#2-sqlite" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Pandas 基本操作
+        2. 准备 SQLite 数据库
       
     </span>
   </a>
@@ -2522,60 +2466,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
+  <a href="#3-sql" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. 数据清洗
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. 数据清洗">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        缺失值
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        合理性与重复记录
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        字段类型、列名与保存
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. 数据集成
+        3. 请求模型生成 SQL
       
     </span>
   </a>
@@ -2586,19 +2480,30 @@
   <a href="#4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. 数据变换
+        4. 检查並执行只读查询
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="4. 数据变换">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-text-to-sql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Text-to-SQL 示例
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Text-to-SQL 示例">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#51" class="md-nav__link">
     <span class="md-ellipsis">
       
-        文本与单位
+        5.1 条件筛选
       
     </span>
   </a>
@@ -2606,10 +2511,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#52" class="md-nav__link">
     <span class="md-ellipsis">
       
-        规范化与标准化
+        5.2 分组聚合
       
     </span>
   </a>
@@ -2617,10 +2522,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#53" class="md-nav__link">
     <span class="md-ellipsis">
       
-        分箱
+        5.3 表连接
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 查询改写与语义等价
       
     </span>
   </a>
@@ -2633,10 +2549,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
+  <a href="#6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. 正则表达式
+        6. 练习：按课程计算平均成绩
       
     </span>
   </a>
@@ -2644,41 +2560,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-practice" class="md-nav__link">
+  <a href="#7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. Practice
+        7. 小结
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="6. Practice">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#61" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6.1 对二维数据做规范化与标准化
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#62" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6.2 抽取多种分隔符的日期
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -2768,246 +2656,363 @@
   
 
 
-<h1 id="tutorial-3">Tutorial 3：数据预处理与正则表达式<a class="headerlink" href="#tutorial-3" title="Permanent link">&para;</a></h1>
-<p>本教程使用 Pandas 对电影元数据执行基础清洗、合并与变换，并用 Python 正则表达式抽取和处理文本。</p>
-<h2 id="_1">准备环境<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>需要 Python、Jupyter Notebook、Pandas，以及课程文件 <code>movie_metadata.csv</code>。将 CSV 与 notebook 放在同一目录后安装依赖：</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>pandas<span class="w"> </span>jupyter
+<h1 id="tutorial-6text-to-sql">Tutorial 6：Text-to-SQL 与查询处理<a class="headerlink" href="#tutorial-6text-to-sql" title="Permanent link">&para;</a></h1>
+<p>本教程围绕自然语言到结构化查询语言（Structured Query Language，SQL）的转换（Text-to-SQL）和查询改写，使用 SQLite 执行模型生成的只读查询。示例通过开放人工智能（OpenAI）兼容的应用程序编程接口（application programming interface，API）调用 DeepSeek；模型端点和模型名称可按实际服务调整。</p>
+<h2 id="1-api">1. 环境与 API 密钥<a class="headerlink" href="#1-api" title="Permanent link">&para;</a></h2>
+<p>安装依赖：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>openai<span class="w"> </span>pandas
 </code></pre></div></td></tr></table></div>
-<p>课程数据文件预期有 5043 行、28 列；若载入路径或文件不正确，先检查当前工作目录和文件名。</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
-<span class="normal"><a href="#__codelineno-1-2">2</a></span>
-<span class="normal"><a href="#__codelineno-1-3">3</a></span>
-<span class="normal"><a href="#__codelineno-1-4">4</a></span>
-<span class="normal"><a href="#__codelineno-1-5">5</a></span>
-<span class="normal"><a href="#__codelineno-1-6">6</a></span>
-<span class="normal"><a href="#__codelineno-1-7">7</a></span>
-<span class="normal"><a href="#__codelineno-1-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3"></a>
-<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="n">csv_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"movie_metadata.csv"</span><span class="p">)</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="k">assert</span> <span class="n">csv_path</span><span class="o">.</span><span class="n">is_file</span><span class="p">(),</span> <span class="s2">"请将 movie_metadata.csv 放在 notebook 同一目录"</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6"></a>
-<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">csv_path</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<p>把 API 密钥放在环境变量中，不要写入 notebook、代码仓库或文档：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">DEEPSEEK_API_KEY</span><span class="o">=</span><span class="s2">"你的 API 密钥"</span>
 </code></pre></div></td></tr></table></div>
-<h2 id="1-pandas">1. Pandas 基本操作<a class="headerlink" href="#1-pandas" title="Permanent link">&para;</a></h2>
-<p>Pandas 的 <code>DataFrame</code> 是带行列标签的二维表结构。</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
-<span class="normal"><a href="#__codelineno-2-2">2</a></span>
-<span class="normal"><a href="#__codelineno-2-3">3</a></span>
-<span class="normal"><a href="#__codelineno-2-4">4</a></span>
-<span class="normal"><a href="#__codelineno-2-5">5</a></span>
-<span class="normal"><a href="#__codelineno-2-6">6</a></span>
-<span class="normal"><a href="#__codelineno-2-7">7</a></span>
-<span class="normal"><a href="#__codelineno-2-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="n">data</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="n">data</span><span class="p">[</span><span class="s2">"duration"</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4"></a>
-<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="c1"># 选择单列、多列和满足条件的记录</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="n">colors</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">"color"</span><span class="p">]</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="n">subset</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s2">"color"</span><span class="p">,</span> <span class="s2">"director_name"</span><span class="p">]]</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="n">long_movies</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">"duration"</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">150</span><span class="p">]</span>
+<p>在 Colab 中可使用 Secrets 管理密钥，避免把密钥写入共享单元格。</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-2-10">10</a></span>
+<span class="normal"><a href="#__codelineno-2-11">11</a></span>
+<span class="normal"><a href="#__codelineno-2-12">12</a></span>
+<span class="normal"><a href="#__codelineno-2-13">13</a></span>
+<span class="normal"><a href="#__codelineno-2-14">14</a></span>
+<span class="normal"><a href="#__codelineno-2-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sqlite3</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">openai</span><span class="w"> </span><span class="kn">import</span> <span class="n">OpenAI</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="n">api_key</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"DEEPSEEK_API_KEY"</span><span class="p">)</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="k">if</span> <span class="ow">not</span> <span class="n">api_key</span><span class="p">:</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a>    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">"请先设置 DEEPSEEK_API_KEY"</span><span class="p">)</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a>
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="n">client</span> <span class="o">=</span> <span class="n">OpenAI</span><span class="p">(</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12"></a>    <span class="n">api_key</span><span class="o">=</span><span class="n">api_key</span><span class="p">,</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13"></a>    <span class="n">base_url</span><span class="o">=</span><span class="s2">"https://api.deepseek.com"</span><span class="p">,</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="p">)</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="n">model</span> <span class="o">=</span> <span class="s2">"deepseek-chat"</span>
 </code></pre></div></td></tr></table></div>
-<h2 id="2">2. 数据清洗<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
-<h3 id="_2">缺失值<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<p><code>isna()</code> 标记缺失值；搭配 <code>sum()</code> 可以查看每列缺失数量。填补值应符合字段语义，下面仅演示分类字段标记和数值字段用中位数填补。</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
-<span class="normal"><a href="#__codelineno-3-2">2</a></span>
-<span class="normal"><a href="#__codelineno-3-3">3</a></span>
-<span class="normal"><a href="#__codelineno-3-4">4</a></span>
-<span class="normal"><a href="#__codelineno-3-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">data</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2"></a>
-<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="n">cleaned</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="n">cleaned</span><span class="p">[</span><span class="s2">"country"</span><span class="p">]</span> <span class="o">=</span> <span class="n">cleaned</span><span class="p">[</span><span class="s2">"country"</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s2">"Unknown"</span><span class="p">)</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="n">cleaned</span><span class="p">[</span><span class="s2">"duration"</span><span class="p">]</span> <span class="o">=</span> <span class="n">cleaned</span><span class="p">[</span><span class="s2">"duration"</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">cleaned</span><span class="p">[</span><span class="s2">"duration"</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">())</span>
+<h2 id="2-sqlite">2. 准备 SQLite 数据库<a class="headerlink" href="#2-sqlite" title="Permanent link">&para;</a></h2>
+<p>创建学生、课程和选课三张表。外键约束表达学生与课程之间的多对多关系，选课表还保存成绩。</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-3-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-3-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-3-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-3-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-3-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-3-10">10</a></span>
+<span class="normal"><a href="#__codelineno-3-11">11</a></span>
+<span class="normal"><a href="#__codelineno-3-12">12</a></span>
+<span class="normal"><a href="#__codelineno-3-13">13</a></span>
+<span class="normal"><a href="#__codelineno-3-14">14</a></span>
+<span class="normal"><a href="#__codelineno-3-15">15</a></span>
+<span class="normal"><a href="#__codelineno-3-16">16</a></span>
+<span class="normal"><a href="#__codelineno-3-17">17</a></span>
+<span class="normal"><a href="#__codelineno-3-18">18</a></span>
+<span class="normal"><a href="#__codelineno-3-19">19</a></span>
+<span class="normal"><a href="#__codelineno-3-20">20</a></span>
+<span class="normal"><a href="#__codelineno-3-21">21</a></span>
+<span class="normal"><a href="#__codelineno-3-22">22</a></span>
+<span class="normal"><a href="#__codelineno-3-23">23</a></span>
+<span class="normal"><a href="#__codelineno-3-24">24</a></span>
+<span class="normal"><a href="#__codelineno-3-25">25</a></span>
+<span class="normal"><a href="#__codelineno-3-26">26</a></span>
+<span class="normal"><a href="#__codelineno-3-27">27</a></span>
+<span class="normal"><a href="#__codelineno-3-28">28</a></span>
+<span class="normal"><a href="#__codelineno-3-29">29</a></span>
+<span class="normal"><a href="#__codelineno-3-30">30</a></span>
+<span class="normal"><a href="#__codelineno-3-31">31</a></span>
+<span class="normal"><a href="#__codelineno-3-32">32</a></span>
+<span class="normal"><a href="#__codelineno-3-33">33</a></span>
+<span class="normal"><a href="#__codelineno-3-34">34</a></span>
+<span class="normal"><a href="#__codelineno-3-35">35</a></span>
+<span class="normal"><a href="#__codelineno-3-36">36</a></span>
+<span class="normal"><a href="#__codelineno-3-37">37</a></span>
+<span class="normal"><a href="#__codelineno-3-38">38</a></span>
+<span class="normal"><a href="#__codelineno-3-39">39</a></span>
+<span class="normal"><a href="#__codelineno-3-40">40</a></span>
+<span class="normal"><a href="#__codelineno-3-41">41</a></span>
+<span class="normal"><a href="#__codelineno-3-42">42</a></span>
+<span class="normal"><a href="#__codelineno-3-43">43</a></span>
+<span class="normal"><a href="#__codelineno-3-44">44</a></span>
+<span class="normal"><a href="#__codelineno-3-45">45</a></span>
+<span class="normal"><a href="#__codelineno-3-46">46</a></span>
+<span class="normal"><a href="#__codelineno-3-47">47</a></span>
+<span class="normal"><a href="#__codelineno-3-48">48</a></span>
+<span class="normal"><a href="#__codelineno-3-49">49</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">":memory:"</span><span class="p">)</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">"PRAGMA foreign_keys = ON"</span><span class="p">)</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="n">conn</span><span class="o">.</span><span class="n">executescript</span><span class="p">(</span><span class="s2">"""</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="s2">CREATE TABLE students (</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="s2">    student_id INTEGER PRIMARY KEY,</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="s2">    name TEXT NOT NULL,</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="s2">    major TEXT NOT NULL</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="s2">);</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10"></a>
+<a id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="s2">CREATE TABLE courses (</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="s2">    course_id INTEGER PRIMARY KEY,</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="s2">    course_name TEXT NOT NULL,</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="s2">    department TEXT NOT NULL</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15"></a><span class="s2">);</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16"></a>
+<a id="__codelineno-3-17" name="__codelineno-3-17"></a><span class="s2">CREATE TABLE enrollments (</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18"></a><span class="s2">    student_id INTEGER NOT NULL,</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19"></a><span class="s2">    course_id INTEGER NOT NULL,</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20"></a><span class="s2">    grade REAL NOT NULL,</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21"></a><span class="s2">    FOREIGN KEY (student_id) REFERENCES students(student_id),</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22"></a><span class="s2">    FOREIGN KEY (course_id) REFERENCES courses(course_id)</span>
+<a id="__codelineno-3-23" name="__codelineno-3-23"></a><span class="s2">);</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24"></a><span class="s2">"""</span><span class="p">)</span>
+<a id="__codelineno-3-25" name="__codelineno-3-25"></a>
+<a id="__codelineno-3-26" name="__codelineno-3-26"></a><span class="n">conn</span><span class="o">.</span><span class="n">executemany</span><span class="p">(</span>
+<a id="__codelineno-3-27" name="__codelineno-3-27"></a>    <span class="s2">"INSERT INTO students VALUES (?, ?, ?)"</span><span class="p">,</span>
+<a id="__codelineno-3-28" name="__codelineno-3-28"></a>    <span class="p">[</span>
+<a id="__codelineno-3-29" name="__codelineno-3-29"></a>        <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">"Alice"</span><span class="p">,</span> <span class="s2">"DS"</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">"Bob"</span><span class="p">,</span> <span class="s2">"CS"</span><span class="p">),</span>
+<a id="__codelineno-3-30" name="__codelineno-3-30"></a>        <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s2">"Carol"</span><span class="p">,</span> <span class="s2">"DS"</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s2">"David"</span><span class="p">,</span> <span class="s2">"IS"</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s2">"Eva"</span><span class="p">,</span> <span class="s2">"CS"</span><span class="p">),</span>
+<a id="__codelineno-3-31" name="__codelineno-3-31"></a>    <span class="p">],</span>
+<a id="__codelineno-3-32" name="__codelineno-3-32"></a><span class="p">)</span>
+<a id="__codelineno-3-33" name="__codelineno-3-33"></a><span class="n">conn</span><span class="o">.</span><span class="n">executemany</span><span class="p">(</span>
+<a id="__codelineno-3-34" name="__codelineno-3-34"></a>    <span class="s2">"INSERT INTO courses VALUES (?, ?, ?)"</span><span class="p">,</span>
+<a id="__codelineno-3-35" name="__codelineno-3-35"></a>    <span class="p">[</span>
+<a id="__codelineno-3-36" name="__codelineno-3-36"></a>        <span class="p">(</span><span class="mi">101</span><span class="p">,</span> <span class="s2">"Database Systems"</span><span class="p">,</span> <span class="s2">"CS"</span><span class="p">),</span>
+<a id="__codelineno-3-37" name="__codelineno-3-37"></a>        <span class="p">(</span><span class="mi">102</span><span class="p">,</span> <span class="s2">"Machine Learning"</span><span class="p">,</span> <span class="s2">"CS"</span><span class="p">),</span>
+<a id="__codelineno-3-38" name="__codelineno-3-38"></a>        <span class="p">(</span><span class="mi">103</span><span class="p">,</span> <span class="s2">"Data Visualization"</span><span class="p">,</span> <span class="s2">"DS"</span><span class="p">),</span>
+<a id="__codelineno-3-39" name="__codelineno-3-39"></a>    <span class="p">],</span>
+<a id="__codelineno-3-40" name="__codelineno-3-40"></a><span class="p">)</span>
+<a id="__codelineno-3-41" name="__codelineno-3-41"></a><span class="n">conn</span><span class="o">.</span><span class="n">executemany</span><span class="p">(</span>
+<a id="__codelineno-3-42" name="__codelineno-3-42"></a>    <span class="s2">"INSERT INTO enrollments VALUES (?, ?, ?)"</span><span class="p">,</span>
+<a id="__codelineno-3-43" name="__codelineno-3-43"></a>    <span class="p">[</span>
+<a id="__codelineno-3-44" name="__codelineno-3-44"></a>        <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">88</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">102</span><span class="p">,</span> <span class="mi">91</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">78</span><span class="p">),</span>
+<a id="__codelineno-3-45" name="__codelineno-3-45"></a>        <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">103</span><span class="p">,</span> <span class="mi">84</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">102</span><span class="p">,</span> <span class="mi">95</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">103</span><span class="p">,</span> <span class="mi">89</span><span class="p">),</span>
+<a id="__codelineno-3-46" name="__codelineno-3-46"></a>        <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">82</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">102</span><span class="p">,</span> <span class="mi">86</span><span class="p">),</span>
+<a id="__codelineno-3-47" name="__codelineno-3-47"></a>    <span class="p">],</span>
+<a id="__codelineno-3-48" name="__codelineno-3-48"></a><span class="p">)</span>
+<a id="__codelineno-3-49" name="__codelineno-3-49"></a><span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
-<p><code>dropna()</code> 默认会删除含缺失值的行；<code>how="all"</code> 只删除整行全空的记录，<code>thresh=25</code> 保留至少有 25 个非空字段的行。<code>axis=1</code> 表示对列操作。删除前应先评估数据损失：</p>
+<p>向模型提供必要的表结构和关系，避免模型猜测字段：</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
 <span class="normal"><a href="#__codelineno-4-2">2</a></span>
-<span class="normal"><a href="#__codelineno-4-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="n">without_empty_rows</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">how</span><span class="o">=</span><span class="s2">"all"</span><span class="p">)</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="n">enough_fields</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">thresh</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="n">without_empty_columns</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">"all"</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span>
+<span class="normal"><a href="#__codelineno-4-4">4</a></span>
+<span class="normal"><a href="#__codelineno-4-5">5</a></span>
+<span class="normal"><a href="#__codelineno-4-6">6</a></span>
+<span class="normal"><a href="#__codelineno-4-7">7</a></span>
+<span class="normal"><a href="#__codelineno-4-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="n">schema</span> <span class="o">=</span> <span class="s2">"""</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="s2">students(student_id, name, major)</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="s2">courses(course_id, course_name, department)</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="s2">enrollments(student_id, course_id, grade)</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="s2">Relationships:</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="s2">- enrollments.student_id references students.student_id</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="s2">- enrollments.course_id references courses.course_id</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="s2">"""</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="_3">合理性与重复记录<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<p>用业务范围筛查可疑值。下面检查上映年份和评分是否超出示例数据的预期范围；异常记录需核对来源后再决定修正或删除。</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
-<span class="normal"><a href="#__codelineno-5-2">2</a></span>
-<span class="normal"><a href="#__codelineno-5-3">3</a></span>
-<span class="normal"><a href="#__codelineno-5-4">4</a></span>
-<span class="normal"><a href="#__codelineno-5-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="n">unusual_years</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">"title_year"</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">2015</span><span class="p">]</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="n">unusual_scores</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">"imdb_score"</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">]</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3"></a>
-<a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="n">duplicate_flags</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="n">duplicate_rows</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">duplicated</span><span class="p">(</span><span class="n">keep</span><span class="o">=</span><span class="kc">False</span><span class="p">)]</span>
+<h2 id="3-sql">3. 请求模型生成 SQL<a class="headerlink" href="#3-sql" title="Permanent link">&para;</a></h2>
+<p>提示中明确方言、可用模式、只读限制和返回格式。示例限制为单条 <code>SELECT</code>，并要求只返回 SQL。</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-5-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-5-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-5-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-5-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-5-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-5-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-5-10">10</a></span>
+<span class="normal"><a href="#__codelineno-5-11">11</a></span>
+<span class="normal"><a href="#__codelineno-5-12">12</a></span>
+<span class="normal"><a href="#__codelineno-5-13">13</a></span>
+<span class="normal"><a href="#__codelineno-5-14">14</a></span>
+<span class="normal"><a href="#__codelineno-5-15">15</a></span>
+<span class="normal"><a href="#__codelineno-5-16">16</a></span>
+<span class="normal"><a href="#__codelineno-5-17">17</a></span>
+<span class="normal"><a href="#__codelineno-5-18">18</a></span>
+<span class="normal"><a href="#__codelineno-5-19">19</a></span>
+<span class="normal"><a href="#__codelineno-5-20">20</a></span>
+<span class="normal"><a href="#__codelineno-5-21">21</a></span>
+<span class="normal"><a href="#__codelineno-5-22">22</a></span>
+<span class="normal"><a href="#__codelineno-5-23">23</a></span>
+<span class="normal"><a href="#__codelineno-5-24">24</a></span>
+<span class="normal"><a href="#__codelineno-5-25">25</a></span>
+<span class="normal"><a href="#__codelineno-5-26">26</a></span>
+<span class="normal"><a href="#__codelineno-5-27">27</a></span>
+<span class="normal"><a href="#__codelineno-5-28">28</a></span>
+<span class="normal"><a href="#__codelineno-5-29">29</a></span>
+<span class="normal"><a href="#__codelineno-5-30">30</a></span>
+<span class="normal"><a href="#__codelineno-5-31">31</a></span>
+<span class="normal"><a href="#__codelineno-5-32">32</a></span>
+<span class="normal"><a href="#__codelineno-5-33">33</a></span>
+<span class="normal"><a href="#__codelineno-5-34">34</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">ask</span><span class="p">(</span><span class="n">prompt</span><span class="p">,</span> <span class="n">system</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">max_tokens</span><span class="o">=</span><span class="mi">500</span><span class="p">):</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a>    <span class="n">messages</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a>    <span class="k">if</span> <span class="n">system</span><span class="p">:</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a>        <span class="n">messages</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"system"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="n">system</span><span class="p">})</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a>    <span class="n">messages</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="n">prompt</span><span class="p">})</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">completions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a>        <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9"></a>        <span class="n">messages</span><span class="o">=</span><span class="n">messages</span><span class="p">,</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10"></a>        <span class="n">temperature</span><span class="o">=</span><span class="n">temperature</span><span class="p">,</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11"></a>        <span class="n">max_tokens</span><span class="o">=</span><span class="n">max_tokens</span><span class="p">,</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12"></a>    <span class="p">)</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13"></a>    <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">content</span> <span class="ow">or</span> <span class="s2">""</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14"></a>
+<a id="__codelineno-5-15" name="__codelineno-5-15"></a>
+<a id="__codelineno-5-16" name="__codelineno-5-16"></a><span class="k">def</span><span class="w"> </span><span class="nf">clean_sql</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17"></a>    <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18"></a>    <span class="k">if</span> <span class="n">text</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"```"</span><span class="p">):</span>
+<a id="__codelineno-5-19" name="__codelineno-5-19"></a>        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-5-20" name="__codelineno-5-20"></a>        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s2">"```"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-5-21" name="__codelineno-5-21"></a>    <span class="k">return</span> <span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">removesuffix</span><span class="p">(</span><span class="s2">";"</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<a id="__codelineno-5-22" name="__codelineno-5-22"></a>
+<a id="__codelineno-5-23" name="__codelineno-5-23"></a>
+<a id="__codelineno-5-24" name="__codelineno-5-24"></a><span class="k">def</span><span class="w"> </span><span class="nf">text_to_sql</span><span class="p">(</span><span class="n">question</span><span class="p">):</span>
+<a id="__codelineno-5-25" name="__codelineno-5-25"></a>    <span class="n">prompt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"""Generate one SQLite SELECT query for the request below.</span>
+<a id="__codelineno-5-26" name="__codelineno-5-26"></a><span class="s2">Use only the given schema. Do not modify data or database structure.</span>
+<a id="__codelineno-5-27" name="__codelineno-5-27"></a><span class="s2">Return SQL only, without Markdown fences or explanation.</span>
+<a id="__codelineno-5-28" name="__codelineno-5-28"></a>
+<a id="__codelineno-5-29" name="__codelineno-5-29"></a><span class="s2">Schema:</span>
+<a id="__codelineno-5-30" name="__codelineno-5-30"></a><span class="si">{</span><span class="n">schema</span><span class="si">}</span>
+<a id="__codelineno-5-31" name="__codelineno-5-31"></a>
+<a id="__codelineno-5-32" name="__codelineno-5-32"></a><span class="s2">Request: </span><span class="si">{</span><span class="n">question</span><span class="si">}</span>
+<a id="__codelineno-5-33" name="__codelineno-5-33"></a><span class="s2">"""</span>
+<a id="__codelineno-5-34" name="__codelineno-5-34"></a>    <span class="k">return</span> <span class="n">clean_sql</span><span class="p">(</span><span class="n">ask</span><span class="p">(</span><span class="n">prompt</span><span class="p">))</span>
 </code></pre></div></td></tr></table></div>
-<p><code>duplicated()</code> 默认保留每组重复中的第一条作为非重复记录。用 <code>keep="last"</code> 保留最后一条，<code>keep=False</code> 则标记组内所有重复行；<code>subset=[...]</code> 可只根据指定字段判断。</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="n">deduplicated</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">"movie_title"</span><span class="p">,</span> <span class="s2">"title_year"</span><span class="p">],</span> <span class="n">keep</span><span class="o">=</span><span class="s2">"first"</span><span class="p">)</span>
+<h2 id="4">4. 检查並执行只读查询<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<p>下面的检查用于教学演示，不能作为生产环境的安全边界。正则表达式无法可靠解析任意 SQL，尤其是包含 CTE 或注释的语句。生产系统应使用只读数据库账户、数据库级只读模式、SQL 解析器、超时和资源限制。</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-6-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-6-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-6-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-6-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-6-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-6-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-6-10">10</a></span>
+<span class="normal"><a href="#__codelineno-6-11">11</a></span>
+<span class="normal"><a href="#__codelineno-6-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">"PRAGMA query_only = ON"</span><span class="p">)</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a>
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a>
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="k">def</span><span class="w"> </span><span class="nf">run_query</span><span class="p">(</span><span class="n">sql</span><span class="p">):</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a>    <span class="n">normalized</span> <span class="o">=</span> <span class="n">sql</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">"^(SELECT|WITH)\b"</span><span class="p">,</span> <span class="n">normalized</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">):</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"只允许查询语句"</span><span class="p">)</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10"></a>    <span class="k">if</span> <span class="s2">";"</span> <span class="ow">in</span> <span class="n">normalized</span><span class="p">:</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"每次只允许执行一条 SQL 语句"</span><span class="p">)</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12"></a>    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">normalized</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="_4">字段类型、列名与保存<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<p>读取时可以指定字段类型，随后重命名字段。保存清洗结果时建议写入新文件，并用 <code>index=False</code> 避免把 DataFrame 行索引额外存成一列。</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-7-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-7-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-7-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-7-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-7-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-7-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-7-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-7-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-7-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="n">typed</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2"></a>    <span class="n">csv_path</span><span class="p">,</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3"></a>    <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">,</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4"></a>    <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s2">"title_year"</span><span class="p">:</span> <span class="s2">"string"</span><span class="p">},</span>
-<a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="p">)</span>
-<a id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="n">renamed</span> <span class="o">=</span> <span class="n">typed</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span>
-<a id="__codelineno-7-7" name="__codelineno-7-7"></a>    <span class="s2">"title_year"</span><span class="p">:</span> <span class="s2">"release_year"</span><span class="p">,</span>
-<a id="__codelineno-7-8" name="__codelineno-7-8"></a>    <span class="s2">"movie_facebook_likes"</span><span class="p">:</span> <span class="s2">"facebook_likes"</span><span class="p">,</span>
-<a id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="p">})</span>
-<a id="__codelineno-7-10" name="__codelineno-7-10"></a><span class="n">renamed</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">"cleanfile.csv"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<p>SQLite 的 <code>query_only</code> 限制当前连接的写操作；仍应避免将不可信 SQL 用于具备更高权限的数据库连接。</p>
+<h2 id="5-text-to-sql">5. Text-to-SQL 示例<a class="headerlink" href="#5-text-to-sql" title="Permanent link">&para;</a></h2>
+<h3 id="51">5.1 条件筛选<a class="headerlink" href="#51" title="Permanent link">&para;</a></h3>
+<p>问题：列出数据科学（DS）专业学生，并按姓名排序。生成的查询应包含 <code>WHERE</code> 和 <code>ORDER BY</code>。</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span>
+<span class="normal"><a href="#__codelineno-7-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="n">sql</span> <span class="o">=</span> <span class="n">text_to_sql</span><span class="p">(</span><span class="s2">"List the names of DS students in alphabetical order."</span><span class="p">)</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="n">run_query</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<p>若数值列含空值，不要直接指定 Python 的原生 <code>int</code> 类型；可先处理缺失值，或使用 Pandas 可空整数类型 <code>Int64</code>。</p>
-<h2 id="3">3. 数据集成<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
-<p><code>merge()</code> 按键连接两个表。内连接（inner join）只保留两侧均存在的键；外连接（outer join）保留两侧全部键，没有匹配记录的位置会出现缺失值。合并前应检查键是否唯一，避免意外的一对多或多对多扩行。</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
+<p>也可先手写 SQL 验证预期结果：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">SQL</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
 <span class="normal"><a href="#__codelineno-8-2">2</a></span>
 <span class="normal"><a href="#__codelineno-8-3">3</a></span>
-<span class="normal"><a href="#__codelineno-8-4">4</a></span>
-<span class="normal"><a href="#__codelineno-8-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="n">left</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">"key"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"b"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"a"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">],</span> <span class="s2">"data1"</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)})</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="n">right</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">"key"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"d"</span><span class="p">],</span> <span class="s2">"data2"</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)})</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3"></a>
-<a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="n">inner</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">"key"</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">"inner"</span><span class="p">)</span>
-<a id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="n">outer</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">"key"</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">"outer"</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-8-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">students</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">major</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'DS'</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
-<p>若左右两表连接列名称不同，使用 <code>left_on</code> 和 <code>right_on</code> 指定；连接类型由 <code>how</code> 设置为 <code>inner</code>、<code>left</code>、<code>right</code> 或 <code>outer</code>。</p>
-<h2 id="4">4. 数据变换<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
-<h3 id="_5">文本与单位<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<p>字符串方法通过 <code>.str</code> 访问器逐项处理文本；例如大小写统一、首尾空格清理。单位变换则按换算关系创建新值。</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
+<h3 id="52">5.2 分组聚合<a class="headerlink" href="#52" title="Permanent link">&para;</a></h3>
+<p>问题：统计每个专业的学生人数。需要按 <code>major</code> 分组，并对学生记录计数。</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">SQL</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
 <span class="normal"><a href="#__codelineno-9-2">2</a></span>
 <span class="normal"><a href="#__codelineno-9-3">3</a></span>
-<span class="normal"><a href="#__codelineno-9-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="n">director_upper</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">"director_name"</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="n">director_lower</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">"director_name"</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="n">movie_titles</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">"movie_title"</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="n">duration_hours</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">"duration"</span><span class="p">]</span> <span class="o">/</span> <span class="mi">60</span>
+<span class="normal"><a href="#__codelineno-9-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">major</span><span class="p">,</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">student_count</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">students</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">major</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">major</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="_6">规范化与标准化<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
-<p>最小-最大规范化（min-max normalization）把数据映射到 <span class="arithmatex">\([0,1]\)</span>；标准化（standardization）把数据转换为均值为 0、标准差为 1 的 Z 分数。</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
+<h3 id="53">5.3 表连接<a class="headerlink" href="#53" title="Permanent link">&para;</a></h3>
+<p>问题：列出 Alice 选修的课程和成绩。需要连接学生、选课和课程表。</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">SQL</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
 <span class="normal"><a href="#__codelineno-10-2">2</a></span>
-<span class="normal"><a href="#__codelineno-10-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="n">duration</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">"duration"</span><span class="p">]</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="n">normalized</span> <span class="o">=</span> <span class="p">(</span><span class="n">duration</span> <span class="o">-</span> <span class="n">duration</span><span class="o">.</span><span class="n">min</span><span class="p">())</span> <span class="o">/</span> <span class="p">(</span><span class="n">duration</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">duration</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
-<a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="n">standardized</span> <span class="o">=</span> <span class="p">(</span><span class="n">duration</span> <span class="o">-</span> <span class="n">duration</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="o">/</span> <span class="n">duration</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="normal"><a href="#__codelineno-10-3">3</a></span>
+<span class="normal"><a href="#__codelineno-10-4">4</a></span>
+<span class="normal"><a href="#__codelineno-10-5">5</a></span>
+<span class="normal"><a href="#__codelineno-10-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">course_name</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">grade</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">students</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">s</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="k">JOIN</span><span class="w"> </span><span class="n">enrollments</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">student_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">student_id</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="k">JOIN</span><span class="w"> </span><span class="n">courses</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">c</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">course_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">course_id</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Alice'</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">course_name</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
-<p>如果一列最大值等于最小值，最小-最大公式会除以 0；使用前应检查该列是否有变化。标准化后的负值只表示低于均值，并不代表数据无效。</p>
-<h3 id="_7">分箱<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
-<p>分位数离散化（quantile discretization）把数值分成样本量大致相等的区间。<code>qcut()</code> 返回区间类别，重复边界可能导致分箱数量少于请求值。</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span>
-<span class="normal"><a href="#__codelineno-11-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="n">duration_bins</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">qcut</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"duration"</span><span class="p">],</span> <span class="n">q</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">duplicates</span><span class="o">=</span><span class="s2">"drop"</span><span class="p">)</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">duration_bins</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">())</span>
+<h3 id="54">5.4 查询改写与语义等价<a class="headerlink" href="#54" title="Permanent link">&para;</a></h3>
+<p>子查询可以改写为连接。例如，找出选修至少一门课程的学生姓名：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">SQL</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span>
+<span class="normal"><a href="#__codelineno-11-2">2</a></span>
+<span class="normal"><a href="#__codelineno-11-3">3</a></span>
+<span class="normal"><a href="#__codelineno-11-4">4</a></span>
+<span class="normal"><a href="#__codelineno-11-5">5</a></span>
+<span class="normal"><a href="#__codelineno-11-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">students</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">student_id</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="n">student_id</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">enrollments</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
-<h2 id="5">5. 正则表达式<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
-<p>正则表达式（regular expression，regex）用字符模式搜索、校验、提取或替换文本。Python 的 <code>re</code> 模块提供常用函数：</p>
-<table>
-<thead>
-<tr>
-<th>函数</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>re.findall()</code></td>
-<td>返回所有匹配结果</td>
-</tr>
-<tr>
-<td><code>re.search()</code></td>
-<td>返回第一个匹配对象；没有匹配则返回 <code>None</code></td>
-</tr>
-<tr>
-<td><code>re.split()</code></td>
-<td>按匹配位置切分文本</td>
-</tr>
-<tr>
-<td><code>re.sub()</code></td>
-<td>用指定内容替换匹配部分</td>
-</tr>
-</tbody>
-</table>
-<p>常用元字符：<code>\d</code> 表示数字，<code>\w</code> 表示字母/数字/下划线，<code>\s</code> 表示空白；<code>+</code> 表示至少一次，<code>*</code> 表示零次或多次，<code>?</code> 表示可选，<code>{m,n}</code> 表示重复次数范围，<code>[]</code> 表示字符集合，<code>^</code> 和 <code>$</code> 可锚定字符串首尾。Python 原始字符串（raw string）如 <code>r"\d+"</code> 能让反斜杠按正则语法解释。</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-12-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-12-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-12-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-12-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-12-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-12-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-12-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-12-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-12-10">10</a></span>
-<span class="normal"><a href="#__codelineno-12-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2"></a>
-<a id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="n">text</span> <span class="o">=</span> <span class="s2">"The rain in Spain; contact test@outlook.com or 123456@qq.com"</span>
-<a id="__codelineno-12-4" name="__codelineno-12-4"></a>
-<a id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="n">words</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">"\b\w+\b"</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
-<a id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="n">first_space</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">"\s"</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
-<a id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="n">parts</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">r</span><span class="s2">"\s+"</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">maxsplit</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<a id="__codelineno-12-8" name="__codelineno-12-8"></a><span class="n">single_spaced</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">"\s+"</span><span class="p">,</span> <span class="s2">" "</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
-<a id="__codelineno-12-9" name="__codelineno-12-9"></a>
-<a id="__codelineno-12-10" name="__codelineno-12-10"></a><span class="n">email_pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">"[A-Za-z0-9_-]+@[A-Za-z0-9_-]+(?:\.[A-Za-z0-9_-]+)+"</span><span class="p">)</span>
-<a id="__codelineno-12-11" name="__codelineno-12-11"></a><span class="n">emails</span> <span class="o">=</span> <span class="n">email_pattern</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<p>对应的连接写法需要 <code>DISTINCT</code>，因为同一学生可能选修多门课程：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">SQL</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span>
+<span class="normal"><a href="#__codelineno-12-2">2</a></span>
+<span class="normal"><a href="#__codelineno-12-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">name</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">students</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">s</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="k">JOIN</span><span class="w"> </span><span class="n">enrollments</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">student_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">student_id</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
-<p>匹配对象的 <code>.group()</code> 返回匹配文本，<code>.span()</code> 返回匹配位置。调用前应确认搜索成功：</p>
+<p>可在同一数据库上比较两条查询的结果。查询改写不只要语法有效，还应保持重复值、空值和边界情况上的语义。</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span>
 <span class="normal"><a href="#__codelineno-13-2">2</a></span>
-<span class="normal"><a href="#__codelineno-13-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">"\bS\w+"</span><span class="p">,</span> <span class="s2">"The rain in Spain"</span><span class="p">)</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="k">if</span> <span class="n">match</span><span class="p">:</span>
-<a id="__codelineno-13-3" name="__codelineno-13-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(),</span> <span class="n">match</span><span class="o">.</span><span class="n">span</span><span class="p">())</span>
+<span class="normal"><a href="#__codelineno-13-3">3</a></span>
+<span class="normal"><a href="#__codelineno-13-4">4</a></span>
+<span class="normal"><a href="#__codelineno-13-5">5</a></span>
+<span class="normal"><a href="#__codelineno-13-6">6</a></span>
+<span class="normal"><a href="#__codelineno-13-7">7</a></span>
+<span class="normal"><a href="#__codelineno-13-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="n">query_a</span> <span class="o">=</span> <span class="s2">"""SELECT name FROM students</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="s2">WHERE student_id IN (SELECT student_id FROM enrollments)"""</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="n">query_b</span> <span class="o">=</span> <span class="s2">"""SELECT DISTINCT s.name FROM students AS s</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="s2">JOIN enrollments AS e ON e.student_id = s.student_id"""</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5"></a>
+<a id="__codelineno-13-6" name="__codelineno-13-6"></a><span class="n">result_a</span> <span class="o">=</span> <span class="n">run_query</span><span class="p">(</span><span class="n">query_a</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">"name"</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7"></a><span class="n">result_b</span> <span class="o">=</span> <span class="n">run_query</span><span class="p">(</span><span class="n">query_b</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">"name"</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8"></a><span class="k">assert</span> <span class="n">result_a</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="n">result_b</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<h2 id="6-practice">6. Practice<a class="headerlink" href="#6-practice" title="Permanent link">&para;</a></h2>
-<h3 id="61">6.1 对二维数据做规范化与标准化<a class="headerlink" href="#61" title="Permanent link">&para;</a></h3>
-<p>求给定二维数据按列进行的最小-最大规范化和 Z 分数标准化。</p>
-<details class="question">
-<summary>Solution</summary>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span>
+<h2 id="6">6. 练习：按课程计算平均成绩<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<p>查询每门课程的平均成绩，只保留平均成绩不低于 85 的课程，结果包含课程名和平均成绩，并按平均成绩从高到低排序。</p>
+<p>要求：</p>
+<ol>
+<li>写出自然语言问题并调用 <code>text_to_sql</code>；</li>
+<li>检查模型是否正确连接 <code>courses</code> 与 <code>enrollments</code>；</li>
+<li>使用 <code>GROUP BY</code> 和 <code>HAVING</code>，不要把分组条件误写为普通 <code>WHERE</code>；</li>
+<li>对照手写查询，核对数值、别名和排序。</li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">SQL</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span>
 <span class="normal"><a href="#__codelineno-14-2">2</a></span>
 <span class="normal"><a href="#__codelineno-14-3">3</a></span>
 <span class="normal"><a href="#__codelineno-14-4">4</a></span>
 <span class="normal"><a href="#__codelineno-14-5">5</a></span>
-<span class="normal"><a href="#__codelineno-14-6">6</a></span>
-<span class="normal"><a href="#__codelineno-14-7">7</a></span>
-<span class="normal"><a href="#__codelineno-14-8">8</a></span>
-<span class="normal"><a href="#__codelineno-14-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="n">values</span> <span class="o">=</span> <span class="p">[</span>
-<a id="__codelineno-14-2" name="__codelineno-14-2"></a>    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-<a id="__codelineno-14-3" name="__codelineno-14-3"></a>    <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
-<a id="__codelineno-14-4" name="__codelineno-14-4"></a>    <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
-<a id="__codelineno-14-5" name="__codelineno-14-5"></a><span class="p">]</span>
-<a id="__codelineno-14-6" name="__codelineno-14-6"></a><span class="n">frame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
-<a id="__codelineno-14-7" name="__codelineno-14-7"></a>
-<a id="__codelineno-14-8" name="__codelineno-14-8"></a><span class="n">normalized</span> <span class="o">=</span> <span class="p">(</span><span class="n">frame</span> <span class="o">-</span> <span class="n">frame</span><span class="o">.</span><span class="n">min</span><span class="p">())</span> <span class="o">/</span> <span class="p">(</span><span class="n">frame</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">frame</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
-<a id="__codelineno-14-9" name="__codelineno-14-9"></a><span class="n">standardized</span> <span class="o">=</span> <span class="p">(</span><span class="n">frame</span> <span class="o">-</span> <span class="n">frame</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="o">/</span> <span class="n">frame</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="normal"><a href="#__codelineno-14-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">course_name</span><span class="p">,</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">grade</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">average_grade</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">courses</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">c</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="k">JOIN</span><span class="w"> </span><span class="n">enrollments</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">course_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">course_id</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">course_id</span><span class="p">,</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">course_name</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5"></a><span class="k">HAVING</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">grade</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">85</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">average_grade</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
-</details>
-<h3 id="62">6.2 抽取多种分隔符的日期<a class="headerlink" href="#62" title="Permanent link">&para;</a></h3>
-<p>从文本中提取 <code>YYYY/MM/DD</code>、<code>YYYY.MM.DD</code> 或 <code>YYYY-MM-DD</code> 格式的日期，并要求同一个日期使用相同分隔符。</p>
-<details class="question">
-<summary>Solution</summary>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span>
-<span class="normal"><a href="#__codelineno-15-2">2</a></span>
-<span class="normal"><a href="#__codelineno-15-3">3</a></span>
-<span class="normal"><a href="#__codelineno-15-4">4</a></span>
-<span class="normal"><a href="#__codelineno-15-5">5</a></span>
-<span class="normal"><a href="#__codelineno-15-6">6</a></span>
-<span class="normal"><a href="#__codelineno-15-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="n">text</span> <span class="o">=</span> <span class="p">(</span>
-<a id="__codelineno-15-2" name="__codelineno-15-2"></a>    <span class="s2">"Today is 2022/09/13, today in the last year is 2021.09.13, "</span>
-<a id="__codelineno-15-3" name="__codelineno-15-3"></a>    <span class="s2">"today in the next year is 2023-09-13"</span>
-<a id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="p">)</span>
-<a id="__codelineno-15-5" name="__codelineno-15-5"></a><span class="n">date_pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">"\b\d</span><span class="si">{4}</span><span class="s2">(?P&lt;sep&gt;[./-])\d</span><span class="si">{2}</span><span class="s2">(?P=sep)\d</span><span class="si">{2}</span><span class="s2">\b"</span><span class="p">)</span>
-<a id="__codelineno-15-6" name="__codelineno-15-6"></a><span class="n">dates</span> <span class="o">=</span> <span class="p">[</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">()</span> <span class="k">for</span> <span class="n">match</span> <span class="ow">in</span> <span class="n">date_pattern</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span><span class="n">text</span><span class="p">)]</span>
-<a id="__codelineno-15-7" name="__codelineno-15-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">dates</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-<p><code>(?P&lt;sep&gt;[./-])</code> 捕获首次出现的分隔符，<code>(?P=sep)</code> 要求后续分隔符与之相同。此模式只检查文本格式；若还需验证真实日期（例如排除 2022/19/45），应进一步使用日期解析函数。</p>
-</details>
+<h2 id="7">7. 小结<a class="headerlink" href="#7" title="Permanent link">&para;</a></h2>
+<p>Text-to-SQL 的质量依赖准确的模式说明、明确的自然语言问题和执行后的结果检查。对于查询改写，应比较结果语义而不只是 SQL 文本；对于模型生成的查询，应在权限受限的环境中运行，并设置实际的数据库安全和资源边界。</p>
 
 
 
@@ -3030,7 +3035,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年9月27日 14:21:12 UTC">2026年9月27日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年10月7日 10:29:19 UTC">2026年10月7日</span>
   </span>
 
     
@@ -3040,7 +3045,7 @@
     <span class="md-icon" title="创建日期">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年9月27日 14:21:12 UTC">2026年9月27日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年10月7日 10:29:19 UTC">2026年10月7日</span>
   </span>
 
     
@@ -3075,7 +3080,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../Tutorial%202%20Introduction%20to%20Web%20Scraping/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Tutorial 2：网页抓取入门">
+          <a href="../Tutorial%204%20Data%20Visualization/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Tutorial 4：数据可视化">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -3085,20 +3090,20 @@
                 上一页
               </span>
               <div class="md-ellipsis">
-                Tutorial 2：网页抓取入门
+                Tutorial 4：数据可视化
               </div>
             </div>
           </a>
         
         
           
-          <a href="../Tutorial%204%20Data%20Visualization/" class="md-footer__link md-footer__link--next" aria-label="下一页: Tutorial 4：数据可视化">
+          <a href="../../CS6382%20Algorithm%20Analysis%20and%20Game%20Theory/" class="md-footer__link md-footer__link--next" aria-label="下一页: Index">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                Tutorial 4：数据可视化
+                Index
               </div>
             </div>
             <div class="md-footer__button md-icon">
