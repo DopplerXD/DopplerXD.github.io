@@ -9,3 +9,5 @@
 - [Lecture 4: Data Visualization](Lecture%204%20Data%20Visualization.md)
 - [Tutorial 4: Data Visualization](Tutorial%204%20Data%20Visualization.md)
 - [Lecture 5: Large Language Models for Data Engineering](Lecture%205%20Large%20Language%20Models%20for%20Data%20Engineering.md)
+- [Lecture 6: Large Language Models for Data Engineering and Data Engineering for Large Language Models](Lecture%206%20Large%20Language%20Models%20for%20Data%20Engineering%20and%20Data%20Engineering%20for%20Large%20Language%20Models.md)
+- [Tutorial 6: Text-to-SQL and Query Processing](Tutorial%206%20Text-to-SQL%20and%20Query%20Processing.md)

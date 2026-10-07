@@ -28,6 +28,8 @@
 - [课程索引](CS5481%20Data%20Engineering/index.md)
 - [Lecture 4: Data Visualization](CS5481%20Data%20Engineering/Lecture%204%20Data%20Visualization.md)
 - [Tutorial 4: Data Visualization](CS5481%20Data%20Engineering/Tutorial%204%20Data%20Visualization.md)
+- [Lecture 6: Large Language Models for Data Engineering and Data Engineering for Large Language Models](CS5481%20Data%20Engineering/Lecture%206%20Large%20Language%20Models%20for%20Data%20Engineering%20and%20Data%20Engineering%20for%20Large%20Language%20Models.md)
+- [Tutorial 6: Text-to-SQL and Query Processing](CS5481%20Data%20Engineering/Tutorial%206%20Text-to-SQL%20and%20Query%20Processing.md)
 
 ### CS6382 Algorithm Analysis and Game Theory
 
