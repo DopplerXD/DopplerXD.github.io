@@ -12,31 +12,31 @@
         <meta name="author" content="DopplerXD">
       
       
-        <link rel="canonical" href="https://dopplerxd.top/CityU/CS5285%20Introduction%20to%20Cybersecurity/">
+        <link rel="canonical" href="https://dopplerxd.top/CityU/CS5285%20Introduction%20to%20Cybersecurity/Lecture%205%20Signatures%20Hashes%20and%20MACs/">
       
       
-        <link rel="prev" href="../CS5222%20Computer%20Networks%20and%20Internets/Tutorials%201-2%20-%20Key%20Problems%20and%20Solutions/">
+        <link rel="prev" href="../Lecture%204%20Public%20Key%20Encryption/">
       
       
-        <link rel="next" href="Exercise%201/">
+        <link rel="next" href="../../CS5351%20Software%20Engineering/">
       
       
         
       
       
-      <link rel="icon" href="../../assets/favicon.png">
+      <link rel="icon" href="../../../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>CS5285 Introduction to Cybersecurity - DopplerXD Docs</title>
+        <title>Lecture 5：数字签名、哈希与消息认证码 - DopplerXD Docs</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -55,9 +55,9 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#cs5285-introduction-to-cybersecurity" class="md-skip">
+        <a href="#lecture-5" class="md-skip">
           跳转至
         </a>
       
@@ -96,7 +96,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../.." title="DopplerXD Docs" class="md-header__button md-logo" aria-label="DopplerXD Docs" data-md-component="logo">
+    <a href="../../.." title="DopplerXD Docs" class="md-header__button md-logo" aria-label="DopplerXD Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              CS5285 Introduction to Cybersecurity
+              Lecture 5：数字签名、哈希与消息认证码
             
           </span>
         </div>
@@ -244,7 +244,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
   
@@ -265,7 +265,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../AI/AI%20Coding%20%E6%8A%80%E5%B7%A7%20-%20%E5%B0%86%E9%A1%B9%E7%9B%AE%E7%BA%A6%E6%9D%9F%E6%B2%89%E6%B7%80%E4%B8%BA%E5%8F%AF%E5%A4%8D%E7%94%A8%E4%B8%8A%E4%B8%8B%E6%96%87/" class="md-tabs__link">
+        <a href="../../../AI/AI%20Coding%20%E6%8A%80%E5%B7%A7%20-%20%E5%B0%86%E9%A1%B9%E7%9B%AE%E7%BA%A6%E6%9D%9F%E6%B2%89%E6%B7%80%E4%B8%BA%E5%8F%AF%E5%A4%8D%E7%94%A8%E4%B8%8A%E4%B8%8B%E6%96%87/" class="md-tabs__link">
           
   
   
@@ -287,7 +287,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
+        <a href="../../" class="md-tabs__link">
           
   
   
@@ -314,7 +314,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../leetcode/problems/1361.%20%E9%AA%8C%E8%AF%81%E4%BA%8C%E5%8F%89%E6%A0%91/" class="md-tabs__link">
+        <a href="../../../leetcode/problems/1361.%20%E9%AA%8C%E8%AF%81%E4%BA%8C%E5%8F%89%E6%A0%91/" class="md-tabs__link">
           
   
   
@@ -337,7 +337,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../%E5%85%B6%E4%BB%96%E7%9F%A5%E8%AF%86%26%E6%9D%82%E8%B0%88/%E3%80%8AClean%20Code%E3%80%8B%E7%B2%BE%E5%8D%8E%E6%80%BB%E7%BB%93/" class="md-tabs__link">
+        <a href="../../../%E5%85%B6%E4%BB%96%E7%9F%A5%E8%AF%86%26%E6%9D%82%E8%B0%88/%E3%80%8AClean%20Code%E3%80%8B%E7%B2%BE%E5%8D%8E%E6%80%BB%E7%BB%93/" class="md-tabs__link">
           
   
   
@@ -357,7 +357,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../%E5%BC%80%E5%8F%91%E7%BB%8F%E9%AA%8C/" class="md-tabs__link">
+        <a href="../../../%E5%BC%80%E5%8F%91%E7%BB%8F%E9%AA%8C/" class="md-tabs__link">
           
   
   
@@ -377,7 +377,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/" class="md-tabs__link">
+        <a href="../../../%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/" class="md-tabs__link">
           
   
   
@@ -404,7 +404,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/ACM%20%E6%A8%A1%E5%BC%8F%20C%2B%2B%E3%80%81Java%E3%80%81Python%20%E6%95%B0%E6%8D%AE%E8%BE%93%E5%85%A5%20%26%20%E8%BE%93%E5%87%BA/" class="md-tabs__link">
+        <a href="../../../%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/ACM%20%E6%A8%A1%E5%BC%8F%20C%2B%2B%E3%80%81Java%E3%80%81Python%20%E6%95%B0%E6%8D%AE%E8%BE%93%E5%85%A5%20%26%20%E8%BE%93%E5%87%BA/" class="md-tabs__link">
           
   
   
@@ -427,7 +427,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB/good-web/" class="md-tabs__link">
+        <a href="../../../%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB/good-web/" class="md-tabs__link">
           
   
   
@@ -461,7 +461,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="DopplerXD Docs" class="md-nav__button md-logo" aria-label="DopplerXD Docs" data-md-component="logo">
+    <a href="../../.." title="DopplerXD Docs" class="md-nav__button md-logo" aria-label="DopplerXD Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -491,7 +491,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -538,7 +538,7 @@
   
   
   
-    <a href="../../AI/AI%20Coding%20%E6%8A%80%E5%B7%A7%20-%20%E5%B0%86%E9%A1%B9%E7%9B%AE%E7%BA%A6%E6%9D%9F%E6%B2%89%E6%B7%80%E4%B8%BA%E5%8F%AF%E5%A4%8D%E7%94%A8%E4%B8%8A%E4%B8%8B%E6%96%87/" class="md-nav__link">
+    <a href="../../../AI/AI%20Coding%20%E6%8A%80%E5%B7%A7%20-%20%E5%B0%86%E9%A1%B9%E7%9B%AE%E7%BA%A6%E6%9D%9F%E6%B2%89%E6%B7%80%E4%B8%BA%E5%8F%AF%E5%A4%8D%E7%94%A8%E4%B8%8A%E4%B8%8B%E6%96%87/" class="md-nav__link">
       
   
   
@@ -630,7 +630,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../" class="md-nav__link">
         
   
   
@@ -715,7 +715,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../CS5222%20Computer%20Networks%20and%20Internets/" class="md-nav__link">
+      <a href="../../CS5222%20Computer%20Networks%20and%20Internets/" class="md-nav__link">
         
   
   
@@ -743,7 +743,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../CS5222%20Computer%20Networks%20and%20Internets/Chapter%201%20Introduction/" class="md-nav__link">
+      <a href="../../CS5222%20Computer%20Networks%20and%20Internets/Chapter%201%20Introduction/" class="md-nav__link">
         
   
   
@@ -771,7 +771,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../CS5222%20Computer%20Networks%20and%20Internets/Chapter%201%20Part%202%20-%20Performance%2C%20Layering%2C%20Security%20and%20History/" class="md-nav__link">
+      <a href="../../CS5222%20Computer%20Networks%20and%20Internets/Chapter%201%20Part%202%20-%20Performance%2C%20Layering%2C%20Security%20and%20History/" class="md-nav__link">
         
   
   
@@ -799,7 +799,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../CS5222%20Computer%20Networks%20and%20Internets/Chapter%202%20Part%201%20-%20Application%20Layer%20Principles%20and%20HTTP/" class="md-nav__link">
+      <a href="../../CS5222%20Computer%20Networks%20and%20Internets/Chapter%202%20Part%201%20-%20Application%20Layer%20Principles%20and%20HTTP/" class="md-nav__link">
         
   
   
@@ -827,7 +827,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../CS5222%20Computer%20Networks%20and%20Internets/Chapter%202%20Part%202%20-%20HTTP%2C%20Email%20and%20DNS/" class="md-nav__link">
+      <a href="../../CS5222%20Computer%20Networks%20and%20Internets/Chapter%202%20Part%202%20-%20HTTP%2C%20Email%20and%20DNS/" class="md-nav__link">
         
   
   
@@ -855,7 +855,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../CS5222%20Computer%20Networks%20and%20Internets/Tutorials%201-2%20-%20Key%20Problems%20and%20Solutions/" class="md-nav__link">
+      <a href="../../CS5222%20Computer%20Networks%20and%20Internets/Tutorials%201-2%20-%20Key%20Problems%20and%20Solutions/" class="md-nav__link">
         
   
   
@@ -947,6 +947,174 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CS5285 Introduction to Cybersecurity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Exercise%201/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercise 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lecture%201%20Introductory%20Security%20Concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lecture 1 Introductory Security Concepts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lecture%202%20Symmetric-Key%20Encryption/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lecture 2：对称密钥加密
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lecture%203%20Number%20Theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lecture 3：数论基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lecture%204%20Public%20Key%20Encryption/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lecture 4：公开密钥加密
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -966,7 +1134,7 @@
   <span class="md-ellipsis">
     
   
-    CS5285 Introduction to Cybersecurity
+    Lecture 5：数字签名、哈希与消息认证码
   
 
     
@@ -984,7 +1152,7 @@
   <span class="md-ellipsis">
     
   
-    CS5285 Introduction to Cybersecurity
+    Lecture 5：数字签名、哈希与消息认证码
   
 
     
@@ -1015,7 +1183,79 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        课程内容
+        学习目标
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 完整性与数字签名
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 密码学哈希函数
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 哈希的构造概念
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 消息认证码
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 消息认证码">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cbc-mac" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CBC-MAC 的限制
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 加密与认证的组合
       
     </span>
   </a>
@@ -1026,7 +1266,7 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        课程安排
+        复习重点
       
     </span>
   </a>
@@ -1037,174 +1277,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="Exercise%201/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Exercise 1
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="Lecture%201%20Introductory%20Security%20Concepts/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Lecture 1 Introductory Security Concepts
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="Lecture%202%20Symmetric-Key%20Encryption/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Lecture 2：对称密钥加密
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="Lecture%203%20Number%20Theory/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Lecture 3：数论基础
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="Lecture%204%20Public%20Key%20Encryption/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Lecture 4：公开密钥加密
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="Lecture%205%20Signatures%20Hashes%20and%20MACs/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Lecture 5：数字签名、哈希与消息认证码
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -1282,7 +1354,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../CS5351%20Software%20Engineering/" class="md-nav__link">
+      <a href="../../CS5351%20Software%20Engineering/" class="md-nav__link">
         
   
   
@@ -1310,7 +1382,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../CS5351%20Software%20Engineering/Assignment%20Phase%201/" class="md-nav__link">
+      <a href="../../CS5351%20Software%20Engineering/Assignment%20Phase%201/" class="md-nav__link">
         
   
   
@@ -1338,7 +1410,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../CS5351%20Software%20Engineering/Week%202%20VHIS%20Code%20Lab/" class="md-nav__link">
+      <a href="../../CS5351%20Software%20Engineering/Week%202%20VHIS%20Code%20Lab/" class="md-nav__link">
         
   
   
@@ -1366,7 +1438,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../CS5351%20Software%20Engineering/Week%203-5%20Requirements%20Engineering%20Exercise/" class="md-nav__link">
+      <a href="../../CS5351%20Software%20Engineering/Week%203-5%20Requirements%20Engineering%20Exercise/" class="md-nav__link">
         
   
   
@@ -1394,7 +1466,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../CS5351%20Software%20Engineering/Week%203-5%20Requirements%20Engineering/" class="md-nav__link">
+      <a href="../../CS5351%20Software%20Engineering/Week%203-5%20Requirements%20Engineering/" class="md-nav__link">
         
   
   
@@ -1487,7 +1559,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../CS5481%20Data%20Engineering/" class="md-nav__link">
+      <a href="../../CS5481%20Data%20Engineering/" class="md-nav__link">
         
   
   
@@ -1515,7 +1587,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../CS5481%20Data%20Engineering/Lecture%202%20Data%20Acquisition/" class="md-nav__link">
+      <a href="../../CS5481%20Data%20Engineering/Lecture%202%20Data%20Acquisition/" class="md-nav__link">
         
   
   
@@ -1543,7 +1615,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../CS5481%20Data%20Engineering/Lecture%203%20Data%20Preprocessing/" class="md-nav__link">
+      <a href="../../CS5481%20Data%20Engineering/Lecture%203%20Data%20Preprocessing/" class="md-nav__link">
         
   
   
@@ -1571,7 +1643,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../CS5481%20Data%20Engineering/Lecture%204%20Data%20Visualization/" class="md-nav__link">
+      <a href="../../CS5481%20Data%20Engineering/Lecture%204%20Data%20Visualization/" class="md-nav__link">
         
   
   
@@ -1599,7 +1671,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../CS5481%20Data%20Engineering/Lecture%205%20Large%20Language%20Models%20for%20Data%20Engineering/" class="md-nav__link">
+      <a href="../../CS5481%20Data%20Engineering/Lecture%205%20Large%20Language%20Models%20for%20Data%20Engineering/" class="md-nav__link">
         
   
   
@@ -1627,7 +1699,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../CS5481%20Data%20Engineering/Lecture%206%20Large%20Language%20Models%20for%20Data%20Engineering%20and%20Data%20Engineering%20for%20Large%20Language%20Models/" class="md-nav__link">
+      <a href="../../CS5481%20Data%20Engineering/Lecture%206%20Large%20Language%20Models%20for%20Data%20Engineering%20and%20Data%20Engineering%20for%20Large%20Language%20Models/" class="md-nav__link">
         
   
   
@@ -1655,7 +1727,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../CS5481%20Data%20Engineering/Tutorial%202%20Introduction%20to%20Web%20Scraping/" class="md-nav__link">
+      <a href="../../CS5481%20Data%20Engineering/Tutorial%202%20Introduction%20to%20Web%20Scraping/" class="md-nav__link">
         
   
   
@@ -1683,7 +1755,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../CS5481%20Data%20Engineering/Tutorial%203%20Data%20Preprocessing%20and%20Regular%20Expressions/" class="md-nav__link">
+      <a href="../../CS5481%20Data%20Engineering/Tutorial%203%20Data%20Preprocessing%20and%20Regular%20Expressions/" class="md-nav__link">
         
   
   
@@ -1711,7 +1783,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../CS5481%20Data%20Engineering/Tutorial%204%20Data%20Visualization/" class="md-nav__link">
+      <a href="../../CS5481%20Data%20Engineering/Tutorial%204%20Data%20Visualization/" class="md-nav__link">
         
   
   
@@ -1739,7 +1811,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../CS5481%20Data%20Engineering/Tutorial%206%20Text-to-SQL%20and%20Query%20Processing/" class="md-nav__link">
+      <a href="../../CS5481%20Data%20Engineering/Tutorial%206%20Text-to-SQL%20and%20Query%20Processing/" class="md-nav__link">
         
   
   
@@ -1832,7 +1904,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../CS6382%20Algorithm%20Analysis%20and%20Game%20Theory/" class="md-nav__link">
+      <a href="../../CS6382%20Algorithm%20Analysis%20and%20Game%20Theory/" class="md-nav__link">
         
   
   
@@ -1860,7 +1932,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../CS6382%20Algorithm%20Analysis%20and%20Game%20Theory/1%20Review%20of%20Classic%20Algorithms/" class="md-nav__link">
+      <a href="../../CS6382%20Algorithm%20Analysis%20and%20Game%20Theory/1%20Review%20of%20Classic%20Algorithms/" class="md-nav__link">
         
   
   
@@ -1888,7 +1960,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../CS6382%20Algorithm%20Analysis%20and%20Game%20Theory/2%20Approximation%20Algorithms/" class="md-nav__link">
+      <a href="../../CS6382%20Algorithm%20Analysis%20and%20Game%20Theory/2%20Approximation%20Algorithms/" class="md-nav__link">
         
   
   
@@ -1916,7 +1988,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../CS6382%20Algorithm%20Analysis%20and%20Game%20Theory/3%20Online%20Algorithms/" class="md-nav__link">
+      <a href="../../CS6382%20Algorithm%20Analysis%20and%20Game%20Theory/3%20Online%20Algorithms/" class="md-nav__link">
         
   
   
@@ -1944,7 +2016,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../CS6382%20Algorithm%20Analysis%20and%20Game%20Theory/4%20Randomized%20and%20Others/" class="md-nav__link">
+      <a href="../../CS6382%20Algorithm%20Analysis%20and%20Game%20Theory/4%20Randomized%20and%20Others/" class="md-nav__link">
         
   
   
@@ -1972,7 +2044,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../CS6382%20Algorithm%20Analysis%20and%20Game%20Theory/5%20Game%20Theory%20Basics/" class="md-nav__link">
+      <a href="../../CS6382%20Algorithm%20Analysis%20and%20Game%20Theory/5%20Game%20Theory%20Basics/" class="md-nav__link">
         
   
   
@@ -2000,7 +2072,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../CS6382%20Algorithm%20Analysis%20and%20Game%20Theory/5.3%20Network%20Defending%20Games/" class="md-nav__link">
+      <a href="../../CS6382%20Algorithm%20Analysis%20and%20Game%20Theory/5.3%20Network%20Defending%20Games/" class="md-nav__link">
         
   
   
@@ -2028,7 +2100,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../CS6382%20Algorithm%20Analysis%20and%20Game%20Theory/6-7%20Cooperative%20Games/" class="md-nav__link">
+      <a href="../../CS6382%20Algorithm%20Analysis%20and%20Game%20Theory/6-7%20Cooperative%20Games/" class="md-nav__link">
         
   
   
@@ -2095,7 +2167,7 @@
   
   
   
-    <a href="../../leetcode/problems/1361.%20%E9%AA%8C%E8%AF%81%E4%BA%8C%E5%8F%89%E6%A0%91/" class="md-nav__link">
+    <a href="../../../leetcode/problems/1361.%20%E9%AA%8C%E8%AF%81%E4%BA%8C%E5%8F%89%E6%A0%91/" class="md-nav__link">
       
   
   
@@ -2150,7 +2222,7 @@
   
   
   
-    <a href="../../%E5%85%B6%E4%BB%96%E7%9F%A5%E8%AF%86%26%E6%9D%82%E8%B0%88/%E3%80%8AClean%20Code%E3%80%8B%E7%B2%BE%E5%8D%8E%E6%80%BB%E7%BB%93/" class="md-nav__link">
+    <a href="../../../%E5%85%B6%E4%BB%96%E7%9F%A5%E8%AF%86%26%E6%9D%82%E8%B0%88/%E3%80%8AClean%20Code%E3%80%8B%E7%B2%BE%E5%8D%8E%E6%80%BB%E7%BB%93/" class="md-nav__link">
       
   
   
@@ -2203,7 +2275,7 @@
   
   
   
-    <a href="../../%E5%BC%80%E5%8F%91%E7%BB%8F%E9%AA%8C/" class="md-nav__link">
+    <a href="../../../%E5%BC%80%E5%8F%91%E7%BB%8F%E9%AA%8C/" class="md-nav__link">
       
   
   
@@ -2256,7 +2328,7 @@
   
   
   
-    <a href="../../%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/" class="md-nav__link">
+    <a href="../../../%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/" class="md-nav__link">
       
   
   
@@ -2313,7 +2385,7 @@
   
   
   
-    <a href="../../%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/ACM%20%E6%A8%A1%E5%BC%8F%20C%2B%2B%E3%80%81Java%E3%80%81Python%20%E6%95%B0%E6%8D%AE%E8%BE%93%E5%85%A5%20%26%20%E8%BE%93%E5%87%BA/" class="md-nav__link">
+    <a href="../../../%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/ACM%20%E6%A8%A1%E5%BC%8F%20C%2B%2B%E3%80%81Java%E3%80%81Python%20%E6%95%B0%E6%8D%AE%E8%BE%93%E5%85%A5%20%26%20%E8%BE%93%E5%87%BA/" class="md-nav__link">
       
   
   
@@ -2368,7 +2440,7 @@
   
   
   
-    <a href="../../%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB/good-web/" class="md-nav__link">
+    <a href="../../../%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB/good-web/" class="md-nav__link">
       
   
   
@@ -2426,7 +2498,79 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        课程内容
+        学习目标
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 完整性与数字签名
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 密码学哈希函数
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 哈希的构造概念
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 消息认证码
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 消息认证码">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cbc-mac" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CBC-MAC 的限制
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 加密与认证的组合
       
     </span>
   </a>
@@ -2437,7 +2581,7 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        课程安排
+        复习重点
       
     </span>
   </a>
@@ -2469,7 +2613,7 @@
   
   
     <li class="md-path__item">
-      <a href="../.." class="md-path__link">
+      <a href="../../.." class="md-path__link">
         
   <span class="md-ellipsis">
     Welcome to Doppler's Notes
@@ -2487,7 +2631,7 @@
     
     
       <li class="md-path__item">
-        <a href="../" class="md-path__link">
+        <a href="../../" class="md-path__link">
           
   <span class="md-ellipsis">
     CityU
@@ -2505,7 +2649,7 @@
     
     
       <li class="md-path__item">
-        <a href="./" class="md-path__link">
+        <a href="../" class="md-path__link">
           
   <span class="md-ellipsis">
     CS5285 Introduction to Cybersecurity
@@ -2530,30 +2674,92 @@
   
 
 
-<h1 id="cs5285-introduction-to-cybersecurity">CS5285 Introduction to Cybersecurity<a class="headerlink" href="#cs5285-introduction-to-cybersecurity" title="Permanent link">&para;</a></h1>
-<h2 id="_1">课程内容<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>课程围绕基础密码学、安全协议和信息安全服务展开，并使用电子商务等场景说明基本安全原则的现实意义。</p>
+<h1 id="lecture-5">Lecture 5：数字签名、哈希与消息认证码<a class="headerlink" href="#lecture-5" title="Permanent link">&para;</a></h1>
+<h2 id="_1">学习目标<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>完成本讲后，应当能够：</p>
 <ul>
-<li><a href="Lecture%201%20Introductory%20Security%20Concepts/">Lecture 1: Introductory Security Concepts</a></li>
-<li><a href="Lecture%202%20Symmetric-Key%20Encryption/">Lecture 2：对称密钥加密</a></li>
-<li><a href="Lecture%203%20Number%20Theory/">Lecture 3：数论基础</a></li>
-<li><a href="Lecture%204%20Public%20Key%20Encryption/">Lecture 4：公开密钥加密</a></li>
-<li><a href="Lecture%205%20Signatures%20Hashes%20and%20MACs/">Lecture 5：数字签名、哈希与消息认证码</a></li>
-<li><a href="Exercise%201/">Exercise 1</a></li>
+<li>区分机密性、完整性、数据来源认证与不可否认性；</li>
+<li>说明数字签名、密码学哈希函数和消息认证码的作用与限制；</li>
+<li>区分原像抗性、第二原像抗性和碰撞抗性；</li>
+<li>解释生日攻击为何使 <span class="arithmatex">\(n\)</span> 位哈希的碰撞安全强度约为 <span class="arithmatex">\(n/2\)</span> 位；</li>
+<li>说明 MAC 变长消息问题、填充预言攻击与认证加密的关系。</li>
 </ul>
-<h2 id="_2">课程安排<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="1">1. 完整性与数字签名<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p>仅加密消息可以隐藏内容，但不自动保证消息未被篡改，也不证明消息来自谁。完整性（integrity）机制可检测未授权修改；数据来源认证（data origin authentication）用于确认消息来源；不可否认性（non-repudiation）旨在支持事后证明发送者执行过某项操作。</p>
+<p>数字签名（digital signature）使用非对称密钥：签名者用私有签名密钥生成签名，验证者用公开验证密钥检查签名与消息是否匹配。它可提供完整性和来源认证；在密钥归属、系统流程和法律环境都满足要求时，也可支持不可否认性。</p>
+<p>RSA 的简化教学形式为：</p>
+<div class="arithmatex">\[
+S=h(M)^d\bmod n
+\]</div>
+<p>验证者检查 <span class="arithmatex">\(S^e\bmod n\)</span> 是否等于 <span class="arithmatex">\(h(M)\)</span>。实际方案须对消息摘要使用标准化签名编码与填充，不能将“私钥加密、公钥解密”当作签名的一般定义。许多签名算法并非 RSA。</p>
+<h2 id="2">2. 密码学哈希函数<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<p>密码学哈希函数（cryptographic hash function）把任意长度输入映射为固定长度摘要。哈希函数本身不含密钥，因此不能单独证明是谁生成了摘要，也不能单独提供认证。</p>
+<p>常见安全性质包括：</p>
 <ul>
-<li>第 1 周：管理事项与基本安全术语</li>
-<li>第 2 至 3 周：对称加密</li>
-<li>第 5 周：数论与非对称加密</li>
-<li>第 6 周：完整性</li>
-<li>第 7 周：认证</li>
-<li>第 9 至 10 周：密钥管理</li>
-<li>第 11 周：计算机安全</li>
-<li>第 12 至 13 周：网络安全</li>
-<li>Revision 周：复习</li>
+<li><strong>原像抗性（preimage resistance）</strong>：给定摘要 <span class="arithmatex">\(y\)</span>，难以找到 <span class="arithmatex">\(x\)</span> 使 <span class="arithmatex">\(h(x)=y\)</span>；</li>
+<li><strong>第二原像抗性（second-preimage resistance）</strong>：给定 <span class="arithmatex">\(x\)</span>，难以找到 <span class="arithmatex">\(x'\ne x\)</span> 使 <span class="arithmatex">\(h(x')=h(x)\)</span>；</li>
+<li><strong>碰撞抗性（collision resistance）</strong>：难以找到任意两个不同输入 <span class="arithmatex">\(x,x'\)</span> 使 <span class="arithmatex">\(h(x)=h(x')\)</span>。</li>
 </ul>
-<p>课程考核包括课程作业、期中测验和期末考试。具体日期、作业要求和通知以 Canvas 为准。</p>
+<p>固定长度输出意味着碰撞必然存在；安全目标是让攻击者难以找到碰撞。对于理想的 <span class="arithmatex">\(n\)</span> 位摘要，穷举碰撞的工作量约为 <span class="arithmatex">\(2^{n/2}\)</span>，这是生日悖论（birthday paradox）的结果。原像搜索的通用工作量则约为 <span class="arithmatex">\(2^n\)</span>。</p>
+<p>MD5 与 SHA-1 已出现实用碰撞攻击，不应再用于需要碰撞抗性的安全用途。SHA-2 与 SHA-3 是课件讨论的后续系列。签名通常对消息摘要而非任意长度原文直接签名，以获得固定长度输入并提升效率。</p>
+<h2 id="3">3. 哈希的构造概念<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<p>课件介绍了迭代式哈希结构：将消息切分为固定大小分组，加入填充和消息长度，再通过压缩函数反复更新内部状态。Merkle–Damgård 是一种经典迭代结构；sponge（海绵结构）通过吸收输入、再挤出输出构造可变长度摘要。</p>
+<p>不能简单地把分组密码或普通哈希结果当成认证标签：公开算法的哈希任何人都能计算，若没有秘密密钥，攻击者篡改消息后也能重新计算摘要。</p>
+<h2 id="4">4. 消息认证码<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<p>消息认证码（Message Authentication Code，MAC）是使用共享秘密密钥的认证机制。发送方计算 <span class="arithmatex">\(T=\operatorname{MAC}_K(M)\)</span>，并发送消息和标签；接收方使用同一密钥重新计算标签并比较。没有密钥的第三方不能轻易伪造有效标签。</p>
+<p>MAC 提供消息完整性和共享密钥持有者之间的来源认证，但双方都能生成标签，因此通常不提供不可否认性。数字签名验证密钥是公开的，适合需要第三方验证的场景，但计算成本通常较高。</p>
+<table>
+<thead>
+<tr>
+<th>机制</th>
+<th>需要密钥</th>
+<th>谁能验证</th>
+<th>主要用途</th>
+<th>是否支持不可否认性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>普通哈希</td>
+<td>否</td>
+<td>任何人</td>
+<td>摘要、变化检测</td>
+<td>否</td>
+</tr>
+<tr>
+<td>MAC</td>
+<td>共享秘密</td>
+<td>持有共享密钥者</td>
+<td>完整性、来源认证</td>
+<td>否</td>
+</tr>
+<tr>
+<td>数字签名</td>
+<td>私钥签名、公钥验证</td>
+<td>任何持有公钥者</td>
+<td>完整性、来源认证</td>
+<td>可支持</td>
+</tr>
+</tbody>
+</table>
+<h3 id="cbc-mac">CBC-MAC 的限制<a class="headerlink" href="#cbc-mac" title="Permanent link">&para;</a></h3>
+<p>课件用零初始向量的 CBC 链展示一种 MAC 构造，最后一个密文分组作为标签。若消息长度可变，未经规范化设计的 CBC-MAC 可能被伪造；不能把对固定长度消息成立的构造直接用于任意长度消息。实际系统应使用经过分析的 MAC 方案，例如 HMAC 或符合标准的 CMAC。</p>
+<p>HMAC（Keyed-Hash Message Authentication Code）通过密钥、内外填充值与哈希函数构造标签：</p>
+<div class="arithmatex">\[
+\operatorname{HMAC}_K(M)=H((K'\oplus opad)\parallel H((K'\oplus ipad)\parallel M))
+\]</div>
+<p>其中 <span class="arithmatex">\(K'\)</span> 是按哈希规范处理后的密钥，<span class="arithmatex">\(ipad\)</span> 与 <span class="arithmatex">\(opad\)</span> 是固定填充值。</p>
+<h2 id="5">5. 加密与认证的组合<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<p>需要同时保护机密性与完整性时，简单地自行组合加密和 MAC 容易产生错误。填充预言攻击（padding oracle attack）利用系统对填充错误的不同响应，逐步推测明文；错误信息或响应时间差异都可能形成预言。</p>
+<p>认证加密（Authenticated Encryption，AE）把加密与完整性认证作为一个经过设计的整体。课件举例为 GCM（Galois/Counter Mode），它同时提供密文和认证标签。应优先使用标准化认证加密接口，并确保 nonce/IV 按算法要求唯一或正确生成。</p>
+<h2 id="_2">复习重点<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ol>
+<li>加密不等于完整性，哈希也不等于认证；</li>
+<li>哈希负责摘要，MAC 使用共享密钥，数字签名使用私钥签名与公钥验证；</li>
+<li><span class="arithmatex">\(n\)</span> 位哈希的通用碰撞搜索约为 <span class="arithmatex">\(2^{n/2}\)</span>；</li>
+<li>共享密钥双方都能生成 MAC，所以 MAC 不提供不可否认性；</li>
+<li>不要自行拼装加密与认证，使用标准化 MAC 或认证加密方案。</li>
+</ol>
 
 
 
@@ -2586,7 +2792,7 @@
     <span class="md-icon" title="创建日期">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年9月6日 16:13:02 UTC">2026年9月6日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年10月10日 05:52:10 UTC">2026年10月10日</span>
   </span>
 
     
@@ -2621,7 +2827,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../CS5222%20Computer%20Networks%20and%20Internets/Tutorials%201-2%20-%20Key%20Problems%20and%20Solutions/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Tutorials 1–2: Key Problems and Solutions">
+          <a href="../Lecture%204%20Public%20Key%20Encryption/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Lecture 4：公开密钥加密">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -2631,20 +2837,20 @@
                 上一页
               </span>
               <div class="md-ellipsis">
-                Tutorials 1–2: Key Problems and Solutions
+                Lecture 4：公开密钥加密
               </div>
             </div>
           </a>
         
         
           
-          <a href="Exercise%201/" class="md-footer__link md-footer__link--next" aria-label="下一页: Exercise 1">
+          <a href="../../CS5351%20Software%20Engineering/" class="md-footer__link md-footer__link--next" aria-label="下一页: CS5351 Software Engineering">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                Exercise 1
+                CS5351 Software Engineering
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -2747,14 +2953,14 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "toc.follow", "navigation.path", "navigation.top", "navigation.tabs", "navigation.prune", "navigation.footer", "navigation.sections", "content.code.copy", "search.share", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tracking", "toc.follow", "navigation.path", "navigation.top", "navigation.tabs", "navigation.prune", "navigation.footer", "navigation.sections", "content.code.copy", "search.share", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="../../javascripts/extra.js"></script>
+        <script src="../../../javascripts/extra.js"></script>
       
-        <script src="../../javascripts/mathjax.js"></script>
+        <script src="../../../javascripts/mathjax.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
