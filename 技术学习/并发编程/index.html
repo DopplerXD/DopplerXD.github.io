@@ -3404,7 +3404,7 @@
 <li><strong>作用</strong>：当前线程主动让出CPU执行权，提示调度器“可以优先调度其他同优先级线程”，但最终是否切换由线程调度器决定（可能立即重新获得CPU）。</li>
 <li><strong>特点</strong>：<ul>
 <li><strong>不会释放锁</strong>（若持有<code>synchronized</code>锁，让出CPU时仍保持锁）；</li>
-<li>线程状态从<strong>运行中（Running）</strong>转为<strong>就绪（</strong><strong>Runnable</strong><strong>）</strong>，不进入阻塞状态；</li>
+<li>线程状态从<strong>运行中（Running）<strong>转为</strong>就绪（<strong><strong>Runnable</strong></strong>）</strong>，不进入阻塞状态；</li>
 <li>仅对同优先级或更高优先级线程有效。</li>
 </ul>
 </li>

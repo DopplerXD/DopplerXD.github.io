@@ -2730,7 +2730,7 @@
 <h2 id="spring-bean">Spring 如何实现 Bean 的单例模式<a class="headerlink" href="#spring-bean" title="Permanent link">&para;</a></h2>
 <p>Spring 的单例是容器级别的，同一个 Bean 在整个 Spring 容器中只会有一个实例。Spring 在启动的时候会把所有的 Bean 定义信息加载进来，然后在 DefaultSingletonBeanRegistry 这个类里面维护了一个叫 singletonObjects 的 <strong>ConcurrentHashMap</strong>，这个 Map 就是用来存储单例 Bean 的。key 是 Bean 的名称，value 就是 Bean 的实例对象。</p>
 <p>第一次获取某个 Bean 的时候，Spring 会先检查 singletonObjects 这个 Map 里面有没有这个 Bean，如果没有就会创建一个新的实例，然后放到 Map 里面。后面再获取同一个 Bean 的时候，直接从 Map 里面取就行了，这样就保证了单例。</p>
-<p><strong>如何解决循环依赖：使用三级缓存。</strong>除了 singletonObjects 这个一级缓存，还有 earlySingletonObjects 二级缓存和 singletonFactories 三级缓存。这样即使有循环依赖，Spring 也能正确处理。</p>
+<p>**如何解决循环依赖：使用三级缓存。**除了 singletonObjects 这个一级缓存，还有 earlySingletonObjects 二级缓存和 singletonFactories 三级缓存。这样即使有循环依赖，Spring 也能正确处理。</p>
 <h2 id="spring-bean_1">Spring 框架中的单例 Bean 是线程安全的吗？<a class="headerlink" href="#spring-bean_1" title="Permanent link">&para;</a></h2>
 <p>结论：不是线程安全的。</p>
 <p>Spring 中的 bean 默认是单例模式，框架中并没有对单例 bean 进行多线程的封装处理。</p>

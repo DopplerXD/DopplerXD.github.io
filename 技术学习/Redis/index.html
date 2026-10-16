@@ -2727,14 +2727,14 @@
 <li><strong>乐观锁</strong></li>
 </ul>
 <p>假设数据在处理期间不会被其他事务频繁修改。它通常在提交事务时检查数据一致性，而非在操作开始时加锁。</p>
-<p>优点<strong>：</strong> 提升并发性能，减少锁竞争，适合读多写少的场景。</p>
-<p>缺点<strong>：</strong> 在写操作频繁的情况下，可能导致多次重试，影响性能。</p>
+<p>优点**：** 提升并发性能，减少锁竞争，适合读多写少的场景。</p>
+<p>缺点**：** 在写操作频繁的情况下，可能导致多次重试，影响性能。</p>
 <ul>
 <li><strong>悲观锁</strong></li>
 </ul>
 <p>假设数据在处理期间会被其他事务频繁修改。它在操作开始时获取锁，防止其他事务修改数据，直到锁释放。</p>
-<p>优点<strong>：</strong> 保证数据一致性，防止冲突，适合写操作频繁的场景。</p>
-<p>缺点<strong>：</strong> 可能导致锁竞争和资源等待，降低并发性能。</p>
+<p>优点**：** 保证数据一致性，防止冲突，适合写操作频繁的场景。</p>
+<p>缺点**：** 可能导致锁竞争和资源等待，降低并发性能。</p>
 <p>Redis 中可以使用 <code>watch</code> 来监视一个目标，如果执行事务之前被监视目标发生了修改，则取消本次事务。</p>
 <h2 id="redis_4">Redis 缓存<a class="headerlink" href="#redis_4" title="Permanent link">&para;</a></h2>
 <h3 id="_7">关于缓存<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
@@ -2875,7 +2875,7 @@
 </ul>
 <h2 id="redis-string">为什么 Redis 的 string 类型效率要比传统字符串的效率高<a class="headerlink" href="#redis-string" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>数据结构简单</strong>：Redis 的字符串内部实现采用了<strong>简单动态字符串（SDS）</strong>结构，它克服了传统 C 字符串在长度计算、内存分配等方面的一些缺陷。SDS 可以<strong>快速获取字符串长度</strong>，时间复杂度为 $ O(1) $，而传统 C 字符串获取长度需要遍历整个字符串，时间复杂度为 $ (n) $。</li>
+<li><strong>数据结构简单</strong>：Redis 的字符串内部实现采用了<strong>简单动态字符串（SDS）<strong>结构，它克服了传统 C 字符串在长度计算、内存分配等方面的一些缺陷。SDS 可以</strong>快速获取字符串长度</strong>，时间复杂度为 $ O(1) $，而传统 C 字符串获取长度需要遍历整个字符串，时间复杂度为 $ (n) $。</li>
 <li><strong>内存分配优化</strong>：Redis 在<strong>分配内存</strong>时采用了<strong>预分配和惰性释放</strong>策略。当字符串增长时，会预先分配一定的额外空间，减少内存重新分配的次数；当字符串缩短时，不会立即释放内存，而是将释放的内存用于后续可能的增长操作，避免了频繁的内存分配和释放带来的开销。</li>
 <li><strong>操作原子性</strong>：Redis 的字符串操作是原子性的，这意味着在执行字符串操作时不会被其他操作打断，保证了数据的一致性和操作的高效性。例如，对字符串进行自增操作 <code>INCR</code>，在 Redis 中是一个原子操作，不会出现并发安全问题。</li>
 </ul>
@@ -2910,14 +2910,14 @@
 <li><strong>乐观锁</strong></li>
 </ul>
 <p>假设数据在处理期间不会被其他事务频繁修改。它通常在提交事务时检查数据一致性，而非在操作开始时加锁。</p>
-<p>优点<strong>：</strong> 提升并发性能，减少锁竞争，适合读多写少的场景。</p>
-<p>缺点<strong>：</strong> 在写操作频繁的情况下，可能导致多次重试，影响性能。</p>
+<p>优点**：** 提升并发性能，减少锁竞争，适合读多写少的场景。</p>
+<p>缺点**：** 在写操作频繁的情况下，可能导致多次重试，影响性能。</p>
 <ul>
 <li><strong>悲观锁</strong></li>
 </ul>
 <p>假设数据在处理期间会被其他事务频繁修改。它在操作开始时获取锁，防止其他事务修改数据，直到锁释放。</p>
-<p>优点<strong>：</strong> 保证数据一致性，防止冲突，适合写操作频繁的场景。</p>
-<p>缺点<strong>：</strong> 可能导致锁竞争和资源等待，降低并发性能。</p>
+<p>优点**：** 保证数据一致性，防止冲突，适合写操作频繁的场景。</p>
+<p>缺点**：** 可能导致锁竞争和资源等待，降低并发性能。</p>
 <p>Redis 中可以使用 <code>watch</code> 来监视一个目标，如果执行事务之前被监视目标发生了修改，则取消本次事务。</p>
 <h2 id="_15">缓存更新策略<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
 <p><img alt="" src="https://cdn.nlark.com/yuque/0/2025/png/35335189/1743320919628-f44e5f3f-1e74-497b-80b1-563b6b91771c.png?x-oss-process=image%2Fformat%2Cwebp%2Fresize%2Cw_1516%2Climit_0" /></p>

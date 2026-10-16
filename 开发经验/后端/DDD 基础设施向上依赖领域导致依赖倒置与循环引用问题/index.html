@@ -2247,7 +2247,7 @@
 </code></pre></div></td></tr></table></div>
 <p>如果这样写的话，我的 <code>RedissonCacheManager</code> 在 <code>infrastructure/redis</code> 下，但是因为依赖倒置，我的 <code>infrastructure</code> 引入了 <code>domain</code> 模块，因此 <code>domain</code> 不能通过引入 <code>infrastructure</code> 模块来使用 <code>RedissonCacheManager</code> ，否则会引起循环依赖问题。如何解决？</p>
 <h2 id="chatgpt">ChatGPT 回答<a class="headerlink" href="#chatgpt" title="Permanent link">&para;</a></h2>
-<p>你遇到的这个问题是 DDD 中非常经典的<strong>“基础设施向上依赖领域，但领域不应该依赖基础设施”</strong>所导致的依赖倒置与循环引用问题。</p>
+<p>你遇到的这个问题是 DDD 中非常经典的**“基础设施向上依赖领域，但领域不应该依赖基础设施”**所导致的依赖倒置与循环引用问题。</p>
 <p>你当前的设计思路是对的：</p>
 <ul>
 <li>

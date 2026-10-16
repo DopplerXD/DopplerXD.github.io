@@ -1437,7 +1437,7 @@
   <a href="#1-int-hash" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. int hash
+        **1. **int hash
       
     </span>
   </a>
@@ -1448,7 +1448,7 @@
   <a href="#2-k-key" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. K key
+        **2. **K key
       
     </span>
   </a>
@@ -1459,7 +1459,7 @@
   <a href="#3-v-value" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. V value
+        **3. **V value
       
     </span>
   </a>
@@ -1470,7 +1470,7 @@
   <a href="#4-boolean-onlyifabsent" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. boolean onlyIfAbsent
+        **4. **boolean onlyIfAbsent
       
     </span>
   </a>
@@ -1481,7 +1481,7 @@
   <a href="#5-boolean-evict" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. boolean evict
+        **5. **boolean evict
       
     </span>
   </a>
@@ -2963,7 +2963,7 @@
   <a href="#1-int-hash" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. int hash
+        **1. **int hash
       
     </span>
   </a>
@@ -2974,7 +2974,7 @@
   <a href="#2-k-key" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. K key
+        **2. **K key
       
     </span>
   </a>
@@ -2985,7 +2985,7 @@
   <a href="#3-v-value" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. V value
+        **3. **V value
       
     </span>
   </a>
@@ -2996,7 +2996,7 @@
   <a href="#4-boolean-onlyifabsent" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. boolean onlyIfAbsent
+        **4. **boolean onlyIfAbsent
       
     </span>
   </a>
@@ -3007,7 +3007,7 @@
   <a href="#5-boolean-evict" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. boolean evict
+        **5. **boolean evict
       
     </span>
   </a>
@@ -4148,16 +4148,16 @@
 <h2 id="hashmap-putval">HashMap 的 putVal 方法中参数作用<a class="headerlink" href="#hashmap-putval" title="Permanent link">&para;</a></h2>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kd">final</span><span class="w"> </span><span class="n">V</span><span class="w"> </span><span class="nf">putVal</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">hash</span><span class="p">,</span><span class="w"> </span><span class="n">K</span><span class="w"> </span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">V</span><span class="w"> </span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">onlyIfAbsent</span><span class="p">,</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">evict</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="1-int-hash"><strong>1. </strong><code>int hash</code><a class="headerlink" href="#1-int-hash" title="Permanent link">&para;</a></h3>
+<h3 id="1-int-hash">**1. **<code>int hash</code><a class="headerlink" href="#1-int-hash" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>作用</strong>：键的哈希值，通过 <code>hash(key)</code> 方法计算得到。  </li>
 </ul>
 <p>将 <code>key.hashCode()</code> 的高16位与低16位异或，减少哈希冲突。  </p>
 <ul>
-<li><strong>为什么不直接用 </strong><code>key.hashCode()</code>？<br />
+<li>**为什么不直接用 **<code>key.hashCode()</code>？<br />
 降低哈希冲突概率，尤其当哈希表容量较小时（如16），能有效分散元素。</li>
 </ul>
-<h3 id="2-k-key"><strong>2. </strong><code>K key</code><a class="headerlink" href="#2-k-key" title="Permanent link">&para;</a></h3>
+<h3 id="2-k-key">**2. **<code>K key</code><a class="headerlink" href="#2-k-key" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>作用</strong>：要插入的键。  </li>
 <li><strong>注意点</strong>：  <ul>
@@ -4166,7 +4166,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="3-v-value"><strong>3. </strong><code>V value</code><a class="headerlink" href="#3-v-value" title="Permanent link">&para;</a></h3>
+<h3 id="3-v-value">**3. **<code>V value</code><a class="headerlink" href="#3-v-value" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>作用</strong>：要插入的值。  </li>
 <li><strong>注意点</strong>：  <ul>
@@ -4175,7 +4175,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="4-boolean-onlyifabsent"><strong>4. </strong><code>boolean onlyIfAbsent</code><a class="headerlink" href="#4-boolean-onlyifabsent" title="Permanent link">&para;</a></h3>
+<h3 id="4-boolean-onlyifabsent">**4. **<code>boolean onlyIfAbsent</code><a class="headerlink" href="#4-boolean-onlyifabsent" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>作用</strong>：控制是否覆盖已存在的值。  </li>
 <li><strong>逻辑</strong>：  <ul>
@@ -4186,7 +4186,7 @@
 <li><strong>典型应用</strong>：<br />
 <code>putIfAbsent()</code> 方法调用时传入 <code>true</code>，避免重复更新值。</li>
 </ul>
-<h3 id="5-boolean-evict"><strong>5. </strong><code>boolean evict</code><a class="headerlink" href="#5-boolean-evict" title="Permanent link">&para;</a></h3>
+<h3 id="5-boolean-evict">**5. **<code>boolean evict</code><a class="headerlink" href="#5-boolean-evict" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>作用</strong>：控制插入后是否执行 <code>afterNodeInsertion()</code> 回调。  </li>
 <li><strong>逻辑</strong>：  <ul>
@@ -4392,7 +4392,7 @@
 </li>
 <li><strong>解决方法</strong><ul>
 <li><strong>使用 <code>Hashtable</code></strong>：它是线程安全的，但由于所有方法都加了 <code>synchronized</code> 锁，性能较低。</li>
-<li><strong>使用* <code>**Collections.synchronizedMap()</code></strong>：将 <code>HashMap</code> 包装成线程安全的 <code>Map</code>，但本质也是对所有操作加了同步锁，性能不高。</li>
+<li>*<em>使用</em> <code>**Collections.synchronizedMap()</code>**：将 <code>HashMap</code> 包装成线程安全的 <code>Map</code>，但本质也是对所有操作加了同步锁，性能不高。</li>
 <li><strong>使用 <code>ConcurrentHashMap</code></strong>：在 JDK 7 中采用分段锁机制，JDK 8 中采用 CAS + <code>synchronized</code> 机制，性能较好。</li>
 </ul>
 </li>
@@ -4402,7 +4402,7 @@
 <p><img alt="" src="https://cdn.nlark.com/yuque/0/2025/png/35335189/1748758208681-860b9cc9-509e-4e31-87b1-e95ad429e573.png" /></p>
 <h2 id="treemap">对 TreeMap 的了解<a class="headerlink" href="#treemap" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>底层结构</strong>：<code>TreeMap</code><strong> 基于红黑树</strong>（一种自平衡的二叉搜索树）实现，每个键值对作为一个节点存储在红黑树中。</li>
+<li><strong>底层结构</strong>：<code>TreeMap</code>** 基于红黑树**（一种自平衡的二叉搜索树）实现，每个键值对作为一个节点存储在红黑树中。</li>
 <li><strong>排序特性</strong>：<code>TreeMap</code> 会根据键的自然顺序或者指定的比较器进行排序。如果键实现了 <code>Comparable</code> 接口，就按自然顺序排序；也可以在创建 <code>TreeMap</code> 时传入一个 <code>Comparator</code> 来指定排序规则。</li>
 <li><strong>性能特点</strong>：插入、删除和查找操作的时间复杂度为 <span class="arithmatex">\(O(log n)\)</span>，因为红黑树能保证树的高度始终保持在 <span class="arithmatex">\(O(log n)\)</span> 级别，通过旋转和染色保持平衡。查找的时候从根节点开始，利用二叉查找树的特点，向左或右子树递归查找，直到找到目标元素。</li>
 <li><strong>使用场景</strong>：适用于需要对键进行排序的场景，如按时间顺序存储数据、按字母顺序存储字符串等。</li>

@@ -18,7 +18,7 @@
         <link rel="prev" href="../Lecture%205%20Large%20Language%20Models%20for%20Data%20Engineering/">
       
       
-        <link rel="next" href="../Tutorial%202%20Introduction%20to%20Web%20Scraping/">
+        <link rel="next" href="../Lecture%207%20Data%20Indexing/">
       
       
         
@@ -1137,6 +1137,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CS5285%20Introduction%20to%20Cybersecurity/Lecture%206%20Authentication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lecture 6：实体认证
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1765,6 +1793,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lecture%207%20Data%20Indexing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lecture 7：数据索引
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -2829,15 +2885,15 @@
 </ul>
 <p>领域数据选择还可比较领域语料与通用语料对样本的概率或交叉熵，以估计某样本是否更接近目标领域。任何自动评分都可能偏向某些风格，应使用独立样本和下游任务评估筛选效果。</p>
 <h3 id="23">2.3 去重、增强与数据混合<a class="headerlink" href="#23" title="Permanent link">&para;</a></h3>
-<p><strong>数据去重（data deduplication）</strong>可减少重复训练、降低资源浪费并缓解重复内容带来的记忆风险：</p>
+<p>**数据去重（data deduplication）**可减少重复训练、降低资源浪费并缓解重复内容带来的记忆风险：</p>
 <ul>
 <li>精确匹配可使用规范化文本后的哈希或 URL 去重；</li>
 <li>近似匹配可使用 MinHash 等方法估计文本重叠；</li>
 <li>语义去重可利用向量嵌入和聚类发现内容相近的文档。</li>
 </ul>
 <p>布隆过滤器（Bloom filter）以较小内存快速判断元素“可能存在”或“一定不存在”，但存在误报的可能，不能据此无条件删除文档。近似去重阈值也会影响误删与漏删，需要抽样复核。</p>
-<p><strong>数据增强（data augmentation）</strong>通过变换或补充样本扩展训练数据。图像可做裁剪、旋转或颜色变换，文本可做改写或同义表达替换，医学等领域还可使用符合专业约束的变换。增强样本必须保持标签和语义有效，不能因扩大数量而引入不真实或偏置数据。</p>
-<p><strong>数据混合（data mixing）</strong>决定训练语料中不同领域或来源的采样比例。小规模来源若过度采样会放大噪声，代码等领域的比例也可能影响语言能力与推理能力。比例可通过小规模实验或代理模型评估，再根据目标任务与整体能力调整；单一固定比例未必适用于所有模型和目标。</p>
+<p>**数据增强（data augmentation）**通过变换或补充样本扩展训练数据。图像可做裁剪、旋转或颜色变换，文本可做改写或同义表达替换，医学等领域还可使用符合专业约束的变换。增强样本必须保持标签和语义有效，不能因扩大数量而引入不真实或偏置数据。</p>
+<p>**数据混合（data mixing）**决定训练语料中不同领域或来源的采样比例。小规模来源若过度采样会放大噪声，代码等领域的比例也可能影响语言能力与推理能力。比例可通过小规模实验或代理模型评估，再根据目标任务与整体能力调整；单一固定比例未必适用于所有模型和目标。</p>
 <h2 id="3">3. 关键实践原则<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
 <ul>
 <li>把 LLM 放在可审计的数据流程中：输入、提示、工具调用和结果都应有边界。</li>
@@ -2932,13 +2988,13 @@
         
         
           
-          <a href="../Tutorial%202%20Introduction%20to%20Web%20Scraping/" class="md-footer__link md-footer__link--next" aria-label="下一页: Tutorial 2：网页抓取入门">
+          <a href="../Lecture%207%20Data%20Indexing/" class="md-footer__link md-footer__link--next" aria-label="下一页: Lecture 7：数据索引">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                Tutorial 2：网页抓取入门
+                Lecture 7：数据索引
               </div>
             </div>
             <div class="md-footer__button md-icon">
