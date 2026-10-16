@@ -9,6 +9,7 @@
 - [Lecture 3：数论基础](Lecture%203%20Number%20Theory.md)
 - [Lecture 4：公开密钥加密](Lecture%204%20Public%20Key%20Encryption.md)
 - [Lecture 5：数字签名、哈希与消息认证码](Lecture%205%20Signatures%20Hashes%20and%20MACs.md)
+- [Lecture 6：实体认证](Lecture%206%20Authentication.md)
 - [Exercise 1](Exercise%201.md)
 
 ## 课程安排
