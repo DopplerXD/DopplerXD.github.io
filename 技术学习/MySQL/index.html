@@ -5102,7 +5102,7 @@
 <p><strong>主要区别：<code>varchar</code> 长度可变，<code>char</code> 长度固定。</strong></p>
 <h3 id="varchar">varchar<a class="headerlink" href="#varchar" title="Permanent link">&para;</a></h3>
 <ul>
-<li>可变长度的字符串。**存储的字符串长度与实际数据长度相等。**即 varchar(100) 和 varchar(10)存储相同字符串时占用空间一致。</li>
+<li>可变长度的字符串。<strong>存储的字符串长度与实际数据长度相等。</strong>即 varchar(100) 和 varchar(10)存储相同字符串时占用空间一致。</li>
 <li>但是在排序时，会按照固定大小的内存块进行保存，varchar(100) 字段占用的空间就会更多。</li>
 <li>存储数据时会额外<strong>增加 1 到 2 字节</strong>（长度超过 255 使用 2 个），用于<strong>存储字符串的长度信息</strong>。</li>
 <li>适合存储变化或长度较长的字符串。</li>
@@ -5193,7 +5193,7 @@
 <p>**执行效率：count(*) = count(1) &gt; count(字段)**。因为 count(字段) 的查询使用全表扫描（有索引时用索引），一般还会判断字段是否为 NULL，造成额外开销。</p>
 <p>count(1) 会被 MySQL 优化成 count(*)。</p>
 <h2 id="int11-11">int(11) 中的 11 表示什么？<a class="headerlink" href="#int11-11" title="Permanent link">&para;</a></h2>
-<p><strong>表示的是显示宽度，不影响存储的大小或数据范围。<strong>该设置主要是为了在查询结果中</strong>保持一致的显示格式</strong>。</p>
+<p><strong>表示的是显示宽度，不影响存储的大小或数据范围。</strong>该设置主要是为了在查询结果中<strong>保持一致的显示格式</strong>。</p>
 <p>使用<code>ZEROFILL</code>属性时，<code>int(11)</code>在数值位数小于 11 位时，显示如<code>00000000042</code>，在前面填充 0，不适用该属性时，显示<code>42</code>。</p>
 <h3 id="mysql-80">MySQL 8.0 显示宽度的变化<a class="headerlink" href="#mysql-80" title="Permanent link">&para;</a></h3>
 <p>MySQL 8.0 版本中，整数类型的显示宽度被正式弃用，<strong>显示宽度的设置被忽略。</strong></p>
@@ -5416,7 +5416,7 @@
 <h2 id="mysql_2">MySQL 存储引擎<a class="headerlink" href="#mysql_2" title="Permanent link">&para;</a></h2>
 <p>MySQL 中的存储引擎是 MySQL 数据库处理数据存储和检索的核心组件，它决定了数据的存储方式、索引结构以及数据的访问方式等。不同的存储引擎具有不同的特点和适用场景。</p>
 <ul>
-<li><strong>InnoDB</strong>：**支持事务、外键、行级锁、崩溃恢复（依赖 redo log）、MVCC **等特性，是 MySQL 5.5 及以后版本的默认存储引擎，适用于对事务处理要求较高的场景。数据以聚集索引的方式存储，提高检索效率。表数据文件本身就是按 B+ 树组织的一个索引结构，<strong>叶节点保存完整的数据记录</strong>。</li>
+<li><strong>InnoDB</strong>：<strong>支持事务、外键、行级锁、崩溃恢复（依赖 redo log）、MVCC <strong>等特性，是 MySQL 5.5 及以后版本的默认存储引擎，适用于对事务处理要求较高的场景。数据以聚集索引的方式存储，提高检索效率。表数据文件本身就是按 B+ 树组织的一个索引结构，</strong>叶节点保存完整的数据记录</strong>。</li>
 <li><strong>MyISAM</strong>：<strong>不支持事务和外键，只支持表级锁</strong>。具有较高的读性能和较快的表级锁定，适合读多写少、对事务要求不高的场景，如数据仓库。<strong>索引文件和数据文件分离</strong>。</li>
 <li><strong>Memory</strong>：<strong>数据存储在内存中，读写速度非常快</strong>，但数据在 MySQL 服务<strong>重启后会丢失</strong>，适用于临时数据存储和缓存。</li>
 <li><strong>NDB（NDBCluster）</strong>：支持高可用性和数据分布，适合大规模分布式应用。提供行级锁和自动分区。</li>
@@ -5449,7 +5449,7 @@
 <p><img alt="" src="../assets/MySQL/greatsql%20%E7%A4%BE%E5%8C%BA%EF%BC%9ARedo%20Log%E7%9A%84%E5%88%B7%E7%9B%98%E7%AD%96%E7%95%A5.png" /></p>
 <h3 id="undo-log">undo log<a class="headerlink" href="#undo-log" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>作用</strong>：主要用于事务的<strong>回滚（原子性）<strong>以及实现</strong>MVCC</strong>（多版本并发控制）。在事务执行过程中，如果需要回滚事务，undo log 可以提供撤销操作所需的信息。同时，在 MVCC 中，undo log 用于构建数据的历史版本，以实现并发事务的隔离性。</li>
+<li><strong>作用</strong>：主要用于事务的<strong>回滚（原子性）</strong>以及实现<strong>MVCC</strong>（多版本并发控制）。在事务执行过程中，如果需要回滚事务，undo log 可以提供撤销操作所需的信息。同时，在 MVCC 中，undo log 用于构建数据的历史版本，以实现并发事务的隔离性。</li>
 <li><strong>工作原理</strong>：在事务对数据进行修改之前，会<strong>先将修改前的数据记录到 undo log</strong> 中。当事务需要回滚时，就可以根据 undo log 中的记录，将数据恢复到修改前的状态。在 MVCC 中，通过读取 undo log 中的历史版本数据，不同的事务可以看到数据在不同时间点的状态，从而实现了并发事务之间的隔离。</li>
 <li><strong>实现方式</strong>：undo log 也是以日志的形式记录，存储在数据库的系统表空间或独立的 undo 表空间中。</li>
 </ul>

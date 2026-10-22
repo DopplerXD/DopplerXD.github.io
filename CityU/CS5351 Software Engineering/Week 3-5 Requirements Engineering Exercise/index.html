@@ -3078,8 +3078,8 @@
 </ol>
 <details class="question">
 <summary>Solution</summary>
-<p>**误用例：**攻击者通过临床记录中的提示词注入覆盖系统指令，使模型建议超限批准。</p>
-<p>**安全需求：**调用模型前中和提示词注入；模型输出必须符合严格 JSON 模式；最终决策必须再次执行确定性计划上限。</p>
+<p><strong>误用例：</strong>攻击者通过临床记录中的提示词注入覆盖系统指令，使模型建议超限批准。</p>
+<p><strong>安全需求：</strong>调用模型前中和提示词注入；模型输出必须符合严格 JSON 模式；最终决策必须再次执行确定性计划上限。</p>
 <p><strong>三层防护：</strong></p>
 <ol>
 <li><code>sanitize_notes()</code> 处理已知、多语言和变体注入模式；</li>
@@ -3213,10 +3213,10 @@
 <details class="question">
 <summary>Solution</summary>
 <ul>
-<li>**Must have：A、C、F。**它们分别保护业务上限、合规审计和故障安全。缺少任一项都会造成不可接受的安全或监管风险。</li>
-<li>**Should have：D。**解释质量对信任和审查很重要；若模型只承担有限建议角色，可以在保持确定性安全边界的前提下阶段性交付。</li>
-<li>**Could have：E。**趋势图有业务价值，但不影响核心理赔正确性。</li>
-<li>**Won’t have this time：B。**主题定制对当前安全、合规和核心业务目标贡献最低。</li>
+<li><strong>Must have：A、C、F。</strong>它们分别保护业务上限、合规审计和故障安全。缺少任一项都会造成不可接受的安全或监管风险。</li>
+<li><strong>Should have：D。</strong>解释质量对信任和审查很重要；若模型只承担有限建议角色，可以在保持确定性安全边界的前提下阶段性交付。</li>
+<li><strong>Could have：E。</strong>趋势图有业务价值，但不影响核心理赔正确性。</li>
+<li><strong>Won’t have this time：B。</strong>主题定制对当前安全、合规和核心业务目标贡献最低。</li>
 </ul>
 <p>实际分类还应结合监管义务、发布日期、资源与替代流程。协商结果必须记录理由，而不只是标签。</p>
 </details>
