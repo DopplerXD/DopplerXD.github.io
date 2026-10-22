@@ -12,3 +12,4 @@
 - [Lecture 6: Large Language Models for Data Engineering and Data Engineering for Large Language Models](Lecture%206%20Large%20Language%20Models%20for%20Data%20Engineering%20and%20Data%20Engineering%20for%20Large%20Language%20Models.md)
 - [Tutorial 6: Text-to-SQL and Query Processing](Tutorial%206%20Text-to-SQL%20and%20Query%20Processing.md)
 - [Lecture 7: Data Indexing](Lecture%207%20Data%20Indexing.md)
+- [Lecture 8: Data Querying](Lecture%208%20Data%20Querying.md)
