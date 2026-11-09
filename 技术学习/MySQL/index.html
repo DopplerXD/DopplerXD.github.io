@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
     
     
       
@@ -33,10 +33,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -5186,11 +5186,11 @@
 <p>这样可以确保 <code>TIMESTAMP</code> 列的行为是明确的，并且在不同版本的 MySQL 或其他数据库之间迁移时减少潜在的问题。</p>
 <h2 id="countcount1count">count(*)、count(1)、count(字段) 的区别<a class="headerlink" href="#countcount1count" title="Permanent link">&para;</a></h2>
 <ul>
-<li>**count(*)**：统计结果集中的行数，包括 <code>NULL</code> 值。</li>
+<li>**count(<em>)</em>*：统计结果集中的行数，包括 <code>NULL</code> 值。</li>
 <li><strong>count(1)</strong>：与 <code>count(*)</code> 功能类似，也是统计结果集中的行数，性能上基本没有差异。</li>
 <li><strong>count (字段)</strong>：统计指定字段非 <code>NULL</code> 值的行数。如果该字段存在 <code>NULL</code> 值，<code>count(字段)</code> 的结果会小于 <code>count(*)</code>。</li>
 </ul>
-<p>**执行效率：count(*) = count(1) &gt; count(字段)**。因为 count(字段) 的查询使用全表扫描（有索引时用索引），一般还会判断字段是否为 NULL，造成额外开销。</p>
+<p>**执行效率：count(<em>) = count(1) &gt; count(字段)</em>*。因为 count(字段) 的查询使用全表扫描（有索引时用索引），一般还会判断字段是否为 NULL，造成额外开销。</p>
 <p>count(1) 会被 MySQL 优化成 count(*)。</p>
 <h2 id="int11-11">int(11) 中的 11 表示什么？<a class="headerlink" href="#int11-11" title="Permanent link">&para;</a></h2>
 <p><strong>表示的是显示宽度，不影响存储的大小或数据范围。</strong>该设置主要是为了在查询结果中<strong>保持一致的显示格式</strong>。</p>
@@ -6588,10 +6588,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "toc.follow", "navigation.path", "navigation.top", "navigation.tabs", "navigation.prune", "navigation.footer", "navigation.sections", "content.code.copy", "search.share", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "toc.follow", "navigation.path", "navigation.top", "navigation.tabs", "navigation.prune", "navigation.footer", "navigation.sections", "content.code.copy", "search.share", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
       
         <script src="../../javascripts/extra.js"></script>
       
