@@ -44,6 +44,9 @@
 - [Tutorial 6: Text-to-SQL and Query Processing](CS5481%20Data%20Engineering/Tutorial%206%20Text-to-SQL%20and%20Query%20Processing.md)
 - [Lecture 7: Data Indexing](CS5481%20Data%20Engineering/Lecture%207%20Data%20Indexing.md)
 - [Lecture 8: Data Querying](CS5481%20Data%20Engineering/Lecture%208%20Data%20Querying.md)
+- [Lecture 9: Information Retrieval and Recommendations](CS5481%20Data%20Engineering/Lecture%209%20Information%20Retrieval%20and%20Recommendations.md)
+- [Lecture 10: Social Network Analysis and Anomaly Detection](CS5481%20Data%20Engineering/Lecture%2010%20Social%20Network%20Analysis%20and%20Anomaly%20Detection.md)
+- [Lecture 11: Data Management](CS5481%20Data%20Engineering/Lecture%2011%20Data%20Management.md)
 
 ### CS6382 Algorithm Analysis and Game Theory
 

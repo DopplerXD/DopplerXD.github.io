@@ -13,3 +13,6 @@
 - [Tutorial 6: Text-to-SQL and Query Processing](Tutorial%206%20Text-to-SQL%20and%20Query%20Processing.md)
 - [Lecture 7: Data Indexing](Lecture%207%20Data%20Indexing.md)
 - [Lecture 8: Data Querying](Lecture%208%20Data%20Querying.md)
+- [Lecture 9: Information Retrieval and Recommendations](Lecture%209%20Information%20Retrieval%20and%20Recommendations.md)
+- [Lecture 10: Social Network Analysis and Anomaly Detection](Lecture%2010%20Social%20Network%20Analysis%20and%20Anomaly%20Detection.md)
+- [Lecture 11: Data Management](Lecture%2011%20Data%20Management.md)
