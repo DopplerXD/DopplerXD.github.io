@@ -6,6 +6,9 @@
 - [Chapter 1 Part 2: Performance, Layering, Security and History](Chapter%201%20Part%202%20-%20Performance,%20Layering,%20Security%20and%20History.md)
 - [Chapter 2 Part 1: Application Layer Principles and HTTP](Chapter%202%20Part%201%20-%20Application%20Layer%20Principles%20and%20HTTP.md)
 - [Chapter 2 Part 2: HTTP, Email and DNS](Chapter%202%20Part%202%20-%20HTTP,%20Email%20and%20DNS.md)
+- [Chapter 3: Transport Layer](Chapter%203%20Transport%20Layer.md)
+- [Chapter 4: Network Layer Data Plane](Chapter%204%20Network%20Layer%20Data%20Plane.md)
+- [Chapter 5: Network Layer Control Plane](Chapter%205%20Network%20Layer%20Control%20Plane.md)
 - [Tutorials 1–2: Key Problems and Solutions](Tutorials%201-2%20-%20Key%20Problems%20and%20Solutions.md)
 
 ## 高效学习顺序
